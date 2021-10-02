@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tick6.mp3-039a520a27aa8e775bc6282b5efe665a.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/dialogue ticks/tick6.mp3"
+dest_files=[ "res://.import/tick6.mp3-039a520a27aa8e775bc6282b5efe665a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

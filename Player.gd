@@ -42,7 +42,7 @@ func check_for_interactions():
   
   if Input.is_action_just_pressed("action"):
     closest.interact()
-  
+
   if Input.is_action_just_pressed("angry"):    
     G.in_battle = true
     G.battling_against = [closest.enemy_type, closest.enemy_type]

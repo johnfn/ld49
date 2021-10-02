@@ -12,6 +12,7 @@
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
+smoothing_enabled = true
 script = ExtResource( 3 )
 
 [node name="Steve" parent="." instance=ExtResource( 4 )]
