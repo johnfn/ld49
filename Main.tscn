@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Hallway.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://FirstClassroom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://CinematicTrigger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Cinematics.tscn" type="PackedScene" id=8]
+[ext_resource path="res://MissTrunchbull.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node2D"]
 
@@ -26,6 +27,8 @@ script = ExtResource( 3 )
 position = Vector2( 134.946, 336.519 )
 dialog = "steve_dialog"
 
+[node name="MissTrunchbull" parent="." instance=ExtResource( 9 )]
+
 [node name="Gteve" parent="." instance=ExtResource( 4 )]
 position = Vector2( 40, 360 )
 dialog = "steve_dialog"
@@ -40,6 +43,6 @@ dialog = "wastebin_dialog"
 interaction_name = "Wastebin"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 975.378, -120 )
+position = Vector2( 1120, -120 )
 
 [connection signal="on_trigger" from="FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]

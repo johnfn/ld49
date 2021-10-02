@@ -41,5 +41,15 @@ position = Vector2( 3.93455, -5.38412 )
 position = Vector2( 4.18309, 16.9094 )
 shape = SubResource( 2 )
 
+[node name="XToInteract" type="Label" parent="."]
+margin_left = -40.0
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = -26.0
+text = "X to interact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
