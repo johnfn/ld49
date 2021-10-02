@@ -28,19 +28,12 @@ func _ready():
   add_child(health_bar_instance)
   health_bar_instance.position += Vector2(-health_bar_instance.color_rect.rect_size.x / 2, -sprite.get_rect().size.y)
 
-func take_action(action: int, other: BattleEntity):  
-  if action == ACTIONS.insult:
-    attack(other, 5)
-  elif action == ACTIONS.cry:
-    heal(5)
-  else: 
-    print("boohoo")
   
 func attack(target: BattleEntity, amount: int):
   target.take_damage(amount) 
-  sprite.material.set_shader_param('white_amount', 1.0)
+  sprite.material.set_shader_param('white',true)
   yield(get_tree().create_timer(0.1),"timeout") 
-  sprite.material.set_shader_param('white_amount', 0.0)
+  sprite.material.set_shader_param('white', false)
   
 func heal(amount: int):
   set_hp(_health + amount)
@@ -54,6 +47,3 @@ func take_damage(amount: int):
 func set_hp(hp: int):
   health_bar_instance.set_hp(hp)
   _health = hp
-  
-func _on_InsultButton_pressed():
-  print("hello")

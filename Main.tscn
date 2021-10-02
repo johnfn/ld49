@@ -43,6 +43,6 @@ dialog = "wastebin_dialog"
 interaction_name = "Wastebin"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 120, 640 )
+position = Vector2( 1120, -120 )
 
 [connection signal="on_trigger" from="FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]

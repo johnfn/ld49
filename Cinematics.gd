@@ -45,6 +45,7 @@ func hide_press_z_to_continue():
 func write_overlay_text(text: String):
   hide_press_z_to_continue()
   
+  overlay_text.visible = true
   overlay_text.text = text
   overlay_text.percent_visible = 0.0
   

@@ -17,15 +17,22 @@ onready var battle_ui = $'HUD/BattleOptions'
 
 var player_tscn = load("res://BattlePlayer.tscn") 
 var enemy_to_tscn = {
-  G.ENEMIES.Steve: load("res://BattleEnemy.tscn")  
+  G.ENEMIES.Steve: load("res://BattleEnemy.tscn"),
+  G.ENEMIES.Gteve: load("res://BattleEnemy.tscn")  
  } 
+
+var movement_queue = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
   # Spawn player
   player = player_tscn.instance()
   add_child(player)
+  player.position = Vector2(1000, 400)
   turn_queue.append(player)
+  slide_in(player, player.position, player_pos)
+  
+  targeting_index = 0
   
   # Spawn enemies
   var num_enemies = len(G.battling_against)
@@ -34,10 +41,12 @@ func _ready():
     var enemy_type = G.battling_against[i]
     var enemy = enemy_to_tscn[enemy_type].instance()
     add_child(enemy)
-    enemy.position = enemy_pos + offset*(i - ((num_enemies-1)/2))
+    var enemy_final_pos = enemy_pos + offset*(i - ((num_enemies-1)/2))
+    enemy.position = Vector2(-100, enemy_final_pos.y)
     enemies.append(enemy)
     turn_queue.append(enemy)
-  
+    slide_in(enemy, enemy.position, enemy_final_pos)
+    
   start_turn()
 
 func _process(delta):
@@ -48,31 +57,57 @@ func _process(delta):
   
   var targeted_enemy = enemies[targeting_index]
   targeting_marker.position = targeted_enemy.position + 100*Vector2.UP + targeted_enemy.sprite.get_rect().size.x*Vector2.LEFT
+  
+  for ent in movement_queue.keys():
+    var src = movement_queue[ent][0]
+    var dest = movement_queue[ent][1]
+    var s = ent.position.distance_to(dest)/src.distance_to(dest)
+    ent.position += 10000*ease(s, 1)*delta*(dest - src).normalized()
+    if ent.position.distance_to(dest) < 10:
+      if len(movement_queue[ent]) == 2:
+        movement_queue.erase(ent)
+      else:
+        movement_queue[ent].remove(0)
     
 func take_action(action):
-  var acting_entity = turn_queue[0]
-  acting_entity.take_action(action, enemies[targeting_index])
+  var actor = turn_queue[0]
+  var target = enemies[targeting_index] if actor == player else player
+  
+  print("%s used [Action %s] on %s." % [actor.get_name(), action, target.get_name()])
+  if action == ACTIONS.insult:
+    swipe(actor, target)
+    target.take_damage(5)
+  elif action == ACTIONS.cry:
+    actor.heal(5)
+  else: 
+    print("boohoo")
+    
   end_turn()
   
   
 func start_turn():
   var acting_entity = turn_queue[0]
   print("It's %s's turn!" % acting_entity.get_name())
-  if acting_entity.get('is_player'): 
+  if acting_entity == player: 
     battle_ui.visible = true
     targeting_marker.visible = true
-    targeting_index = 0
   else: 
     battle_ui.visible = false
     targeting_marker.visible = false
-    yield(get_tree().create_timer(1.5),"timeout") 
-    acting_entity.take_action(ACTIONS.insult, player)
+    yield(get_tree().create_timer(2),"timeout") 
+    take_action(ACTIONS.insult)
     end_turn()
   
 func end_turn():
   var was_acting = turn_queue[0]
-  print("%s's turn has ended." % was_acting.get_name())
   turn_queue.remove(0)
   turn_queue.append(was_acting)
+  print("%s's turn has ended." % was_acting.get_name())
 
   start_turn()
+
+func slide_in(entity, start, end):
+  movement_queue[entity] = [start, end]
+  
+func swipe(entity, target):
+  movement_queue[entity] = [entity.position, entity.position + 0.9*(target.position-entity.position), entity.position]
