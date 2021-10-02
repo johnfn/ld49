@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Hud.gd" type="Script" id=1]
 [ext_resource path="res://Dialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://StatsBox.tscn" type="PackedScene" id=4]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -31,3 +32,6 @@ __meta__ = {
 pause_mode = 2
 
 [node name="Inventory" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="StatsBox" parent="." instance=ExtResource( 4 )]
