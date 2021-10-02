@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Hallway.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Camera.gd" type="Script" id=3]
+[ext_resource path="res://Npc.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
 
@@ -14,3 +15,6 @@ position = Vector2( 140.435, 156.545 )
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
 script = ExtResource( 3 )
+
+[node name="Npc" parent="." instance=ExtResource( 4 )]
+position = Vector2( 134.946, 336.519 )
