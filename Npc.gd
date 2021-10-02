@@ -1,10 +1,7 @@
 extends StaticBody2D
 
 export(Array, String) var dialogs = []
-var interaction_name = "Steve"
-
-func _ready():
-  pass
+export var interaction_name = "Steve"
 
 func interact():
   get_tree().paused = true

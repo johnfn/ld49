@@ -10,6 +10,19 @@ var next_dialogs = ["Hello there"]
 func _ready():
   visible = false
 
+func get_next_dialog():
+  var next_dialog: String = next_dialogs.pop_front()
+  
+  if next_dialog.begins_with("GET"):
+    if next_dialog == "GET:COIN":
+      dialog_text.add_color_override("font_color", Color(0.5, 0.5, 0.5, 1))
+      next_dialog = "You pick up a coin!"
+    else:
+      dialog_text.add_color_override("font_color", Color(1, 1, 1, 1))
+    
+  dialog_text.text = next_dialog
+  dialog_text.visible_characters = 0
+
 func process_dialog():
   dialog_text.visible_characters += 1
   
@@ -19,15 +32,13 @@ func process_dialog():
         visible = false
         get_tree().paused = false
       else:
-        dialog_text.text = next_dialogs.pop_front()
-        dialog_text.visible_characters = 0
+        get_next_dialog()
 
 func start(dialogs: Array):
   visible = true
   tick = 0
   next_dialogs = [] + dialogs # copy dialog array
-  dialog_text.text = next_dialogs.pop_front()
-  dialog_text.visible_characters = 0
+  get_next_dialog()
 
 func _process(delta):
   if G.pause_mode == G.PauseMode.Dialog:

@@ -22,3 +22,8 @@ position = Vector2( 134.946, 336.519 )
 dialogs = [ "Hi!", "It's me, ur best bud!", "Steve!" ]
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
+
+[node name="Wastebin" parent="." instance=ExtResource( 4 )]
+position = Vector2( 40, 720 )
+dialogs = [ "This is a wastebin.", "You look inside...", "Hey, a coin!", "GET:COIN" ]
+interaction_name = "Wastebin"
