@@ -2,6 +2,7 @@ extends StaticBody2D
 
 export(String) var dialog = []
 export var interaction_name = "Steve"
+export(G.ENEMIES) var enemy_type = G.ENEMIES.Steve 
 
 func interact():
   # this stops is_action_just_pressed from being true 

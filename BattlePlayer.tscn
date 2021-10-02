@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://BattlePlayer.gd" type="Script" id=1]
+
+[node name="BattlePlayer" type="Node2D"]
+position = Vector2( 211, 401 )
+script = ExtResource( 1 )
