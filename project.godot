@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "HealthBar",
 "language": "GDScript",
 "path": "res://HealthBar.gd"
+}, {
+"base": "Node2D",
+"class": "InteractionMarker",
+"language": "GDScript",
+"path": "res://InteractionMarker.gd"
 } ]
 _global_script_class_icons={
 "BattleEntity": "",
 "BattleMonster": "",
 "BattlePlayer": "",
 "Dialog": "",
-"HealthBar": ""
+"HealthBar": "",
+"InteractionMarker": ""
 }
 
 [application]

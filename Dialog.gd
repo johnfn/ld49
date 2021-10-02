@@ -18,7 +18,7 @@ func get_next_dialog():
     if next_dialog == "GET:COIN":
       dialog_text.add_color_override("font_color", Color(0.5, 0.5, 0.5, 1))
       next_dialog = "You pick up a coin!"
-    
+  
   dialog_text.text = next_dialog
   dialog_text.visible_characters = 0
 

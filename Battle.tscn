@@ -29,6 +29,7 @@ margin_right = 174.0
 margin_bottom = 20.0
 text = "Insult"
 script = ExtResource( 6 )
+action = null
 
 [node name="CryButton" type="Button" parent="HUD/BattleOptions"]
 margin_top = 24.0
@@ -36,6 +37,7 @@ margin_right = 174.0
 margin_bottom = 44.0
 text = "Cry"
 script = ExtResource( 7 )
+action = null
 
 [node name="ActionButton" type="Button" parent="HUD/BattleOptions"]
 visible = false

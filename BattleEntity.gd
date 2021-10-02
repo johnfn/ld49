@@ -8,7 +8,7 @@ var _health = _max_hp
 var _health_bar = preload("res://HealthBar.tscn")
 var health_bar_instance
 
-onready var ACTIONS = BattleScene.ACTIONS
+onready var ACsTIONS = BattleScene.ACTIONS
 
 func _init(sprite_texture, max_hp).():
   _sprite_texture = sprite_texture;

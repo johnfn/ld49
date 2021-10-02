@@ -1,4 +1,5 @@
 extends Node2D
+class_name InteractionMarker
 
 onready var player: KinematicBody2D = $"/root/Main/Player"
 onready var marker = $InteractionMarker
