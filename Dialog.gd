@@ -42,10 +42,19 @@ func process_dialog():
       if tick % 2 == 0:
         dialog_text.visible_characters += 1
   
-func start(dialog_name: String):
+func start(dialog_name_or_contents):
+  # this stops is_action_just_pressed from being true 
+  # and instantly advancing dialog
+  yield(get_tree(), "idle_frame")
+  get_tree().paused = true
+  G.pause_mode = G.PauseMode.Dialog
   visible = true
   tick = 0
-  next_dialogs = Dialogs.get_dialog(dialog_name)
+  
+  if typeof(dialog_name_or_contents) == TYPE_STRING:
+    next_dialogs = Dialogs.get_dialog(dialog_name_or_contents)
+  else:
+    next_dialogs = dialog_name_or_contents
   
   get_next_dialog()
 

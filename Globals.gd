@@ -2,7 +2,8 @@ extends Node2D
 
 enum PauseMode {
   None = 0,
-  Dialog = 1
+  Dialog = 1,
+  Cinematic = 2,
 }
 
 func inventory():
