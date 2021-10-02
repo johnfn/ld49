@@ -3,13 +3,15 @@ class_name BattleEntity
 
 var sprite
 var _sprite_texture: Resource = load("res://art/battle/battle_placeholder.png");
+var _sprite_material = load("res://shaders/sprite_material.tres")
+
 var _max_hp: int = 50;  
 var _health = _max_hp
 
 var _health_bar = load("res://HealthBar.tscn")
 var health_bar_instance
 
-onready var ACsTIONS = BattleScene.ACTIONS
+onready var ACTIONS = BattleScene.ACTIONS
 
 func _init(sprite_texture, max_hp).():
   _sprite_texture = sprite_texture;
@@ -19,6 +21,7 @@ func _init(sprite_texture, max_hp).():
 func _ready():
   sprite = Sprite.new()
   sprite.texture = _sprite_texture 
+  sprite.material = _sprite_material
   add_child(sprite)
   
   health_bar_instance = _health_bar.instance() 
@@ -35,16 +38,19 @@ func take_action(action: int, other: BattleEntity):
   
 func attack(target: BattleEntity, amount: int):
   target.take_damage(amount) 
-  sprite.modulate = Color.red
+  sprite.material.set_shader_param('white_amount', 1.0)
   yield(get_tree().create_timer(0.1),"timeout") 
-  sprite.modulate = Color.white
+  sprite.material.set_shader_param('white_amount', 0.0)
   
 func heal(amount: int):
   set_hp(_health + amount)
 
 func take_damage(amount: int):
   set_hp(_health - amount)
-
+  sprite.modulate = Color.red
+  yield(get_tree().create_timer(0.1),"timeout") 
+  sprite.modulate = Color.white
+  
 func set_hp(hp: int):
   health_bar_instance.set_hp(hp)
   _health = hp

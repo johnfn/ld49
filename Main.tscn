@@ -20,7 +20,6 @@ script = ExtResource( 3 )
 [node name="Npc" parent="." instance=ExtResource( 4 )]
 position = Vector2( 134.946, 336.519 )
 dialog = "steve_dialog"
-interaction_name = "Steve"
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 

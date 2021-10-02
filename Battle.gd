@@ -53,7 +53,7 @@ func take_action(action):
   acting_entity.take_action(action, enemies[targeting_index])
   end_turn()
   
-
+  
 func start_turn():
   var acting_entity = turn_queue[0]
   print("It's %s's turn!" % acting_entity.get_name())
