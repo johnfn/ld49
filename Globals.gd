@@ -17,7 +17,14 @@ func hud():
 func dialog():
   return $"/root/Main/Hud/Dialog"
 
+enum ENEMIES {
+  Steve
+ }
+
 var health = 20
 var max_health = 20
 var interactables: Array = []
 var mode = PauseMode.None
+
+var in_battle = false
+var battling_against: Array = []

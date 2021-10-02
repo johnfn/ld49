@@ -21,7 +21,7 @@ func move():
 
 func check_for_interactions():
   if Input.is_action_just_pressed("action"):
-    var interactables = G.interactables
+    var interactables = G.interactables 
     var first = interactables[0]
 
     first.interact()
@@ -30,6 +30,8 @@ func check_for_interactions():
     var interactables = G.interactables
     var first = interactables[0]
     
+    G.in_battle = true
+    G.battling_against = [first.enemy_type]
     get_tree().change_scene("res://Battle.tscn")
 
 func _process(delta):
