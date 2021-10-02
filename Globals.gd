@@ -20,6 +20,7 @@ func dialog():
 
 enum ENEMIES {
   Steve
+  Gteve
  }
 
 var health = 20
@@ -32,5 +33,5 @@ var xp = 0
 var level_xp = [20, 40, 80, 200, 500, 1000, 2500, 5000, 10000]
 
 var in_battle = false
-var battling_against: Array = []
+var battling_against: Array = [$"/root/Main/Steve", $"/root/Main/Gteve"]
 
