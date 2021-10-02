@@ -31,7 +31,7 @@ func check_for_interactions():
     var first = interactables[0]
     
     G.in_battle = true
-    G.battling_against = [first.enemy_type]
+    G.battling_against = [first.enemy_type, first.enemy_type]
     get_tree().change_scene("res://Battle.tscn")
 
 func _process(delta):
