@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "InteractionMarker",
 "language": "GDScript",
 "path": "res://InteractionMarker.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Npc",
+"language": "GDScript",
+"path": "res://Npc.gd"
 } ]
 _global_script_class_icons={
 "BattleEntity": "",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "BattlePlayer": "",
 "Dialog": "",
 "HealthBar": "",
-"InteractionMarker": ""
+"InteractionMarker": "",
+"Npc": ""
 }
 
 [application]
