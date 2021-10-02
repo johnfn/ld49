@@ -25,6 +25,12 @@ func check_for_interactions():
     var first = interactables[0]
     
     first.interact()
+  
+  if Input.is_action_just_pressed("angry"):
+    var interactables = G.interactables
+    var first = interactables[0]
+    
+    get_tree().change_scene("res://Battle.tscn")
 
 func _process(delta):
   move()

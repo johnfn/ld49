@@ -16,5 +16,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AngryLabel" type="Label" parent="."]
+margin_left = 906.54
+margin_top = 27.9423
+margin_right = 1001.54
+margin_bottom = 41.9423
+text = "Press X to KILL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Dialog" parent="." instance=ExtResource( 2 )]
 pause_mode = 2
