@@ -14,8 +14,12 @@
 current = true
 script = ExtResource( 3 )
 
-[node name="Npc" parent="." instance=ExtResource( 4 )]
+[node name="Steve" parent="." instance=ExtResource( 4 )]
 position = Vector2( 134.946, 336.519 )
+dialog = "steve_dialog"
+
+[node name="Gteve" parent="." instance=ExtResource( 4 )]
+position = Vector2( 40, 360 )
 dialog = "steve_dialog"
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
