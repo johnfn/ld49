@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://BattleMonster.gd" type="Script" id=1]
+[ext_resource path="res://Battle.gd" type="Script" id=2]
+[ext_resource path="res://BattlePlayer.gd" type="Script" id=3]
+
+[node name="BattleScene" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="BattleOptions" type="VBoxContainer" parent="HUD"]
+anchor_left = 0.343
+anchor_top = 0.647
+anchor_right = 0.474
+anchor_bottom = 0.657
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Insult" type="Button" parent="HUD/BattleOptions"]
+margin_right = 174.0
+margin_bottom = 20.0
+text = "Insult"
+
+[node name="Cry" type="Button" parent="HUD/BattleOptions"]
+margin_top = 24.0
+margin_right = 174.0
+margin_bottom = 44.0
+text = "Cry"
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2( 211, 401 )
+script = ExtResource( 3 )
+
+[node name="Monster" type="Node2D" parent="."]
+position = Vector2( 786, 200 )
+script = ExtResource( 1 )

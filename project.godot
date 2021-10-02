@@ -9,13 +9,37 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "BattleEntity",
+"language": "GDScript",
+"path": "res://BattleEntity.gd"
+}, {
+"base": "Node2D",
+"class": "BattleMonster",
+"language": "GDScript",
+"path": "res://BattleMonster.gd"
+}, {
+"base": "Node2D",
+"class": "BattlePlayer",
+"language": "GDScript",
+"path": "res://BattlePlayer.gd"
+}, {
 "base": "ColorRect",
 "class": "Dialog",
 "language": "GDScript",
 "path": "res://Dialog.gd"
+}, {
+"base": "Node2D",
+"class": "HealthBar",
+"language": "GDScript",
+"path": "res://HealthBar.gd"
 } ]
 _global_script_class_icons={
-"Dialog": ""
+"BattleEntity": "",
+"BattleMonster": "",
+"BattlePlayer": "",
+"Dialog": "",
+"HealthBar": ""
 }
 
 [application]
