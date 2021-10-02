@@ -23,7 +23,7 @@ func check_for_interactions():
   if Input.is_action_just_pressed("action"):
     var interactables = G.interactables
     var first = interactables[0]
-    
+
     first.interact()
   
   if Input.is_action_just_pressed("angry"):
