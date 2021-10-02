@@ -1,0 +1,82 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://StatsBox.gd" type="Script" id=1]
+
+[node name="StatsBox" type="ColorRect"]
+margin_left = 14.0
+margin_top = 10.0
+margin_right = 155.0
+margin_bottom = 160.0
+color = Color( 0.0823529, 0.0352941, 0.521569, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 2.0
+margin_right = 86.0
+margin_bottom = 16.0
+text = "Juliet - Level 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="XPLabel" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 41.5
+margin_right = 99.0
+margin_bottom = 55.5
+text = "XP: 100/150"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="XPBarBG" type="ColorRect" parent="."]
+margin_left = 4.5
+margin_top = 60.0
+margin_right = 132.5
+margin_bottom = 75.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="XPBarFG" type="ColorRect" parent="."]
+margin_left = 4.5
+margin_top = 60.0
+margin_right = 94.5
+margin_bottom = 76.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthLabel" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 88.0
+margin_right = 98.0
+margin_bottom = 102.0
+text = "Health: 5/20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBarBG" type="ColorRect" parent="."]
+margin_left = 3.5
+margin_top = 106.5
+margin_right = 131.5
+margin_bottom = 121.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBarFG" type="ColorRect" parent="."]
+margin_left = 4.0
+margin_top = 107.0
+margin_right = 132.0
+margin_bottom = 123.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
