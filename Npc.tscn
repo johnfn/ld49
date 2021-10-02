@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://art/overworld/recyclingbin.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 20 )
@@ -9,16 +10,14 @@ extents = Vector2( 20, 20 )
 [node name="Npc" type="StaticBody2D"]
 script = ExtResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-color = Color( 0.333333, 0.0235294, 0.388235, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="recyclingbin" type="Sprite" parent="."]
+position = Vector2( 19.8158, -28.6548 )
+scale = Vector2( 0.585066, 0.585066 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 20, 20 )
 shape = SubResource( 1 )
 
 [node name="InteractionMarker" parent="." instance=ExtResource( 2 )]
+position = Vector2( 13.7351, -17.9154 )
