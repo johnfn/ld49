@@ -2,7 +2,7 @@
 
 [ext_resource path="res://InteractionMarker.gd" type="Script" id=1]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Bobble"
 loop = true
 tracks/0/type = "value"
@@ -18,7 +18,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3.935, -15 ), Vector2( 3.935, 15 ), Vector2( 3.935, -15 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 radius = 97.4675
 
 [node name="InteractionMarker" type="Node2D"]
@@ -30,14 +30,14 @@ color = Color( 0.894118, 0.345098, 0.345098, 1 )
 polygon = PoolVector2Array( 6.38369, -14.966, 17.6696, 4.29263, 30.3016, -14.6553 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Bobble = SubResource( 2 )
+anims/Bobble = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 3.93455, -5.38412 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 4.18309, 16.9094 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

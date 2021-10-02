@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Hud.gd" type="Script" id=1]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="InteractLabel" type="Label" parent="."]
+margin_left = 909.453
+margin_top = 6.82089
+margin_right = 1004.45
+margin_bottom = 20.8209
+text = "Press X to KILL"
+__meta__ = {
+"_edit_use_anchors_": false
+}

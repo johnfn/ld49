@@ -5,7 +5,6 @@ var speed = 400.0
 func _ready():
   pass 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
   var dx = 0
   var dy = 0
