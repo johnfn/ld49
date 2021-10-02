@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BattlePlayer.gd"
 }, {
-"base": "Node2D",
-"class": "BattleScene",
-"language": "GDScript",
-"path": "res://Battle.gd"
-}, {
 "base": "ColorRect",
 "class": "Dialog",
 "language": "GDScript",
@@ -38,14 +33,25 @@ _global_script_classes=[ {
 "class": "HealthBar",
 "language": "GDScript",
 "path": "res://HealthBar.gd"
+}, {
+"base": "Node2D",
+"class": "InteractionMarker",
+"language": "GDScript",
+"path": "res://InteractionMarker.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Npc",
+"language": "GDScript",
+"path": "res://Npc.gd"
 } ]
 _global_script_class_icons={
 "BattleEntity": "",
 "BattleMonster": "",
 "BattlePlayer": "",
-"BattleScene": "",
 "Dialog": "",
-"HealthBar": ""
+"HealthBar": "",
+"InteractionMarker": "",
+"Npc": ""
 }
 
 [application]

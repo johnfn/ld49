@@ -26,5 +26,10 @@ var max_health = 20
 var interactables: Array = []
 var mode = PauseMode.None
 
+
+var xp = 0
+var level_xp = [20, 40, 80, 200, 500, 1000, 2500, 5000, 10000]
+
 var in_battle = false
 var battling_against: Array = []
+

@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Npc
 
 export(String) var dialog = []
 export var interaction_name = "Steve"
