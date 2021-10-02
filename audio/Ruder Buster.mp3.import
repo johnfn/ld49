@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ruder Buster.mp3-129749f2f24c6bc6237b0152fb1234a4.mp3str"
+
+[deps]
+
+source_file="res://audio/Ruder Buster.mp3"
+dest_files=[ "res://.import/Ruder Buster.mp3-129749f2f24c6bc6237b0152fb1234a4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

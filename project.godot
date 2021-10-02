@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BattlePlayer.gd"
 }, {
-"base": "Node2D",
-"class": "BattleScene",
-"language": "GDScript",
-"path": "res://Battle.gd"
-}, {
 "base": "ColorRect",
 "class": "Dialog",
 "language": "GDScript",
@@ -53,7 +48,6 @@ _global_script_class_icons={
 "BattleEntity": "",
 "BattleMonster": "",
 "BattlePlayer": "",
-"BattleScene": "",
 "Dialog": "",
 "HealthBar": "",
 "InteractionMarker": "",

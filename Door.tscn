@@ -22,12 +22,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="InteractionMarker" parent="." instance=ExtResource( 1 )]
+position = Vector2( -20, 0 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 20 )
 shape = SubResource( 1 )
-
-[node name="InteractionMarker" parent="." instance=ExtResource( 1 )]
-visible = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 2 )
