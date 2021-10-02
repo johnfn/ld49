@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Inventory.gd" type="Script" id=1]
+
+[node name="Inventory" type="ColorRect"]
+margin_left = 135.0
+margin_top = 43.0
+margin_right = 660.0
+margin_bottom = 419.0
+color = Color( 0.0980392, 0.431373, 0.517647, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 110.0
+margin_top = 14.0
+margin_right = 247.0
+margin_bottom = 28.0
+text = "Inventory"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Contents" type="Label" parent="."]
+margin_left = 38.0
+margin_top = 54.5841
+margin_right = 277.0
+margin_bottom = 184.584
+text = "Contents"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoneButton" type="Button" parent="."]
+margin_left = 27.8664
+margin_top = 344.795
+margin_right = 89.8664
+margin_bottom = 364.795
+text = "Done"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="DoneButton" to="." method="_on_DoneButton_pressed"]

@@ -9,4 +9,4 @@ func _ready():
 func interact():
   get_tree().paused = true
   G.pause_mode = G.PauseMode.Dialog
-  G.dialog.start(dialogs)
+  G.dialog().start(dialogs)
