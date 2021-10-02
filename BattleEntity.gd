@@ -3,8 +3,12 @@ class_name BattleEntity
 
 var _sprite_texture: Resource = load("res://art/battle/battle_placeholder.png");
 var _max_hp: int = 50;
+var _health = _max_hp
 
 var _health_bar = preload("res://HealthBar.tscn")
+var health_bar_instance
+
+onready var ACTIONS = BattleScene.ACTIONS
 
 func _init(sprite_texture, max_hp).():
   _sprite_texture = sprite_texture;
@@ -16,12 +20,31 @@ func _ready():
   sprite.texture = _sprite_texture
   add_child(sprite)
   
-  var health_bar_instance = _health_bar.instance()
+  health_bar_instance = _health_bar.instance()
   add_child(health_bar_instance)
   health_bar_instance.position += Vector2(-health_bar_instance.color_rect.rect_size.x / 2, -sprite.get_rect().size.y)
 
-func attack(target: BattleEntity):
-  pass
+func take_action(action: int, other: BattleEntity):  
+  if action == ACTIONS.insult:
+    attack(other, 5)
+  elif action == ACTIONS.cry:
+    heal(5)
+  else: 
+    print("boohoo")
   
-func heal():
-  pass
+func attack(target: BattleEntity, amount: int):
+  target.take_damage(amount) 
+  
+func heal(amount: int):
+  set_hp(_health + amount)
+
+func take_damage(amount: int):
+  set_hp(_health - amount)
+
+func set_hp(hp: int):
+  health_bar_instance.set_hp(hp)
+  _health = hp
+  
+func _on_InsultButton_pressed():
+  print("hello")
+  

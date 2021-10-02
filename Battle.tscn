@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://BattleMonster.gd" type="Script" id=1]
 [ext_resource path="res://Battle.gd" type="Script" id=2]
 [ext_resource path="res://BattlePlayer.gd" type="Script" id=3]
+[ext_resource path="res://BattleEntity.gd" type="Script" id=4]
+[ext_resource path="res://ActionButton.gd" type="Script" id=5]
+[ext_resource path="res://InsultButton.gd" type="Script" id=6]
+[ext_resource path="res://CryButton.gd" type="Script" id=7]
 
 [node name="BattleScene" type="Node2D"]
 script = ExtResource( 2 )
@@ -20,16 +24,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Insult" type="Button" parent="HUD/BattleOptions"]
+[node name="InsultButton" type="Button" parent="HUD/BattleOptions"]
 margin_right = 174.0
 margin_bottom = 20.0
 text = "Insult"
+script = ExtResource( 6 )
 
-[node name="Cry" type="Button" parent="HUD/BattleOptions"]
+[node name="CryButton" type="Button" parent="HUD/BattleOptions"]
 margin_top = 24.0
 margin_right = 174.0
 margin_bottom = 44.0
 text = "Cry"
+script = ExtResource( 7 )
+
+[node name="ActionButton" type="Button" parent="HUD/BattleOptions"]
+visible = false
+margin_top = 48.0
+margin_right = 174.0
+margin_bottom = 68.0
+text = "Insult"
+script = ExtResource( 5 )
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2( 211, 401 )
@@ -38,3 +52,11 @@ script = ExtResource( 3 )
 [node name="Monster" type="Node2D" parent="."]
 position = Vector2( 786, 200 )
 script = ExtResource( 1 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 786, 200 )
+script = ExtResource( 4 )
+
+[connection signal="pressed" from="HUD/BattleOptions/InsultButton" to="HUD/BattleOptions/InsultButton" method="_on_InsultButton_pressed"]
+[connection signal="pressed" from="HUD/BattleOptions/CryButton" to="HUD/BattleOptions/CryButton" method="_on_CryButton_pressed"]
+[connection signal="pressed" from="HUD/BattleOptions/ActionButton" to="HUD/BattleOptions/ActionButton" method="_on_ActionButton_pressed"]
