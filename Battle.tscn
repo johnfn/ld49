@@ -13,6 +13,11 @@ script = ExtResource( 2 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
+[node name="TargetingMarker" type="Polygon2D" parent="HUD"]
+position = Vector2( -40, -40 )
+color = Color( 1, 0, 0, 1 )
+polygon = PoolVector2Array( 40, 56, 24, 32, 56, 32 )
+
 [node name="BattleOptions" type="VBoxContainer" parent="HUD"]
 anchor_left = 0.343
 anchor_top = 0.647
@@ -29,7 +34,6 @@ margin_right = 174.0
 margin_bottom = 20.0
 text = "Insult"
 script = ExtResource( 6 )
-action = null
 
 [node name="CryButton" type="Button" parent="HUD/BattleOptions"]
 margin_top = 24.0
@@ -48,10 +52,13 @@ text = "Insult"
 script = ExtResource( 5 )
 
 [node name="BattlePlayer" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="BattleEnemy" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="Node2D" type="Node2D" parent="."]
+visible = false
 position = Vector2( 786, 200 )
 script = ExtResource( 4 )
 
