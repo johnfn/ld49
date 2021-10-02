@@ -46,6 +46,7 @@ margin_top = 14.0
 margin_right = 446.0
 margin_bottom = 143.0
 text = "BLAH BLAH BLAH BLAH BLAH UR SO STUPID"
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

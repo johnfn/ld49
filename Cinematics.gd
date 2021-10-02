@@ -78,7 +78,10 @@ func _on_CinematicTrigger_on_trigger():
   fade_from_black_timed()
   # snap_camera()
   
-  G.dialog().start(["DIE!!!!"])
+  G.dialog().start([      
+    { "speaker": "Miss Trunchbull", "dialog": "alright class i have an announcement to make", },
+    { "speaker": "Miss Trunchbull", "dialog": "ive decided to send timmy to detention until he stops being a huge loser so say your last goodbyes now", },
+  ])
   
 func _process(delta):
   if G.pause_mode != G.PauseMode.Cinematic:

@@ -11,7 +11,11 @@ func _ready():
   visible = false
 
 func get_next_dialog():
-  var next_dialog: String = next_dialogs.pop_front()
+  var next_dialog_obj = next_dialogs.pop_front()
+  
+  var next_dialog = next_dialog_obj["dialog"]
+  var speaker = next_dialog_obj["speaker"]
+  
   dialog_text.add_color_override("font_color", Color(1, 1, 1, 1))
   
   if next_dialog.begins_with("GET"):
@@ -21,6 +25,8 @@ func get_next_dialog():
   
   dialog_text.text = next_dialog
   dialog_text.visible_characters = 0
+  
+  speaker_name.text = speaker
 
 func process_dialog():
   tick += 1
