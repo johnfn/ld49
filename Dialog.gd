@@ -29,6 +29,8 @@ func process_dialog():
     if Input.is_action_just_pressed("action"):
 
       if next_dialogs.size() == 0:
+        yield(get_tree(), "idle_frame")
+        
         visible = false
         get_tree().paused = false
       else:
