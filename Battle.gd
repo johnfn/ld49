@@ -3,6 +3,7 @@ class_name BattleScene
 
 enum ACTIONS {insult, cry}
 
+
 export var enemy_pos = Vector2(700, 200)
 export var player_pos = Vector2(200, 400)
 

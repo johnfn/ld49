@@ -69,6 +69,11 @@ func write_overlay_text(text: String):
   
   overlay_text.percent_visible = 0
 
+func snap_camera():
+  G.camera().smoothing_enabled = false
+  G.camera().position = G.player().position
+  G.camera().force_update_transform()
+  G.camera().smoothing_enabled = true
 
 func _on_CinematicTrigger_on_trigger():
   start_cinematic()
@@ -76,13 +81,18 @@ func _on_CinematicTrigger_on_trigger():
   yield(write_overlay_text("One morning, Timmy arrived at Coolville High School to find that everyone was being a total d**k."), "completed")
   yield(write_overlay_text("Unfortunately, Timmy is part of everyone."), "completed")
   fade_from_black_timed()
-  # snap_camera()
+  snap_camera()
   
   G.dialog().start([      
     { "speaker": "Miss Trunchbull", "dialog": "alright class i have an announcement to make", },
     { "speaker": "Miss Trunchbull", "dialog": "ive decided to send timmy to detention until he stops being a huge loser so say your last goodbyes now", },
   ])
-  
+
+func _ready():
+  for child in get_children():
+    if "visible" in child:
+      child.visible = false
+
 func _process(delta):
   if G.pause_mode != G.PauseMode.Cinematic:
     return
