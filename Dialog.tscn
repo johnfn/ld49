@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Dialog.gd" type="Script" id=1]
+
+[node name="Dialog" type="ColorRect"]
+margin_left = 222.139
+margin_top = 345.226
+margin_right = 706.139
+margin_bottom = 577.226
+color = Color( 0.0352941, 0.00392157, 0.258824, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 12.0
+margin_top = 9.0
+margin_right = 151.0
+margin_bottom = 143.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeakerName" type="Label" parent="."]
+margin_left = 15.735
+margin_top = 150.957
+margin_right = 55.735
+margin_bottom = 164.957
+text = "Steve"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointless" type="Label" parent="."]
+margin_left = 27.0445
+margin_top = 74.2493
+margin_right = 67.0445
+margin_bottom = 88.2493
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "This is a 
+profile picture"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogText" type="Label" parent="."]
+margin_left = 168.0
+margin_top = 14.0
+margin_right = 446.0
+margin_bottom = 143.0
+text = "BLAH BLAH BLAH BLAH BLAH UR SO STUPID"
+__meta__ = {
+"_edit_use_anchors_": false
+}

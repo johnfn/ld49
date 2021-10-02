@@ -1,5 +1,12 @@
 extends Node2D
 
-onready var player = $"/root/Player"
-onready var hud = $"/root/Hud"
+enum PauseMode {
+  None = 0,
+  Dialog = 1
+}
+
+onready var player = $"/root/Main/Player"
+onready var hud = $"/root/Main/Hud"
+onready var dialog: Dialog = $"/root/Main/Hud/Dialog"
 var interactables: Array = []
+var mode = PauseMode.None

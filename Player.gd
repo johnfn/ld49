@@ -5,7 +5,7 @@ var speed = 400.0
 func _ready():
   pass 
 
-func _process(delta):
+func move():
   var dx = 0
   var dy = 0
   
@@ -18,3 +18,14 @@ func _process(delta):
   var d = Vector2(dx, dy) * speed
   
   move_and_slide(d)
+
+func check_for_interactions():
+  if Input.is_action_just_pressed("action"):
+    var interactables = G.interactables
+    var first = interactables[0]
+    
+    first.interact()
+
+func _process(delta):
+  move()
+  check_for_interactions()
