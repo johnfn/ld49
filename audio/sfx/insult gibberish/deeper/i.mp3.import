@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/i.mp3-c78fb5e6bc68f382cbd7b2b6aa295202.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/insult gibberish/deeper/i.mp3"
+dest_files=[ "res://.import/i.mp3-c78fb5e6bc68f382cbd7b2b6aa295202.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

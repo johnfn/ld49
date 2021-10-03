@@ -8,6 +8,27 @@ enum PauseMode {
   Cinematic = 2,
 }
 
+enum InventoryItem {
+  HallPass,
+  SchoolFiles,
+  TrueEnlightenment,
+  PlusStr,
+  PlusDef,
+}
+
+var inventory_contents = [
+  InventoryItem.PlusDef,
+  InventoryItem.PlusDef,
+]
+
+var inventory_text = {
+  InventoryItem.HallPass: { "name": "hall pass", "desc": "with this you can go anywhere your heart desires", },
+  InventoryItem.SchoolFiles: { "name": "school files", "desc": "wow things are going poorly for you", },
+  InventoryItem.TrueEnlightenment: { "name": "true enlightenment", "desc": "levels of anger known only to the gods allow you to GET ANGRY, even at inanimate objects", },
+  InventoryItem.PlusStr: { "name": "plus str", "desc": "just holding this makes you feel stronger", },
+  InventoryItem.PlusDef: { "name": "plus def", "desc": "this makes your skin feel a bit tougher" },
+}
+
 func battle_scene() -> BattleScene:
   var b: BattleScene = $"/root/Main/BattleScene"
   

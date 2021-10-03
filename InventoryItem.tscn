@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://InventoryItem.gd" type="Script" id=1]
+
+[node name="InventoryItem" type="ColorRect"]
+margin_right = 300.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+color = Color( 0.27451, 0.0470588, 0.576471, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="."]
+margin_left = 10.2898
+margin_top = 11.3188
+margin_right = 50.2898
+margin_bottom = 25.3188
+text = "Item of a kind of sort"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_InventoryItem_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_InventoryItem_mouse_exited"]

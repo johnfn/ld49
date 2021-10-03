@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ɑ.mp3-6ab3007f383b9fadc7e12b11ad73ea1e.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/insult gibberish/timmy/ɑ.mp3"
+dest_files=[ "res://.import/ɑ.mp3-6ab3007f383b9fadc7e12b11ad73ea1e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
