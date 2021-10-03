@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Hallway.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Camera.gd" type="Script" id=3]
 [ext_resource path="res://Npc.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Hud.tscn" type="PackedScene" id=5]
+[ext_resource path="res://FirstClassroom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://CinematicTrigger.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Cinematics.tscn" type="PackedScene" id=8]
+[ext_resource path="res://MissTrunchbull.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node2D"]
 
 [node name="Hallway" parent="." instance=ExtResource( 2 )]
+
+[node name="FirstClassroom" parent="." instance=ExtResource( 6 )]
+
+[node name="CinematicTrigger" parent="FirstClassroom" instance=ExtResource( 7 )]
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
@@ -19,11 +27,17 @@ script = ExtResource( 3 )
 position = Vector2( 134.946, 336.519 )
 dialog = "steve_dialog"
 
+[node name="MissTrunchbull" parent="." instance=ExtResource( 9 )]
+dialog = "miss_trunchbull_dialog"
+interaction_name = "MissTrunchbull"
+
 [node name="Gteve" parent="." instance=ExtResource( 4 )]
 position = Vector2( 40, 360 )
 dialog = "steve_dialog"
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
+
+[node name="Cinematics" parent="." instance=ExtResource( 8 )]
 
 [node name="Wastebin" parent="." instance=ExtResource( 4 )]
 position = Vector2( 40, 720 )
@@ -31,4 +45,6 @@ dialog = "wastebin_dialog"
 interaction_name = "Wastebin"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 160, 160 )
+position = Vector2( 1080, -80 )
+
+[connection signal="on_trigger" from="FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]

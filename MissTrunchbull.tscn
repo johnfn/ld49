@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Npc.gd" type="Script" id=2]
+[ext_resource path="res://art/overworld/recyclingbin.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 20 )
+
+[node name="MissTrunchbull" type="StaticBody2D"]
+position = Vector2( 720, -80 )
+script = ExtResource( 2 )
+dialog = "steve_dialog"
+
+[node name="recyclingbin" type="Sprite" parent="."]
+position = Vector2( 19.8158, -28.6548 )
+scale = Vector2( 0.585066, 0.585066 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 20, 20 )
+shape = SubResource( 1 )
+
+[node name="InteractionMarker" parent="." instance=ExtResource( 1 )]
+position = Vector2( 13.7351, -17.9154 )
