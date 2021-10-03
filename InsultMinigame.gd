@@ -15,6 +15,7 @@ var row_count
 var rng = RandomNumberGenerator.new()
 var key_words
 
+var input_repeat_time = 0.25
 var burst_time = 0.5
 var damage_x = 0.9
 var word_fade_percent = 0.6
@@ -60,9 +61,29 @@ func run_game(insult_words, key_word_indices, speed_scalar, bad_word_spawn_chanc
 
 var move_up = false
 var move_down = false
+var move_up_counter = 0
+var move_down_counter = 0
 func _process(delta):
   move_up = move_up or Input.is_action_just_pressed("ui_up")
   move_down = move_down or Input.is_action_just_pressed("ui_down")
+  
+  if Input.is_action_pressed("ui_up"):
+    move_up_counter += delta
+  else:
+    move_up_counter = 0
+    
+  if Input.is_action_pressed("ui_down"):
+    move_down_counter += delta
+  else:
+    move_down_counter = 0
+    
+  if move_up_counter > input_repeat_time:
+    move_up = true
+    move_up_counter = 0
+    
+  if move_down_counter > input_repeat_time:
+    move_down = true
+    move_down_counter = 0
 
 func _physics_process(delta):
   if not game_started:
