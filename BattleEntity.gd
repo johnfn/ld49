@@ -26,7 +26,7 @@ func _ready():
   
   health_bar_instance = _health_bar.instance() 
   add_child(health_bar_instance)
-  health_bar_instance.position += Vector2(-health_bar_instance.color_rect.rect_size.x / 2, -sprite.get_rect().size.y)
+  health_bar_instance.position += Vector2(-health_bar_instance.health_bar.rect_size.x / 2, -sprite.get_rect().size.y)
 
   
 func attack(target: BattleEntity, amount: int):

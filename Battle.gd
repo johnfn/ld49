@@ -96,7 +96,7 @@ func start_turn():
     targeting_marker.visible = false
     yield(get_tree().create_timer(2),"timeout") 
     take_action(ACTIONS.insult)
-    end_turn()
+
   
 func end_turn():
   var was_acting = turn_queue[0]
