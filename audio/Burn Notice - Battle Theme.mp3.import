@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Burn Notice - Battle Theme.mp3-daf2a13bc7f2f207ca49d26cfeebc1df.mp3str"
+
+[deps]
+
+source_file="res://audio/Burn Notice - Battle Theme.mp3"
+dest_files=[ "res://.import/Burn Notice - Battle Theme.mp3-daf2a13bc7f2f207ca49d26cfeebc1df.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
