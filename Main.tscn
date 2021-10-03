@@ -61,7 +61,7 @@ dialog = "wastebin_dialog"
 interaction_name = "Wastebin"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 480, 120 )
+position = Vector2( 361.014, 711.089 )
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 
