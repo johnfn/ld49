@@ -25,7 +25,7 @@ smoothing_enabled = true
 script = ExtResource( 3 )
 
 [node name="BattleCamera" type="Camera2D" parent="."]
-position = Vector2( 520, 280 )
+position = Vector2( 512, 300 )
 smoothing_enabled = true
 
 [node name="Steve" parent="." instance=ExtResource( 4 )]

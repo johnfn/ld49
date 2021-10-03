@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Get Schooled - Overworld Theme.mp3-8bb75debd157441b2346ace0fc02dd5f.mp3str"
+
+[deps]
+
+source_file="res://audio/Get Schooled - Overworld Theme.mp3"
+dest_files=[ "res://.import/Get Schooled - Overworld Theme.mp3-8bb75debd157441b2346ace0fc02dd5f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

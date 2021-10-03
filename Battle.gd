@@ -25,11 +25,19 @@ var movement_queue = {}
 func _ready():
   visible = false
   $ColorRect.visible = false
+  
+  for child in $HUD.get_children():
+    if "visible" in child:
+      child.visible = false
 
 func start_battle():
   visible = true
   $ColorRect.visible = true
-  
+
+  for child in $HUD.get_children():
+    if "visible" in child:
+      child.visible = true
+
   # Spawn player
   player = player_tscn.instance()
   add_child(player)
