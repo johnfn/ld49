@@ -50,3 +50,17 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ZToContinue" type="Label" parent="."]
+anchor_left = 0.000578573
+anchor_right = 0.0171075
+margin_left = 177.72
+margin_top = 175.0
+margin_right = 455.72
+margin_bottom = 215.0
+custom_colors/font_color = Color( 0.588235, 0.588235, 0.588235, 1 )
+text = "z to continue"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

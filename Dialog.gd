@@ -3,6 +3,7 @@ class_name Dialog
 
 onready var speaker_name = $SpeakerName
 onready var dialog_text = $DialogText
+onready var z_to_continue = $ZToContinue
 
 var tick = 0
 var next_dialogs = ["Hello there"]
@@ -24,7 +25,8 @@ func get_next_dialog():
       next_dialog = "You pick up a coin!"
   
   dialog_text.text = next_dialog
-  dialog_text.visible_characters = 0
+  dialog_text.visible_characters = 0 
+  z_to_continue.visible = false
   
   speaker_name.text = speaker
 
@@ -32,6 +34,8 @@ func process_dialog():
   tick += 1
   
   if dialog_text.percent_visible >= 1:
+    z_to_continue.visible = true
+    
     if Input.is_action_just_pressed("action"):
 
       if next_dialogs.size() == 0:
@@ -40,6 +44,7 @@ func process_dialog():
         visible = false
         get_tree().paused = false
         G.mode = G.PauseMode.None
+        z_to_continue.visible = false
       else:
         get_next_dialog()
   else:

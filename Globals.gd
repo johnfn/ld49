@@ -19,8 +19,6 @@ enum InventoryItem {
 
 var inventory_contents = [
   InventoryItem.PlusDef,
-  InventoryItem.PlusDef,
-  InventoryItem.HallPass,
 ] if debug else []
 
 var inventory_text = {
@@ -94,15 +92,17 @@ func end_battle():
   var items_gotten = []
   
   for enemy in G.battling_against:
-    inventory_contents.push_back(enemy.drop_type)
-    
-    if items_gotten.size() == 0:
-      items_gotten.push_back(enemy.drop_type)
+    if enemy.drop_type != InventoryItem.None:
+      inventory_contents.push_back(enemy.drop_type)
+      
+      if items_gotten.size() == 0:
+        items_gotten.push_back(enemy.drop_type)
   
   for enemy in G.battling_against:
     enemy.queue_free()  
   
-  yield(cinematics.get_inventory_item("Test"), "completed")
+  if items_gotten.size() > 0:
+    yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
   
   G.camera().current = true
   

@@ -104,7 +104,7 @@ func get_inventory_item(name: String):
   start_cinematic()
   snap_camera()
   insta_go_to_semiblack()
-  yield(write_overlay_text("You got a %s" % name), "completed")
+  yield(write_overlay_text("You got a %s." % name), "completed")
   fade_from_black_timed()
   end_cinematic()
 
