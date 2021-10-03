@@ -43,6 +43,16 @@ _global_script_classes=[ {
 "class": "InteractionMarker",
 "language": "GDScript",
 "path": "res://InteractionMarker.gd"
+}, {
+"base": "ColorRect",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://Inventory.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Npc",
+"language": "GDScript",
+"path": "res://Npc.gd"
 } ]
 _global_script_class_icons={
 "BattleEntity": "",

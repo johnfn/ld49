@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Hallway.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://FirstClassroom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://CinematicTrigger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Cinematics.tscn" type="PackedScene" id=8]
-[ext_resource path="res://MissTrunchbull.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Battle.tscn" type="PackedScene" id=10]
 [ext_resource path="res://OtherClassroom.tscn" type="PackedScene" id=11]
 [ext_resource path="res://BigHallway.tscn" type="PackedScene" id=12]
@@ -26,11 +25,11 @@ position = Vector2( -1200, 40 )
 [node name="CinematicTrigger" parent="FirstClassroom" instance=ExtResource( 7 )]
 position = Vector2( 485.044, 700.781 )
 
-[node name="MissTrunchbull" parent="FirstClassroom" instance=ExtResource( 9 )]
-position = Vector2( 257.69, 578.432 )
+[node name="MissTrunchbull" parent="FirstClassroom" instance=ExtResource( 4 )]
+position = Vector2( 640, 760 )
 
-[node name="StupidNpc" parent="FirstClassroom" instance=ExtResource( 9 )]
-position = Vector2( 797.175, 846.273 )
+[node name="StupidNpc" parent="FirstClassroom" instance=ExtResource( 4 )]
+position = Vector2( 860, 820 )
 
 [node name="OtherClassroom" parent="." instance=ExtResource( 11 )]
 
@@ -48,7 +47,6 @@ position = Vector2( 520, 740 )
 
 [node name="Gteve" parent="." instance=ExtResource( 4 )]
 position = Vector2( 640, 760 )
-enemy_type = 1
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
@@ -56,7 +54,6 @@ enemy_type = 1
 
 [node name="Wastebin" parent="." instance=ExtResource( 4 )]
 position = Vector2( 200, 840 )
-enemy_type = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 620, 1080 )
