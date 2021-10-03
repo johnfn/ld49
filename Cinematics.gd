@@ -43,7 +43,7 @@ func hide_press_z_to_continue():
   press_z_to_continue.visible = false
 
 func write_overlay_text(text: String):
-  if G.skip_cinematics:
+  if G.debug:
     yield(get_tree(), "idle_frame")
     return
   

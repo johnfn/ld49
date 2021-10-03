@@ -24,6 +24,7 @@ tracks/0/keys = {
 }
 
 [node name="BattleScene" type="Node2D"]
+position = Vector2( 0.752563, 0.752563 )
 z_index = 2
 script = ExtResource( 2 )
 
@@ -78,6 +79,16 @@ margin_bottom = 68.0
 text = "Insult"
 script = ExtResource( 5 )
 
+[node name="DieInstantly" type="Button" parent="HUD"]
+margin_left = 861.933
+margin_top = 524.633
+margin_right = 968.933
+margin_bottom = 544.633
+text = "DIE INSTANTLY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BattlePlayer" parent="." instance=ExtResource( 3 )]
 visible = false
 
@@ -92,3 +103,4 @@ script = ExtResource( 4 )
 [connection signal="pressed" from="HUD/BattleOptions/InsultButton" to="HUD/BattleOptions/InsultButton" method="_on_InsultButton_pressed"]
 [connection signal="pressed" from="HUD/BattleOptions/CryButton" to="HUD/BattleOptions/CryButton" method="_on_CryButton_pressed"]
 [connection signal="pressed" from="HUD/BattleOptions/ActionButton" to="HUD/BattleOptions/ActionButton" method="_on_ActionButton_pressed"]
+[connection signal="pressed" from="HUD/DieInstantly" to="." method="_on_Button_pressed"]

@@ -18,11 +18,14 @@ var player_tscn = load("res://BattlePlayer.tscn")
 var enemy_to_tscn = {
   G.ENEMIES.Steve: load("res://BattleEnemy.tscn"),
   G.ENEMIES.Gteve: load("res://BattleEnemy.tscn")  
-} 
+}
 
 var movement_queue = {}
 
 func _ready():
+  hide_everything()
+
+func hide_everything():
   visible = false
   $ColorRect.visible = false
   
@@ -30,14 +33,18 @@ func _ready():
     if "visible" in child:
       child.visible = false
 
-func start_battle():
+func show_everything():
   visible = true
   $ColorRect.visible = true
 
   for child in $HUD.get_children():
     if "visible" in child:
       child.visible = true
+  $HUD/DieInstantly.visible = G.debug
 
+func start_battle():
+  show_everything()
+  
   # Spawn player
   player = player_tscn.instance()
   add_child(player)
@@ -59,8 +66,17 @@ func start_battle():
     enemies.append(enemy)
     turn_queue.append(enemy)
     slide_in(enemy, enemy.position, enemy_final_pos)
-    
+
   start_turn()
+
+func end_battle():
+  # TODO: queue_free all enemies that still exist etc
+  
+  hide_everything()
+  G.end_battle()
+  
+  # GABY HALP HOW DO I GET XP
+  G.gain_xp(30)
 
 func _process(delta):
   if not G.in_battle:
@@ -128,3 +144,7 @@ func slide_in(entity, start, end):
   
 func swipe(entity, target):
   movement_queue[entity] = [entity.position, entity.position + 0.9*(target.position-entity.position), entity.position]
+
+
+func _on_Button_pressed():
+  end_battle()
