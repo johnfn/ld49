@@ -60,7 +60,7 @@ func write_overlay_text(text: String):
     
     if Input.is_action_just_pressed("action"):
       break
-      
+    
     yield(get_tree(), "idle_frame")
     
     if Input.is_action_just_pressed("action"):

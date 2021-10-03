@@ -6,13 +6,10 @@ onready var light_occluder = $LightOccluder2D
 var interaction_name = "Door"
 var open = false
 
-func _ready():
-  pass # Replace with function body.
-
-func interact():
+func _on_InteractionMarker_on_interact():
   open = not open
   collision.disabled = not collision.disabled
-  modulate = Color(1, 1, 1, 0.2 if open else 1.0) 
+  $ColorRect.modulate = Color(1, 1, 1, 0.2 if open else 1.0) 
   
   if open:
     remove_child(light_occluder)
