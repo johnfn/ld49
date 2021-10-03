@@ -75,6 +75,7 @@ enum ENEMIES {
   Clock2,
   Chalkboard,
   Chalkboard2,
+  Tombstone,
 }
 
 var health = 20
@@ -126,6 +127,11 @@ func end_battle():
         items_gotten.push_back(info.drop)
   
   for enemy in G.battling_against:
+    var t = load("res://Tombstone.tscn").instance()
+    enemy.get_parent().add_child(t)
+    enemy.get_parent().move_child(t, enemy.get_index())
+    t.position = enemy.position
+    
     enemy.queue_free()  
   
   if items_gotten.size() > 0:

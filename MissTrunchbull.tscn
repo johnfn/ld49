@@ -10,7 +10,6 @@ extents = Vector2( 20, 20 )
 [node name="MissTrunchbull" type="StaticBody2D"]
 position = Vector2( 720, -80 )
 script = ExtResource( 2 )
-dialog = "steve_dialog"
 enemy_type = 3
 
 [node name="recyclingbin" type="Sprite" parent="."]

@@ -1,20 +1,6 @@
 extends Node2D
 
-var dialogs = {
-  "wastebin_dialog": [
-    [
-      { "speaker": "You", "dialog": "This is a wastebin.", },
-      { "speaker": "You", "dialog": "You look inside...", },
-      { "speaker": "You", "dialog": "Hey, a coin!", },
-      { "speaker": "You", "dialog": "GET:COIN", },
-    ],
-    [ 
-      { "speaker": "You", "dialog": "This is a wastebin.", },
-      { "speaker": "You", "dialog": "You look inside...", },
-      { "speaker": "You", "dialog": "There's nothing here." },
-    ]
-  ],
-  
+var dialogs = {  
   "steve_dialog": [
     { "speaker": "Steve", "dialog": "Hey, I'm Steve!" },
   ],

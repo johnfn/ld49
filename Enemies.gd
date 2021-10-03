@@ -9,7 +9,8 @@ func info():
       "health": 25,
       "xp": 30,
       "is_inanimate": false,
-      "tscn": load("res://BattleEnemy.tscn"),
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "steve_talk"),
     },
     
     G.ENEMIES.Gteve: {
@@ -19,7 +20,8 @@ func info():
       "health": 25,
       "xp": 25,
       "is_inanimate": false,
-      "tscn": load("res://BattleEnemy.tscn"),
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "gteve_talk"),
     },
     
     G.ENEMIES.Wastebasket: {
@@ -29,7 +31,8 @@ func info():
       "health": 5,
       "xp": 15,
       "is_inanimate": true,
-      "tscn": load("res://BattleEnemy.tscn"),
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "wastebasket_inspect"),
     },
     
     G.ENEMIES.MissTrunchbull: {
@@ -39,7 +42,7 @@ func info():
       "health": 25,
       "xp": 30,
       "is_inanimate": false,
-      "tscn": load("res://BattleEnemy.tscn"),
+      "battle_tscn": load("res://BattleEnemy.tscn"),
     },
     
     G.ENEMIES.Poster: {
@@ -49,7 +52,7 @@ func info():
       "health": 25,
       "xp": 30,
       "is_inanimate": true,
-      "tscn": load("res://BattleEnemy.tscn"),
+      "battle_tscn": load("res://BattleEnemy.tscn"),
     },
     
     G.ENEMIES.Door: {
@@ -59,7 +62,7 @@ func info():
       "health": 25,
       "xp": 30,
       "is_inanimate": true,
-      "tscn": load("res://BattleEnemy.tscn"),
+      "battle_tscn": load("res://BattleEnemy.tscn"),
     },
     
     G.ENEMIES.Chalkboard: {
@@ -69,7 +72,7 @@ func info():
       "health": 25,
       "xp": 30,
       "is_inanimate": true,
-      "tscn": load("res://BattleEnemy.tscn"),
+      "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "chalkboard_inspect"),
       "can_ever_fight": false
     },
@@ -81,7 +84,7 @@ func info():
       "health": 25,
       "xp": 30,
       "is_inanimate": true,
-      "tscn": load("res://BattleEnemy.tscn"),
+      "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "chalkboard_inspect_2"),
       "can_ever_fight": false
     },
@@ -93,7 +96,7 @@ func info():
       "health": 25,
       "xp": 30,
       "is_inanimate": true,
-      "tscn": load("res://BattleEnemy.tscn"),
+      "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "clock_inspect"),
       "can_ever_fight": false
     },
@@ -105,8 +108,20 @@ func info():
       "health": 25,
       "xp": 30,
       "is_inanimate": true,
-      "tscn": load("res://BattleEnemy.tscn"),
+      "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "clock_inspect_2"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.Tombstone: {
+      "name": "Tombstone",
+      "interaction": "Read tombstone",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "tombstone_inspect"),
       "can_ever_fight": false
     },
   }
@@ -115,6 +130,18 @@ func chalkboard_inspect():
   G.dialog().start([      
     { "speaker": "You", "dialog": "It's a chalkboard", },
     { "speaker": "You", "dialog": "Miss Trunchbull is teaching us how to draw squiggly things in her art class", },
+  ])
+
+func steve_talk():
+  G.dialog().start([      
+    { "speaker": "Steve", "dialog": "Hey, I'm Steve", },
+    { "speaker": "You", "dialog": "Ok", },
+  ])
+
+func gteve_talk():
+  G.dialog().start([      
+    { "speaker": "Gteve", "dialog": "Hey, I'm Gteve. Steve's my brother", },
+    { "speaker": "You", "dialog": "...wtf?", },
   ])
 
 func chalkboard_inspect_2():
@@ -137,4 +164,33 @@ func clock_inspect_2():
     { "speaker": "You", "dialog": "It's a clock", },
     { "speaker": "You", "dialog": "It's not ticking", },
     { "speaker": "You", "dialog": "What's wrong with all the stupid clocks in this stupid school", },
+  ])
+
+func tombstone_inspect():
+  G.dialog().start([      
+    { "speaker": "You", "dialog": "It's a tombstone", },
+    { "speaker": "You", "dialog": "It reads: 'Here lies someone.'", },
+    { "speaker": "You", "dialog": "Well, that's oddly nonspecific", },
+  ])
+
+var first = true
+func wastebasket_inspect():
+  if first:
+    first = false
+    
+    G.dialog().start(
+      [
+        { "speaker": "You", "dialog": "This is a wastebin.", },
+        { "speaker": "You", "dialog": "You look inside...", },
+        { "speaker": "You", "dialog": "Hey, a coin!", },
+        { "speaker": "You", "dialog": "GET:COIN", },
+      ]
+    )
+    
+    return
+    
+  G.dialog().start([ 
+    { "speaker": "You", "dialog": "This is a wastebin.", },
+    { "speaker": "You", "dialog": "You look inside...", },
+    { "speaker": "You", "dialog": "There's nothing here." },
   ])

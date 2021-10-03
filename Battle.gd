@@ -55,7 +55,7 @@ func start_battle():
   var offset = Vector2(200,100) / num_enemies
   for i in G.battling_against.size():
     var enemy_type = G.battling_against[i].enemy_type
-    var enemy = Enemies.info()[enemy_type].tscn.instance()
+    var enemy = Enemies.info()[enemy_type].battle_tscn.instance()
     add_child(enemy)
     var enemy_final_pos = enemy_pos + offset*(i - ((num_enemies-1)/2))
     enemy.position = Vector2(-100, enemy_final_pos.y)
