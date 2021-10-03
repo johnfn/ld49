@@ -58,9 +58,7 @@ func choose_interact():
     emit_signal("on_interact")
 
 func choose_anger():
-  G.in_battle = true
-  G.battling_against = [interactor.enemy_type, interactor.enemy_type]
-  get_tree().change_scene("res://Battle.tscn")
+  G.start_battle([interactor.enemy_type, interactor.enemy_type])
 
 func check_for_interactions():
   if Input.is_action_just_pressed("action") and G.mode == G.PauseMode.None:
@@ -79,6 +77,9 @@ func _process(delta):
   if get_closest_interactable() != interactor:
     menu.visible = false
     state = State.Invisible
+    return
+  
+  if G.in_battle:
     return
   
   match state:

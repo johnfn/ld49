@@ -24,7 +24,16 @@ tracks/0/keys = {
 }
 
 [node name="BattleScene" type="Node2D"]
+z_index = 2
 script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1021.0
+margin_bottom = 591.0
+color = Color( 0.0705882, 0.0588235, 0.184314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

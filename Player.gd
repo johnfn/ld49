@@ -6,6 +6,9 @@ func _ready():
   pass 
 
 func move():
+  if G.in_battle:
+    return
+    
   var dx = 0
   var dy = 0
   

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Hallway.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://CinematicTrigger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Cinematics.tscn" type="PackedScene" id=8]
 [ext_resource path="res://MissTrunchbull.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Battle.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node2D"]
 
@@ -22,6 +23,10 @@
 current = true
 smoothing_enabled = true
 script = ExtResource( 3 )
+
+[node name="BattleCamera" type="Camera2D" parent="."]
+position = Vector2( 520, 280 )
+smoothing_enabled = true
 
 [node name="Steve" parent="." instance=ExtResource( 4 )]
 position = Vector2( 134.946, 336.519 )
@@ -51,5 +56,7 @@ interaction_name = "Wastebin"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1080, -80 )
+
+[node name="BattleScene" parent="." instance=ExtResource( 10 )]
 
 [connection signal="on_trigger" from="FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]

@@ -3,7 +3,6 @@ class_name BattleScene
 
 enum ACTIONS {insult, cry}
 
-
 export var enemy_pos = Vector2(700, 200)
 export var player_pos = Vector2(200, 400)
 
@@ -11,20 +10,26 @@ var turn_queue = []
 var player
 var enemies = []
 var targeting_index
-onready var targeting_marker = $'HUD/TargetingMarker'
 
+onready var targeting_marker = $'HUD/TargetingMarker'
 onready var battle_ui = $'HUD/BattleOptions'
 
 var player_tscn = load("res://BattlePlayer.tscn") 
 var enemy_to_tscn = {
   G.ENEMIES.Steve: load("res://BattleEnemy.tscn"),
   G.ENEMIES.Gteve: load("res://BattleEnemy.tscn")  
- } 
+} 
 
 var movement_queue = {}
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+  visible = false
+  $ColorRect.visible = false
+
+func start_battle():
+  visible = true
+  $ColorRect.visible = true
+  
   # Spawn player
   player = player_tscn.instance()
   add_child(player)
@@ -36,7 +41,7 @@ func _ready():
   
   # Spawn enemies
   var num_enemies = len(G.battling_against)
-  var offset = Vector2(200,100)/num_enemies
+  var offset = Vector2(200,100) / num_enemies
   for i in G.battling_against.size():
     var enemy_type = G.battling_against[i]
     var enemy = enemy_to_tscn[enemy_type].instance()
@@ -50,6 +55,9 @@ func _ready():
   start_turn()
 
 func _process(delta):
+  if not G.in_battle:
+    return
+  
   if Input.is_action_just_pressed("ui_left"):
     targeting_index = (targeting_index - 1) % len(enemies)
   elif Input.is_action_just_pressed("ui_right"):
@@ -62,6 +70,7 @@ func _process(delta):
     var src = movement_queue[ent][0]
     var dest = movement_queue[ent][1]
     var s = ent.position.distance_to(dest)/src.distance_to(dest)
+    
     ent.position += 10000*ease(s, 1)*delta*(dest - src).normalized()
     if ent.position.distance_to(dest) < 10:
       if len(movement_queue[ent]) == 2:
