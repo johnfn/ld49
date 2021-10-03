@@ -26,6 +26,8 @@ tracks/0/keys = {
 position = Vector2( 0.752563, 0.752563 )
 z_index = 2
 script = ExtResource( 2 )
+enemy_pos = null
+player_pos = null
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
