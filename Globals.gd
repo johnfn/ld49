@@ -91,6 +91,17 @@ func next_level_xp():
   # thonk
   return 9999999999
 
+func gain_xp(amount: int):
+  var old_level = get_level()
+  
+  xp += 30
+  max_health += 5
+  health += 5
+  
+  if old_level != get_level():
+    yield(cinematics.gain_level(get_level()), "completed")
+  
+  
 func end_battle():
   var items_gotten = []
   
@@ -106,13 +117,9 @@ func end_battle():
   
   if items_gotten.size() > 0:
     yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
+   
   
-  var old_level = get_level()
-  
-  xp += 30
-  
-  if old_level != get_level():
-    yield(cinematics.gain_level(get_level()), "completed")
+  gain_xp(30)
   
   G.camera().current = true
   

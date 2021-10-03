@@ -1,5 +1,7 @@
 extends ColorRect
 
+onready var name_label = $NameLabel
+
 onready var health_bar_bg = $HealthBarBG
 onready var health_bar_fg = $HealthBarBG
 
@@ -17,3 +19,5 @@ func _process(delta):
   var xp_percentage = G.xp / G.next_level_xp()
   xp_bar_fg.rect_scale.x = xp_percentage
   xp_label.text = "XP: %d/%d" % [G.xp, G.next_level_xp()]
+
+  name_label.text = "Timmy - Level %d" % G.get_level()
