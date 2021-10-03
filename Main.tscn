@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Hallway.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Cinematics.tscn" type="PackedScene" id=8]
 [ext_resource path="res://MissTrunchbull.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Battle.tscn" type="PackedScene" id=10]
+[ext_resource path="res://OtherClassroom.tscn" type="PackedScene" id=11]
 
 [node name="Main" type="Node2D"]
 
@@ -29,8 +30,7 @@ dialog = "miss_trunchbull_dialog"
 position = Vector2( 797.175, 846.273 )
 dialog = "billy_dialog"
 
-[node name="OtherClassroom" parent="." instance=ExtResource( 6 )]
-position = Vector2( -1200, 860 )
+[node name="OtherClassroom" parent="." instance=ExtResource( 11 )]
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
@@ -59,7 +59,7 @@ dialog = "wastebin_dialog"
 enemy_type = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 361.014, 711.089 )
+position = Vector2( -460, 640 )
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 

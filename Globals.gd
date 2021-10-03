@@ -72,7 +72,9 @@ enum ENEMIES {
   Door,
   Poster,
   Clock,
+  Clock2,
   Chalkboard,
+  Chalkboard2,
 }
 
 var health = 20
