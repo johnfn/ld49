@@ -31,3 +31,5 @@ position = Vector2( 13.7351, -17.9154 )
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2( 27.9356, -0.388 )
 occluder = SubResource( 2 )
+
+[connection signal="on_interact" from="InteractionMarker" to="." method="_on_InteractionMarker_on_interact"]

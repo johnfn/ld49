@@ -29,3 +29,5 @@ texture = ExtResource( 3 )
 
 [node name="InteractionMarker" parent="." instance=ExtResource( 2 )]
 position = Vector2( 13.7351, -17.9154 )
+
+[connection signal="on_interact" from="InteractionMarker" to="." method="_on_InteractionMarker_on_interact"]

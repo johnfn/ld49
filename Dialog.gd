@@ -39,6 +39,7 @@ func process_dialog():
         
         visible = false
         get_tree().paused = false
+        G.pause_mode = G.PauseMode.None
       else:
         get_next_dialog()
   else:
