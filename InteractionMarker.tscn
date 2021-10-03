@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://InteractionMarker.gd" type="Script" id=1]
+[ext_resource path="res://ChooseAngry.tres" type="Animation" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Bobble"
@@ -18,21 +19,112 @@ tracks/0/keys = {
 "values": [ Vector2( 3.935, -15 ), Vector2( 3.935, 15 ), Vector2( 3.935, -15 ) ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "SlideInMenu"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Menu/AngryMenuItem:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.0824693, 0.233258 ),
+"update": 0,
+"values": [ Vector2( 300, -80 ), Vector2( 40, -80 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Menu/AngryMenuItem:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.535887, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Menu/InteractMenuItem:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 300, -138.11 ), Vector2( 300, -138.11 ), Vector2( 40.0831, -138.11 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Menu/InteractMenuItem:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 0.615573, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Menu:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Menu/InteractMenuItem/Polygon2D2:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.001 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.121569, 0.0941176, 0.364706, 1 ), Color( 0.172549, 0.0823529, 0.690196, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Menu/AngryMenuItem/Polygon2D:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.505882, 0.164706, 0.278431, 1 ) ]
+}
+
 [sub_resource type="CircleShape2D" id=2]
 radius = 97.4675
 
 [node name="InteractionMarker" type="Node2D" groups=[
 "interactable",
 ]]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="InteractionMarker" type="Polygon2D" parent="."]
-position = Vector2( 5.07631, -4.40229 )
+position = Vector2( 3.935, -15 )
 color = Color( 0.894118, 0.345098, 0.345098, 1 )
 polygon = PoolVector2Array( 6.38369, -14.966, 17.6696, 4.29263, 30.3016, -14.6553 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Bobble = SubResource( 1 )
+anims/ChooseAngry = ExtResource( 2 )
+anims/ChooseInteract = ExtResource( 2 )
+anims/SlideInMenu = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 3.93455, -5.38412 )
@@ -41,15 +133,74 @@ position = Vector2( 3.93455, -5.38412 )
 position = Vector2( 4.18309, 16.9094 )
 shape = SubResource( 2 )
 
-[node name="XToInteract" type="Label" parent="."]
-margin_left = -40.0
-margin_top = -40.0
-margin_right = 40.0
-margin_bottom = -26.0
-text = "X to interact"
+[node name="Menu" type="Node2D" parent="."]
+z_index = 1
+
+[node name="AngryMenuItem" type="ColorRect" parent="Menu"]
+margin_left = 40.0
+margin_top = -80.0
+margin_right = 120.0
+margin_bottom = -51.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="XToInteract" type="Label" parent="Menu/AngryMenuItem"]
+margin_left = 4.06967
+margin_top = 9.40166
+margin_right = 84.0697
+margin_bottom = 23.4017
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "to ANGRY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Menu/AngryMenuItem"]
+position = Vector2( -1.98012, 39.5462 )
+polygon = PoolVector2Array( -20.3607, -50.3659, 2.33401, -37.5285, 0.500107, -13.6876, -23.1116, 1.44223, -43.2847, -12.7706, -43.5139, -40.5086 )
+
+[node name="Label" type="Label" parent="Menu/AngryMenuItem"]
+margin_left = -29.5719
+margin_top = 6.18947
+margin_right = 10.4281
+margin_bottom = 20.1895
+text = "Z"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractMenuItem" type="ColorRect" parent="Menu"]
+margin_left = 40.0831
+margin_top = -138.11
+margin_right = 118.083
+margin_bottom = -110.11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ZToAngry" type="Label" parent="Menu/InteractMenuItem"]
+margin_left = 3.61116
+margin_top = 6.42155
+margin_right = 83.6112
+margin_bottom = 20.4215
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "to interact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Polygon2D2" type="Polygon2D" parent="Menu/InteractMenuItem"]
+position = Vector2( -1, 40 )
+polygon = PoolVector2Array( -20.3607, -50.3659, 2.33401, -37.5285, 0.500107, -13.6876, -23.1116, 1.44223, -43.2847, -12.7706, -43.5139, -40.5086 )
+
+[node name="Label" type="Label" parent="Menu/InteractMenuItem"]
+margin_left = -29.8011
+margin_top = 6.8772
+margin_right = 10.1989
+margin_bottom = 20.8772
+rect_pivot_offset = Vector2( 49.7035, 14.3919 )
+text = "X"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

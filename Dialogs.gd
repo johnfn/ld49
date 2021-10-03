@@ -17,6 +17,13 @@ var dialogs = {
   
   "steve_dialog": [
     { "speaker": "Steve", "dialog": "Hey, I'm Steve!" },
+  ],
+  
+  "miss_trunchbull_dialog": [
+    [
+      { "speaker": "You", "dialog": "Um, hello.", },
+      { "speaker": "Miss Trunchbull", "dialog": "get out of my sight you loser", },
+    ]
   ]
 }
 
