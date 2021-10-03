@@ -64,6 +64,7 @@ dialog = "steve_dialog"
 [node name="Wastebin" parent="." instance=ExtResource( 4 )]
 position = Vector2( 200, 840 )
 dialog = "wastebin_dialog"
+enemy_type = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 361.014, 711.089 )

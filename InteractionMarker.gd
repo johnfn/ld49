@@ -72,7 +72,7 @@ func check_for_interactions():
     animation.play("ChooseInteract")
     choose_interact()
     
-  if Input.is_action_just_pressed("angry") and G.mode == G.PauseMode.None:
+  if Input.is_action_just_pressed("angry") and G.mode == G.PauseMode.None and can_get_angry():
     animation.advance(9999)
     state = State.ChooseAngryAnim
     animation.play("ChooseAngry")
@@ -80,7 +80,12 @@ func check_for_interactions():
   
 func update_labels():
   interact_label.text = G.enemy_info[interactor.enemy_type].interaction
+
+func can_get_angry() -> bool:
+  var is_inanimate = G.enemy_info[interactor.enemy_type].is_inanimate
   
+  return (not is_inanimate) or (G.has_true_enlightenment())
+
 func _process(delta):
   if Engine.editor_hint:
     $Area2D/CollisionShape2D.scale = Vector2(interaction_scale, interaction_scale)
@@ -93,6 +98,8 @@ func _process(delta):
   
   if G.in_battle:
     return
+  
+  $Menu/AngryMenuItem.visible = can_get_angry()
   
   match state:
     State.Invisible:

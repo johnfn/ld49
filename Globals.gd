@@ -60,6 +60,9 @@ func battle_camera() -> Camera2D:
   var camera: Camera2D = $"/root/Main/BattleCamera"
   
   return camera
+  
+func has_true_enlightenment() -> bool:
+  return inventory_contents.has(InventoryItem.TrueEnlightenment)
 
 enum ENEMIES {
   Steve,
@@ -97,7 +100,7 @@ var enemy_info = {
     "interaction": "Inspect wastebasket",
     "health": 5,
     "xp": 15,
-    "is_inanimate": false,
+    "is_inanimate": true,
     "tscn": load("res://BattleEnemy.tscn"),
   },
   

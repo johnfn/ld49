@@ -19,7 +19,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3.935, -15 ), Vector2( 3.935, 15 ), Vector2( 3.935, -15 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "MediumAngry"
 length = 0.4
 loop = true
@@ -153,7 +153,7 @@ polygon = PoolVector2Array( 6.38369, -14.966, 17.6696, 4.29263, 30.3016, -14.655
 anims/Bobble = SubResource( 1 )
 anims/ChooseAngry = ExtResource( 2 )
 anims/ChooseInteract = ExtResource( 2 )
-anims/MediumAngry = SubResource( 5 )
+anims/MediumAngry = SubResource( 2 )
 anims/SlideInMenu = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
