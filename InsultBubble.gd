@@ -87,7 +87,7 @@ func clear():
   text.clear()
 
 func on_InsultScroller_word_passed(successful_hit, word_hit):
-  print("%s | %s" % [successful_hit, word_hit])
+#  print("%s | %s" % [successful_hit, word_hit])
   if successful_hit:
     var found_word = false
     for i in words.size():
@@ -126,7 +126,7 @@ func on_InsultScroller_word_passed(successful_hit, word_hit):
           if word_styles[i]["reached"] == true:
             continue
           else:
-            words[i] = "... uHHhh,"
+            words[i] = "…UHHH,"
             word_styles[i]["reached"] = true
             word_styles[i]["correct"] = false
             for j in range(i+1, words.size()):
