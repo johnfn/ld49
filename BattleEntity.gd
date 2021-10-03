@@ -1,7 +1,6 @@
 extends Node2D
 class_name BattleEntity
 
-var sprite
 var _sprite_texture: Resource = load("res://art/battle/battle_placeholder.png");
 var _sprite_material = load("res://shaders/sprite_material.tres")
 
@@ -12,6 +11,7 @@ var _health_bar = load("res://HealthBar.tscn")
 var health_bar_instance
 
 onready var ACTIONS = BattleScene.ACTIONS
+onready var sprite = $Sprite
 
 func _init(sprite_texture, max_hp).():
   _sprite_texture = sprite_texture;
@@ -19,10 +19,7 @@ func _init(sprite_texture, max_hp).():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-  sprite = Sprite.new()
-  sprite.texture = _sprite_texture 
-  sprite.material = _sprite_material
-  add_child(sprite)
+  sprite.set_texture(_sprite_texture)
   
   health_bar_instance = _health_bar.instance() 
   add_child(health_bar_instance)

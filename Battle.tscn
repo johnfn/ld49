@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://BattleEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle.gd" type="Script" id=2]
 [ext_resource path="res://BattlePlayer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://BattleEntity.gd" type="Script" id=4]
 [ext_resource path="res://ActionButton.gd" type="Script" id=5]
 [ext_resource path="res://InsultButton.gd" type="Script" id=6]
 [ext_resource path="res://CryButton.gd" type="Script" id=7]
@@ -90,16 +89,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BattlePlayer" parent="." instance=ExtResource( 3 )]
-visible = false
+[node name="Player" parent="." instance=ExtResource( 3 )]
 
-[node name="BattleEnemy" parent="." instance=ExtResource( 1 )]
-visible = false
-
-[node name="Node2D" type="Node2D" parent="."]
-visible = false
-position = Vector2( 786, 200 )
-script = ExtResource( 4 )
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
 
 [connection signal="pressed" from="HUD/BattleOptions/InsultButton" to="HUD/BattleOptions/InsultButton" method="_on_InsultButton_pressed"]
 [connection signal="pressed" from="HUD/BattleOptions/CryButton" to="HUD/BattleOptions/CryButton" method="_on_CryButton_pressed"]

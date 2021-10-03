@@ -7,14 +7,19 @@ export var enemy_pos = Vector2(700, 200)
 export var player_pos = Vector2(200, 400)
 
 var turn_queue = []
-var player
+onready var player = $Player
+onready var enemy = $Enemy
 var enemies = []
 var targeting_index
 
 onready var targeting_marker = $'HUD/TargetingMarker'
 onready var battle_ui = $'HUD/BattleOptions'
 
-var player_tscn = load("res://BattlePlayer.tscn") 
+var player_tscn = load("res://BattlePlayer.tscn")
+
+var minigame
+var minigame_tscn = load("res://InsultMinigame.tscn") 
+var is_in_minigame = false
 
 var movement_queue = {}
 
@@ -42,26 +47,31 @@ func start_battle():
   show_everything()
   
   # Spawn player
-  player = player_tscn.instance()
-  add_child(player)
+  var player_target = player.position
   player.position = Vector2(1000, 400)
   turn_queue.append(player)
-  slide_in(player, player.position, player_pos)
+  slide_in(player, player.position, player_target)
   
   targeting_index = 0
   
   # Spawn enemies
-  var num_enemies = len(G.battling_against)
-  var offset = Vector2(200,100) / num_enemies
-  for i in G.battling_against.size():
-    var enemy_type = G.battling_against[i].enemy_type
-    var enemy = Enemies.info()[enemy_type].battle_tscn.instance()
-    add_child(enemy)
-    var enemy_final_pos = enemy_pos + offset*(i - ((num_enemies-1)/2))
-    enemy.position = Vector2(-100, enemy_final_pos.y)
-    enemies.append(enemy)
-    turn_queue.append(enemy)
-    slide_in(enemy, enemy.position, enemy_final_pos)
+#  var num_enemies = len(G.battling_against)
+#  var offset = Vector2(200,100) / num_enemies
+#  for i in G.battling_against.size():
+#    var enemy_type = G.battling_against[i].enemy_type
+#    var enemy = Enemies.info()[enemy_type].battle_tscn.instance()
+#    add_child(enemy)
+#    var enemy_final_pos = enemy_pos + offset*(i - ((num_enemies-1)/2))
+#    enemy.position = Vector2(-100, enemy_final_pos.y)
+#    enemies.append(enemy)
+#    turn_queue.append(enemy)
+#    slide_in(enemy, enemy.position, enemy_final_pos)
+  
+  var enemy_target = enemy.position
+  enemy.position = Vector2(-100, 400)
+  turn_queue.append(enemy)
+  enemies.append(enemy)
+  slide_in(enemy, enemy.position, enemy_target)
 
   start_turn()
 
@@ -75,12 +85,17 @@ func _process(delta):
   if not G.in_battle:
     return
   
+  if is_in_minigame:
+    return
+  
   if Input.is_action_just_pressed("ui_left"):
     targeting_index = (targeting_index - 1) % len(enemies)
   elif Input.is_action_just_pressed("ui_right"):
     targeting_index = (targeting_index + 1) % len(enemies)
   
   var targeted_enemy = enemies[targeting_index]
+  print(targeted_enemy.get_name())
+  print(targeted_enemy.sprite)
   targeting_marker.position = targeted_enemy.position + 100*Vector2.UP + targeted_enemy.sprite.get_rect().size.x*Vector2.LEFT
   
   for ent in movement_queue.keys():
@@ -101,8 +116,8 @@ func take_action(action):
   
   print("%s used [Action %s] on %s." % [actor.get_name(), action, target.get_name()])
   if action == ACTIONS.insult:
-    swipe(actor, target)
-    target.take_damage(5)
+    if actor == player:
+      start_minigame()
   elif action == ACTIONS.cry:
     actor.heal(5)
   else: 
@@ -110,6 +125,17 @@ func take_action(action):
     
   end_turn()
   
+func start_minigame():
+  minigame = minigame_tscn.instance()
+  add_child(minigame)
+  is_in_minigame = true
+  
+func minigame_over():
+  if not minigame:
+    return
+  minigame.queue_free()
+  is_in_minigame = false
+    
 func start_turn():
   var acting_entity = turn_queue[0]
   print("It's %s's turn!" % acting_entity.get_name())
