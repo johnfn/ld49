@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=2]
-[ext_resource path="res://art/overworld/recyclingbin.png" type="Texture" id=3]
+[ext_resource path="res://art/overworld/npcs/npc1.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 20 )

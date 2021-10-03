@@ -85,7 +85,7 @@ func can_get_angry() -> bool:
   var info = Enemies.info()[interactor.enemy_type]
   
   var is_inanimate = info.is_inanimate
-  var can_ever_fight = "can_ever_fight" in info and info.can_ever_fight
+  var can_ever_fight = ("can_ever_fight" in info and info.can_ever_fight) or (not "can_ever_fight" in info)
   
   if not can_ever_fight:
     return false

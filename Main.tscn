@@ -46,12 +46,13 @@ position = Vector2( 512, 300 )
 smoothing_enabled = true
 
 [node name="Steve" parent="." instance=ExtResource( 4 )]
-position = Vector2( 134.946, 336.519 )
+position = Vector2( 520, 740 )
 dialog = "steve_dialog"
 
 [node name="Gteve" parent="." instance=ExtResource( 4 )]
-position = Vector2( 40, 360 )
+position = Vector2( 640, 760 )
 dialog = "steve_dialog"
+enemy_type = 1
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
@@ -63,7 +64,7 @@ dialog = "wastebin_dialog"
 enemy_type = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1280, 3560 )
+position = Vector2( 620, 1080 )
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 
