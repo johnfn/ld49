@@ -64,6 +64,66 @@ func battle_camera() -> Camera2D:
 enum ENEMIES {
   Steve,
   Gteve,
+  Wastebasket,
+  MissTrunchbull,
+  Door,
+  Poster,
+}
+
+var enemy_info = {
+  ENEMIES.Steve: {
+    "name": "Steve",
+    "drop": InventoryItem.None,
+    "interaction": "Talk to Steve",
+    "health": 25,
+    "xp": 30,
+    "is_inanimate": false,
+  },
+  
+  ENEMIES.Gteve: {
+    "name": "Gteve",
+    "drop": InventoryItem.None,
+    "interaction": "Talk to Gteve",
+    "health": 25,
+    "xp": 25,
+    "is_inanimate": false,
+  },
+  
+  ENEMIES.Wastebasket: {
+    "name": "Wastebasket",
+    "drop": InventoryItem.None,
+    "interaction": "Inspect wastebasket",
+    "health": 5,
+    "xp": 15,
+    "is_inanimate": false,
+  },
+  
+  ENEMIES.MissTrunchbull: {
+    "name": "Miss Trunchbull",
+    "interaction": "Talk to Miss Trunchbull",
+    "drop": InventoryItem.HallPass,
+    "health": 25,
+    "xp": 30,
+    "is_inanimate": false,
+  },
+  
+  ENEMIES.Poster: {
+    "name": "Poster",
+    "interaction": "Read poster",
+    "drop": InventoryItem.None,
+    "health": 25,
+    "xp": 30,
+    "is_inanimate": true,
+  },
+  
+  ENEMIES.Door: {
+    "name": "Door",
+    "interaction": "Open door",
+    "drop": InventoryItem.None,
+    "health": 25,
+    "xp": 30,
+    "is_inanimate": true,
+  },
 }
 
 var health = 20
@@ -106,11 +166,13 @@ func end_battle():
   var items_gotten = []
   
   for enemy in G.battling_against:
-    if enemy.drop_type != InventoryItem.None:
-      inventory_contents.push_back(enemy.drop_type)
+    var info = enemy_info[enemy.enemy_type]
+    
+    if info.drop_type != InventoryItem.None:
+      inventory_contents.push_back(info.drop_type)
       
       if items_gotten.size() == 0:
-        items_gotten.push_back(enemy.drop_type)
+        items_gotten.push_back(info.drop_type)
   
   for enemy in G.battling_against:
     enemy.queue_free()  

@@ -79,7 +79,7 @@ func check_for_interactions():
     choose_anger()
   
 func update_labels():
-  interact_label.text = interactor.interaction_name
+  interact_label.text = G.enemy_info[interactor.enemy_type].interaction
   
 func _process(delta):
   if Engine.editor_hint:

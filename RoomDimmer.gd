@@ -1,20 +1,23 @@
 extends Node2D
 
 enum State {
+  Invisible,
   Dim,
   FadeIn,
   Visible,
   FadeOut,  
 }
 
-var state = State.Dim
+var state = State.Invisible
 
 
 func _ready():
-  $Graphics.modulate = Color(1, 1, 1, 0.3)
+  $Graphics.modulate = Color(1, 1, 1, 0)
 
 func _process(delta):
   match state:
+    State.Invisible:
+      return
     State.Dim:
       return
     State.Visible:
