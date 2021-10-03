@@ -78,6 +78,7 @@ var enemy_info = {
     "health": 25,
     "xp": 30,
     "is_inanimate": false,
+    "tscn": load("res://BattleEnemy.tscn"),
   },
   
   ENEMIES.Gteve: {
@@ -87,6 +88,7 @@ var enemy_info = {
     "health": 25,
     "xp": 25,
     "is_inanimate": false,
+    "tscn": load("res://BattleEnemy.tscn"),
   },
   
   ENEMIES.Wastebasket: {
@@ -96,6 +98,7 @@ var enemy_info = {
     "health": 5,
     "xp": 15,
     "is_inanimate": false,
+    "tscn": load("res://BattleEnemy.tscn"),
   },
   
   ENEMIES.MissTrunchbull: {
@@ -105,6 +108,7 @@ var enemy_info = {
     "health": 25,
     "xp": 30,
     "is_inanimate": false,
+    "tscn": load("res://BattleEnemy.tscn"),
   },
   
   ENEMIES.Poster: {
@@ -114,6 +118,7 @@ var enemy_info = {
     "health": 25,
     "xp": 30,
     "is_inanimate": true,
+    "tscn": load("res://BattleEnemy.tscn"),
   },
   
   ENEMIES.Door: {
@@ -123,6 +128,7 @@ var enemy_info = {
     "health": 25,
     "xp": 30,
     "is_inanimate": true,
+    "tscn": load("res://BattleEnemy.tscn"),
   },
 }
 
@@ -168,11 +174,11 @@ func end_battle():
   for enemy in G.battling_against:
     var info = enemy_info[enemy.enemy_type]
     
-    if info.drop_type != InventoryItem.None:
-      inventory_contents.push_back(info.drop_type)
+    if info.drop != InventoryItem.None:
+      inventory_contents.push_back(info.drop)
       
       if items_gotten.size() == 0:
-        items_gotten.push_back(info.drop_type)
+        items_gotten.push_back(info.drop)
   
   for enemy in G.battling_against:
     enemy.queue_free()  
@@ -180,7 +186,6 @@ func end_battle():
   if items_gotten.size() > 0:
     yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
    
-  
   gain_xp(30)
   
   G.camera().current = true

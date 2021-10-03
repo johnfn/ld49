@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/overworld/desk1.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 80, 80 )
+
+[node name="BlueDesk" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 320, 680 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 40 )
+shape = SubResource( 2 )
+
+[node name="Image" type="Sprite" parent="."]
+position = Vector2( 320, 680 )
+texture = ExtResource( 1 )
