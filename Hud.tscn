@@ -12,6 +12,5 @@ script = ExtResource( 1 )
 pause_mode = 2
 
 [node name="Inventory" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="StatsBox" parent="." instance=ExtResource( 4 )]

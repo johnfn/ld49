@@ -26,6 +26,7 @@ script = ExtResource( 1 )
 visible = false
 margin_right = 1040.0
 margin_bottom = 600.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

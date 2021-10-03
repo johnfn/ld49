@@ -57,6 +57,14 @@ var battling_against: Array = [$"/root/Main/Steve", $"/root/Main/Gteve"]
 func gain_xp(amount: int):
   xp += amount
 
+func next_level_xp():
+  for next_xp in level_xp:
+    if next_xp > xp:
+      return next_xp
+  
+  # thonk
+  return 9999999999
+
 func end_battle():
   G.camera().current = true
   
