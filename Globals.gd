@@ -9,6 +9,7 @@ enum PauseMode {
 }
 
 enum InventoryItem {
+  None,
   HallPass,
   SchoolFiles,
   TrueEnlightenment,
@@ -19,7 +20,8 @@ enum InventoryItem {
 var inventory_contents = [
   InventoryItem.PlusDef,
   InventoryItem.PlusDef,
-]
+  InventoryItem.HallPass,
+] if debug else []
 
 var inventory_text = {
   InventoryItem.HallPass: { "name": "hall pass", "desc": "with this you can go anywhere your heart desires", },
@@ -28,6 +30,8 @@ var inventory_text = {
   InventoryItem.PlusStr: { "name": "plus str", "desc": "just holding this makes you feel stronger", },
   InventoryItem.PlusDef: { "name": "plus def", "desc": "this makes your skin feel a bit tougher" },
 }
+
+onready var cinematics = $"/root/Main/Cinematics"
 
 func battle_scene() -> BattleScene:
   var b: BattleScene = $"/root/Main/BattleScene"
@@ -87,6 +91,19 @@ func next_level_xp():
   return 9999999999
 
 func end_battle():
+  var items_gotten = []
+  
+  for enemy in G.battling_against:
+    inventory_contents.push_back(enemy.drop_type)
+    
+    if items_gotten.size() == 0:
+      items_gotten.push_back(enemy.drop_type)
+  
+  for enemy in G.battling_against:
+    enemy.queue_free()  
+  
+  yield(cinematics.get_inventory_item("Test"), "completed")
+  
   G.camera().current = true
   
   G.in_battle = false

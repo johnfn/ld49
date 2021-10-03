@@ -58,7 +58,7 @@ func start_battle():
   var num_enemies = len(G.battling_against)
   var offset = Vector2(200,100) / num_enemies
   for i in G.battling_against.size():
-    var enemy_type = G.battling_against[i]
+    var enemy_type = G.battling_against[i].enemy_type
     var enemy = enemy_to_tscn[enemy_type].instance()
     add_child(enemy)
     var enemy_final_pos = enemy_pos + offset*(i - ((num_enemies-1)/2))
@@ -116,7 +116,6 @@ func take_action(action):
     print("boohoo")
     
   end_turn()
-  
   
 func start_turn():
   var acting_entity = turn_queue[0]

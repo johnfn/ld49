@@ -9,7 +9,16 @@ func start_cinematic():
   get_tree().paused = true
   G.mode = G.PauseMode.Cinematic
 
+func end_cinematic():
+  get_tree().paused = false
+  G.mode = G.PauseMode.None
+
 func insta_go_to_black():
+  screen_fade.modulate = Color(1.0, 1.0, 1.0, 1.0)
+  screen_fade.visible = true
+
+func insta_go_to_semiblack():
+  screen_fade.modulate = Color(0.5, 0.5, 0.5, 0.5)
   screen_fade.visible = true
 
 func fade_from_black_timed():
@@ -43,10 +52,6 @@ func hide_press_z_to_continue():
   press_z_to_continue.visible = false
 
 func write_overlay_text(text: String):
-  if G.debug:
-    yield(get_tree(), "idle_frame")
-    return
-  
   hide_press_z_to_continue()
   
   overlay_text.visible = true
@@ -75,23 +80,33 @@ func write_overlay_text(text: String):
   overlay_text.percent_visible = 0
 
 func snap_camera():
+  G.camera().current = true
   G.camera().smoothing_enabled = false
   G.camera().position = G.player().position
   G.camera().force_update_transform()
   G.camera().smoothing_enabled = true
 
 func _on_CinematicTrigger_on_trigger():
+  if not G.debug:
+    start_cinematic()
+    insta_go_to_black()
+    yield(write_overlay_text("One morning, Timmy arrived at Coolville High School to find that everyone was being a total d**k."), "completed")
+    yield(write_overlay_text("Unfortunately, Timmy is part of everyone."), "completed")
+    fade_from_black_timed()
+    snap_camera()
+    
+    G.dialog().start([      
+      { "speaker": "Miss Trunchbull", "dialog": "alright class i have an announcement to make", },
+      { "speaker": "Miss Trunchbull", "dialog": "ive decided to send timmy to detention until he stops being a huge loser so say your last goodbyes now", },
+    ])
+
+func get_inventory_item(name: String):
   start_cinematic()
-  insta_go_to_black()
-  yield(write_overlay_text("One morning, Timmy arrived at Coolville High School to find that everyone was being a total d**k."), "completed")
-  yield(write_overlay_text("Unfortunately, Timmy is part of everyone."), "completed")
-  fade_from_black_timed()
   snap_camera()
-  
-  G.dialog().start([      
-    { "speaker": "Miss Trunchbull", "dialog": "alright class i have an announcement to make", },
-    { "speaker": "Miss Trunchbull", "dialog": "ive decided to send timmy to detention until he stops being a huge loser so say your last goodbyes now", },
-  ])
+  insta_go_to_semiblack()
+  yield(write_overlay_text("You got a %s" % name), "completed")
+  fade_from_black_timed()
+  end_cinematic()
 
 func _ready():
   for child in get_children():

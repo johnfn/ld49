@@ -13,6 +13,10 @@ func show():
     c.queue_free()
   
   for item in G.inventory_contents:
+    if item == G.InventoryItem.None:
+      #hopefully this never happens lul but u never know.........
+      continue
+    
     var new_item = inventory_item_scene.instance()
     
     new_item.item_name = G.inventory_text[item]['name']

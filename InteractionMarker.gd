@@ -58,7 +58,7 @@ func choose_interact():
     emit_signal("on_interact")
 
 func choose_anger():
-  G.start_battle([interactor.enemy_type, interactor.enemy_type])
+  G.start_battle([interactor, interactor])
 
 func check_for_interactions():
   if Input.is_action_just_pressed("action") and G.mode == G.PauseMode.None:
