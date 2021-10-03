@@ -3,6 +3,7 @@ extends Node2D
 # TODO allow cursor movement by holding down the inputs
 
 signal minigame_over
+signal attack_landed
 
 var word_bank = ["gorgonzola", "glue", "aardvark", "camel"]
 var base_speed = 300
@@ -14,26 +15,35 @@ var row_count
 var rng = RandomNumberGenerator.new()
 var key_words
 
+var burst_time = 0.5
+var damage_x = 0.9
 var word_fade_percent = 0.6
 var cursor_decay = 0.8
 var base_delta = 1 / 60.0
 var base_cursor_y
 var row_height = 114 / 4
+var min_bad_spawns = 1
+var max_bad_spawns = 5
 onready var base_word_position = Vector2(10, 5)
 
 var time_to_spawn = initial_spawn_delay
 var cursor_row = 1
 var curr_word = 0
 var curr_word_spawned = false
+var curr_word_node
+var bad_spawns = 0
+var game_ended = false
 
 onready var cursor = $InsultScroller/Cursor
 onready var bg = $InsultScroller/Background
 var word_scene = preload("res://Word.tscn")
+var burst_scene = preload("res://DamageBurst.tscn")
 
 func _ready():
+  damage_x = (damage_x - 0.5) * bg.texture.get_width() + bg.position.x
   base_cursor_y = cursor.position.y
   base_word_position += bg.position - Vector2(bg.texture.get_width(), bg.texture.get_height()) / 2
-  run_game(["everyone", "that", "gets", "close", "to", "you", "leaves"], [0, 2, 3, 6], 1, 0.85, 0.6, 4)
+#  run_game(["everyone", "that", "gets", "close", "to", "you", "leaves"], [0, 2, 3, 6], 1, 0.85, 0.6, 4)
 
 func run_game(insult_words, key_word_indices, speed_scalar, bad_word_spawn_chance, word_spawn_time, cursor_rows):
   rng.randomize()
@@ -53,6 +63,10 @@ func _process(delta):
   move_down = move_down or Input.is_action_just_pressed("ui_down")
 
 func _physics_process(delta):
+  if not game_ended and check_game_end():
+    game_ended = true
+    emit_signal("minigame_over")
+  
   handle_cursor(delta)
   
   time_to_spawn -= delta
@@ -71,13 +85,13 @@ func move_words(delta):
           word.good_word = false
           word.mark_bad()
           $InsultBubble.on_InsultScroller_word_passed(false, "")
-          
-          curr_word_spawned = false
-          curr_word += 1
-          if curr_word >= key_words.size():
-            emit_signal("minigame_over")
-          else:
-            pass # TODO
+          reset_curr_word()
+        elif word.position.x + word.get_size().x > damage_x:
+          var burst_node = burst_scene.instance()
+          $InsultScroller/Bursts.add_child(burst_node)
+          burst_node.position = word.position + word.get_size() / 2
+          word.queue_free()
+          emit_signal("attack_landed")
       else:
         var amount_past = word.position.x - cursor.position.x
         var percent_past = amount_past / (bg.texture.get_width() / 2)
@@ -87,30 +101,45 @@ func move_words(delta):
     elif word.position.x + word.get_size().x > cursor.position.x:
       if word.row == cursor_row:
         if word.good_word:
-          word.on_fire = true
-          $InsultBubble.on_InsultScroller_word_passed(true, word.word)
-          # TODO
-        else:
+          if not word.on_fire:
+            word.on_fire = true
+            reset_curr_word()
+            $InsultBubble.on_InsultScroller_word_passed(true, word.word)
+        elif not word.is_bad:
           word.mark_bad()
           $InsultBubble.on_InsultScroller_word_passed(false, word.word)
-        
+          if curr_word_spawned:
+            curr_word_node.mark_bad()
+          reset_curr_word()
+
+func reset_curr_word():
+  curr_word_spawned = false
+  curr_word_node = null
+  curr_word += 1
 
 func spawn_word():
   if curr_word >= key_words.size():
     return
   var word_to_spawn
   var good_word = false
-  if not curr_word_spawned and (rng.randf() > bad_word_chance):
+  if not curr_word_spawned and ((bad_spawns > min_bad_spawns and rng.randf() > bad_word_chance) or bad_spawns >= max_bad_spawns):
+    bad_spawns = 0
     word_to_spawn = key_words[curr_word]
     curr_word_spawned = true
     good_word = true
   else:
+    bad_spawns += 1
     word_to_spawn = word_bank[rng.randi_range(0, word_bank.size() - 1)]
   var word = word_scene.instance()
   var spawn_row = rng.randi_range(0, row_count - 1)
   word.setup(word_to_spawn, spawn_row, good_word)
   $InsultScroller/Words.add_child(word)
   word.position = base_word_position + Vector2(0, spawn_row * row_height)
+  if good_word:
+    curr_word_node = word
+
+func check_game_end():
+  return curr_word >= key_words.size() && $InsultScroller/Words/.get_child_count() == 0 && $InsultScroller/Bursts/.get_child_count() == 0
 
 func handle_cursor(delta):
   if move_up && move_down:
