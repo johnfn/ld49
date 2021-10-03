@@ -1,5 +1,7 @@
 extends Node2D
 
+var skip_cinematics = true
+
 enum PauseMode {
   None = 0,
   Dialog = 1,
@@ -17,8 +19,9 @@ func player() -> Node2D:
 func hud():
   return $"/root/Main/Hud"
 
-func dialog():
-  return $"/root/Main/Hud/Dialog"
+func dialog() -> Dialog:
+  var d: Dialog = $"/root/Main/Hud/Dialog"
+  return d
 
 func camera() -> Camera2D:
   var camera: Camera2D = $"/root/Main/MainCamera"

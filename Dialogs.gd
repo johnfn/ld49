@@ -23,6 +23,18 @@ var dialogs = {
     [
       { "speaker": "You", "dialog": "Um, hello.", },
       { "speaker": "Miss Trunchbull", "dialog": "get out of my sight you loser", },
+    ],
+    
+    [
+      { "speaker": "You", "dialog": "What the...", },
+      { "speaker": "Miss Trunchbull", "dialog": "i'm bored", },
+    ]
+  ],
+  
+  "billy_dialog": [
+    [
+      { "speaker": "Billy", "dialog": "mannnn", },
+      { "speaker": "Billy", "dialog": "what did you do this time mannnnnnn", },
     ]
   ]
 }

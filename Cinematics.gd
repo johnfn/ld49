@@ -7,7 +7,7 @@ onready var animation_player = $AnimationPlayer
 
 func start_cinematic():
   get_tree().paused = true
-  G.pause_mode = G.PauseMode.Cinematic
+  G.mode = G.PauseMode.Cinematic
 
 func insta_go_to_black():
   screen_fade.visible = true
@@ -43,6 +43,10 @@ func hide_press_z_to_continue():
   press_z_to_continue.visible = false
 
 func write_overlay_text(text: String):
+  if G.skip_cinematics:
+    yield(get_tree(), "idle_frame")
+    return
+  
   hide_press_z_to_continue()
   
   overlay_text.visible = true
@@ -95,5 +99,5 @@ func _ready():
       child.visible = false
 
 func _process(delta):
-  if G.pause_mode != G.PauseMode.Cinematic:
+  if G.mode != G.PauseMode.Cinematic:
     return

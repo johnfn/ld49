@@ -39,6 +39,7 @@ func process_dialog():
         
         visible = false
         get_tree().paused = false
+        G.mode = G.PauseMode.None
       else:
         get_next_dialog()
   else:
@@ -53,7 +54,7 @@ func start(dialog_name_or_contents):
   # and instantly advancing dialog
   yield(get_tree(), "idle_frame")
   get_tree().paused = true
-  G.pause_mode = G.PauseMode.Dialog
+  G.mode = G.PauseMode.Dialog
   visible = true
   tick = 0
   
@@ -65,5 +66,5 @@ func start(dialog_name_or_contents):
   get_next_dialog()
 
 func _process(delta):
-  if G.pause_mode == G.PauseMode.Dialog:
+  if G.mode == G.PauseMode.Dialog:
     process_dialog()

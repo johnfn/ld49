@@ -31,6 +31,11 @@ dialog = "steve_dialog"
 dialog = "miss_trunchbull_dialog"
 interaction_name = "MissTrunchbull"
 
+[node name="StupidNpc" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1040, -200 )
+dialog = "billy_dialog"
+interaction_name = "Billy"
+
 [node name="Gteve" parent="." instance=ExtResource( 4 )]
 position = Vector2( 40, 360 )
 dialog = "steve_dialog"
