@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://InteractionMarker.gd" type="Script" id=1]
 [ext_resource path="res://ChooseAngry.tres" type="Animation" id=2]
@@ -17,6 +17,35 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 3.935, -15 ), Vector2( 3.935, 15 ), Vector2( 3.935, -15 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "MediumAngry"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Menu/AngryMenuItem:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 20.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Menu/AngryMenuItem:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -124,6 +153,7 @@ polygon = PoolVector2Array( 6.38369, -14.966, 17.6696, 4.29263, 30.3016, -14.655
 anims/Bobble = SubResource( 1 )
 anims/ChooseAngry = ExtResource( 2 )
 anims/ChooseInteract = ExtResource( 2 )
+anims/MediumAngry = SubResource( 4 )
 anims/SlideInMenu = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -137,6 +167,8 @@ shape = SubResource( 2 )
 z_index = 1
 
 [node name="AngryMenuItem" type="ColorRect" parent="Menu"]
+anchor_left = 0.445
+anchor_right = 0.506
 margin_left = 40.0
 margin_top = -80.0
 margin_right = 120.0

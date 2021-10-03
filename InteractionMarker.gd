@@ -26,14 +26,18 @@ func _process(delta):
   
   if just_changed:
     if is_player_inside:
-      animation.play("Bobble")
       animation.play("SlideInMenu")
       animation.advance(0)
       has_triggered_this_time = false
     else:
       if not has_triggered_this_time:
         animation.play_backwards("SlideInMenu")
-      
+  
+  if interactor.name == "MissTrunchbull" and is_player_inside:
+    if animation.current_animation == "SlideInMenu":
+      if animation.current_animation_position == animation.current_animation_length:
+        animation.play("MediumAngry")
+  
   if Input.is_action_just_pressed("action") and is_player_inside and not has_triggered_this_time:
     animation.play("ChooseInteract")
     has_triggered_this_time = true

@@ -15,7 +15,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Menu/AngryMenuItem/Polygon2D:color")
+tracks/1/path = NodePath("Menu/InteractMenuItem/Polygon2D2:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -24,5 +24,5 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.505882, 0.164706, 0.278431, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.0352941, 0.0235294, 0.317647, 1 ) ]
 }
