@@ -1,6 +1,6 @@
 extends Node2D
 
-var interaction_name = "Read poster"
+var enemy_type = G.ENEMIES.Poster
 
 func _on_InteractionMarker_on_interact():
   G.dialog().start([      

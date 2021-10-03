@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Hallway.tscn" type="PackedScene" id=2]
@@ -10,16 +10,31 @@
 [ext_resource path="res://Cinematics.tscn" type="PackedScene" id=8]
 [ext_resource path="res://MissTrunchbull.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Battle.tscn" type="PackedScene" id=10]
+[ext_resource path="res://OtherClassroom.tscn" type="PackedScene" id=11]
+[ext_resource path="res://BigHallway.tscn" type="PackedScene" id=12]
 
 [node name="Main" type="Node2D"]
 
 [node name="Hallway" parent="." instance=ExtResource( 2 )]
 
+[node name="BigHallway" parent="." instance=ExtResource( 12 )]
+position = Vector2( 0, 2000 )
+
 [node name="FirstClassroom" parent="." instance=ExtResource( 6 )]
-position = Vector2( -1197.69, 41.5677 )
+position = Vector2( -1200, 40 )
 
 [node name="CinematicTrigger" parent="FirstClassroom" instance=ExtResource( 7 )]
 position = Vector2( 485.044, 700.781 )
+
+[node name="MissTrunchbull" parent="FirstClassroom" instance=ExtResource( 9 )]
+position = Vector2( 257.69, 578.432 )
+dialog = "miss_trunchbull_dialog"
+
+[node name="StupidNpc" parent="FirstClassroom" instance=ExtResource( 9 )]
+position = Vector2( 797.175, 846.273 )
+dialog = "billy_dialog"
+
+[node name="OtherClassroom" parent="." instance=ExtResource( 11 )]
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
@@ -33,23 +48,10 @@ smoothing_enabled = true
 [node name="Steve" parent="." instance=ExtResource( 4 )]
 position = Vector2( 134.946, 336.519 )
 dialog = "steve_dialog"
-interaction_name = "Talk to Steve"
-
-[node name="MissTrunchbull" parent="." instance=ExtResource( 9 )]
-position = Vector2( -946.373, 616.943 )
-dialog = "miss_trunchbull_dialog"
-interaction_name = "Talk to Miss Trunchbull"
-drop_type = 1
-
-[node name="StupidNpc" parent="." instance=ExtResource( 9 )]
-position = Vector2( -400.519, 887.84 )
-dialog = "billy_dialog"
-interaction_name = "Talk to Billy"
 
 [node name="Gteve" parent="." instance=ExtResource( 4 )]
 position = Vector2( 40, 360 )
 dialog = "steve_dialog"
-interaction_name = "Talk to Gteve"
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
@@ -58,10 +60,10 @@ interaction_name = "Talk to Gteve"
 [node name="Wastebin" parent="." instance=ExtResource( 4 )]
 position = Vector2( 200, 840 )
 dialog = "wastebin_dialog"
-interaction_name = "Wastebin"
+enemy_type = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 361.014, 711.089 )
+position = Vector2( 1280, 3560 )
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 

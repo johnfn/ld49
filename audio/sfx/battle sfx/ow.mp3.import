@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ow.mp3-ea73a6dc732388f984bfad3cebf6b254.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/battle sfx/ow.mp3"
+dest_files=[ "res://.import/ow.mp3-ea73a6dc732388f984bfad3cebf6b254.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

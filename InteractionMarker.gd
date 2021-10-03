@@ -72,20 +72,31 @@ func check_for_interactions():
     animation.play("ChooseInteract")
     choose_interact()
     
-  if Input.is_action_just_pressed("angry") and G.mode == G.PauseMode.None:
+  if Input.is_action_just_pressed("angry") and G.mode == G.PauseMode.None and can_get_angry():
     animation.advance(9999)
     state = State.ChooseAngryAnim
     animation.play("ChooseAngry")
     choose_anger()
   
 func update_labels():
-  interact_label.text = interactor.interaction_name
+  interact_label.text = Enemies.info()[interactor.enemy_type].interaction
+
+func can_get_angry() -> bool:
+  var info = Enemies.info()[interactor.enemy_type]
   
+  var is_inanimate = info.is_inanimate
+  var can_ever_fight = "can_ever_fight" in info and info.can_ever_fight
+  
+  if not can_ever_fight:
+    return false
+  
+  return (not is_inanimate) or (G.has_true_enlightenment())
+
 func _process(delta):
   if Engine.editor_hint:
     $Area2D/CollisionShape2D.scale = Vector2(interaction_scale, interaction_scale)
     return
-    
+  
   if get_closest_interactable() != interactor:
     menu.visible = false
     state = State.Invisible
@@ -94,6 +105,7 @@ func _process(delta):
   if G.in_battle:
     return
   
+  $Menu/AngryMenuItem.visible = can_get_angry()
   match state:
     State.Invisible:
       if is_player_inside:

@@ -60,10 +60,21 @@ func battle_camera() -> Camera2D:
   var camera: Camera2D = $"/root/Main/BattleCamera"
   
   return camera
+  
+func has_true_enlightenment() -> bool:
+  return inventory_contents.has(InventoryItem.TrueEnlightenment)
 
 enum ENEMIES {
   Steve,
   Gteve,
+  Wastebasket,
+  MissTrunchbull,
+  Door,
+  Poster,
+  Clock,
+  Clock2,
+  Chalkboard,
+  Chalkboard2,
 }
 
 var health = 20
@@ -106,11 +117,13 @@ func end_battle():
   var items_gotten = []
   
   for enemy in G.battling_against:
-    if enemy.drop_type != InventoryItem.None:
-      inventory_contents.push_back(enemy.drop_type)
+    var info = Enemies.info()[enemy.enemy_type]
+    
+    if info.drop != InventoryItem.None:
+      inventory_contents.push_back(info.drop)
       
       if items_gotten.size() == 0:
-        items_gotten.push_back(enemy.drop_type)
+        items_gotten.push_back(info.drop)
   
   for enemy in G.battling_against:
     enemy.queue_free()  
@@ -118,7 +131,6 @@ func end_battle():
   if items_gotten.size() > 0:
     yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
    
-  
   gain_xp(30)
   
   G.camera().current = true

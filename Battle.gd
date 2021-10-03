@@ -15,10 +15,6 @@ onready var targeting_marker = $'HUD/TargetingMarker'
 onready var battle_ui = $'HUD/BattleOptions'
 
 var player_tscn = load("res://BattlePlayer.tscn") 
-var enemy_to_tscn = {
-  G.ENEMIES.Steve: load("res://BattleEnemy.tscn"),
-  G.ENEMIES.Gteve: load("res://BattleEnemy.tscn")  
-}
 
 var movement_queue = {}
 
@@ -59,7 +55,7 @@ func start_battle():
   var offset = Vector2(200,100) / num_enemies
   for i in G.battling_against.size():
     var enemy_type = G.battling_against[i].enemy_type
-    var enemy = enemy_to_tscn[enemy_type].instance()
+    var enemy = Enemies.info()[enemy_type].tscn.instance()
     add_child(enemy)
     var enemy_final_pos = enemy_pos + offset*(i - ((num_enemies-1)/2))
     enemy.position = Vector2(-100, enemy_final_pos.y)
