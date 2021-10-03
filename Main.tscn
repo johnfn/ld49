@@ -16,6 +16,15 @@
 
 [node name="Hallway" parent="." instance=ExtResource( 2 )]
 
+[node name="Wastebin" parent="Hallway" instance=ExtResource( 4 )]
+position = Vector2( 585.898, 1301.76 )
+
+[node name="Steve" parent="Hallway" instance=ExtResource( 4 )]
+position = Vector2( 500, 1080 )
+
+[node name="Gteve" parent="Hallway" instance=ExtResource( 4 )]
+position = Vector2( 557.04, 703.578 )
+
 [node name="BigHallway" parent="." instance=ExtResource( 12 )]
 position = Vector2( 0, 2000 )
 
@@ -26,10 +35,10 @@ position = Vector2( -1200, 40 )
 position = Vector2( 485.044, 700.781 )
 
 [node name="MissTrunchbull" parent="FirstClassroom" instance=ExtResource( 4 )]
-position = Vector2( 640, 760 )
+position = Vector2( 500, 657.187 )
 
 [node name="StupidNpc" parent="FirstClassroom" instance=ExtResource( 4 )]
-position = Vector2( 860, 820 )
+position = Vector2( 780, 873.609 )
 
 [node name="OtherClassroom" parent="." instance=ExtResource( 11 )]
 
@@ -42,18 +51,9 @@ script = ExtResource( 3 )
 position = Vector2( 512, 300 )
 smoothing_enabled = true
 
-[node name="Steve" parent="." instance=ExtResource( 4 )]
-position = Vector2( 520, 740 )
-
-[node name="Gteve" parent="." instance=ExtResource( 4 )]
-position = Vector2( 640, 760 )
-
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
-
-[node name="Wastebin" parent="." instance=ExtResource( 4 )]
-position = Vector2( 200, 840 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 620, 1080 )
