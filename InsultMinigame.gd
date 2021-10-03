@@ -33,6 +33,7 @@ var curr_word_spawned = false
 var curr_word_node
 var bad_spawns = 0
 var game_ended = false
+var game_started = false
 
 onready var cursor = $InsultScroller/Cursor
 onready var bg = $InsultScroller/Background
@@ -55,6 +56,7 @@ func run_game(insult_words, key_word_indices, speed_scalar, bad_word_spawn_chanc
   key_words = []
   for i in key_word_indices:
     key_words.append(insult_words[i])
+  game_started = true
 
 var move_up = false
 var move_down = false
@@ -63,6 +65,8 @@ func _process(delta):
   move_down = move_down or Input.is_action_just_pressed("ui_down")
 
 func _physics_process(delta):
+  if not game_started:
+    return
   if not game_ended and check_game_end():
     game_ended = true
     emit_signal("minigame_over")
