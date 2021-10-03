@@ -76,6 +76,7 @@ config/icon="res://icon.png"
 
 G="*res://Globals.gd"
 Dialogs="*res://Dialogs.gd"
+Enemies="*res://enemy_info.gd"
 
 [input]
 

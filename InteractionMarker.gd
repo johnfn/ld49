@@ -79,10 +79,10 @@ func check_for_interactions():
     choose_anger()
   
 func update_labels():
-  interact_label.text = G.enemy_info[interactor.enemy_type].interaction
+  interact_label.text = Enemies.info()[interactor.enemy_type].interaction
 
 func can_get_angry() -> bool:
-  var is_inanimate = G.enemy_info[interactor.enemy_type].is_inanimate
+  var is_inanimate = Enemies.info()[interactor.enemy_type].is_inanimate
   
   return (not is_inanimate) or (G.has_true_enlightenment())
 

@@ -75,89 +75,6 @@ enum ENEMIES {
   Chalkboard,
 }
 
-var enemy_info = {
-  ENEMIES.Steve: {
-    "name": "Steve",
-    "drop": InventoryItem.None,
-    "interaction": "Talk to Steve",
-    "health": 25,
-    "xp": 30,
-    "is_inanimate": false,
-    "tscn": load("res://BattleEnemy.tscn"),
-  },
-  
-  ENEMIES.Gteve: {
-    "name": "Gteve",
-    "drop": InventoryItem.None,
-    "interaction": "Talk to Gteve",
-    "health": 25,
-    "xp": 25,
-    "is_inanimate": false,
-    "tscn": load("res://BattleEnemy.tscn"),
-  },
-  
-  ENEMIES.Wastebasket: {
-    "name": "Wastebasket",
-    "drop": InventoryItem.None,
-    "interaction": "Inspect wastebasket",
-    "health": 5,
-    "xp": 15,
-    "is_inanimate": true,
-    "tscn": load("res://BattleEnemy.tscn"),
-  },
-  
-  ENEMIES.MissTrunchbull: {
-    "name": "Miss Trunchbull",
-    "interaction": "Talk to Miss Trunchbull",
-    "drop": InventoryItem.HallPass,
-    "health": 25,
-    "xp": 30,
-    "is_inanimate": false,
-    "tscn": load("res://BattleEnemy.tscn"),
-  },
-  
-  ENEMIES.Poster: {
-    "name": "Poster",
-    "interaction": "Read poster",
-    "drop": InventoryItem.None,
-    "health": 25,
-    "xp": 30,
-    "is_inanimate": true,
-    "tscn": load("res://BattleEnemy.tscn"),
-  },
-  
-  ENEMIES.Door: {
-    "name": "Door",
-    "interaction": "Open door",
-    "drop": InventoryItem.None,
-    "health": 25,
-    "xp": 30,
-    "is_inanimate": true,
-    "tscn": load("res://BattleEnemy.tscn"),
-  },
-  
-  ENEMIES.Chalkboard: {
-    "name": "Door",
-    "interaction": "Read chalkboard",
-    "drop": InventoryItem.None,
-    "health": 25,
-    "xp": 30,
-    "is_inanimate": true,
-    "tscn": load("res://BattleEnemy.tscn"),
-  },
-  
-    
-  ENEMIES.Clock: {
-    "name": "Clock",
-    "interaction": "Look at clock",
-    "drop": InventoryItem.None,
-    "health": 25,
-    "xp": 30,
-    "is_inanimate": true,
-    "tscn": load("res://BattleEnemy.tscn"),
-  },
-}
-
 var health = 20
 var max_health = 20
 var interactables: Array = []
@@ -198,7 +115,7 @@ func end_battle():
   var items_gotten = []
   
   for enemy in G.battling_against:
-    var info = enemy_info[enemy.enemy_type]
+    var info = Enemies.info()[enemy.enemy_type]
     
     if info.drop != InventoryItem.None:
       inventory_contents.push_back(info.drop)
