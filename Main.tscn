@@ -16,6 +16,7 @@
 [node name="Hallway" parent="." instance=ExtResource( 2 )]
 
 [node name="FirstClassroom" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1440, 0 )
 
 [node name="CinematicTrigger" parent="FirstClassroom" instance=ExtResource( 7 )]
 
@@ -31,32 +32,35 @@ smoothing_enabled = true
 [node name="Steve" parent="." instance=ExtResource( 4 )]
 position = Vector2( 134.946, 336.519 )
 dialog = "steve_dialog"
+interaction_name = "Talk to Steve"
 
 [node name="MissTrunchbull" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1560, -120 )
 dialog = "miss_trunchbull_dialog"
-interaction_name = "MissTrunchbull"
+interaction_name = "Talk to Miss Trunchbull"
 drop_type = 1
 
 [node name="StupidNpc" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1040, -200 )
+position = Vector2( 1960, -160 )
 dialog = "billy_dialog"
-interaction_name = "Billy"
+interaction_name = "Talk to Billy"
 
 [node name="Gteve" parent="." instance=ExtResource( 4 )]
 position = Vector2( 40, 360 )
 dialog = "steve_dialog"
+interaction_name = "Talk to Gteve"
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
 
 [node name="Wastebin" parent="." instance=ExtResource( 4 )]
-position = Vector2( 40, 720 )
+position = Vector2( 200, 840 )
 dialog = "wastebin_dialog"
 interaction_name = "Wastebin"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1080, -80 )
+position = Vector2( 480, 120 )
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 

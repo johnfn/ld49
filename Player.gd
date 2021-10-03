@@ -22,5 +22,5 @@ func move():
   
   move_and_slide(d)
 
-func _process(delta):
+func _physics_process(delta):
   move()

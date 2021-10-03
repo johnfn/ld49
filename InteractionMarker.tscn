@@ -19,7 +19,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3.935, -15 ), Vector2( 3.935, 15 ), Vector2( 3.935, -15 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 resource_name = "MediumAngry"
 length = 0.4
 loop = true
@@ -135,7 +135,7 @@ tracks/6/keys = {
 "values": [ Color( 0.505882, 0.164706, 0.278431, 1 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=4]
 radius = 97.4675
 
 [node name="InteractionMarker" type="Node2D" groups=[
@@ -153,7 +153,7 @@ polygon = PoolVector2Array( 6.38369, -14.966, 17.6696, 4.29263, 30.3016, -14.655
 anims/Bobble = SubResource( 1 )
 anims/ChooseAngry = ExtResource( 2 )
 anims/ChooseInteract = ExtResource( 2 )
-anims/MediumAngry = SubResource( 4 )
+anims/MediumAngry = SubResource( 5 )
 anims/SlideInMenu = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -161,7 +161,7 @@ position = Vector2( 3.93455, -5.38412 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 4.18309, 16.9094 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Menu" type="Node2D" parent="."]
 z_index = 1
@@ -178,7 +178,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="XToInteract" type="Label" parent="Menu/AngryMenuItem"]
+[node name="XToAngry" type="Label" parent="Menu/AngryMenuItem"]
 margin_left = 4.06967
 margin_top = 9.40166
 margin_right = 84.0697
@@ -199,7 +199,7 @@ margin_left = -29.5719
 margin_top = 6.18947
 margin_right = 10.4281
 margin_bottom = 20.1895
-text = "Z"
+text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -214,11 +214,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ZToAngry" type="Label" parent="Menu/InteractMenuItem"]
-margin_left = 3.61116
+[node name="ZToInteract" type="Label" parent="Menu/InteractMenuItem"]
+margin_left = 3.04317
 margin_top = 6.42155
-margin_right = 83.6112
-margin_bottom = 20.4215
+margin_right = 83.0432
+margin_bottom = 20.4216
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "to interact"
 __meta__ = {
@@ -236,7 +236,10 @@ margin_top = 6.8772
 margin_right = 10.1989
 margin_bottom = 20.8772
 rect_pivot_offset = Vector2( 49.7035, 14.3919 )
-text = "X"
+text = "Z"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

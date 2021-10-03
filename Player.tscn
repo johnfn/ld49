@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://art/overworld/mcfront1.png" type="Texture" id=2]
-[ext_resource path="res://art/LightRadius.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22.1353, 26.8893 )
@@ -23,9 +22,3 @@ polygon = PoolVector2Array( 12.5697, 75.7993, 31.0124, 82.4056, 51.6571, 73.8725
 position = Vector2( 24.5376, 0.923452 )
 scale = Vector2( 0.570071, 0.570071 )
 texture = ExtResource( 2 )
-
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 10.7175, 65.4898 )
-scale = Vector2( 5.76589, 5.76589 )
-texture = ExtResource( 3 )
-shadow_enabled = true

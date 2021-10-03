@@ -1,35 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Door.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 40, 20 )
-
-[sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( -40, 0, -40, 40, 40, 40, 40, 0 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 120, 20 )
 
 [node name="Door" type="StaticBody2D"]
 position = Vector2( 120, 0 )
 script = ExtResource( 2 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -40.0
-margin_right = 40.0
-margin_bottom = 40.0
-color = Color( 0.678431, 0.0352941, 0.0352941, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="InteractionMarker" parent="." instance=ExtResource( 1 )]
 position = Vector2( -20, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 20 )
-shape = SubResource( 3 )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 2 )
+shape = SubResource( 1 )
 
 [connection signal="on_interact" from="InteractionMarker" to="." method="_on_InteractionMarker_on_interact"]

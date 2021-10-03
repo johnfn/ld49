@@ -9,6 +9,8 @@ onready var marker = $InteractionMarker
 onready var animation = $AnimationPlayer
 onready var interactor = $"../"
 onready var menu = $Menu
+onready var interact_label = $Menu/InteractMenuItem/ZToInteract
+onready var angry_label = $Menu/AngryMenuItem/XToAngry
 
 var is_player_inside = false
 var has_triggered_this_time = false
@@ -89,6 +91,7 @@ func _process(delta):
         menu.visible = true
         animation.play("SlideInMenu")
         animation.advance(0)
+        interact_label.text = interactor.interaction_name
         
     State.TransitionIn:
       if not animation.is_playing():
