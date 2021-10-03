@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://art/overworld/badhallway.png" type="Texture" id=1]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Poster.tscn" type="PackedScene" id=3]
 
 [node name="Hallway" type="Node2D"]
 
@@ -38,3 +39,6 @@ polygon = PoolVector2Array( 880, 1600, 1000, 1600, 1000, 2000, 620, 2000, 620, 1
 
 [node name="Door" parent="." instance=ExtResource( 2 )]
 position = Vector2( 460, -40 )
+
+[node name="Poster" parent="." instance=ExtResource( 3 )]
+position = Vector2( 740, 240 )

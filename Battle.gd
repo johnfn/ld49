@@ -27,7 +27,7 @@ func _ready():
 
 func hide_everything():
   visible = false
-  $ColorRect.visible = false
+  $Background.visible = false
   
   for child in $HUD.get_children():
     if "visible" in child:
@@ -35,7 +35,7 @@ func hide_everything():
 
 func show_everything():
   visible = true
-  $ColorRect.visible = true
+  $Background.visible = true
 
   for child in $HUD.get_children():
     if "visible" in child:

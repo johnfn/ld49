@@ -1,5 +1,8 @@
+tool
 extends Node2D
 class_name InteractionMarker
+
+export(float) var interaction_scale = 1
 
 signal on_interact
 signal on_anger
@@ -75,7 +78,14 @@ func check_for_interactions():
     animation.play("ChooseAngry")
     choose_anger()
   
+func update_labels():
+  interact_label.text = interactor.interaction_name
+  
 func _process(delta):
+  if Engine.editor_hint:
+    $Area2D/CollisionShape2D.scale = Vector2(interaction_scale, interaction_scale)
+    return
+    
   if get_closest_interactable() != interactor:
     menu.visible = false
     state = State.Invisible
@@ -91,7 +101,7 @@ func _process(delta):
         menu.visible = true
         animation.play("SlideInMenu")
         animation.advance(0)
-        interact_label.text = interactor.interaction_name
+        update_labels()
         
     State.TransitionIn:
       if not animation.is_playing():
@@ -100,6 +110,8 @@ func _process(delta):
       check_for_interactions()
         
     State.Visible:
+      update_labels()
+              
       if not is_player_inside:
         state = State.TransitionOut
         animation.play_backwards("SlideInMenu")

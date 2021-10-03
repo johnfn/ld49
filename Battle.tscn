@@ -28,7 +28,8 @@ position = Vector2( 0.752563, 0.752563 )
 z_index = 2
 script = ExtResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
+visible = false
 margin_right = 1021.0
 margin_bottom = 591.0
 color = Color( 0.0705882, 0.0588235, 0.184314, 1 )
