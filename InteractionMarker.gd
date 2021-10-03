@@ -82,7 +82,13 @@ func update_labels():
   interact_label.text = Enemies.info()[interactor.enemy_type].interaction
 
 func can_get_angry() -> bool:
-  var is_inanimate = Enemies.info()[interactor.enemy_type].is_inanimate
+  var info = Enemies.info()[interactor.enemy_type]
+  
+  var is_inanimate = info.is_inanimate
+  var can_ever_fight = "can_ever_fight" in info and info.can_ever_fight
+  
+  if not can_ever_fight:
+    return false
   
   return (not is_inanimate) or (G.has_true_enlightenment())
 

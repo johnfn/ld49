@@ -70,7 +70,8 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "tscn": load("res://BattleEnemy.tscn"),
-      "dialog": funcref(self, "chalkboard_inspect")
+      "dialog": funcref(self, "chalkboard_inspect"),
+      "can_ever_fight": false
     },
       
     G.ENEMIES.Clock: {
@@ -81,7 +82,8 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "tscn": load("res://BattleEnemy.tscn"),
-      "dialog": funcref(self, "clock_inspect")
+      "dialog": funcref(self, "clock_inspect"),
+      "can_ever_fight": false
     },
   }
 
