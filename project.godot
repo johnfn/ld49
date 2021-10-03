@@ -49,7 +49,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Inventory.gd"
 }, {
-"base": "StaticBody2D",
+"base": "KinematicBody2D",
 "class": "Npc",
 "language": "GDScript",
 "path": "res://Npc.gd"
