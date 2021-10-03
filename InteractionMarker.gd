@@ -17,6 +17,7 @@ enum State {
   Invisible,
   TransitionIn,
   Visible,
+  MediumAnger,
   ChooseAngryAnim,
   ChooseInteractAnim,
   TransitionOut,  
@@ -53,7 +54,6 @@ func get_closest_interactable():
   return closest
 
 func choose_interact():
-  print("Choose interact")
   if get_closest_interactable() == interactor:
     emit_signal("on_interact")
 
@@ -63,19 +63,24 @@ func choose_anger():
   get_tree().change_scene("res://Battle.tscn")
 
 func check_for_interactions():
-  if Input.is_action_just_pressed("action") and G.mode == 0:
+  if Input.is_action_just_pressed("action") and G.mode == G.PauseMode.None:
     animation.advance(9999)
     state = State.ChooseInteractAnim
     animation.play("ChooseInteract")
     choose_interact()
     
-  if Input.is_action_just_pressed("angry") and G.mode == 0:
+  if Input.is_action_just_pressed("angry") and G.mode == G.PauseMode.None:
     animation.advance(9999)
     state = State.ChooseAngryAnim
     animation.play("ChooseAngry")
     choose_anger()
   
-func _process(delta):  
+func _process(delta):
+  if get_closest_interactable() != interactor:
+    menu.visible = false
+    state = State.Invisible
+    return
+  
   match state:
     State.Invisible:
       if is_player_inside:
@@ -91,6 +96,17 @@ func _process(delta):
       check_for_interactions()
         
     State.Visible:
+      if not is_player_inside:
+        state = State.TransitionOut
+        animation.play_backwards("SlideInMenu")
+      
+      check_for_interactions()
+      
+      if interactor.name == "MissTrunchbull" and G.mode == G.PauseMode.None:
+        state = State.MediumAnger
+        animation.play("MediumAngry")
+    
+    State.MediumAnger:
       if not is_player_inside:
         state = State.TransitionOut
         animation.play_backwards("SlideInMenu")

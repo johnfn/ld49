@@ -3,7 +3,7 @@
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Door.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 40, 20 )
 
 [sub_resource type="OccluderPolygon2D" id=2]
@@ -27,7 +27,9 @@ position = Vector2( -20, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 20 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 2 )
+
+[connection signal="on_interact" from="InteractionMarker" to="." method="_on_InteractionMarker_on_interact"]
