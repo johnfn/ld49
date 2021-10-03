@@ -90,7 +90,7 @@ func _process(delta):
   if Engine.editor_hint:
     $Area2D/CollisionShape2D.scale = Vector2(interaction_scale, interaction_scale)
     return
-    
+  
   if get_closest_interactable() != interactor:
     menu.visible = false
     state = State.Invisible
@@ -100,7 +100,6 @@ func _process(delta):
     return
   
   $Menu/AngryMenuItem.visible = can_get_angry()
-  
   match state:
     State.Invisible:
       if is_player_inside:

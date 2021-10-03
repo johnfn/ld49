@@ -71,6 +71,7 @@ enum ENEMIES {
   MissTrunchbull,
   Door,
   Poster,
+  Chalkboard,
 }
 
 var enemy_info = {
@@ -127,6 +128,16 @@ var enemy_info = {
   ENEMIES.Door: {
     "name": "Door",
     "interaction": "Open door",
+    "drop": InventoryItem.None,
+    "health": 25,
+    "xp": 30,
+    "is_inanimate": true,
+    "tscn": load("res://BattleEnemy.tscn"),
+  },
+  
+  ENEMIES.Chalkboard: {
+    "name": "Door",
+    "interaction": "Read chalkboard",
     "drop": InventoryItem.None,
     "health": 25,
     "xp": 30,

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://art/overworld/classroom.png" type="Texture" id=1]
 [ext_resource path="res://RoomDimmer.gd" type="Script" id=2]
 [ext_resource path="res://BlueDesk.tscn" type="PackedScene" id=3]
 [ext_resource path="res://RedDesk.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Chalkboard.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 560, 440 )
@@ -27,6 +28,9 @@ position = Vector2( 600, 0 )
 
 [node name="RedDesk" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
 position = Vector2( 440, -120 )
+
+[node name="Chalkboard" parent="RoomDimmer/Graphics" instance=ExtResource( 5 )]
+position = Vector2( 600, 440 )
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
 visible = false
