@@ -16,9 +16,10 @@
 [node name="Hallway" parent="." instance=ExtResource( 2 )]
 
 [node name="FirstClassroom" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1440, 0 )
+position = Vector2( -1197.69, 41.5677 )
 
 [node name="CinematicTrigger" parent="FirstClassroom" instance=ExtResource( 7 )]
+position = Vector2( 485.044, 700.781 )
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
@@ -35,13 +36,13 @@ dialog = "steve_dialog"
 interaction_name = "Talk to Steve"
 
 [node name="MissTrunchbull" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1560, -120 )
+position = Vector2( -946.373, 616.943 )
 dialog = "miss_trunchbull_dialog"
 interaction_name = "Talk to Miss Trunchbull"
 drop_type = 1
 
 [node name="StupidNpc" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1960, -160 )
+position = Vector2( -400.519, 887.84 )
 dialog = "billy_dialog"
 interaction_name = "Talk to Billy"
 
