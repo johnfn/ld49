@@ -1,12 +1,39 @@
 extends Node2D
 
-func _ready():
-  $Graphics.modulate = Color(1, 1, 1, 0.5)
+enum State {
+  Dim,
+  FadeIn,
+  Visible,
+  FadeOut,  
+}
 
+var state = State.Dim
+
+
+func _ready():
+  $Graphics.modulate = Color(1, 1, 1, 0.3)
+
+func _process(delta):
+  match state:
+    State.Dim:
+      return
+    State.Visible:
+      return
+    State.FadeIn:
+      if $Graphics.modulate.a < 1.0:
+        $Graphics.modulate.a = min(1.0, $Graphics.modulate.a + 0.05)
+      else:
+        state = State.Visible
+    State.FadeOut:
+      if $Graphics.modulate.a > 0.3:
+        $Graphics.modulate.a = max(0.3, $Graphics.modulate.a - 0.05)
+      else:
+        state = State.Dim
+        
 func _on_Area2D_body_entered(body):
   if body == G.player():
-    $Graphics.modulate = Color(1, 1, 1, 1)
+    state = State.FadeIn
 
 func _on_Area2D_body_exited(body):
   if body == G.player():
-    $Graphics.modulate = Color(1, 1, 1, 0.3)
+    state = State.FadeOut

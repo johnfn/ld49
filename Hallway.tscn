@@ -47,6 +47,7 @@ position = Vector2( 740, 240 )
 script = ExtResource( 4 )
 
 [node name="Graphics" type="Node2D" parent="RoomDimmer"]
+modulate = Color( 1, 1, 1, 0.5 )
 
 [node name="HallwayGraphics" type="Sprite" parent="RoomDimmer/Graphics"]
 texture = ExtResource( 1 )

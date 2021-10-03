@@ -12,6 +12,7 @@ extents = Vector2( 560, 440 )
 script = ExtResource( 2 )
 
 [node name="Graphics" type="Node2D" parent="RoomDimmer"]
+modulate = Color( 1, 1, 1, 0.5 )
 
 [node name="classroom" type="Sprite" parent="RoomDimmer/Graphics"]
 texture = ExtResource( 1 )
