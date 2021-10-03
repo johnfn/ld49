@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Clock.gd" type="Script" id=1]
+[ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=2]
+
+[node name="Clock" type="Node2D"]
+position = Vector2( 600, 360 )
+script = ExtResource( 1 )
+
+[node name="InteractionMarker" parent="." instance=ExtResource( 2 )]
+position = Vector2( -20, 0 )
+interaction_scale = 2.0
+
+[connection signal="on_interact" from="InteractionMarker" to="." method="_on_InteractionMarker_on_interact"]

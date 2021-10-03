@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/rightthing.mp3-2e1d795279af8edc1b513f8561d79aef.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/battle sfx/rightthing.mp3"
+dest_files=[ "res://.import/rightthing.mp3-2e1d795279af8edc1b513f8561d79aef.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
