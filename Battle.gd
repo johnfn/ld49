@@ -74,9 +74,6 @@ func end_battle():
   
   hide_everything()
   G.end_battle()
-  
-  # GABY HALP HOW DO I GET XP
-  G.gain_xp(30)
 
 func _process(delta):
   if not G.in_battle:

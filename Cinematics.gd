@@ -108,6 +108,15 @@ func get_inventory_item(name: String):
   fade_from_black_timed()
   end_cinematic()
 
+func gain_level(level: int):
+  start_cinematic()
+  snap_camera()
+  insta_go_to_semiblack()
+  yield(write_overlay_text("You gained a level!"), "completed")
+  yield(write_overlay_text("You are now level %d." % level), "completed")
+  fade_from_black_timed()
+  end_cinematic()
+
 func _ready():
   for child in get_children():
     if "visible" in child:

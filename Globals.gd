@@ -77,8 +77,11 @@ var level_xp = [20, 40, 80, 200, 500, 1000, 2500, 5000, 10000]
 var in_battle = false
 var battling_against: Array = [$"/root/Main/Steve", $"/root/Main/Gteve"]
 
-func gain_xp(amount: int):
-  xp += amount
+func get_level():
+  for x in range(len(level_xp)):
+    if level_xp[x] > xp:
+      return x + 1
+  return 15
 
 func next_level_xp():
   for next_xp in level_xp:
@@ -103,6 +106,13 @@ func end_battle():
   
   if items_gotten.size() > 0:
     yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
+  
+  var old_level = get_level()
+  
+  xp += 30
+  
+  if old_level != get_level():
+    yield(cinematics.gain_level(get_level()), "completed")
   
   G.camera().current = true
   
