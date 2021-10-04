@@ -146,6 +146,24 @@ func info():
       "xp": 30,
       "is_inanimate": false,
       "battle_tscn": load("res://BattleEnemy.tscn"),
+      "intro": "Miss Trunchbull GOT YOU ANGRY!",
+      "victory": "...just take this and get out of my sight...",
+      "defeat": "i wonder if this building will still be around by the time your detention is over",
+      "playerLines": [
+        "the only thing you've taught me is that you're not worth listening to",
+        "i recorded your class to help with my insomnia",
+        "one of the world's famous unsolved problems is how you remain employed",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      "enemyLines": [
+        "i could only tell it was yours because it was illegible",
+        "this is a more pitiful showing than your last exam",
+        "class clown isnt meant to be taken this literally timmy",
+       ]
     },
     
     G.ENEMIES.PrincipalPike: {
@@ -156,6 +174,24 @@ func info():
       "xp": 30,
       "is_inanimate": false,
       "battle_tscn": load("res://BattleEnemy.tscn"),
+      "intro": "Principal Pike IS AIMED AT YOU!",
+      "victory": "only a few years until retirement...",
+      "defeat": "another problem solved",
+      "playerLines": [
+        "you have no principles",
+        "you're compensating for how powerless you are everywhere else",
+        "i'm going home, you're going to a home",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      "enemyLines": [
+        "school was never a good fit for you anyways",
+        "now you can go somewhere you fit in better, like prison",
+        "remember that time you got sent here covered in glue",
+       ]
     },
     
     G.ENEMIES.SchoolFiles: {
@@ -166,6 +202,24 @@ func info():
       "xp": 30,
       "is_inanimate": false,
       "battle_tscn": load("res://BattleEnemy.tscn"),
+      "intro": "Timmy's School Files GOT YOU RILED!",
+      "victory": '"Student is very persistent."',
+      "defeat": '"Student is destined for failure."',
+      "playerLines": [
+        "your arguments are thin",
+        "its all the same to a shredder",
+        "youre full of sheets",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      "enemyLines": [
+        '"Strengths: Is able to read. If the words are short."',
+        '"Weaknesses: Boring, stupid... Continues on pages 2-4."',
+        '"Seems to have eaten a lot of glue as a child."',
+       ]
     },
     
     G.ENEMIES.Stapler: {
@@ -176,6 +230,24 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
+      "intro": "A Stapler HAS YOU SEEING RED!",
+      "victory": "does making staplers feel bad make you feel good?",
+      "defeat": "feel my two pronged wrath, loser",
+      "playerLines": [
+        "you remind me of clippy",
+        "you are becoming increasingly irrelevant in modern society ",
+        "initech proves you cant handle burns",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      "enemyLines": [
+        "maybe with some staples you could hold your life together",
+        "is that really the best line you can swing",
+        "kids are a staple of my diet",
+       ]
     },
     
     G.ENEMIES.MichaelwaveOven: {
@@ -186,6 +258,24 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
+      "intro": "Michaelwave Oven GOT YOU HEATED!",
+      "victory": "wow youre better at burning things than i am",
+      "defeat": "*DING*",
+      "playerLines": [
+        "you don't deserve to be a named character",
+        "you're as cold inside as you leave food",
+        "everyone wishes you weren't so loud",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      "enemyLines": [
+        "who better than me to roast you",
+        "im the only one who will show you warmth",
+        "ill make your head spin",
+       ]
     },
     
     G.ENEMIES.LoungeDoor: {
@@ -196,6 +286,24 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
+      "intro": "The Teacher's Lounge Door IS LOCKED IN YOUR SIGHTS!",
+      "victory": "",
+      "defeat": "",
+      "playerLines": [
+        "you make a worse door than a window",
+        "your insults are adoorable",
+        "you're a doork",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      "enemyLines": [
+        "a doornail is actually much smarter than you",
+        "nothing will ever hinge on you",
+        "you cant handle these insults",
+       ]
     },
     
     G.ENEMIES.SchoolDoors: {
@@ -206,6 +314,24 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
+      "intro": "The School Doors STAND IN YOUR WAY!",
+      "victory": "it appears my steel deadbolt was no match for your harsh words",
+      "defeat": "rain, shine, or fire alarm, no one crosses my threshold",
+      "playerLines": [
+        "youre all metal no mettle",
+        "everyone that gets close to you leaves",
+        "your mother was the lowest bidding supplier",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      "enemyLines": [
+        "a doormat like you is beneath me",
+        "let me choose not to open up you dont either",
+        "people laughing at you behind closed doors doesn't mean you need to take it out on me",
+       ]
     },
     
     G.ENEMIES.TheGame: {
@@ -216,6 +342,25 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
+      "intro": "The Game IS TRYING TO PLAY YOU!",
+      "victory": "",
+      "defeat": "",
+      "playerLines": [
+        "no one will play you three weeks from now",
+        "even ign would rate this below a 3",
+        "you do evoke a strong feeling... unfortunately, it's boredom",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      # TODO fill in the blanks
+      "enemyLines": [
+        "normally people make it here way faster than <insert time taken to get here>",
+        "you must be pretty bad to have taken <damage total> damage",
+        "hey, you only cried <cry count> times, that's a good day for you",
+       ]
     },
     
     G.ENEMIES.Credits: {
@@ -226,6 +371,25 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
+      "intro": "The Credits FOUND A WAY TO MAKE YOU WATCH THEM!",
+      "victory": "",
+      "defeat": "",
+      # TODO line these up
+      "playerLines": [
+        "this gimmick has been done a ton of times already",
+        "true",
+        "wow i thought you put in a lot less than that",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      "enemyLines": [
+        "you cant exist without me",
+        "youre a poorly written character",
+        "looks like theres a reason people take more than three days to make",
+       ]
     },
     
     G.ENEMIES.Steve: {
@@ -238,6 +402,24 @@ func info():
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "steve_talk"),
       "walks": true,
+      "intro": "",
+      "victory": "",
+      "defeat": "",
+      "playerLines": [
+        "",
+        "",
+        "",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      "enemyLines": [
+        "",
+        "",
+        "",
+       ]
     },
     
     G.ENEMIES.Gteve: {
@@ -250,6 +432,24 @@ func info():
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "gteve_talk"),
       "walks": true,
+      "intro": "",
+      "victory": "",
+      "defeat": "",
+      "playerLines": [
+        "",
+        "",
+        "",
+       ],
+      "keyWords": [
+        [],
+        [],
+        [],
+       ],
+      "enemyLines": [
+        "",
+        "",
+        "",
+       ]
     },
   }
 

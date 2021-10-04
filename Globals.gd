@@ -79,6 +79,14 @@ enum ENEMIES {
   TeacherPoster,
   TeacherClock,
   TeacherRug,
+  PrincipalPike,
+  SchoolFiles,
+  TheGame,
+  Credits,
+  SchoolDoors,
+  LoungeDoor,
+  MichaelwaveOven,
+  Stapler,
 }
 
 var health = 20
