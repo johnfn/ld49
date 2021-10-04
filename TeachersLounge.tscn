@@ -56,10 +56,11 @@ enemy_type = 31
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDimmer/Area2D"]
-position = Vector2( 358.837, 460 )
+position = Vector2( 359.78, 460 )
 shape = SubResource( 1 )
 
 [node name="Collisions" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 80, 160 )
