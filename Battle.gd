@@ -282,3 +282,18 @@ func on_cry_pressed():
   G.health = min(G.max_health, G.health + G.healing)
   G.cry_tally += 1
   enemy_attack()
+
+
+func _on_InsultButton_mouse_entered():
+  $HUD/BattleOptions/InsultButton.modulate = Color(0.95, 0.95, .95, 1.0)
+
+func _on_InsultButton_mouse_exited():
+  $HUD/BattleOptions/InsultButton.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+
+func _on_CryButton_mouse_entered():
+  $HUD/BattleOptions/CryButton.modulate = Color(0.95, 0.95, .95, 1.0)
+
+
+func _on_CryButton_mouse_exited():
+  $HUD/BattleOptions/CryButton.modulate = Color(1.0, 1.0, 1.0, 1.0)
