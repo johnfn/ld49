@@ -234,6 +234,8 @@ func get_inventory_item(name: String):
     G.start_battle([school_files])
 
 func death():
+  Enemies.full_heal_exists = true
+  
   start_cinematic()
   fade_to_black_timed()
   yield(write_overlay_text("You were insulted so hard you passed out!"), "completed")

@@ -765,11 +765,18 @@ func recycling_inspect():
       ]
     )
     
+    full_heal_exists = false
     return
-    
-  G.dialog().start([ 
-    { "speaker": "You", "dialog": "It's empty.", },
-  ])
+  
+  if full_heal_exists:
+    G.dialog().start([ 
+      { "speaker": "You", "dialog": "Hey, there's some more food in here!", },
+      { "speaker": "You", "dialog": "GET:+HP", },
+    ])
+  else:
+    G.dialog().start([ 
+      { "speaker": "You", "dialog": "It's empty.", },
+    ])   
 
 func teacher_poster_inspect():
   G.dialog().start([      
