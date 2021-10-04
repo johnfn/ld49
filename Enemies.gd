@@ -167,9 +167,9 @@ func info():
         "one of the world's famous unsolved problems is how you remain employed",
        ],
       "keyWords": [
-        [],
-        [],
-        [],
+        ["only", "taught", "not", "listening"],
+        ["recorded", "your", "class", "insomnia"],
+        ["world's", "famous", "unsolved", "employment"],
        ],
       "enemyLines": [
         "i could only tell it was yours because it was illegible",
@@ -195,9 +195,9 @@ func info():
         "i'm going home, you're going to a home",
        ],
       "keyWords": [
-        [],
-        [],
-        [],
+        ["you", "have", "no", "principles"],
+        ["compensating", "for", "powerless", "everywhere"],
+        ["you're", "going", "to", "a", "home"],
        ],
       "enemyLines": [
         "school was never a good fit for you anyways",
@@ -219,13 +219,13 @@ func info():
       "defeat": '"Student is destined for failure."',
       "playerLines": [
         "your arguments are thin",
-        "its all the same to a shredder",
-        "youre full of sheets",
+        "it's all the same to a shredder",
+        "you're full of sheets",
        ],
       "keyWords": [
-        [],
-        [],
-        [],
+        ["your", "arguments", "are", "thin"],
+        ["all", "the", "same", "to", "shredder"],
+        ["you're", "full", "of", "sheets"],
        ],
       "enemyLines": [
         '"Strengths: Is able to read. If the words are short."',
@@ -248,12 +248,12 @@ func info():
       "playerLines": [
         "you remind me of clippy",
         "you are becoming increasingly irrelevant in modern society ",
-        "initech proves you cant handle burns",
+        "initech proves you can't handle burns",
        ],
       "keyWords": [
-        [],
-        [],
-        [],
+        ["you", "remind", "me", "clippy"],
+        ["you", "irrelevant", "modern", "society"],
+        ["you", "can't", "handle", "burns"],
        ],
       "enemyLines": [
         "maybe with some staples you could hold your life together",
@@ -279,9 +279,9 @@ func info():
         "everyone wishes you weren't so loud",
        ],
       "keyWords": [
-        [],
-        [],
-        [],
+        ["don't", "deserve", "named", "character"],
+        ["cold", "inside", "as", "food"],
+        ["everyone", "wishes", "weren't", "loud"],
        ],
       "enemyLines": [
         "who better than me to roast you",
@@ -307,9 +307,9 @@ func info():
         "you're a doork",
        ],
       "keyWords": [
-        [],
-        [],
-        [],
+        ["worse", "door", "than", "window"],
+        ["your", "insults", "are", "adoorable"],
+        ["you're", "a", "doork"],
        ],
       "enemyLines": [
         "a doornail is actually much smarter than you",
@@ -335,9 +335,9 @@ func info():
         "your mother was the lowest bidding supplier",
        ],
       "keyWords": [
-        [],
-        [],
-        [],
+        ["all", "metal", "no", "mettle"],
+        ["everyone", "gets", "close", "leaves"],
+        ["your", "mother", "lowest", "bidding", "supplier"],
        ],
       "enemyLines": [
         "a doormat like you is beneath me",
@@ -363,9 +363,9 @@ func info():
         "you do evoke a strong feeling... unfortunately, it's boredom",
        ],
       "keyWords": [
-        [],
-        [],
-        [],
+        ["no", "one", "will", "play", "you", "three", "weeks", "from", "now"],
+        ["even", "ign", "would", "rate", "this", "below", "a", "3"],
+        ["you", "evoke", "a", "strong", "feeling", "boredom"],
        ],
       # TODO fill in the blanks
       "enemyLines": [
@@ -393,9 +393,9 @@ func info():
         "wow i thought you put in a lot less than that",
        ],
       "keyWords": [
-        [],
-        [],
-        [],
+        ["this", "gimmick", "has", "been", "done", "already"],
+        ["true"],
+        ["i", "thought", "you", "put", "in", "less"],
        ],
       "enemyLines": [
         "you cant exist without me",
