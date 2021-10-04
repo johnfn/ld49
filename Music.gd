@@ -22,12 +22,10 @@ onready var confirm_2 = $Confirm2
 onready var confirm_3 = $Confirm3
 
 func _ready():
-  return # TODO
   $OverworldTheme.play()
   active_player = $OverworldTheme
 
 func play_audio(new_audio: AudioStreamPlayer):
-  return # TODO
   if new_audio == active_player:
     active_player.volume_db = 0.0
     

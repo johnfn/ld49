@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug = OS.get_environment("USER") == "johnfn" || true
+var debug = OS.get_environment("USER") == "johnfn"
 
 enum PauseMode {
   None = 0,
@@ -95,8 +95,8 @@ enum ENEMIES {
 }
 
 var attack = 5 # TODO maybe upgrade
-var healing = 5 # TODO
-var health = 15 # TODO set back to max
+var healing = 5 # TODO maybe upgrade
+var health = 20
 var max_health = 20
 var interactables: Array = []
 var mode = PauseMode.None

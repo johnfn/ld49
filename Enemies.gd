@@ -326,7 +326,7 @@ func info():
       "drop": G.InventoryItem.None,
       "health": 25,
       "xp": 30,
-      "is_inanimate": false, # TODO debugging
+      "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "intro": "The School Doors STAND IN YOUR WAY",
       "victory": "it appears my steel deadbolt was no match for your harsh words",

@@ -236,11 +236,3 @@ func on_cry_pressed():
   G.health = min(G.max_health, G.health + G.healing)
   G.cry_tally += 1
   enemy_attack()
-
-# TODO outro transition 
-# TODO damage animations
-# TODO health bar animation
-# TODO health bar masking
-# TODO cry animation?
-# TODO minigame transition
-# TODO minigame lower UI section
