@@ -152,7 +152,7 @@ anchor_left = 0.445
 anchor_right = 0.506
 margin_left = 40.0
 margin_top = -80.0
-margin_right = 244.0
+margin_right = 200.0
 margin_bottom = -34.0
 __meta__ = {
 "_edit_use_anchors_": false

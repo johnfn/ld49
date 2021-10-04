@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug = OS.get_environment("USER") == "johnfn" || true
+var debug = false # OS.get_environment("USER") == "johnfn" || true
 
 enum PauseMode {
   None = 0,
@@ -99,6 +99,8 @@ enum ENEMIES {
   Student5,
   Student6,
   ImageNotFound,
+  Locker,
+  Desk,
 }
 
 var attack = 50 if debug else 5
@@ -153,20 +155,30 @@ func end_battle_cleanup():
   G.battling_against = []
   G.battle_scene.visible = false
 
+func fanfare_and_then_resume():
+  Music.play_audio(Music.victory)
+  
+  yield(get_tree().create_timer(5), "timeout")
+  
+  Music.play_audio(Music.overworld_theme2 if has_true_enlightenment() else Music.overworld_theme)
+    
 func end_battle():
   yield(get_tree(), "idle_frame")
   
   if G.battling_against.size() == 0:
     return
   
-  Music.play_audio(Music.overworld_theme2 if has_true_enlightenment() else Music.overworld_theme)
-    
+  
+
   var first = battling_against[0]
   var type = first.enemy_type
   
   if G.health <= 0:
     handle_death()
+    Music.play_audio(Music.overworld_theme2 if has_true_enlightenment() else Music.overworld_theme)
     return
+  
+  fanfare_and_then_resume()
   
   var items_gotten = []
   var total_xp = 0

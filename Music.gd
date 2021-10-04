@@ -7,6 +7,7 @@ onready var overworld_theme = $OverworldTheme
 onready var overworld_theme2 = $OverworldTheme2
 onready var battle_theme = $BattleTheme
 onready var boss_theme = $BossTheme
+onready var victory = $Victory 
 
 onready var dialog_tick_1 = $DialogTick1
 onready var dialog_tick_2 = $DialogTick2

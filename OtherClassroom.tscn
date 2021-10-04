@@ -58,11 +58,13 @@ position = Vector2( 240, 500 )
 
 [node name="Npc4" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
 position = Vector2( 214.685, 422.24 )
+enemy_type = 29
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDimmer/Area2D"]
-position = Vector2( 640, 640 )
+position = Vector2( 639.25, 640 )
 shape = SubResource( 1 )
 
 [node name="GenericInspectable" parent="." instance=ExtResource( 2 )]
@@ -94,6 +96,10 @@ shape = SubResource( 4 )
 [node name="GenericInspectable3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 220, 1040 )
 enemy_type = 23
+
+[node name="GenericInspectable4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 616.386, 890.336 )
+enemy_type = 34
 
 [connection signal="body_entered" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_exited"]
