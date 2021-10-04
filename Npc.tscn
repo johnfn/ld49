@@ -13,7 +13,7 @@ flags = 4
 load_path = "res://.import/npc2.png-1ac8fe4821516f9732788c0cb7e156fd.stex"
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 118.183, 82.756 )
+extents = Vector2( 87.1297, 49.1438 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 20, 20 )
@@ -101,7 +101,7 @@ texture = ExtResource( 6 )
 
 [node name="Teacher\'s Lounge Door" type="Sprite" parent="Graphics"]
 position = Vector2( 24.7108, -12.9782 )
-scale = Vector2( 0.705783, 0.893624 )
+scale = Vector2( 1.3, 1.3 )
 texture = ExtResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Graphics/Teacher\'s Lounge Door"]
@@ -110,9 +110,11 @@ texture = ExtResource( 8 )
 position = Vector2( 0.409687, 7.13264 )
 shape = SubResource( 2 )
 
+[node name="Node2D" type="Node2D" parent="Graphics/Teacher\'s Lounge Door"]
+
 [node name="School Doors" type="Sprite" parent="Graphics"]
 position = Vector2( 24.7108, -12.9782 )
-scale = Vector2( 0.705783, 0.893624 )
+scale = Vector2( 1.3, 1.3 )
 texture = ExtResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Graphics/School Doors"]
