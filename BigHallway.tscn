@@ -126,7 +126,7 @@ script = ExtResource( 6 )
 modulate = Color( 1, 1, 1, 0.5 )
 
 [node name="bighallway" type="Sprite" parent="RoomDimmer/Graphics"]
-position = Vector2( 1380, 1020 )
+position = Vector2( 1380, 1018.23 )
 texture = ExtResource( 1 )
 
 [node name="LockerFront" parent="RoomDimmer/Graphics/bighallway" instance=ExtResource( 5 )]
@@ -191,7 +191,8 @@ position = Vector2( 619.967, 405.773 )
 enemy_type = 28
 
 [node name="Npc5" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
-position = Vector2( 1255.32, 1371.29 )
+position = Vector2( 654.019, 1336.5 )
+enemy_type = 27
 
 [node name="Npc7" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
 position = Vector2( 1376.68, 842.616 )

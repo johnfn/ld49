@@ -696,14 +696,14 @@ func steve_talk():
 
 func gteve_talk():
   G.dialog().start([      
-    { "speaker": "Gteve", "dialog": "Hey, I'm Gteve. Steve's my brother", },
+    { "speaker": "Gteve", "dialog": "Hey, I'm Steve's brother, Gteve.", },
     { "speaker": "You", "dialog": "...wtf?", },
   ])
 
 func chalkboard_inspect_2():
   G.dialog().start([      
     { "speaker": "You", "dialog": "It's a chalkboard", },
-    { "speaker": "You", "dialog": "Mr Mathews is teaching us the basics of how to use a piece of chalk to create a line on a chalkboard", },
+    { "speaker": "You", "dialog": "Mr. Mathews is teaching us the basics of how to use a piece of chalk to create a line on a chalkboard", },
     { "speaker": "You", "dialog": ".............", },
     { "speaker": "You", "dialog": "This class is so stupid", },
   ])
