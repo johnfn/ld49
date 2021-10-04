@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Cinematics.gd" type="Script" id=1]
+[ext_resource path="res://ItemGet.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "PressXToContinue"
@@ -41,6 +42,8 @@ text = "Blah blah overlay text here"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ItemGet" parent="." instance=ExtResource( 2 )]
 
 [node name="PressZToContinue" type="Label" parent="."]
 margin_left = 280.0

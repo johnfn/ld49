@@ -127,6 +127,43 @@ func info():
       "dialog": funcref(self, "tombstone_inspect"),
       "can_ever_fight": false
     },
+
+    
+    G.ENEMIES.TeacherPoster: {
+      "name": "Teacher's poster",
+      "interaction": "Read poster",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "teacher_poster_inspect"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.TeacherClock: {
+      "name": "Clock",
+      "interaction": "Inspect clock",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "teacher_clock_inspect"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.TeacherRug: {
+      "name": "Rug",
+      "interaction": "Inspect rug",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "teacher_rug_inspect"),
+      "can_ever_fight": false
+    },
   }
 
 func chalkboard_inspect():
@@ -196,4 +233,22 @@ func wastebasket_inspect():
     { "speaker": "You", "dialog": "This is a wastebin.", },
     { "speaker": "You", "dialog": "You look inside...", },
     { "speaker": "You", "dialog": "There's nothing here." },
+  ])
+
+func teacher_poster_inspect():
+  G.dialog().start([      
+    { "speaker": "You", "dialog": "It's a poster in the teacher's lounge", },
+  ])
+  
+func teacher_clock_inspect():
+  G.dialog().start([      
+    { "speaker": "You", "dialog": "Ah, it's not just any clock", },
+    { "speaker": "You", "dialog": "It's the clock in the *teacher's lounge*", },
+    { "speaker": "You", "dialog": "Wait, it's exactly the same as all the other ones...", }, 
+ ])
+
+func teacher_rug_inspect():
+  G.dialog().start([      
+    { "speaker": "You", "dialog": "It's the rug in the teacher's lounge", },
+    { "speaker": "You", "dialog": "This rug is legendary amongst kids in Coolvile High", },
   ])

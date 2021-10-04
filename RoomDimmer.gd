@@ -10,7 +10,6 @@ enum State {
 
 var state = State.Invisible
 
-
 func _ready():
   $Graphics.modulate = Color(1, 1, 1, 0)
 

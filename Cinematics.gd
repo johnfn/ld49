@@ -4,6 +4,7 @@ onready var screen_fade = $ScreenFade
 onready var overlay_text: Label = $OverlayText
 onready var press_z_to_continue: Label = $PressZToContinue
 onready var animation_player = $AnimationPlayer
+onready var item_get = $ItemGet
 
 func start_cinematic():
   get_tree().paused = true
@@ -28,6 +29,13 @@ func fade_from_black_timed():
     screen_fade.modulate = Color(1, 1, 1, x / 10.0)
     yield(get_tree(), "idle_frame")
 
+func wait_for_z_press():
+  while true:
+    yield(get_tree(), "idle_frame")
+    
+    if Input.is_action_just_pressed("action"):
+      break
+
 func show_press_z_to_continue():
   press_z_to_continue.visible = true
   
@@ -39,11 +47,7 @@ func show_press_z_to_continue():
   
   animation_player.play("PressXToContinue")
   
-  while true:
-    yield(get_tree(), "idle_frame")
-    
-    if Input.is_action_just_pressed("action"):
-      break
+  wait_for_z_press()
   
   yield(get_tree(), "idle_frame")
   hide_press_z_to_continue()
@@ -100,12 +104,31 @@ func _on_CinematicTrigger_on_trigger():
       { "speaker": "Miss Trunchbull", "dialog": "ive decided to send timmy to detention until he stops being a huge loser so say your last goodbyes now", },
     ])
 
+var fade_frames = 30.0
+var max_black = 0.88
 func get_inventory_item(name: String):
   start_cinematic()
   snap_camera()
-  insta_go_to_semiblack()
-  yield(write_overlay_text("You got a %s." % name), "completed")
-  fade_from_black_timed()
+  
+  item_get.show_item(name)
+  item_get.visible = true
+  screen_fade.visible = true
+  
+  for x in range(0, fade_frames):
+    screen_fade.modulate = Color(1, 1, 1, x / (fade_frames - 1) * max_black)
+    item_get.set_alpha(x / fade_frames)
+    yield(get_tree(), "idle_frame")
+  
+  yield(wait_for_z_press(), "completed")
+  
+  for x in range(fade_frames, 0, -1):
+    screen_fade.modulate = Color(1, 1, 1, (x - 1) / fade_frames * max_black)
+    item_get.set_alpha(x / fade_frames)
+    yield(get_tree(), "idle_frame")
+    
+  item_get.hide_item()
+  screen_fade.visible = false
+  item_get.visible = false
   end_cinematic()
 
 func gain_level(level: int, amount_of_xp: int):
@@ -125,6 +148,7 @@ func gain_xp(amount: int):
   yield(write_overlay_text("You're %d away from level %d" % [G.next_level_xp() - G.xp, G.get_level() + 1]), "completed")
   fade_from_black_timed()
   end_cinematic()
+  
 func _ready():
   for child in get_children():
     if "visible" in child:
