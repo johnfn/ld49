@@ -346,7 +346,7 @@ func info():
       "damage": 8,
       "speed": 0.6,
       "bad_spawn_chance": 0.4,
-      "spawn_time": 0.4,
+      "spawn_time": 0.4 / 0.6,
     },
     
     G.ENEMIES.PrincipalPike: {
@@ -441,9 +441,9 @@ func info():
       ],
       "dialog": funcref(self, "stapler_inspect"),
       "damage": 15,
-      "speed": 1.7,
+      "speed": 1.6,
       "bad_spawn_chance": 0.6,
-      "spawn_time": 1.0,
+      "spawn_time": 0.9,
     },
     
     G.ENEMIES.MichaelwaveOven: {
@@ -549,7 +549,7 @@ func info():
       "name": "The Game",
       "interaction": "Inspect the game",
       "drop": G.InventoryItem.None,
-      "health": 400,
+      "health": 300,
       "xp": 90,
       "damage": 12,
       "is_inanimate": true,
@@ -559,13 +559,13 @@ func info():
       "defeat": "the game was too much for you i see",
       "playerLines": [
         "no one will play you three weeks from now",
-        "even ign would rate this below a 3",
+        "even ign would rate this below a three",
         "you do evoke a strong feeling... unfortunately, it's boredom",
        ],
       "keyWords": [
         ["no", "one", "will", "play", "you", "three", "weeks", "from", "now"],
-        ["even", "ign", "would", "rate", "this", "below", "a", "3"],
-        ["you", "evoke", "a", "strong", "feeling", "boredom"],
+        ["even", "ign", "would", "rate", "this", "below", "a", "three"],
+        ["you", "evoke", "a", "strong", "feeling...", "boredom"],
        ],
       "enemyLines": [
         "normally people make it here way faster than <minutes> minutes",
@@ -574,7 +574,7 @@ func info():
        ],
        "speed": 1.2,
        "bad_spawn_chance": 0.9,
-       "spawn_time": 0.3,
+       "spawn_time": 0.45,
     },
     
     G.ENEMIES.Credits: {
@@ -604,9 +604,9 @@ func info():
         "looks like theres a reason people take more than three days to make",
         "you cant exist without me",
        ],
-       "speed": 1.5,
+       "speed": 1.35,
        "bad_spawn_chance": 0.8,
-       "spawn_time": 0.5,
+       "spawn_time": 0.6,
     },
     
     G.ENEMIES.Steve: {

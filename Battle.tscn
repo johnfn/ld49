@@ -437,7 +437,6 @@ __meta__ = {
 position = Vector2( 136.154, 144.163 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 4 )
-frame = 2
 playing = true
 
 [node name="EnemyUi" type="VBoxContainer" parent="HUD/RightHalf"]
