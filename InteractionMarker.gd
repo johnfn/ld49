@@ -7,7 +7,6 @@ export(float) var interaction_scale = 1
 signal on_interact
 signal on_anger
 
-onready var marker = $InteractionMarker
 onready var animation = $AnimationPlayer
 onready var interactor = $"../"
 onready var menu = $Menu
