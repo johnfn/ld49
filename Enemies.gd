@@ -28,7 +28,7 @@ func info():
     },
     
     G.ENEMIES.Student6: {
-      "name": "Student3",
+      "name": "Student6",
       "drop": G.InventoryItem.None,
       "interaction": "Talk",
       "health": 5,
@@ -64,7 +64,7 @@ func info():
     },
     
     G.ENEMIES.Student5: {
-      "name": "Student1",
+      "name": "Student5",
       "drop": G.InventoryItem.None,
       "interaction": "Talk",
       "health": 5,

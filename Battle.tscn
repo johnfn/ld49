@@ -534,7 +534,11 @@ position = Vector2( -680.753, 463.247 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SlideIn = SubResource( 3 )
 
+[connection signal="mouse_entered" from="HUD/BattleOptions/InsultButton" to="." method="_on_InsultButton_mouse_entered"]
+[connection signal="mouse_exited" from="HUD/BattleOptions/InsultButton" to="." method="_on_InsultButton_mouse_exited"]
 [connection signal="pressed" from="HUD/BattleOptions/InsultButton" to="." method="on_insult_pressed"]
+[connection signal="mouse_entered" from="HUD/BattleOptions/CryButton" to="." method="_on_CryButton_mouse_entered"]
+[connection signal="mouse_exited" from="HUD/BattleOptions/CryButton" to="." method="_on_CryButton_mouse_exited"]
 [connection signal="pressed" from="HUD/BattleOptions/CryButton" to="." method="on_cry_pressed"]
 [connection signal="pressed" from="HUD/RightHalf/EnemyContainer/TheGame/InsultButton" to="." method="on_insult_pressed"]
 [connection signal="pressed" from="HUD/RightHalf/EnemyContainer/TheGame/CryButton" to="." method="on_cry_pressed"]

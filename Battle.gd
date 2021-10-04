@@ -9,6 +9,7 @@ var minigame
 var minigame_tscn = load("res://InsultMinigame.tscn") 
 var is_in_minigame = false
 var is_player_turn
+var dead = false
 
 var hp_padding = 10
 var hp_bar_len = 143
@@ -84,6 +85,7 @@ func start_battle():
   enemy_data = Enemies.info()[G.battling_against[0].enemy_type]
   $HUD/RightHalf/EnemyUi/NameTag/EnemyName.text = enemy_data["name"]
   enemy_hp = enemy_data["health"]
+  print("set enemy hp", enemy_hp)
   if "damage" in enemy_data:
     enemy_damage = enemy_data["damage"]
   else:
@@ -101,26 +103,35 @@ func end_battle():
   if minigame != null:
     minigame.queue_free()
     minigame = null
+  
   var line = enemy_data["victory"]
   if G.health <= 0:
     line = enemy_data["defeat"]
   yield(display_line(line), "completed")
-  yield(get_tree().create_timer(2), "timeout")
+  yield(get_tree().create_timer(0.5), "timeout")
   hide_everything()
   $AnimationPlayer.play_backwards("SlideIn")
-  G.end_battle()
+  yield(G.end_battle(), "completed")
   
   if enemy_data["name"] == "School Doors":
-    G.cinematics.run_game_cinematic()
+    yield(G.cinematics.run_game_cinematic(), "completed")
+    return
+    
   if enemy_data["name"] == "The Game":
-    G.cinematics.run_credits_cinematic()
+    yield(G.cinematics.run_credits_cinematic(), "completed")
+    return
+  
   if enemy_data["name"] == "Credits":
-    G.cinematics.run_ending_cinematic()
+    yield(G.cinematics.run_ending_cinematic(), "completed")
+    return
 
 func _process(delta):
   if not G.in_battle:
     return
-    
+  
+  if dead:
+    return
+  
   player_hp_text.text = str(max(0, G.health))
   player_hp_bar.offset.x = hp_padding
   var unused = hp_bar_len * (1 - float(max(0, G.health)) / G.max_health)
@@ -132,7 +143,7 @@ func _process(delta):
     player_hp_bar.modulate = Color("ebcd46")
   else:
     player_hp_bar.modulate = Color("eb5546")
-    
+  
   enemy_hp_text.text = str(max(0, enemy_hp))
   enemy_hp_bar.offset.x = hp_padding
   unused = enemy_hp_bar_len * (1 - float(max(0, enemy_hp)) / enemy_data["health"])
@@ -149,6 +160,7 @@ func _process(delta):
 func start_minigame():
   minigame = minigame_tscn.instance()
   add_child(minigame)
+  print(minigame.position)
   is_in_minigame = true
   
   insult_button.visible = false
@@ -282,3 +294,16 @@ func on_cry_pressed():
   G.health = min(G.max_health, G.health + G.healing)
   G.cry_tally += 1
   enemy_attack()
+
+
+func _on_InsultButton_mouse_entered():
+  $HUD/BattleOptions/InsultButton.modulate = Color(0.95, 0.95, .95, 1.0)
+
+func _on_InsultButton_mouse_exited():
+  $HUD/BattleOptions/InsultButton.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+func _on_CryButton_mouse_entered():
+  $HUD/BattleOptions/CryButton.modulate = Color(0.95, 0.95, .95, 1.0)
+
+func _on_CryButton_mouse_exited():
+  $HUD/BattleOptions/CryButton.modulate = Color(1.0, 1.0, 1.0, 1.0)

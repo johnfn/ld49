@@ -120,6 +120,10 @@ func write_overlay_fight_text(text: String, prompt: String, node: Node2D):
   $PressXPrompt.visible = false
   overlay_text.percent_visible = 0
   
+  yield(fade_from_black_timed(), "completed")
+  end_cinematic()
+  snap_camera()
+
   G.start_battle([node])
 
 func snap_camera():
@@ -167,8 +171,12 @@ func run_trunchbull_cinematic():
 func run_game_cinematic():
   start_cinematic()
   insta_go_to_black()
-  yield(write_overlay_text("Timmy had earned his freedom from Coolville High, but what he really wanted..."), "completed")
-  yield(write_overlay_fight_text("...was freedom from the system.", "Press X to GET ANGRY", the_game), "completed")
+  
+  if G.debug:
+    yield(write_overlay_fight_text(".", "Press X to GET ANGRY", the_game), "completed")
+  else:
+    yield(write_overlay_text("Timmy had earned his freedom from Coolville High, but what he really wanted..."), "completed")
+    yield(write_overlay_fight_text("...was freedom from the system.", "Press X to GET ANGRY", the_game), "completed")
 
 func run_credits_cinematic():
   yield(write_overlay_fight_text("But Timmy's fight wasn't over yet. There was one more thing to GET VERY ANGRY at...", "Press X to GET VERY ANGRY", credits), "completed")
