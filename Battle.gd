@@ -105,17 +105,22 @@ func end_battle():
   if G.health <= 0:
     line = enemy_data["defeat"]
   yield(display_line(line), "completed")
-  yield(get_tree().create_timer(2), "timeout")
+  yield(get_tree().create_timer(0.5), "timeout")
   hide_everything()
   $AnimationPlayer.play_backwards("SlideIn")
-  G.end_battle()
+  yield(G.end_battle(), "completed")
   
   if enemy_data["name"] == "School Doors":
-    G.cinematics.run_game_cinematic()
+    yield(G.cinematics.run_game_cinematic(), "completed")
+    return
+    
   if enemy_data["name"] == "The Game":
-    G.cinematics.run_credits_cinematic()
+    yield(G.cinematics.run_credits_cinematic(), "completed")
+    return
+  
   if enemy_data["name"] == "Credits":
-    G.cinematics.run_ending_cinematic()
+    yield(G.cinematics.run_ending_cinematic(), "completed")
+    return
 
 func _process(delta):
   if not G.in_battle:
@@ -290,10 +295,8 @@ func _on_InsultButton_mouse_entered():
 func _on_InsultButton_mouse_exited():
   $HUD/BattleOptions/InsultButton.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
-
 func _on_CryButton_mouse_entered():
   $HUD/BattleOptions/CryButton.modulate = Color(0.95, 0.95, .95, 1.0)
-
 
 func _on_CryButton_mouse_exited():
   $HUD/BattleOptions/CryButton.modulate = Color(1.0, 1.0, 1.0, 1.0)

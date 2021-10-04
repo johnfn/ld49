@@ -167,6 +167,7 @@ func run_trunchbull_cinematic():
 func run_game_cinematic():
   start_cinematic()
   insta_go_to_black()
+  
   yield(write_overlay_text("Timmy had earned his freedom from Coolville High, but what he really wanted..."), "completed")
   yield(write_overlay_fight_text("...was freedom from the system.", "Press X to GET ANGRY", the_game), "completed")
 
