@@ -237,7 +237,26 @@ func gain_level(level: int, amount_of_xp: int, also_gained_item: bool):
     screen_fade.modulate = Color(1, 1, 1, x / (fade_frames - 1) * max_black)
     yield(get_tree(), "idle_frame")
     
-  yield(write_overlay_text("You gained a level!\nYou are now level %d." % level), "completed")
+  var upgrade_desc
+  if level == 2:
+    upgrade_desc = "+10 HP"
+    G.max_health += 10
+    G.health += 10
+  elif level == 3:
+    upgrade_desc = "+5 HP, powerful tears"
+    G.max_health += 5
+    G.health += 5
+    G.healing += 3
+  elif level == 4:
+    upgrade_desc = "+5 damage"
+    G.attack += 5
+  elif level == 5:
+    upgrade_desc = "+20 HP"
+    G.max_health += 20
+    G.health += 20
+  else:
+    upgrade_desc = "Wait, how did you do that?"
+  yield(write_overlay_text(("You gained a level!\nYou are now level %d.\n" % level) + upgrade_desc), "completed")
   if not also_gained_item:
     fade_from_black_timed()
   end_cinematic()

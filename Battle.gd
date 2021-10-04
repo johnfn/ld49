@@ -262,7 +262,7 @@ func _on_LoseInstantly_pressed():
   end_battle()
 
 func on_insult_pressed():
-  if not insult_button.visible:
+  if not insult_button.visible or not is_player_turn:
     return
   opening_bubble.visible = false
   speech_bubble.visible = false
@@ -272,7 +272,7 @@ func on_insult_pressed():
   start_minigame()
 
 func on_cry_pressed():
-  if not cry_button.visible:
+  if not cry_button.visible or not is_player_turn:
     return
   opening_bubble.visible = false
   speech_bubble.visible = false
