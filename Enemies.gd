@@ -754,7 +754,7 @@ func wastebasket_inspect():
 var ctfirst = true
 func classroomtrash_inspect():
   if ctfirst:
-    first = false
+    ctfirst = false
     
     G.dialog().start(
       [
@@ -776,7 +776,7 @@ var recyfirst = true
 var full_heal_exists = true
 func recycling_inspect():
   if recyfirst:
-    first = false
+    recyfirst = false
   
     G.dialog().start(
       [
@@ -803,7 +803,7 @@ func recycling_inspect():
 var deskfirst = true
 func desk_inspect():
   if deskfirst:
-    first = false
+    deskfirst = false
   
     G.dialog().start(
       [
@@ -823,13 +823,13 @@ func desk_inspect():
 var lockerfirst = true
 func locker_inspect():
   if lockerfirst:
-    first = false
+    lockerfirst = false
   
     G.dialog().start(
       [
         { "speaker": "You", "dialog": "You raid someone's locker.", },
         { "speaker": "You", "dialog": "You find a self-help book, full of affirming words to enhance your self-worth.", },
-        { "speaker": "You", "dialog": "Your emotionnal tolerance for abuse strengthens.", },
+        { "speaker": "You", "dialog": "Your emotional tolerance for abuse strengthens.", },
         { "speaker": "You", "dialog": "GET:+HP_UPGRADE", },
       ]
     )
@@ -942,7 +942,7 @@ func school_door_inspect():
 var stu1first = true
 func student1_inspect():
   if stu1first:
-    first = false
+    stu1first = false
     
     G.dialog().start(
       [
@@ -967,7 +967,7 @@ func student1_inspect():
 var stu2first = true
 func student2_inspect():
   if stu2first:
-    first = false
+    stu2first = false
     
     G.dialog().start(
       [
@@ -987,7 +987,7 @@ func student2_inspect():
 var stu3first = true
 func student3_inspect():
   if stu3first:
-    first = false
+    stu3first = false
     
     G.dialog().start(
       [
@@ -1007,7 +1007,7 @@ func student3_inspect():
 var stu4first = true
 func student4_inspect():
   if stu4first:
-    first = false
+    stu4first = false
     
     G.dialog().start(
       [
@@ -1026,7 +1026,7 @@ func student4_inspect():
 var stu5first = true
 func student5_inspect():
   if stu5first:
-    first = false
+    stu5first = false
     
     G.dialog().start(
       [
@@ -1047,7 +1047,7 @@ func student5_inspect():
 var stu6first = true
 func student6_inspect():
   if stu6first:
-    first = false
+    stu6first = false
     
     G.dialog().start(
       [
