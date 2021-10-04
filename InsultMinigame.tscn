@@ -1,27 +1,29 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://InsultBubble.tscn" type="PackedScene" id=1]
 [ext_resource path="res://InsultScroller.gd" type="Script" id=2]
 [ext_resource path="res://InsultMinigame.gd" type="Script" id=3]
 [ext_resource path="res://art/battle/scroll_bg.png" type="Texture" id=4]
 [ext_resource path="res://art/battle/cursor.png" type="Texture" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [node name="InsultMinigame" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="InsultBubble" parent="." instance=ExtResource( 1 )]
-margin_left = 208.0
-margin_top = 24.0
-margin_right = 1016.0
-margin_bottom = 344.0
+margin_left = 194.324
+margin_top = 25.1892
+margin_right = 1002.32
+margin_bottom = 345.189
 rect_scale = Vector2( 0.8, 0.8 )
 
 [node name="InsultScroller" type="Node2D" parent="."]
-position = Vector2( 58.7993, 400.013 )
+position = Vector2( 61.1777, 433.311 )
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="InsultScroller"]
 position = Vector2( 445.201, 79.987 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )
 
 [node name="Words" type="Node2D" parent="InsultScroller"]
@@ -29,7 +31,12 @@ texture = ExtResource( 4 )
 [node name="Bursts" type="Node2D" parent="InsultScroller"]
 
 [node name="Cursor" type="Sprite" parent="InsultScroller"]
-position = Vector2( 429.201, 35.6488 )
+position = Vector2( 429.201, 37.6487 )
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="InsultScroller"]
+position = Vector2( 838.565, 75.7516 )
+texture = ExtResource( 6 )
 
 [connection signal="game_ended" from="InsultScroller" to="." method="on_InsultScroller_game_ended"]

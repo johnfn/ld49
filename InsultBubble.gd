@@ -78,7 +78,7 @@ func render_text():
         text.push_color(gray_text_color)
       
     text.add_text(words[i])
-    if i == len(words) - 1:
+    if i == len(words) - 1: 
       text.add_text(".")
     else:
       text.add_text(" ")

@@ -12,5 +12,5 @@ script = ExtResource( 1 )
 position = Vector2( 6, 0 )
 texture = ExtResource( 2 )
 
-[node name="HealthBar" parent="Sprite" instance=ExtResource( 3 )]
-position = Vector2( -45.247, -47.247 )
+[node name="HealthBar" parent="." instance=ExtResource( 3 )]
+position = Vector2( -39.247, -47.247 )

@@ -17,7 +17,7 @@ var key_words
 
 var input_repeat_time = 0.25
 var burst_time = 0.5
-var damage_x = 0.9
+var damage_x = 1
 var word_fade_percent = 0.6
 var cursor_decay = 0.8
 var base_delta = 1 / 60.0
@@ -25,7 +25,7 @@ var base_cursor_y
 var row_height = 114 / 4
 var min_bad_spawns = 1
 var max_bad_spawns = 5
-onready var base_word_position = Vector2(10, 5)
+onready var base_word_position
 
 var time_to_spawn = initial_spawn_delay
 var cursor_row = 1
@@ -42,9 +42,9 @@ var word_scene = preload("res://Word.tscn")
 var burst_scene = preload("res://DamageBurst.tscn")
 
 func _ready():
-  damage_x = (damage_x - 0.5) * bg.texture.get_width() + bg.position.x
+  damage_x = (damage_x - 0.5) * bg.texture.get_width() * bg.scale.x + bg.position.x
   base_cursor_y = cursor.position.y
-  base_word_position += bg.position - Vector2(bg.texture.get_width(), bg.texture.get_height()) / 2
+  base_word_position = bg.position - bg.texture.get_size() * bg.scale / 2
 
 func run_game(insult_words, key_word_indices, speed_scalar, bad_word_spawn_chance, word_spawn_time, cursor_rows):
   rng.randomize()
@@ -111,10 +111,10 @@ func move_words(delta):
           $InsultBubble.on_InsultScroller_word_passed(false, "")
           reset_curr_word()
         elif word.position.x + word.get_size().x > damage_x:
+          word.hit_enemy()
           var burst_node = burst_scene.instance()
           $InsultScroller/Bursts.add_child(burst_node)
           burst_node.position = word.position + word.get_size() / 2
-          word.queue_free()
           emit_signal("attack_landed")
       else:
         var amount_past = word.position.x - cursor.position.x
@@ -126,7 +126,7 @@ func move_words(delta):
       if word.row == cursor_row:
         if word.good_word:
           if not word.on_fire:
-            word.on_fire = true
+            word.set_on_fire()
             reset_curr_word()
             $InsultBubble.on_InsultScroller_word_passed(true, word.word)
         elif not word.is_bad:
