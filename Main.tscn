@@ -38,7 +38,7 @@ start_unlit = false
 position = Vector2( -981.797, 1002.82 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( 1369.26, 1129.26 )
+position = Vector2( -244.374, 1976.31 )
 
 [node name="TeachersLounge" parent="GameObjects" instance=ExtResource( 9 )]
 position = Vector2( 1920, 1980.77 )

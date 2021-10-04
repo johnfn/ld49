@@ -750,17 +750,21 @@ func classroomtrash_inspect():
   ])
 
 var recyfirst = true
+var full_heal_exists = true
+
 func recycling_inspect():
   if recyfirst:
     first = false
-    
+  
     G.dialog().start(
       [
         { "speaker": "You", "dialog": "This is a recycling bin. Used only by the most responsible and caring of students.", },
         { "speaker": "You", "dialog": "You look inside.", },
-        { "speaker": "You", "dialog": "It's empty.", },
+        { "speaker": "You", "dialog": "Hey, there's some food in here!", },
+        { "speaker": "You", "dialog": "GET:+HP", },
       ]
     )
+    
     return
     
   G.dialog().start([ 

@@ -30,7 +30,21 @@ func _ready():
 func get_next_dialog():
   var next_dialog_obj = next_dialogs.pop_front()
   
-  var next_dialog = next_dialog_obj["dialog"]
+  var next_dialog: String = next_dialog_obj["dialog"]
+  
+  if next_dialog.begins_with("GET:"):
+    Music.right.play()
+    
+    if next_dialog == "GET:COIN":
+      next_dialog = "You get a coin"
+    elif next_dialog == "GET:+HP":
+      next_dialog = "You regain all your health!"
+      G.health = G.max_health
+    
+    dialog_text.add_color_override("font_color", Color(.6, .6, 1, 1))
+  else:
+    dialog_text.add_color_override("font_color", Color(1, 1, 1, 1))
+  
   var speaker = next_dialog_obj["speaker"]
   is_forced_to_fight = next_dialog_obj.has("forces_fight") and next_dialog_obj["forces_fight"]
   
