@@ -25,13 +25,13 @@ position = Vector2( 3700, 2360 )
 position = Vector2( -3303.02, -1640.95 )
 
 [node name="BigHallway" parent="GameObjects" instance=ExtResource( 12 )]
-position = Vector2( 20, 0 )
+position = Vector2( 20.8408, 0 )
 
 [node name="CinematicTrigger2" parent="GameObjects/BigHallway" instance=ExtResource( 7 )]
 position = Vector2( 2699.86, 1537.18 )
 
 [node name="FirstClassroom" parent="GameObjects" instance=ExtResource( 6 )]
-position = Vector2( -1200, 40 )
+position = Vector2( -1200, 40.9954 )
 start_unlit = false
 
 [node name="OtherClassroom" parent="GameObjects" instance=ExtResource( 11 )]

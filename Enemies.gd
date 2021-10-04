@@ -3,6 +3,30 @@ extends Node
 
 func info():
   return {
+    G.ENEMIES.Locker: {
+      "name": "Locker",
+      "drop": G.InventoryItem.None,
+      "interaction": "Inspect locker",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "locker_inspect"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.Desk: {
+      "name": "Desk",
+      "drop": G.InventoryItem.None,
+      "interaction": "Inspect desk",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "desk_inspect"),
+      "can_ever_fight": false
+    },
+    
     G.ENEMIES.Student1: {
       "name": "Student1",
       "drop": G.InventoryItem.None,
@@ -750,7 +774,6 @@ func classroomtrash_inspect():
 
 var recyfirst = true
 var full_heal_exists = true
-
 func recycling_inspect():
   if recyfirst:
     first = false
@@ -775,6 +798,46 @@ func recycling_inspect():
   else:
     G.dialog().start([ 
       { "speaker": "You", "dialog": "It's empty.", },
+    ])   
+    
+var deskfirst = true
+func desk_inspect():
+  if deskfirst:
+    first = false
+  
+    G.dialog().start(
+      [
+        { "speaker": "You", "dialog": "It's someone's desk. You look inside.", },
+        { "speaker": "You", "dialog": "You find a dictionary, full to the brim with the most cutting words the English language has to offer.", },
+        { "speaker": "You", "dialog": "You feel your vocabulary expanding.", },
+        { "speaker": "You", "dialog": "GET:+DAMAGE", },
+      ]
+    )
+    return
+    
+  else:
+    G.dialog().start([ 
+      { "speaker": "You", "dialog": "It's someone's desk.", },
+    ])   
+    
+var lockerfirst = true
+func locker_inspect():
+  if lockerfirst:
+    first = false
+  
+    G.dialog().start(
+      [
+        { "speaker": "You", "dialog": "You raid someone's locker.", },
+        { "speaker": "You", "dialog": "You find a self-help book, full of affirming words to enhance your self-worth.", },
+        { "speaker": "You", "dialog": "Your emotionnal tolerance for abuse strengthens.", },
+        { "speaker": "You", "dialog": "GET:+HP_UPGRADE", },
+      ]
+    )
+    return
+    
+  else:
+    G.dialog().start([ 
+      { "speaker": "You", "dialog": "It's someone's locker.", },
     ])   
 
 func teacher_poster_inspect():
@@ -999,3 +1062,5 @@ func student6_inspect():
   G.dialog().start([ 
         { "speaker": "Student", "dialog": "What do teachers even DO all day?! Grade paper eat coffee????", },
   ])
+
+

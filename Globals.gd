@@ -99,6 +99,8 @@ enum ENEMIES {
   Student5,
   Student6,
   ImageNotFound,
+  Locker,
+  Desk,
 }
 
 var attack = 50 if debug else 5
