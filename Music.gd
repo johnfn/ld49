@@ -30,6 +30,16 @@ func _ready():
   $OverworldTheme.play()
   active_player = $OverworldTheme
 
+func play_tick_for(name: String):
+  if name == "You" or name == "Timmy":
+    Music.dialog_tick_1.play()
+  elif name == "Principal Pike":
+    Music.dialog_tick_7.play()
+  elif name == "Miss Trunchbull":
+    Music.dialog_tick_9.play()
+  else:
+    Music.dialog_tick_2.play()
+
 func play_audio(new_audio: AudioStreamPlayer):
   if new_audio == active_player:
     active_player.volume_db = 0.0

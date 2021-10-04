@@ -212,10 +212,18 @@ func display_line(line):
     line.replace("<cry>", G.cry_tally)
   if "<damage>" in line:
     line.replace("<damage>", G.damage_tally)
-  
-  yield(get_tree().create_timer(1), "timeout")
+    
   speech_bubble.visible = true
-  speech_text.text = line
+  
+  var tick = 0
+  for ch in line:
+    tick += 1
+    speech_text.text += ch
+    
+    if tick % 2 == 0:
+      Music.play_tick_for(enemy_data.name)
+    yield(get_tree(), "idle_frame")
+  
   yield(get_tree().create_timer(1), "timeout")
 
 func _on_Button_pressed():
