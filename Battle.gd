@@ -71,6 +71,8 @@ func display_enemy(name):
     $HUD/RightHalf/EnemyContainer/MichaelwaveOven.visible = true
   elif name == "School Doors":
     $"HUD/RightHalf/EnemyContainer/SchoolDoors".visible = true
+  elif name == "The Game":
+    $"HUD/RightHalf/EnemyContainer/TheGame".visible = true
   else:
     $"HUD/RightHalf/EnemyContainer/404".visible = true
 
@@ -220,6 +222,8 @@ func _on_LoseInstantly_pressed():
   end_battle()
 
 func on_insult_pressed():
+  if not insult_button.visible:
+    return
   opening_bubble.visible = false
   speech_bubble.visible = false
   is_player_turn = false
@@ -228,6 +232,8 @@ func on_insult_pressed():
   start_minigame()
 
 func on_cry_pressed():
+  if not cry_button.visible:
+    return
   opening_bubble.visible = false
   speech_bubble.visible = false
   is_player_turn = false

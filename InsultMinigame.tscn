@@ -15,7 +15,7 @@ margin_left = 194.324
 margin_top = 25.1892
 margin_right = 1002.32
 margin_bottom = 345.189
-rect_scale = Vector2( 0.8, 0.8 )
+rect_scale = Vector2( 0.766269, 0.8 )
 
 [node name="InsultScroller" type="Node2D" parent="."]
 position = Vector2( 61.1777, 433.311 )

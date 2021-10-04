@@ -305,6 +305,105 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TheGame" type="VBoxContainer" parent="HUD/RightHalf/EnemyContainer"]
+anchor_left = 0.343
+anchor_top = 0.223
+anchor_right = 0.474
+anchor_bottom = 0.657
+margin_left = 24.4277
+margin_top = 54.3693
+margin_right = 224.188
+margin_bottom = 237.009
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameTag" type="TextureButton" parent="HUD/RightHalf/EnemyContainer/TheGame"]
+self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+margin_right = 205.0
+margin_bottom = 47.0
+disabled = true
+texture_normal = ExtResource( 4 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/RightHalf/EnemyContainer/TheGame/NameTag"]
+margin_left = 7.18054
+margin_top = 4.40967
+margin_right = 199.181
+margin_bottom = 52.4097
+mouse_filter = 1
+custom_fonts/normal_font = ExtResource( 8 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#FFFFFF]Timmy[/color]"
+text = "Timmy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="TextureButton" parent="HUD/RightHalf/EnemyContainer/TheGame"]
+margin_top = 51.0
+margin_right = 205.0
+margin_bottom = 98.0
+disabled = true
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthLabel" type="Label" parent="HUD/RightHalf/EnemyContainer/TheGame/HealthBar"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 51.0
+margin_bottom = 39.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "rip"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InsultButton" type="TextureButton" parent="HUD/RightHalf/EnemyContainer/TheGame"]
+margin_top = 102.0
+margin_right = 205.0
+margin_bottom = 149.0
+texture_normal = ExtResource( 4 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/RightHalf/EnemyContainer/TheGame/InsultButton"]
+margin_left = 7.18054
+margin_top = 4.40967
+margin_right = 199.181
+margin_bottom = 52.4097
+mouse_filter = 1
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#000000]INSULT[/color]"
+text = "INSULT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CryButton" type="TextureButton" parent="HUD/RightHalf/EnemyContainer/TheGame"]
+margin_top = 153.0
+margin_right = 205.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 4 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/RightHalf/EnemyContainer/TheGame/CryButton"]
+margin_left = 4.66071
+margin_top = 4.43652
+margin_right = 196.661
+margin_bottom = 52.4365
+mouse_filter = 1
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#000000]CRY[/color]"
+text = "CRY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="EnemyUi" type="VBoxContainer" parent="HUD/RightHalf"]
 anchor_left = 0.343
 anchor_top = 0.223
@@ -386,7 +485,7 @@ margin_left = 7.20404
 margin_top = 7.30164
 margin_right = 799.204
 margin_bottom = 338.302
-rect_scale = Vector2( 0.923438, 0.880001 )
+rect_scale = Vector2( 0.886953, 0.885827 )
 texture = ExtResource( 13 )
 flip_h = true
 __meta__ = {
@@ -409,7 +508,7 @@ margin_left = 7.20404
 margin_top = 7.30164
 margin_right = 799.204
 margin_bottom = 338.302
-rect_scale = Vector2( 0.923438, 0.880001 )
+rect_scale = Vector2( 0.890769, 0.893331 )
 texture = ExtResource( 16 )
 flip_h = true
 __meta__ = {
@@ -439,3 +538,5 @@ anims/SlideIn = SubResource( 3 )
 [connection signal="pressed" from="HUD/BattleOptions/CryButton" to="." method="on_cry_pressed"]
 [connection signal="pressed" from="HUD/RightHalf/DieInstantly" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="HUD/RightHalf/LoseInstantly" to="." method="_on_LoseInstantly_pressed"]
+[connection signal="pressed" from="HUD/RightHalf/EnemyContainer/TheGame/InsultButton" to="." method="on_insult_pressed"]
+[connection signal="pressed" from="HUD/RightHalf/EnemyContainer/TheGame/CryButton" to="." method="on_cry_pressed"]
