@@ -46,9 +46,10 @@ enemy_type = 3
 position = Vector2( 780, 873.609 )
 
 [node name="OtherClassroom" parent="GameObjects" instance=ExtResource( 11 )]
+position = Vector2( -980, 1020 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( -460, 700 )
+position = Vector2( -560, 1600 )
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
