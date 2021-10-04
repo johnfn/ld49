@@ -45,7 +45,6 @@ func _ready():
   damage_x = (damage_x - 0.5) * bg.texture.get_width() + bg.position.x
   base_cursor_y = cursor.position.y
   base_word_position += bg.position - Vector2(bg.texture.get_width(), bg.texture.get_height()) / 2
-#  run_game(["everyone", "that", "gets", "close", "to", "you", "leaves"], [0, 2, 3, 6], 1, 0.85, 0.6, 4)
 
 func run_game(insult_words, key_word_indices, speed_scalar, bad_word_spawn_chance, word_spawn_time, cursor_rows):
   rng.randomize()

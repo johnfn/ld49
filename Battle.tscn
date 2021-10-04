@@ -29,8 +29,10 @@ script = ExtResource( 2 )
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
-margin_right = 1021.0
-margin_bottom = 591.0
+margin_left = -17.0
+margin_top = -9.0
+margin_right = 1039.0
+margin_bottom = 607.0
 color = Color( 0.0705882, 0.0588235, 0.184314, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,8 +54,10 @@ anchor_left = 0.343
 anchor_top = 0.647
 anchor_right = 0.474
 anchor_bottom = 0.657
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -103.232
+margin_top = -12.2
+margin_right = -63.376
+margin_bottom = 31.8
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -90,8 +94,10 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 119.247, 463.247 )
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 855.247, 287.247 )
 
 [connection signal="pressed" from="HUD/BattleOptions/InsultButton" to="HUD/BattleOptions/InsultButton" method="_on_InsultButton_pressed"]
 [connection signal="pressed" from="HUD/BattleOptions/CryButton" to="HUD/BattleOptions/CryButton" method="_on_CryButton_pressed"]

@@ -8,3 +8,4 @@ export var max_hp = G.max_health;
 
 func _init().(sprite_texture, max_hp):
   pass 
+  
