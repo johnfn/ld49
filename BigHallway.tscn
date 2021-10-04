@@ -51,6 +51,18 @@ script = ExtResource( 2 )
 position = Vector2( 20, 260 )
 shape = SubResource( 1 )
 
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
+position = Vector2( 1154.61, 716.515 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
+position = Vector2( 1579.89, 739.46 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
+position = Vector2( 1368.76, 225.142 )
+shape = SubResource( 1 )
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
 position = Vector2( 40, 1140 )
 shape = SubResource( 2 )
@@ -188,6 +200,7 @@ position = Vector2( 613.364, 417.879 )
 position = Vector2( 1727.08, 1400.43 )
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomDimmer/Area2D"]
 position = Vector2( 18.7519, -22.9189 )

@@ -302,19 +302,19 @@ func info():
       "victory": "124039779483154...",
       "defeat": "1091570109399.",
       "playerLines": [
-        "",
-        "",
-        "",
+        "no one ever wants to see you",
+        "you're more out of place in a high school than steve",
+        "how can you deal damage if you don't exist",
        ],
       "keyWords": [
-        [],
-        [],
-        [],
+        ["no", "wants", "see", "you"],
+        ["out", "of", "place", "than", "steve"],
+        ["deal", "damage", "don't", "exist"],
        ],
       "enemyLines": [
-        "",
-        "",
-        "",
+        "the woman who birthed you is so 296565477222",
+        "i am 91579258 this is true of you but what of me",
+        "my exterior is 47238478 of reflecting ins6736",
       ],
       
       "health": 60,
