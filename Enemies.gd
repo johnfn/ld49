@@ -12,6 +12,7 @@ func info():
       "is_inanimate": false,
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "steve_talk"),
+      "walks": true,
     },
     
     G.ENEMIES.Gteve: {
@@ -23,6 +24,7 @@ func info():
       "is_inanimate": false,
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "gteve_talk"),
+      "walks": true,
     },
     
     G.ENEMIES.Wastebasket: {
