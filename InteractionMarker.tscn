@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://InteractionMarker.gd" type="Script" id=1]
 [ext_resource path="res://ChooseAngry.tres" type="Animation" id=2]
+[ext_resource path="res://fonts/InteractFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/intro.tres" type="DynamicFont" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MediumAngry"
@@ -142,26 +144,26 @@ position = Vector2( 4.18309, 16.9094 )
 shape = SubResource( 3 )
 
 [node name="Menu" type="Node2D" parent="."]
-visible = false
 z_index = 1
 
 [node name="AngryMenuItem" type="ColorRect" parent="Menu"]
 modulate = Color( 1, 1, 1, 0.819109 )
 anchor_left = 0.445
 anchor_right = 0.506
-margin_left = 40.0039
+margin_left = 40.0
 margin_top = -80.0
-margin_right = 120.004
-margin_bottom = -51.0
+margin_right = 244.0
+margin_bottom = -34.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="XToAngry" type="Label" parent="Menu/AngryMenuItem"]
-margin_left = 4.06967
-margin_top = 9.40166
-margin_right = 84.0697
-margin_bottom = 23.4017
+margin_left = 21.35
+margin_top = 7.51964
+margin_right = 123.35
+margin_bottom = 35.5196
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "to ANGRY"
 __meta__ = {
@@ -169,15 +171,24 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="Menu/AngryMenuItem"]
-position = Vector2( -1.98012, 39.5462 )
+position = Vector2( -2.49339, 36.2954 )
 color = Color( 0.505882, 0.164706, 0.278431, 1 )
-polygon = PoolVector2Array( -20.3607, -50.3659, 2.33401, -37.5285, 0.500107, -13.6876, -23.1116, 1.44223, -43.2847, -12.7706, -43.5139, -40.5086 )
+invert_border = 0.1
+polygon = PoolVector2Array( 2.33401, -37.5285, 2.65407, 9.02141, -42.176, 6.45502, -43.3736, -37.5157 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Menu/AngryMenuItem/Polygon2D"]
+color = Color( 0, 0, 0, 1 )
+invert_enable = true
+invert_border = 4.0
+polygon = PoolVector2Array( 2.33401, -37.5285, 2.65407, 9.02141, -42.176, 6.45502, -43.3736, -37.5157 )
 
 [node name="Label" type="Label" parent="Menu/AngryMenuItem"]
-margin_left = -29.5719
-margin_top = 6.18947
-margin_right = 10.4281
-margin_bottom = 20.1895
+margin_left = -38.1265
+margin_top = -1.85186
+margin_right = 4.87349
+margin_bottom = 67.1481
+rect_scale = Vector2( 0.620381, 0.559328 )
+custom_fonts/font = ExtResource( 4 )
 text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -185,19 +196,20 @@ __meta__ = {
 
 [node name="InteractMenuItem" type="ColorRect" parent="Menu"]
 modulate = Color( 1, 1, 1, 0.732158 )
-margin_left = 40.9995
-margin_top = -138.11
-margin_right = 118.999
-margin_bottom = -110.11
+margin_left = 41.0
+margin_top = -162.0
+margin_right = 240.0
+margin_bottom = -104.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ZToInteract" type="Label" parent="Menu/InteractMenuItem"]
-margin_left = 3.04317
-margin_top = 6.42155
-margin_right = 83.0432
-margin_bottom = 20.4216
+margin_left = 21.3501
+margin_top = 14.9762
+margin_right = 137.35
+margin_bottom = 42.9762
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "to interact"
 __meta__ = {
@@ -205,15 +217,23 @@ __meta__ = {
 }
 
 [node name="Polygon2D2" type="Polygon2D" parent="Menu/InteractMenuItem"]
-position = Vector2( -1, 40 )
-polygon = PoolVector2Array( -20.3607, -50.3659, 2.33401, -37.5285, 0.500107, -13.6876, -23.1116, 1.44223, -43.2847, -12.7706, -43.5139, -40.5086 )
+position = Vector2( -1.85546, 40 )
+polygon = PoolVector2Array( 2.21379, -40.3179, 1.18723, 17.5112, -43.2847, 16.9979, -43.5139, -40.5086 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="Menu/InteractMenuItem/Polygon2D2"]
+color = Color( 0, 0, 0, 1 )
+invert_enable = true
+invert_border = 4.0
+polygon = PoolVector2Array( 2.21379, -40.3179, 1.18723, 17.5112, -43.2847, 16.9979, -43.5139, -40.5086 )
 
 [node name="Label" type="Label" parent="Menu/InteractMenuItem"]
-margin_left = -29.8011
-margin_top = 6.8772
-margin_right = 10.1989
-margin_bottom = 20.8772
+margin_left = -55.8071
+margin_top = -3.21725
+margin_right = -13.8071
+margin_bottom = 65.7827
+rect_scale = Vector2( 0.557835, 0.628201 )
 rect_pivot_offset = Vector2( 49.7035, 14.3919 )
+custom_fonts/font = ExtResource( 4 )
 text = "Z"
 __meta__ = {
 "_edit_use_anchors_": false
