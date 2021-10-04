@@ -104,7 +104,9 @@ func get_inventory_item(name: String):
   start_cinematic()
   snap_camera()
   insta_go_to_semiblack()
-  yield(write_overlay_text("You got a %s." % name), "completed")
+  $ItemGet.show_item(name)
+  yield(show_press_z_to_continue(), "completed")
+  $ItemGet.hide_item()
   fade_from_black_timed()
   end_cinematic()
 

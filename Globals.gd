@@ -22,11 +22,11 @@ var inventory_contents = [
 ] if debug else []
 
 var inventory_text = {
-  InventoryItem.HallPass: { "name": "hall pass", "desc": "with this you can go anywhere your heart desires", },
-  InventoryItem.SchoolFiles: { "name": "school files", "desc": "wow things are going poorly for you", },
-  InventoryItem.TrueEnlightenment: { "name": "true enlightenment", "desc": "levels of anger known only to the gods allow you to GET ANGRY, even at inanimate objects", },
-  InventoryItem.PlusStr: { "name": "plus str", "desc": "just holding this makes you feel stronger", },
-  InventoryItem.PlusDef: { "name": "plus def", "desc": "this makes your skin feel a bit tougher" },
+  InventoryItem.HallPass: { "name": "HALL PASS", "desc": "with this you can go anywhere your heart desires", },
+  InventoryItem.SchoolFiles: { "name": "TIMMY'S SCHOOL FILES", "desc": "wow things are going poorly for you", },
+  InventoryItem.TrueEnlightenment: { "name": "TRUE ENLIGHTENMENT", "desc": "levels of anger known only to the gods allow you to GET ANGRY, even at inanimate objects", },
+  InventoryItem.PlusStr: { "name": "PLUS STR", "desc": "just holding this makes you feel stronger", },
+  InventoryItem.PlusDef: { "name": "PLUS DEF", "desc": "this makes your skin feel a bit tougher" },
 }
 
 onready var cinematics = $"/root/Main/Cinematics"
