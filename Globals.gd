@@ -191,10 +191,11 @@ func end_battle():
   for enemy in G.battling_against:
     en.queue_free()
   
-  gain_xp(total_xp, items_gotten.size() > 0)
+  yield(gain_xp(total_xp, items_gotten.size() > 0), "completed")
   
   if items_gotten.size() > 0:
     yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
+    
   end_battle_cleanup()
 
 func start_battle(battling_against: Array):
