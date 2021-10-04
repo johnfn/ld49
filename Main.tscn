@@ -30,6 +30,10 @@ position = Vector2( 485.898, 1178.18 )
 [node name="Steve" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
 position = Vector2( 400, 956.422 )
 
+[node name="AngerGatedDoor2" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
+position = Vector2( 2219.58, 1940 )
+enemy_type = 19
+
 [node name="Gteve" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
 position = Vector2( 460, 580 )
 enemy_type = 1

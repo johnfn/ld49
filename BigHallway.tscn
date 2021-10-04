@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://art/overworld/bighallway.png" type="Texture" id=1]
 [ext_resource path="res://GenericRoom.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://doodads/LockerFront.tscn" type="PackedScene" id=5]
 [ext_resource path="res://RoomDimmer.gd" type="Script" id=6]
-[ext_resource path="res://AngerGatedDoor.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 400 )
@@ -158,9 +157,6 @@ position = Vector2( 940, 260 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomDimmer/Area2D"]
 position = Vector2( 18.7519, -22.9189 )
 polygon = PoolVector2Array( 0, 0, -20, 2020, 2800, 2040, 2820, 1000, 980, 960, 1000, 20, 60, 0 )
-
-[node name="AngerGatedDoor" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2240, 1960 )
 
 [connection signal="body_entered" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_exited"]

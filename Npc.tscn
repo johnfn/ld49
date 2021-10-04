@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://art/overworld/npcs/npc2.png" type="Texture" id=4]
 [ext_resource path="res://art/overworld/recyclingbin.png" type="Texture" id=5]
 [ext_resource path="res://art/LightRadius.png" type="Texture" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
 
 [sub_resource type="StreamTexture" id=2]
 flags = 4
@@ -53,11 +54,18 @@ scale = Vector2( 0.705783, 0.893624 )
 texture = SubResource( 2 )
 
 [node name="Timmy\'s School Files" type="Sprite" parent="Graphics"]
+visible = false
 modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
 position = Vector2( 24.7108, -12.9782 )
 rotation = -3.03869
 scale = Vector2( 0.705783, 0.893624 )
 texture = ExtResource( 6 )
+
+[node name="Lounge Door" type="Sprite" parent="Graphics"]
+modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
+position = Vector2( 24.7108, -12.9782 )
+scale = Vector2( 0.705783, 0.893624 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 25, 11 )
