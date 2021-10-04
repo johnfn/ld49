@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=2]
@@ -10,11 +10,12 @@
 [ext_resource path="res://art/overworld/doors.png" type="Texture" id=8]
 [ext_resource path="res://art/overworld/npc3.png" type="Texture" id=9]
 [ext_resource path="res://art/overworld/npc2.png" type="Texture" id=10]
+[ext_resource path="res://art/stapler.png" type="Texture" id=11]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 87.1297, 49.1438 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 20, 20 )
 
 [node name="Npc" type="KinematicBody2D"]
@@ -79,6 +80,12 @@ scale = Vector2( 0.917449, 0.917449 )
 texture = ExtResource( 3 )
 centered = false
 
+[node name="A Stapler" type="Sprite" parent="Graphics"]
+position = Vector2( -42.8199, -82.6561 )
+scale = Vector2( 0.917449, 0.917449 )
+texture = ExtResource( 11 )
+centered = false
+
 [node name="Miss Trunchbull" type="Sprite" parent="Graphics"]
 visible = false
 modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
@@ -105,7 +112,7 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Teacher\'s Lounge Door/StaticBody2D"]
 position = Vector2( 0.409687, 7.13264 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Node2D" type="Node2D" parent="Graphics/Teacher\'s Lounge Door"]
 
@@ -118,11 +125,11 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/School Doors/StaticBody2D"]
 position = Vector2( 0.409687, 7.13264 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 25, 11 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="InteractionMarker" parent="." instance=ExtResource( 2 )]
 position = Vector2( 13.7351, -18.1296 )

@@ -7,12 +7,6 @@ onready var right = $mcshort_right
 onready var up = $mcshort_up
 onready var down = $mcshort_down
 
-
-#func _ready():
-#  for x in range(50):
-#    yield(get_tree(), "idle_frame")
-#  G.cinematics.run_game_cinematic()
-
 func _ready():
   left.visible = false
   right.visible = false

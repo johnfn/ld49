@@ -415,7 +415,7 @@ func info():
     
     G.ENEMIES.Stapler: {
       "name": "A Stapler",
-      "interaction": "TODO",
+      "interaction": "Inspect stapler",
       "drop": G.InventoryItem.None,
       "health": 90,
       "xp": 60,
@@ -439,6 +439,7 @@ func info():
         "is that really the best line you can swing",
         "kids are a staple of my diet",
       ],
+      "dialog": funcref(self, "stapler_inspect"),
       "damage": 15,
       "speed": 1.6,
       "bad_spawn_chance": 0.6,
@@ -845,7 +846,14 @@ func teacher_poster_inspect():
   G.dialog().start([      
     { "speaker": "You", "dialog": "It's a poster in the teacher's lounge", },
   ])
-  
+
+func stapler_inspect():
+  G.dialog().start([      
+    { "speaker": "You", "dialog": "This is just a simple, ordinary stapler...", },
+    { "speaker": "You", "dialog": "OR IS IT?!?", }, 
+ ])
+
+
 func image_talk():
   G.dialog().start([      
     { "speaker": "You", "dialog": "Um... hello?", },
