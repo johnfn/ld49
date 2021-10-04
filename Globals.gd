@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug = false
+var debug = true
 
 enum PauseMode {
   None = 0,
@@ -128,6 +128,9 @@ func gain_xp(amount: int):
     yield(cinematics.gain_xp(amount), "completed")
   
 func end_battle():
+  if G.battling_against.size() == 0:
+    return
+    
   var items_gotten = []
   var total_xp = 0
   
@@ -142,17 +145,19 @@ func end_battle():
       if items_gotten.size() == 0:
         items_gotten.push_back(info.drop)
   
+  var en = G.battling_against[0]
+  var t = load("res://Tombstone.tscn").instance()
+  en.get_parent().add_child(t)
+  en.get_parent().move_child(t, en.get_index())
+  t.position = en.position
+  
   for enemy in G.battling_against:
-    var t = load("res://Tombstone.tscn").instance()
-    enemy.get_parent().add_child(t)
-    enemy.get_parent().move_child(t, enemy.get_index())
-    t.position = enemy.position
-    
-    enemy.queue_free()  
+    en.queue_free()
   
   if items_gotten.size() > 0:
     yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
-   
+  
+  print("gain xp")
   gain_xp(total_xp)
   
   G.camera().current = true
