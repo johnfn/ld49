@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=2]
-[ext_resource path="res://art/overworld/npcs/npc1.png" type="Texture" id=3]
+[ext_resource path="res://art/overworld/npc1.png" type="Texture" id=3]
 [ext_resource path="res://art/overworld/npcs/npc2.png" type="Texture" id=4]
 [ext_resource path="res://art/overworld/recyclingbin.png" type="Texture" id=5]
 [ext_resource path="res://art/LightRadius.png" type="Texture" id=6]
@@ -30,16 +30,15 @@ scale = Vector2( 0.585066, 0.585066 )
 texture = ExtResource( 5 )
 
 [node name="Steve" type="Sprite" parent="Graphics"]
-visible = false
 position = Vector2( 19.8158, -28.6548 )
 scale = Vector2( 0.585066, 0.585066 )
 texture = ExtResource( 3 )
 
 [node name="Gteve" type="Sprite" parent="Graphics"]
-visible = false
+modulate = Color( 0.929412, 1, 0.0862745, 1 )
 position = Vector2( 19.8158, -28.6548 )
 scale = Vector2( 0.585066, 0.585066 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Miss Trunchbull" type="Sprite" parent="Graphics"]
 visible = false
