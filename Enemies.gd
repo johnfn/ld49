@@ -3,6 +3,78 @@ extends Node
 
 func info():
   return {
+    G.ENEMIES.Student1: {
+      "name": "Student1",
+      "drop": G.InventoryItem.None,
+      "interaction": "Talk",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "student1_inspect"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.Student2: {
+      "name": "Student2",
+      "drop": G.InventoryItem.None,
+      "interaction": "Talk",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "student2_inspect"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.Student6: {
+      "name": "Student3",
+      "drop": G.InventoryItem.None,
+      "interaction": "Talk",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "student6_inspect"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.Student3: {
+      "name": "Student3",
+      "drop": G.InventoryItem.None,
+      "interaction": "Talk",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "student3_inspect"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.Student4: {
+      "name": "Student4",
+      "drop": G.InventoryItem.None,
+      "interaction": "Talk",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "student4_inspect"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.Student5: {
+      "name": "Student1",
+      "drop": G.InventoryItem.None,
+      "interaction": "Talk",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "student5_inspect"),
+      "can_ever_fight": false
+    },
+    
     G.ENEMIES.PrincipalDesk: {
       "name": "Principal Desk",
       "drop": G.InventoryItem.None,
@@ -745,3 +817,127 @@ func school_door_inspect():
     G.dialog().start([
       { "speaker": "You", "dialog": "The school doors are still locked.", },
     ])
+    
+var stu1first = true
+func student1_inspect():
+  if stu1first:
+    first = false
+    
+    G.dialog().start(
+      [
+        { "speaker": "Student", "dialog": "Hey! What are you looking at?", },
+        { "speaker": "You", "dialog": "What? I—", },
+        { "speaker": "Student", "dialog": "I don't care! If you wanna fight me, you'll have to do it the RIGHT way!", },
+        { "speaker": "Student", "dialog": "Insult me by hitting all the RIGHT words and dodging all the WRONG ones!", },
+        { "speaker": "Student", "dialog": "Every right word deals damage, but you're so DUMB I bet you couldn't even hit ONE!!", },
+        { "speaker": "Student", "dialog": "You're lucky I'm tired and don't wanna fight, punk.", },
+        { "speaker": "You", "dialog": "But what if I wanna fight YOU", },
+        { "speaker": "Student", "dialog": "Huh? Get lost, bro. This isn't Pokemon.", },
+      ]
+    )
+    return
+    
+  G.dialog().start([ 
+        { "speaker": "Student", "dialog": "If you wanna fight someone, you'll have to do it the RIGHT way!", },
+        { "speaker": "Student", "dialog": "Insult them by hitting all the RIGHT words and dodging all the WRONG ones!", },
+        { "speaker": "Student", "dialog": "(And maybe there'll be items or powerups or something. Idk that's probably overscoping)", },
+  ])
+
+var stu2first = true
+func student2_inspect():
+  if stu2first:
+    first = false
+    
+    G.dialog().start(
+      [
+        { "speaker": "Student", "dialog": "Ugh! I can't believe I got sent to the PRINCIPAL'S OFFICE!", },
+        { "speaker": "You", "dialog": "What for lmao", },
+        { "speaker": "Student", "dialog": "I didn't DO anything! Ugh! And now I have to go LOOK AT Principal Pike?! I think he might literally be Satan.", },
+        { "speaker": "Student", "dialog": "*grumble*... kill your teacher ONE TIME..."},
+        { "speaker": "You", "dialog": "Lol same", },
+      ]
+    )
+    return
+    
+  G.dialog().start([ 
+        { "speaker": "Student", "dialog": "I can't believe I have to go see Principal Pike. UGH!", },
+  ])
+
+var stu3first = true
+func student3_inspect():
+  if stu3first:
+    first = false
+    
+    G.dialog().start(
+      [
+        { "speaker": "You", "dialog": "Sup", },
+        { "speaker": "Student", "dialog": "Buh... I think I'm going CRAZY, man! Are those doors talking to me?!", },
+        { "speaker": "Student", "dialog": "Everyone wants to get out, but no one's been able to since the school day began... It's the DOORS, I'm telling you!", },
+        { "speaker": "You", "dialog": "Seems like a stretch idk", },
+        { "speaker": "Student", "dialog": "I'M ONTO YOU, EVIL DOORS!!", },
+      ]
+    )
+    return
+    
+  G.dialog().start([ 
+        { "speaker": "Student", "dialog": "I'M ONTO YOU, EVIL DOORS!", },
+  ])
+
+var stu4first = true
+func student4_inspect():
+  if stu4first:
+    first = false
+    
+    G.dialog().start(
+      [
+        { "speaker": "Student", "dialog": "Hey, where's the teacher in this classroom?", },
+        { "speaker": "Student", "dialog": "Wait... hell yeah! I'M THE TEACHER NOW, SUCKAS!!", },
+        { "speaker": "You", "dialog": "I don't think that's how that works", },
+        { "speaker": "Student", "dialog": "WOOOOOOOOOOOOOOO", },
+      ]
+    )
+    return
+    
+  G.dialog().start([ 
+        { "speaker": "Student", "dialog": "I'M THE TEACHER NOW, SUCKAS!!", },
+  ])
+
+var stu5first = true
+func student5_inspect():
+  if stu5first:
+    first = false
+    
+    G.dialog().start(
+      [
+        { "speaker": "Student", "dialog": "Why won't these lockers OPEN? I need to GET MY STUFF!", },
+        { "speaker": "You", "dialog": "Have you tried hitting them", },
+        { "speaker": "Student", "dialog": "Ooh, good idea!", },
+        { "speaker": "Student", "dialog": "*BANGG*", },
+        { "speaker": "Student", "dialog": "OW! Now my locker won't open AND my hand hurts!!!", },
+        { "speaker": "You", "dialog": "Lmao gottem", },
+      ]
+    )
+    return
+    
+  G.dialog().start([ 
+        { "speaker": "Student", "dialog": "How will I get my textbooks now?! For, uh, the classes that are definitely happening at this school today.", },
+  ])
+
+var stu6first = true
+func student6_inspect():
+  if stu6first:
+    first = false
+    
+    G.dialog().start(
+      [
+        { "speaker": "Student", "dialog": "Shh... Don't tell any of those STUPID teachers that I snuck into the Teachers' Lounge!", },
+        { "speaker": "You", "dialog": "Hoowee check out Mister Bigshot over here", },
+        { "speaker": "Student", "dialog": "MWAHAHA!!! NOW I CAN... Uh...", },
+        { "speaker": "Student", "dialog": "Not gonna lie, this place is less exciting than I thought it would be.", },
+      ]
+    )
+    return
+    
+  G.dialog().start([ 
+        { "speaker": "Student", "dialog": "What do teachers even DO all day?! Grade paper and eat coffee????", },
+  ])
