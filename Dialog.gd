@@ -30,13 +30,6 @@ func get_next_dialog():
   var speaker = next_dialog_obj["speaker"]
   is_forced_to_fight = next_dialog_obj.has("forces_fight") and next_dialog_obj["forces_fight"]
   
-#  dialog_text.add_color_override("font_color", Color(1, 1, 1, 1))
-#
-#  if next_dialog.begins_with("GET"):
-#    if next_dialog == "GET:COIN":
-#      dialog_text.add_color_override("font_color", Color(0.5, 0.5, 0.5, 1))
-#      next_dialog = "You pick up a coin!"
-  
   dialog_text.text = next_dialog
   dialog_text.visible_characters = 0 
   z_to_continue.visible = false
@@ -68,7 +61,13 @@ func process_dialog():
         get_next_dialog()
     elif is_forced_to_fight and Input.is_action_just_pressed("angry"):
       stop_dialog()
-      G.start_battle([get_node(miss_trunchbull)])
+      print(speaker_name.text)
+      print(speaker_to_node.has(speaker_name.text))
+      print(speaker_to_node[speaker_name.text])
+      if speaker_name.text == "Principal Pike":
+        G.start_battle([get_node(principal_pike)])
+      elif speaker_name.text == "Miss Trunchbull":
+        G.start_battle([get_node(miss_trunchbull)])
   else:
     if Input.is_action_just_pressed("action"):
       dialog_text.percent_visible = 1

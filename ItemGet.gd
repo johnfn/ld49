@@ -41,10 +41,12 @@ func set_alpha(a):
   bg.modulate.a = a * bga
   bg2.modulate.a = a * bg2a
   
-func show_item(item_name):
+func show_item(item_name, force_fight):
   header.text = item_name
   subheader.text = item_descs[item_name]
   item_imgs[item_name].visible = true
+  $CenterContainer/VBoxContainer/PromptContainer/PressPrompt.visible = not force_fight
+  $CenterContainer/VBoxContainer/PromptContainer/PressPrompt2.visible = force_fight
 
 func hide_item():
   for img in item_imgs.values():
