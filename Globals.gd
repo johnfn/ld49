@@ -121,7 +121,7 @@ func next_level_xp():
   # thonk
   return 9999999999
 
-func gain_xp(amount: int):
+func gain_xp(amount: int, also_gained_item: bool):
   var old_level = get_level()
   
   xp += amount
@@ -130,9 +130,9 @@ func gain_xp(amount: int):
     max_health += 5
     health += 5
     
-    yield(cinematics.gain_level(get_level(), amount), "completed")
-  else:
-    yield(cinematics.gain_xp(amount), "completed")
+    yield(cinematics.gain_level(get_level(), amount, also_gained_item), "completed")
+#  else: 
+#    yield(cinematics.gain_xp(amount), "completed")
 
 func handle_death():
   end_battle_cleanup()
@@ -182,10 +182,10 @@ func end_battle():
   for enemy in G.battling_against:
     en.queue_free()
   
+#  gain_xp(total_xp, items_gotten.size() > 0)
+  
   if items_gotten.size() > 0:
     yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
-  
-  gain_xp(total_xp)
   end_battle_cleanup()
 
 func start_battle(battling_against: Array):

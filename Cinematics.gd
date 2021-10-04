@@ -150,10 +150,12 @@ func get_inventory_item(name: String):
   
   item_get.show_item(name, forces_file_fight)
   item_get.visible = true
+  var fade_in_fade = not screen_fade.visible
   screen_fade.visible = true
   
   for x in range(0, fade_frames):
-    screen_fade.modulate = Color(1, 1, 1, x / (fade_frames - 1) * max_black)
+    if fade_in_fade:
+      screen_fade.modulate = Color(1, 1, 1, x / (fade_frames - 1) * max_black)
     item_get.set_alpha(x / fade_frames)
     yield(get_tree(), "idle_frame")
   
@@ -188,13 +190,18 @@ func death():
   fade_from_black_timed()
   end_cinematic()
 
-func gain_level(level: int, amount_of_xp: int):
+func gain_level(level: int, amount_of_xp: int, also_gained_item: bool):
   start_cinematic()
   snap_camera()
-  insta_go_to_semiblack()
-  yield(write_overlay_text("You gained a level!"), "completed")
-  yield(write_overlay_text("You are now level %d." % level), "completed")
-  fade_from_black_timed()
+  
+  screen_fade.visible = true
+  for x in range(0, fade_frames):
+    screen_fade.modulate = Color(1, 1, 1, x / (fade_frames - 1) * max_black)
+    yield(get_tree(), "idle_frame")
+    
+  yield(write_overlay_text("You gained a level!\nYou are now level %d." % level), "completed")
+  if not also_gained_item:
+    fade_from_black_timed()
   end_cinematic()
 
 func gain_xp(amount: int):

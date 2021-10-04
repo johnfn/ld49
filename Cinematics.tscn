@@ -25,10 +25,6 @@ tracks/0/keys = {
 [node name="Cinematics" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 1 )
-school_files = null
-the_game = null
-credits = null
-statsHud = null
 
 [node name="ScreenFade" type="ColorRect" parent="."]
 visible = false

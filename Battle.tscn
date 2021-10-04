@@ -214,7 +214,7 @@ __meta__ = {
 }
 
 [node name="RightHalf" type="CanvasLayer" parent="HUD"]
-layer = 0
+layer = 2
 offset = Vector2( 800, 0 )
 transform = Transform2D( 1, 0, 0, 1, 800, 0 )
 

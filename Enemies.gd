@@ -326,7 +326,7 @@ func info():
       "drop": G.InventoryItem.None,
       "health": 25,
       "xp": 30,
-      "is_inanimate": true,
+      "is_inanimate": false, # TODO debugging
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "intro": "The School Doors STAND IN YOUR WAY",
       "victory": "it appears my steel deadbolt was no match for your harsh words",
@@ -358,8 +358,8 @@ func info():
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "intro": "The Game IS TRYING TO PLAY YOU",
-      "victory": "",
-      "defeat": "",
+      "victory": "in a literal sense you have beaten the game...",
+      "defeat": "the game was too much for you i see",
       "playerLines": [
         "no one will play you three weeks from now",
         "even ign would rate this below a 3",
@@ -386,8 +386,8 @@ func info():
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "intro": "The Credits FOUND A WAY TO MAKE YOU WATCH THEM",
-      "victory": "",
-      "defeat": "",
+      "victory": "...",
+      "defeat": "see you in the next life",
       # TODO line these up
       "playerLines": [
         "this gimmick has been done a ton of times already",
