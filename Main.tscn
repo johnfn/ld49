@@ -54,7 +54,7 @@ position = Vector2( -980, 1000 )
 position = Vector2( -400, 600 )
 
 [node name="TeachersLounge" parent="GameObjects" instance=ExtResource( 9 )]
-position = Vector2( 1920, 1980 )
+position = Vector2( 1920, 1980.77 )
 
 [node name="PrincipalsOffice" parent="GameObjects" instance=ExtResource( 13 )]
 position = Vector2( 2800, 1020 )
