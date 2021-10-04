@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://RoomDimmer.gd" type="Script" id=1]
 [ext_resource path="res://doodads/BlueDesk.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/overworld/principalsoffice.png" type="Texture" id=3]
+[ext_resource path="res://doodads/NormalTable.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GenericRoom.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -31,12 +32,15 @@ script = ExtResource( 1 )
 modulate = Color( 1, 1, 1, 0.5 )
 
 [node name="principalsoffice" type="Sprite" parent="RoomDimmer/Graphics"]
-position = Vector2( -239.559, -240 )
+position = Vector2( -238.977, -240 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="BlueDesk" parent="RoomDimmer/Graphics" instance=ExtResource( 2 )]
 position = Vector2( 107.936, 275.152 )
+
+[node name="NormalTable" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
+position = Vector2( 464.305, 457.971 )
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
 
