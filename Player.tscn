@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://art/overworld/mcshort.png" type="Texture" id=2]
+[ext_resource path="res://art/overworld/mcshort_up.png" type="Texture" id=3]
+[ext_resource path="res://art/overworld/mcshort_right.png" type="Texture" id=4]
+[ext_resource path="res://art/overworld/mcshort_left.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22.1353, 26.8893 )
@@ -18,6 +21,21 @@ position = Vector2( -5.22998, 0.550537 )
 color = Color( 0, 0, 0, 0.333333 )
 polygon = PoolVector2Array( 12.5697, 75.7993, 31.0124, 82.4056, 51.6571, 73.8725, 53.8592, 52.1267, 24.406, 41.3915, 1.0087, 49.6494 )
 
-[node name="mcshort" type="Sprite" parent="."]
+[node name="mcshort_down" type="Sprite" parent="."]
 position = Vector2( 22.2066, -21.9452 )
 texture = ExtResource( 2 )
+
+[node name="mcshort_up" type="Sprite" parent="."]
+position = Vector2( -76.4424, -143.563 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="mcshort_right" type="Sprite" parent="."]
+position = Vector2( -65.1732, -144.156 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="mcshort_left" type="Sprite" parent="."]
+position = Vector2( -70.9012, -134.53 )
+texture = ExtResource( 5 )
+centered = false
