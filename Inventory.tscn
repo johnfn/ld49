@@ -75,31 +75,31 @@ __meta__ = {
 }
 
 [node name="InventoryItem" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_right = 245.0
+margin_right = 244.0
 
 [node name="InventoryItem2" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 60.0
-margin_right = 245.0
+margin_right = 244.0
 margin_bottom = 110.0
 
 [node name="InventoryItem3" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 120.0
-margin_right = 245.0
+margin_right = 244.0
 margin_bottom = 170.0
 
 [node name="InventoryItem4" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 180.0
-margin_right = 245.0
+margin_right = 244.0
 margin_bottom = 230.0
 
 [node name="InventoryItem5" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 240.0
-margin_right = 245.0
+margin_right = 244.0
 margin_bottom = 290.0
 
 [node name="InventoryItem6" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 300.0
-margin_right = 245.0
+margin_right = 244.0
 margin_bottom = 350.0
 
 [connection signal="pressed" from="DoneButton" to="." method="_on_DoneButton_pressed"]
