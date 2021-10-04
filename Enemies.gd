@@ -3,6 +3,18 @@ extends Node
 
 func info():
   return {
+    G.ENEMIES.ClassroomTrash: {
+      "name": "Wastebasket",
+      "drop": G.InventoryItem.None,
+      "interaction": "Inspect wastebasket",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "classroomtrash_inspect"),
+      "can_ever_fight": false
+    },
+    
     G.ENEMIES.Wastebasket: {
       "name": "Wastebasket",
       "drop": G.InventoryItem.None,
@@ -534,6 +546,27 @@ func wastebasket_inspect():
     { "speaker": "You", "dialog": "This is a wastebin.", },
     { "speaker": "You", "dialog": "You look inside...", },
     { "speaker": "You", "dialog": "There's nothing here." },
+  ])
+
+var ctfirst = true
+func classroomtrash_inspect():
+  if ctfirst:
+    first = false
+    
+    G.dialog().start(
+      [
+        { "speaker": "You", "dialog": "It's a wastebin. What did you think it was?", },
+        { "speaker": "You", "dialog": "Were you expecting to find something valuable inside?", },
+        { "speaker": "You", "dialog": "Like, c'mon. It's literally trash...", },
+        { "speaker": "You", "dialog": "[You found a COIN!]", },
+        { "speaker": "You", "dialog": "GET:COIN", },
+      ]
+    )
+    return
+    
+  G.dialog().start([ 
+    { "speaker": "You", "dialog": "This is a wastebin.", },
+    { "speaker": "You", "dialog": "Something about it seems to inspire aggression.", },
   ])
 
 func teacher_poster_inspect():
