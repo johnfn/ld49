@@ -51,24 +51,13 @@ script = ExtResource( 3 )
 position = Vector2( 512, 300 )
 smoothing_enabled = true
 
-[node name="Steve" parent="." instance=ExtResource( 4 )]
-position = Vector2( 783.133, 347.56 )
-
-[node name="Gteve" parent="." instance=ExtResource( 4 )]
-position = Vector2( 379.836, 120.072 )
-
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
-
-[node name="Wastebin" parent="." instance=ExtResource( 4 )]
-position = Vector2( 228.405, 1459.17 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 620, 1080 )
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
-enemy_pos = Vector2( 700, 200 )
-player_pos = Vector2( 200, 400 )
 
 [connection signal="on_trigger" from="FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]
