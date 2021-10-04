@@ -10,13 +10,18 @@
 script = ExtResource( 3 )
 
 [node name="InsultBubble" parent="." instance=ExtResource( 1 )]
+margin_left = 208.0
+margin_top = 24.0
+margin_right = 1016.0
+margin_bottom = 344.0
+rect_scale = Vector2( 0.8, 0.8 )
 
 [node name="InsultScroller" type="Node2D" parent="."]
 position = Vector2( 58.7993, 400.013 )
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="InsultScroller"]
-position = Vector2( 445.449, 58.7993 )
+position = Vector2( 445.201, 79.987 )
 texture = ExtResource( 4 )
 
 [node name="Words" type="Node2D" parent="InsultScroller"]
@@ -24,7 +29,7 @@ texture = ExtResource( 4 )
 [node name="Bursts" type="Node2D" parent="InsultScroller"]
 
 [node name="Cursor" type="Sprite" parent="InsultScroller"]
-position = Vector2( 439.341, 13.7296 )
+position = Vector2( 429.201, 35.6488 )
 texture = ExtResource( 5 )
 
 [connection signal="game_ended" from="InsultScroller" to="." method="on_InsultScroller_game_ended"]

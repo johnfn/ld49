@@ -120,6 +120,8 @@ func take_action(action):
     else:
       swipe(actor, player)
       player.take_damage(5)
+      if G.health <= 0:
+        end_battle()
       end_turn()
   elif action == ACTIONS.cry:
     actor.heal(5)
@@ -134,9 +136,9 @@ func start_minigame():
 
   minigame.connect("attack_landed", self, "minigame_damage")
   minigame.connect("minigame_over", self, "minigame_over")
-  minigame.run_game(["everyone", "that", "gets", "close", "to", "you", "leaves"], [0, 2, 3, 6], 1, 0.85, 0.6, 4)
+  minigame.run_game(["everyone", "that", "gets", "close", "to", "you", "leaves"], [0, 2, 3, 6], 0.4, 0.3, 1.5, 4)
   
-func minigame_over():
+func minigame_over(): 
   if not minigame:
     return
   minigame.queue_free()
