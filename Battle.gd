@@ -185,21 +185,33 @@ func minigame_over():
   if enemy_hp > 0:
     enemy_attack()
 
-func anim_damage_shake():
-  var container = $HUD/RightHalf/EnemyContainer
-  var initial_pos = container.rect_position
+func anim_damage_shake(target):
+  var initial_pos = target.rect_position
   
   for x in range(5):
-    container.rect_position = initial_pos + Vector2(randi() % 20, randi() % 20)
+    target.rect_position = initial_pos + Vector2(randi() % 20, 0)
     
     for y in range(3):
       yield(get_tree(), "idle_frame")
-  container.rect_position = initial_pos
+  
+  target.rect_position = initial_pos
+
+
+func anim_damage_shake_pos(target):
+  var initial_pos = target.position
+  
+  for x in range(5):
+    target.position = initial_pos + Vector2(randi() % 20, 0)
+    
+    for y in range(3):
+      yield(get_tree(), "idle_frame")
+  
+  target.position = initial_pos
 
 func minigame_damage():
   enemy_hp = max(0, enemy_hp - G.attack)
   Music.right.play()
-  anim_damage_shake()
+  anim_damage_shake($HUD/RightHalf/EnemyContainer)
   
   if enemy_hp == 0:
     minigame_over()
@@ -209,6 +221,8 @@ func enemy_attack():
   var line = enemy_data["enemyLines"][enemy_line]
   enemy_line = (enemy_line + 1) % len(enemy_data["enemyLines"])
   yield(display_line(line), "completed")
+  
+  anim_damage_shake_pos($Player)
   
   G.health = max(0, G.health - enemy_damage)
   G.damage_tally += enemy_damage
