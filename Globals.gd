@@ -92,6 +92,9 @@ enum ENEMIES {
   MichaelwaveOven,
   Stapler,
   ClassroomTrash,
+  Recycling,
+  PrincipalDesk,
+  PrincipalPoster,
 }
 
 var attack = 5 # TODO maybe upgrade

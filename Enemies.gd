@@ -3,6 +3,30 @@ extends Node
 
 func info():
   return {
+    G.ENEMIES.PrincipalDesk: {
+      "name": "Principal Desk",
+      "drop": G.InventoryItem.None,
+      "interaction": "Inspect desk",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "principaldesk_inspect"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.PrincipalPoster: {
+      "name": "Principal Poster",
+      "drop": G.InventoryItem.None,
+      "interaction": "Inspect poster",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "principalposter_inspect"),
+      "can_ever_fight": false
+    },
+    
     G.ENEMIES.ClassroomTrash: {
       "name": "Wastebasket",
       "drop": G.InventoryItem.None,
@@ -24,6 +48,18 @@ func info():
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "wastebasket_inspect"),
+      "can_ever_fight": false
+    },
+    
+    G.ENEMIES.Recycling: {
+      "name": "Recycling",
+      "drop": G.InventoryItem.None,
+      "interaction": "Inspect recycling bin",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "recycling_inspect"),
       "can_ever_fight": false
     },
     
@@ -467,6 +503,18 @@ func info():
     },
   }
 
+func principaldesk_inspect():
+  G.dialog().start([      
+    { "speaker": "You", "dialog": "It's a desk", },
+    { "speaker": "You", "dialog": "Looks like some serious learning takes place here", },
+  ])
+
+func principalposter_inspect():
+  G.dialog().start([      
+    { "speaker": "You", "dialog": "It's a poster with a line from some book", },
+    { "speaker": "You", "dialog": "Seems like a quote only a real nerd would know", },
+  ])
+
 func chalkboard_inspect():
   G.dialog().start([      
     { "speaker": "You", "dialog": "It's a chalkboard", },
@@ -546,7 +594,7 @@ func classroomtrash_inspect():
         { "speaker": "You", "dialog": "It's a wastebin. What did you think it was?", },
         { "speaker": "You", "dialog": "Were you expecting to find something valuable inside?", },
         { "speaker": "You", "dialog": "Like, c'mon. It's literally trash...", },
-        { "speaker": "You", "dialog": "[You found a COIN]", },
+        { "speaker": "You", "dialog": "Oh hey, a coin!", },
         { "speaker": "You", "dialog": "GET:COIN", },
       ]
     )
@@ -555,6 +603,24 @@ func classroomtrash_inspect():
   G.dialog().start([ 
     { "speaker": "You", "dialog": "This is a wastebin.", },
     { "speaker": "You", "dialog": "Something about it seems to inspire aggression.", },
+  ])
+
+var recyfirst = true
+func recycling_inspect():
+  if recyfirst:
+    first = false
+    
+    G.dialog().start(
+      [
+        { "speaker": "You", "dialog": "This is a recycling bin. Used only by the most responsible and caring of students.", },
+        { "speaker": "You", "dialog": "You look inside.", },
+        { "speaker": "You", "dialog": "It's empty.", },
+      ]
+    )
+    return
+    
+  G.dialog().start([ 
+    { "speaker": "You", "dialog": "It's empty.", },
   ])
 
 func teacher_poster_inspect():

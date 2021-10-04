@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://RoomDimmer.gd" type="Script" id=1]
 [ext_resource path="res://doodads/BlueDesk.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/overworld/principalsoffice.png" type="Texture" id=3]
 [ext_resource path="res://doodads/NormalTable.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GenericRoom.gd" type="Script" id=5]
+[ext_resource path="res://GenericInspectable.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 560, 440 )
@@ -71,6 +72,14 @@ position = Vector2( 330, 810 )
 shape = SubResource( 5 )
 
 [node name="Inspectables" type="Node2D" parent="."]
+
+[node name="GenericInspectable" parent="Inspectables" instance=ExtResource( 6 )]
+position = Vector2( 195.867, 264.03 )
+enemy_type = 24
+
+[node name="GenericInspectable" parent="Inspectables/GenericInspectable" instance=ExtResource( 6 )]
+position = Vector2( 348.245, -106.424 )
+enemy_type = 25
 
 [connection signal="body_entered" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_exited"]

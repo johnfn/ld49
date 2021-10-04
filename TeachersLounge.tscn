@@ -49,14 +49,12 @@ position = Vector2( 117.198, 297.589 )
 position = Vector2( 583.531, 442.17 )
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDimmer/Area2D"]
 position = Vector2( 358.837, 460 )
 shape = SubResource( 1 )
 
 [node name="Collisions" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 80, 160 )
@@ -99,6 +97,10 @@ enemy_type = 13
 [node name="GenericInspectable5" parent="Inspectables" instance=ExtResource( 4 )]
 position = Vector2( 641.484, 306.26 )
 enemy_type = 2
+
+[node name="GenericInspectable6" parent="Inspectables" instance=ExtResource( 4 )]
+position = Vector2( 171.187, 305.131 )
+enemy_type = 23
 
 [connection signal="body_entered" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_exited"]
