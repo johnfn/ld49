@@ -16,8 +16,6 @@ func get_starting_room():
       room = x
   
   starting_room = room
-  # print(name)
-  # print(room.bounds, room.name)
 
 func render_proper_sprite():
   for ch in $Graphics.get_children():
@@ -32,8 +30,22 @@ func _ready():
   
   render_proper_sprite()
   get_starting_room()
-  walk_aimlessly()
+  
+  if "walks" in Enemies.info()[enemy_type]:
+    walk_aimlessly()
 
+func is_point_in_starting_room(pt: Vector2):
+  var space = get_world_2d().get_direct_space_state()
+  var results = space.intersect_point(
+    pt, 32, [], 0x7FFFFFFF, true, true
+  )
+  
+  for r in results:
+    if r.collider == starting_room.bounds:
+      return true
+  
+  return false
+  
 func walk_aimlessly():
   while true:
     var next_spot: Vector2 = Vector2.ZERO
@@ -48,23 +60,18 @@ func walk_aimlessly():
     var abs_destination = delta + global_position
     
     # make sure npc doesnt leave room lol
-    
-    var space = get_world_2d().get_direct_space_state()
-    var results = space.intersect_point(
-      abs_destination, 32, [], 0x7FFFFFFF, true, true)
-    
-    var good = false
-    for r in results:
-      if r.collider == starting_room.bounds:
-        good = true
 
-    if not good:
+    if not is_point_in_starting_room(abs_destination):
       for x in range(10):
         yield(get_tree(), "idle_frame")
       continue
     
     var ticks = 200
     while position.distance_to(next_spot) > 100 and ticks > 0:
+      #dont walk while menu is visible
+      while $InteractionMarker.is_being_shown():
+        yield(get_tree(), "idle_frame")
+      
       ticks -= 1
       
       var d = position.direction_to(rel_destination).normalized() * 100

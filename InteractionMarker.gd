@@ -58,6 +58,9 @@ func get_closest_interactable():
   
   return closest
 
+func is_being_shown():
+  return menu.visible
+
 func choose_interact():
   if get_closest_interactable() == interactor:
     emit_signal("on_interact")
