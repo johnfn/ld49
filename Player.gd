@@ -13,6 +13,12 @@ onready var down = $mcshort_down
 #    yield(get_tree(), "idle_frame")
 #  G.cinematics.run_game_cinematic()
 
+func _ready():
+  left.visible = false
+  right.visible = false
+  up.visible = false
+  down.visible = true
+
 func move():
   if G.in_battle:
     return

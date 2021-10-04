@@ -160,7 +160,6 @@ func _process(delta):
 func start_minigame():
   minigame = minigame_tscn.instance()
   add_child(minigame)
-  print(minigame.position)
   is_in_minigame = true
   
   insult_button.visible = false
