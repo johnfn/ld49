@@ -51,13 +51,17 @@ position = Vector2( 780, 873.609 )
 position = Vector2( -981.797, 1001.8 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( -400, 600 )
+position = Vector2( 2520, 1520 )
 
 [node name="TeachersLounge" parent="GameObjects" instance=ExtResource( 9 )]
 position = Vector2( 1920, 1980.77 )
 
 [node name="PrincipalsOffice" parent="GameObjects" instance=ExtResource( 13 )]
 position = Vector2( 2800, 1020 )
+
+[node name="PrincipalPike" parent="GameObjects/PrincipalsOffice" instance=ExtResource( 4 )]
+position = Vector2( 400, 500 )
+enemy_type = 14
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
