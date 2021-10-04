@@ -51,7 +51,6 @@ func hide_item():
     img.visible = false
   header.text = ""
   subheader.text = ""
-  # TODO fade out/exit
 
 func _process(delta):
   rotation += spin_speed * delta
