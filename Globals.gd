@@ -135,6 +135,8 @@ func gain_xp(amount: int, also_gained_item: bool):
   
   xp += amount
   
+  yield(get_tree(), "idle_frame")
+  
   if old_level != get_level():
     max_health += 5
     health += 5
