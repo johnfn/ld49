@@ -133,10 +133,13 @@ func start_minigame():
   minigame = minigame_tscn.instance()
   add_child(minigame)
   is_in_minigame = true
+  
+  battle_ui.visible = false
+  targeting_marker.visible = false
 
   minigame.connect("attack_landed", self, "minigame_damage")
   minigame.connect("minigame_over", self, "minigame_over")
-  minigame.run_game(["everyone", "that", "gets", "close", "to", "you", "leaves"], [0, 2, 3, 6], 0.4, 0.3, 1.5, 4)
+  minigame.run_game(["everyone", "that", "gets", "close", "to", "you", "leaves"], [0, 2, 3, 6], 0.5, 0.4, 1, 4)
   
 func minigame_over(): 
   if not minigame:
