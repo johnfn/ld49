@@ -80,6 +80,8 @@ func display_enemy(name):
     $"HUD/RightHalf/EnemyContainer/SchoolFiles".visible = true
   elif name == "Teacher's Lounge Door":
     $"HUD/RightHalf/EnemyContainer/LoungeDoor".visible = true
+  elif name == "Credits":
+    $"HUD/RightHalf/EnemyContainer/Credits".visible = true
   else:
     $"HUD/RightHalf/EnemyContainer/404".visible = true
 
