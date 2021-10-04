@@ -28,49 +28,49 @@ texture = ExtResource( 5 )
 
 [node name="Steve" type="Sprite" parent="Graphics"]
 position = Vector2( 19.8158, -28.6548 )
-scale = Vector2( 0.585066, 0.585066 )
+scale = Vector2( 1.04238, 1.04238 )
 texture = ExtResource( 3 )
 
 [node name="Gteve" type="Sprite" parent="Graphics"]
 modulate = Color( 0.929412, 1, 0.0862745, 1 )
 position = Vector2( 19.8158, -28.6548 )
-scale = Vector2( 0.585066, 0.585066 )
+scale = Vector2( 0.999814, 0.999814 )
 texture = ExtResource( 3 )
 
 [node name="Student1" type="Sprite" parent="Graphics"]
 modulate = Color( 0.0862745, 1, 0.270588, 1 )
 position = Vector2( 19.8158, -28.6548 )
-scale = Vector2( 0.585066, 0.585066 )
+scale = Vector2( 0.976984, 0.971879 )
 texture = ExtResource( 3 )
 
 [node name="Student2" type="Sprite" parent="Graphics"]
 modulate = Color( 0.0862745, 1, 0.937255, 1 )
 position = Vector2( 19.8158, -28.6548 )
-scale = Vector2( 0.585066, 0.585066 )
+scale = Vector2( 0.860168, 0.860168 )
 texture = ExtResource( 3 )
 
 [node name="Student3" type="Sprite" parent="Graphics"]
 modulate = Color( 0.0862745, 0.784314, 1, 1 )
 position = Vector2( 19.8158, -28.6548 )
-scale = Vector2( 0.585066, 0.585066 )
+scale = Vector2( 0.745409, 0.745409 )
 texture = ExtResource( 3 )
 
 [node name="Student4" type="Sprite" parent="Graphics"]
 modulate = Color( 0.670588, 0.0862745, 1, 1 )
 position = Vector2( 19.8158, -28.6548 )
-scale = Vector2( 0.585066, 0.585066 )
+scale = Vector2( 0.935311, 0.935311 )
 texture = ExtResource( 3 )
 
 [node name="Student5" type="Sprite" parent="Graphics"]
 modulate = Color( 1, 0.0862745, 0.301961, 1 )
 position = Vector2( 19.8158, -28.6548 )
-scale = Vector2( 0.585066, 0.585066 )
+scale = Vector2( 0.932068, 0.932068 )
 texture = ExtResource( 3 )
 
 [node name="Student6" type="Sprite" parent="Graphics"]
 modulate = Color( 0.305882, 0.0862745, 1, 1 )
 position = Vector2( 19.8158, -28.6548 )
-scale = Vector2( 0.585066, 0.585066 )
+scale = Vector2( 0.917449, 0.917449 )
 texture = ExtResource( 3 )
 
 [node name="Miss Trunchbull" type="Sprite" parent="Graphics"]
