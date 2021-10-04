@@ -59,5 +59,7 @@ position = Vector2( 228.405, 1459.17 )
 position = Vector2( 620, 1080 )
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
+enemy_pos = Vector2( 700, 200 )
+player_pos = Vector2( 200, 400 )
 
 [connection signal="on_trigger" from="FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]

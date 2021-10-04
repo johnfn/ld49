@@ -25,6 +25,7 @@ var movement_queue = {}
 
 func _ready():
   hide_everything()
+  connect("minigame_over", self, "_handler_func")
 
 func hide_everything():
   visible = false
@@ -94,8 +95,6 @@ func _process(delta):
     targeting_index = (targeting_index + 1) % len(enemies)
   
   var targeted_enemy = enemies[targeting_index]
-  print(targeted_enemy.get_name())
-  print(targeted_enemy.sprite)
   targeting_marker.position = targeted_enemy.position + 100*Vector2.UP + targeted_enemy.sprite.get_rect().size.x*Vector2.LEFT
   
   for ent in movement_queue.keys():
@@ -118,26 +117,37 @@ func take_action(action):
   if action == ACTIONS.insult:
     if actor == player:
       start_minigame()
+    else:
+      swipe(actor, player)
+      player.take_damage(5)
+      end_turn()
   elif action == ACTIONS.cry:
     actor.heal(5)
+    end_turn()
   else: 
     print("boohoo")
-    
-  end_turn()
   
 func start_minigame():
   minigame = minigame_tscn.instance()
   add_child(minigame)
   is_in_minigame = true
+
+  minigame.connect("attack_landed", self, "minigame_damage")
+  minigame.connect("minigame_over", self, "minigame_over")
+  minigame.run_game(["everyone", "that", "gets", "close", "to", "you", "leaves"], [0, 2, 3, 6], 1, 0.85, 0.6, 4)
   
 func minigame_over():
   if not minigame:
     return
   minigame.queue_free()
   is_in_minigame = false
-    
+  end_turn()
+   
+func minigame_damage():
+  enemies[0].take_damage(5)
+   
 func start_turn():
-  var acting_entity = turn_queue[0]
+  var acting_entity = turn_queue[0] 
   print("It's %s's turn!" % acting_entity.get_name())
   if acting_entity == player: 
     battle_ui.visible = true
