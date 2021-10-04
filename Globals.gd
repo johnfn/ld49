@@ -133,7 +133,16 @@ func gain_xp(amount: int):
     yield(cinematics.gain_xp(amount), "completed")
 
 func handle_death():
-  print("TODO lol")
+  end_battle_cleanup()
+  
+  yield(cinematics.death(), "completed")
+
+func end_battle_cleanup():
+  G.camera().current = true
+  
+  G.in_battle = false
+  G.battling_against = []
+  G.battle_scene().visible = false
 
 func end_battle():
   if G.battling_against.size() == 0:
@@ -179,12 +188,7 @@ func end_battle():
     yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
   
   gain_xp(total_xp)
-  
-  G.camera().current = true
-  
-  G.in_battle = false
-  G.battling_against = []
-  G.battle_scene().visible = false
+  end_battle_cleanup()
 
 func start_battle(battling_against: Array):
   if battling_against.size() == 0:

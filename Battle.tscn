@@ -114,6 +114,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LoseInstantly" type="Button" parent="HUD"]
+margin_left = 861.933
+margin_top = 560.157
+margin_right = 968.933
+margin_bottom = 580.157
+text = "LOSE INSTANTLY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 119.247, 463.247 )
 
@@ -123,3 +133,4 @@ position = Vector2( 855.247, 287.247 )
 [connection signal="pressed" from="HUD/BattleOptions/InsultButton" to="HUD/BattleOptions/InsultButton" method="_on_InsultButton_pressed"]
 [connection signal="pressed" from="HUD/BattleOptions/CryButton2" to="HUD/BattleOptions/CryButton2" method="_on_CryButton_pressed"]
 [connection signal="pressed" from="HUD/DieInstantly" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="HUD/LoseInstantly" to="." method="_on_LoseInstantly_pressed"]
