@@ -40,7 +40,15 @@ func get_next_dialog():
     elif next_dialog == "GET:+HP":
       next_dialog = "You regain all your health!"
       G.health = G.max_health
-    
+    elif next_dialog == "GET:+DAMAGE":
+      next_dialog = "Your insults deal more damage!"
+      G.attack += 2
+    elif next_dialog == "GET:+HP_UPGRADE":
+      next_dialog = "Your max health increases by 10!"
+      G.health += 10
+      G.max_health += 10
+      
+         
     dialog_text.add_color_override("font_color", Color(.6, .6, 1, 1))
   else:
     dialog_text.add_color_override("font_color", Color(1, 1, 1, 1))
