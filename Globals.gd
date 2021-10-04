@@ -90,6 +90,7 @@ enum ENEMIES {
   LoungeDoor,
   MichaelwaveOven,
   Stapler,
+  ClassroomTrash,
 }
 
 var health = 20
