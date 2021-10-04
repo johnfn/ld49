@@ -696,7 +696,7 @@ func steve_talk():
 
 func gteve_talk():
   G.dialog().start([      
-    { "speaker": "Gteve", "dialog": "Hey, I'm Gteve. Steve's my brother", },
+    { "speaker": "Gteve", "dialog": "Hey, I'm Steve's brother, Gteve.", },
     { "speaker": "You", "dialog": "...wtf?", },
   ])
 
