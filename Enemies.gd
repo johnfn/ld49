@@ -939,5 +939,5 @@ func student6_inspect():
     return
     
   G.dialog().start([ 
-        { "speaker": "Student", "dialog": "What do teachers even DO all day?! Grade paper and eat coffee????", },
+        { "speaker": "Student", "dialog": "What do teachers even DO all day?! Grade paper eat coffee????", },
   ])
