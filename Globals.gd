@@ -106,19 +106,22 @@ func next_level_xp():
 func gain_xp(amount: int):
   var old_level = get_level()
   
-  xp += 30
-  max_health += 5
-  health += 5
+  xp += amount
   
   if old_level != get_level():
+    max_health += 5
+    health += 5
+    
     yield(cinematics.gain_level(get_level()), "completed")
-  
   
 func end_battle():
   var items_gotten = []
+  var total_xp = 0
   
   for enemy in G.battling_against:
     var info = Enemies.info()[enemy.enemy_type]
+    
+    total_xp += info.xp
     
     if info.drop != InventoryItem.None:
       inventory_contents.push_back(info.drop)
@@ -137,7 +140,7 @@ func end_battle():
   if items_gotten.size() > 0:
     yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
    
-  gain_xp(30)
+  gain_xp(total_xp)
   
   G.camera().current = true
   
