@@ -61,9 +61,7 @@ func process_dialog():
         get_next_dialog()
     elif is_forced_to_fight and Input.is_action_just_pressed("angry"):
       stop_dialog()
-      print(speaker_name.text)
-      print(speaker_to_node.has(speaker_name.text))
-      print(speaker_to_node[speaker_name.text])
+
       if speaker_name.text == "Principal Pike":
         G.start_battle([get_node(principal_pike)])
       elif speaker_name.text == "Miss Trunchbull":
@@ -71,9 +69,19 @@ func process_dialog():
   else:
     if Input.is_action_just_pressed("action"):
       dialog_text.percent_visible = 1
+      Music.confirm_3.play()
     else:
       if tick % 2 == 0:
         dialog_text.visible_characters += 1
+        
+        if speaker_name.text == "You" or speaker_name.text == "Timmy":
+          Music.dialog_tick_1.play()
+        elif speaker_name.text == "Principal Pike":
+          Music.dialog_tick_7.play()
+        elif speaker_name.text == "Miss Trunchbull":
+          Music.dialog_tick_9.play()
+        else:
+          Music.dialog_tick_2.play()
   
 func start(dialog_name_or_contents):
   # this stops is_action_just_pressed from being true 

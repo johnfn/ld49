@@ -27,18 +27,6 @@ func info():
       "can_ever_fight": false
     },
     
-    G.ENEMIES.MissTrunchbull: {
-      "name": "Miss Trunchbull",
-      "interaction": "Talk to Miss Trunchbull",
-      "drop": G.InventoryItem.HallPass,
-      "health": 25,
-      "xp": 30,
-      "is_inanimate": false,
-      "battle_tscn": load("res://BattleEnemy.tscn"),
-      "dialog": funcref(self, "trunchbull_talk"),
-      "can_ever_fight": true
-    },
-    
     G.ENEMIES.Poster: {
       "name": "Poster",
       "interaction": "Read poster",
@@ -187,7 +175,8 @@ func info():
         "i could only tell it was yours because it was illegible",
         "this is a more pitiful showing than your last exam",
         "class clown isnt meant to be taken this literally timmy",
-       ]
+       ],
+      "dialog": funcref(self, "trunchbull_talk"),
     },
     
     G.ENEMIES.PrincipalPike: {

@@ -2,9 +2,6 @@ extends KinematicBody2D
 
 var speed = 400.0
 
-func _ready():
-  pass 
-
 func move():
   if G.in_battle:
     return
