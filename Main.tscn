@@ -63,6 +63,10 @@ position = Vector2( 2800, 1020 )
 position = Vector2( 400, 500 )
 enemy_type = 14
 
+[node name="SchoolFiles" parent="GameObjects/PrincipalsOffice" instance=ExtResource( 4 )]
+position = Vector2( 600, 660 )
+enemy_type = 15
+
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
 smoothing_enabled = true

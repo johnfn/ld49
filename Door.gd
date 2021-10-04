@@ -14,6 +14,7 @@ func _on_InteractionMarker_on_interact():
    ])
 
     queue_free()
+    return
 
   tries += 1 
   
