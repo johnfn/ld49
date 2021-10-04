@@ -95,6 +95,12 @@ enum ENEMIES {
   Recycling,
   PrincipalDesk,
   PrincipalPoster,
+  Student1,
+  Student2,
+  Student3,
+  Student4,
+  Student5,
+  Student6,
 }
 
 var attack = 50 if debug else 5 # TODO maybe upgrade

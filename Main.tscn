@@ -113,6 +113,27 @@ statsHud = NodePath("../Hud/StatsBox")
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 
+[node name="Npc" parent="." instance=ExtResource( 4 )]
+position = Vector2( -936.385, 849.953 )
+enemy_type = 26
+
+[node name="Npc2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 729.177, 1398.6 )
+enemy_type = 30
+
+[node name="Npc3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 633.364, 417.879 )
+
+[node name="Npc4" parent="." instance=ExtResource( 4 )]
+position = Vector2( -767.112, 1425.06 )
+
+[node name="Npc5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1747.08, 1400.43 )
+
+[node name="Npc6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2371.24, 2473.54 )
+enemy_type = 31
+
 [connection signal="on_trigger" from="GameObjects/Hallway/CinematicTrigger3" to="Cinematics" method="_on_CinematicTrigger_on_trigger" binds= [ "exit door" ]]
 [connection signal="on_trigger" from="GameObjects/BigHallway/CinematicTrigger2" to="Cinematics" method="_on_CinematicTrigger_on_trigger" binds= [ "principal door" ]]
 [connection signal="on_trigger" from="GameObjects/PrincipalsOffice/CinematicTrigger3" to="Cinematics" method="_on_CinematicTrigger_on_trigger" binds= [ "principal" ]]
