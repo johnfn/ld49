@@ -190,8 +190,6 @@ func info():
       "name": "Miss Trunchbull",
       "interaction": "Talk to Miss Trunchbull",
       "drop": G.InventoryItem.HallPass,
-      "health": 25,
-      "xp": 30,
       "is_inanimate": false,
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "intro": "Miss Trunchbull GOT YOU ANGRY",
@@ -211,8 +209,15 @@ func info():
         "class clown isnt meant to be taken this literally timmy",
         "this is a more pitiful showing than your last exam",
         "i could only tell it was yours because it was illegible",
-       ],
+      ],
       "dialog": funcref(self, "trunchbull_talk"),
+      
+      "health": 25,
+      "xp": 30,
+      "damage": 5,
+      "speed": 1.0,
+      "bad_spawn_chance": 0.1,
+      "spawn_time": 1.0,
     },
     
     G.ENEMIES.PrincipalPike: {
@@ -240,7 +245,10 @@ func info():
         "school was never a good fit for you anyways",
         "now you can go somewhere you fit in better, like prison",
         "remember that time you got sent here covered in glue",
-       ]
+      ],
+      "speed": 1.0,
+      "bad_spawn_chance": 0.1,
+      "spawn_time": 1.0,
     },
     
     G.ENEMIES.SchoolFiles: {
@@ -268,7 +276,10 @@ func info():
         '"Strengths: Is able to read. If the words are short."',
         '"Weaknesses: Boring, stupid... Continues on pages 2-4."',
         '"Seems to have eaten a lot of glue as a child."',
-       ]
+      ],
+      "speed": 1.0,
+      "bad_spawn_chance": 0.1,
+      "spawn_time": 1.0,
     },
     
     G.ENEMIES.Stapler: {
@@ -296,7 +307,10 @@ func info():
         "maybe with some staples you could hold your life together",
         "is that really the best line you can swing",
         "kids are a staple of my diet",
-       ]
+      ],
+      "speed": 1.0,
+      "bad_spawn_chance": 0.1,
+      "spawn_time": 1.0,
     },
     
     G.ENEMIES.MichaelwaveOven: {
@@ -324,7 +338,10 @@ func info():
         "who better than me to roast you",
         "im the only one who will show you warmth",
         "ill make your head spin",
-       ],
+      ],
+      "speed": 1.0,
+      "bad_spawn_chance": 0.1,
+      "spawn_time": 1.0,
     },
     
     G.ENEMIES.LoungeDoor: {
@@ -354,6 +371,9 @@ func info():
         "you cant handle these insults",
        ],
       "dialog": funcref(self, "lounge_inspect"),
+      "speed": 1.0,
+      "bad_spawn_chance": 0.1,
+      "spawn_time": 1.0,
     },
     
     G.ENEMIES.SchoolDoors: {
@@ -383,6 +403,9 @@ func info():
         "people laughing at you behind closed doors doesn't mean you need to take it out on me",
        ],
       "dialog": funcref(self, "school_door_inspect"),
+      "speed": 1.0,
+      "bad_spawn_chance": 0.1,
+      "spawn_time": 1.0,
     },
     
     G.ENEMIES.TheGame: {
@@ -410,7 +433,10 @@ func info():
         "normally people make it here way faster than <minutes> minutes",
         "you must be pretty bad to have taken <damage> damage",
         "hey, you only cried <cry> times, that's a good day for you",
-       ]
+       ],
+       "speed": 1.0,
+       "bad_spawn_chance": 0.1,
+       "spawn_time": 1.0,
     },
     
     G.ENEMIES.Credits: {
@@ -439,7 +465,10 @@ func info():
         "you cant exist without me",
         "youre a poorly written character",
         "looks like theres a reason people take more than three days to make",
-       ]
+       ],
+       "speed": 1.0,
+       "bad_spawn_chance": 0.1,
+       "spawn_time": 1.0,
     },
     
     G.ENEMIES.Steve: {

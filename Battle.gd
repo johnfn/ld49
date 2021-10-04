@@ -171,7 +171,10 @@ func start_minigame():
         break
   assert(len(key_words) == len(key_indices)) # TODO remove before shipping, leave until then to verify data
   
-  minigame.run_game(player_words, key_indices, 1, 0.4, 1, 4)
+  var speed = enemy_data["speed"] if "speed" in enemy_data else 1
+  var badspawn = enemy_data["bad_spawn_chance"] if "bad_spawn_chance" in enemy_data else 0.4
+  var spawn_time = enemy_data["spawn_time"] if "spawn_time" in enemy_data else 1
+  minigame.run_game(player_words, key_indices, speed, badspawn, spawn_time, 4)
 
 func minigame_over(): 
   if not minigame:

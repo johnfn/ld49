@@ -141,7 +141,7 @@ func spawn_word():
     return
   var word_to_spawn
   var good_word = false
-  if not curr_word_spawned and ((bad_spawns > min_bad_spawns and rng.randf() > bad_word_chance) or bad_spawns >= max_bad_spawns):
+  if not curr_word_spawned and ((bad_spawns >= min_bad_spawns and rng.randf() > bad_word_chance) or bad_spawns >= max_bad_spawns):
     bad_spawns = 0
     word_to_spawn = key_words[curr_word]
     curr_word_spawned = true
