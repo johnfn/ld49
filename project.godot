@@ -62,7 +62,10 @@ _global_script_class_icons={
 "Dialog": "",
 "HealthBar": "",
 "InteractionMarker": "",
+<<<<<<< HEAD
 "Inventory": "",
+=======
+>>>>>>> f288ea14041810e4e8208fb870008a9e9efa39f2
 "Npc": ""
 }
 
