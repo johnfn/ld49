@@ -1,7 +1,5 @@
 extends Node2D
 
-# TODO allow cursor movement by holding down the inputs
-
 signal minigame_over
 signal attack_landed
 
@@ -115,7 +113,6 @@ func move_words(delta):
           var burst_node = burst_scene.instance()
           $InsultScroller/Bursts.add_child(burst_node)
           burst_node.position = word.position + word.get_size() / 2
-          emit_signal("attack_landed")
       else:
         var amount_past = word.position.x - cursor.position.x
         var percent_past = amount_past / (bg.texture.get_width() / 2)
@@ -129,6 +126,7 @@ func move_words(delta):
             word.set_on_fire()
             reset_curr_word()
             $InsultBubble.on_InsultScroller_word_passed(true, word.word)
+            emit_signal("attack_landed")
         elif not word.is_bad:
           word.mark_bad()
           $InsultBubble.on_InsultScroller_word_passed(false, word.word)

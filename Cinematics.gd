@@ -7,6 +7,10 @@ onready var big_press_prompt: Label = $PressZPrompt
 onready var animation_player = $AnimationPlayer
 onready var item_get = $ItemGet
 
+export var school_files : NodePath
+export var the_game : NodePath
+export var credits : NodePath
+
 func start_cinematic():
   get_tree().paused = true
   G.mode = G.PauseMode.Cinematic
@@ -91,15 +95,25 @@ func snap_camera():
   G.camera().force_update_transform()
   G.camera().smoothing_enabled = true
 
-func _on_CinematicTrigger_on_trigger():
-  pass
-#  if not G.debug:
-#    run_trunchbull_cinematic()
+func _on_CinematicTrigger_on_trigger(cinematic):
+  if cinematic == "principal":
+    run_principal_cinematic()
+  elif cinematic == "principal door":
+    start_cinematic()
+    G.dialog().start([{ "speaker": "Timmy", "dialog": "the principals office... better be prepared", }])
+  elif cinematic == "exit door":
+    start_cinematic()
+    G.dialog().start([{ "speaker": "Timmy", "dialog": "the school exit... if i managed to ditch, this terrible day would be over", }])
 
-# TODO fix weirdly black screen
-# TODO make the dialog window look better
-# TODO don't let the last line leave the screen
-# TODO add a Press X to GET ANGRY
+
+func run_principal_cinematic():
+  start_cinematic()
+  G.dialog().start([      
+    { "speaker": "Principal Pike", "dialog": "sent to my office again eh timmy?", },
+    { "speaker": "Principal Pike", "dialog": "i'm a man who solves problems now instead of later timmy", },
+    { "speaker": "Principal Pike", "dialog": "and if i expel you i never have to see your face again", "forces_fight": true},
+  ])
+
 func run_trunchbull_cinematic():
   start_cinematic()
   insta_go_to_black()

@@ -22,8 +22,14 @@
 [node name="Hallway" parent="GameObjects" instance=ExtResource( 2 )]
 position = Vector2( 3700, 2360 )
 
+[node name="CinematicTrigger3" parent="GameObjects/Hallway" instance=ExtResource( 7 )]
+position = Vector2( -3303.02, -1640.95 )
+
 [node name="BigHallway" parent="GameObjects" instance=ExtResource( 12 )]
 position = Vector2( 20, 0 )
+
+[node name="CinematicTrigger2" parent="GameObjects/BigHallway" instance=ExtResource( 7 )]
+position = Vector2( 2699.86, 1537.18 )
 
 [node name="Wastebin" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
 position = Vector2( 485.898, 1178.18 )
@@ -47,9 +53,6 @@ enemy_type = 1
 position = Vector2( -1200, 40 )
 start_unlit = false
 
-[node name="CinematicTrigger" parent="GameObjects/FirstClassroom" instance=ExtResource( 7 )]
-position = Vector2( 485.044, 700.781 )
-
 [node name="MissTrunchbull" parent="GameObjects/FirstClassroom" instance=ExtResource( 4 )]
 position = Vector2( 500, 657.187 )
 enemy_type = 3
@@ -68,6 +71,9 @@ position = Vector2( 1920, 1980.77 )
 
 [node name="PrincipalsOffice" parent="GameObjects" instance=ExtResource( 13 )]
 position = Vector2( 2800, 1020 )
+
+[node name="CinematicTrigger3" parent="GameObjects/PrincipalsOffice" instance=ExtResource( 7 )]
+position = Vector2( 388.967, 515.484 )
 
 [node name="PrincipalPike" parent="GameObjects/PrincipalsOffice" instance=ExtResource( 4 )]
 position = Vector2( 400, 500 )
@@ -94,9 +100,13 @@ smoothing_enabled = true
 miss_trunchbull = NodePath("../../GameObjects/FirstClassroom/MissTrunchbull")
 
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
+school_files = NodePath("../GameObjects/PrincipalsOffice/SchoolFiles")
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 
-[connection signal="on_trigger" from="GameObjects/FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]
+[connection signal="on_trigger" from="GameObjects/Hallway/CinematicTrigger3" to="Cinematics" method="_on_CinematicTrigger_on_trigger" binds= [ "exit door" ]]
+[connection signal="on_trigger" from="GameObjects/BigHallway/CinematicTrigger2" to="Cinematics" method="_on_CinematicTrigger_on_trigger" binds= [ "principal door" ]]
+[connection signal="on_trigger" from="GameObjects/PrincipalsOffice/CinematicTrigger3" to="Cinematics" method="_on_CinematicTrigger_on_trigger" binds= [ "principal" ]]
 
+[editable path="GameObjects/BigHallway/CinematicTrigger2"]
 [editable path="Hud"]
