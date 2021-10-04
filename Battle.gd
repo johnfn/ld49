@@ -80,7 +80,7 @@ func display_enemy(name):
     $"HUD/RightHalf/EnemyContainer/SchoolFiles".visible = true
   elif name == "Teacher's Lounge Door":
     $"HUD/RightHalf/EnemyContainer/LoungeDoor".visible = true
-  elif name == "Credits":
+  elif name == "The Credits":
     $"HUD/RightHalf/EnemyContainer/Credits".visible = true
   else:
     $"HUD/RightHalf/EnemyContainer/404".visible = true
@@ -94,7 +94,6 @@ func start_battle():
   enemy_data = Enemies.info()[G.battling_against[0].enemy_type]
   $HUD/RightHalf/EnemyUi/NameTag/EnemyName.text = enemy_data["name"]
   enemy_hp = enemy_data["health"]
-  print("set enemy hp", enemy_hp)
   if "damage" in enemy_data:
     enemy_damage = enemy_data["damage"]
   else:
@@ -179,6 +178,7 @@ func start_minigame():
   
   if enemy_data.name == "Credits":
     player_line = last_enemy_line
+  print(player_line)
   var line = enemy_data["playerLines"][player_line]
   var key_words = enemy_data["keyWords"][player_line]
   player_line = (player_line + 1) % len(enemy_data["playerLines"])
@@ -257,11 +257,15 @@ func enemy_attack():
     end_battle()
 
 func display_line(line):
-  if "<minutes>" in line:
+  print(line)
+  if line.find("<minutes>") >= 0:
+    print("<minutes>")
     line.replace("<minutes>", G.get_minutes())
-  if "<cry>" in line:
+  if line.find("<cry>") >= 0:
+    print("<cry>")
     line.replace("<cry>", G.cry_tally)
-  if "<damage>" in line:
+  if line.find("<damage>") >= 0:
+    print("<damage>")
     line.replace("<damage>", G.damage_tally)
     
   speech_bubble.visible = true
