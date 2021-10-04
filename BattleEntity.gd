@@ -42,3 +42,6 @@ func take_damage(amount: int):
 func set_hp(hp: int):
   health_bar.set_hp(hp)
   _health = hp
+
+func is_dead():
+  return _health <= 0

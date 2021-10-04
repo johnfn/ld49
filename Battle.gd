@@ -32,6 +32,7 @@ func hide_everything():
   $Background.visible = false
   
   for child in $HUD.get_children():
+    print(child.name)
     if "visible" in child:
       child.visible = false
 
@@ -79,6 +80,8 @@ func start_battle():
 func end_battle():
   # TODO: queue_free all enemies that still exist etc
   
+  if minigame != null:
+    minigame.queue_free()
   hide_everything()
   G.end_battle()
 
@@ -149,7 +152,16 @@ func minigame_over():
   end_turn()
    
 func minigame_damage():
-  enemies[0].take_damage(5)
+  enemies[0].take_damage(500 if G.debug else 5)
+  
+  var all_dead = true
+  
+  for e in enemies:
+    if not e.is_dead(): 
+      all_dead = false
+  
+  if all_dead:
+    end_battle()
    
 func start_turn():
   var acting_entity = turn_queue[0] 
