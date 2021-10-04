@@ -9,7 +9,7 @@ var base_speed = 300
 var speed
 var bad_word_chance
 var spawn_time
-var initial_spawn_delay = 1
+var initial_spawn_delay = 3
 var row_count
 var rng = RandomNumberGenerator.new()
 var key_words

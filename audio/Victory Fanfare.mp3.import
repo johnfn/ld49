@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Victory Fanfare.mp3-9e1e2fff3784b0855dccded6d6a55ee3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

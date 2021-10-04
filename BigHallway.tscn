@@ -202,7 +202,7 @@ visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomDimmer/Area2D"]
 position = Vector2( 18.7519, -22.9189 )
-polygon = PoolVector2Array( 0, 0, -20, 2020, 2800, 2040, 2820, 1000, 980, 960, 1000, 20, 60, 0 )
+polygon = PoolVector2Array( 0, 0, -20, 2020, 2800, 2040, 2820, 1000, 1000, 20, 60, 0 )
 
 [node name="GenericInspectable" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2212.23, 1258.61 )

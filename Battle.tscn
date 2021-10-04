@@ -38,7 +38,7 @@ COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, float(blurSize)/10.0);
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/blurSize = 32
+shader_param/blurSize = 0
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -110,6 +110,8 @@ texture = ExtResource( 12 )
 centered = false
 
 [node name="HUD" type="CanvasLayer" parent="."]
+offset = Vector2( -800, 0 )
+transform = Transform2D( 1, 0, 0, 1, -800, 0 )
 
 [node name="BattleOptions" type="VBoxContainer" parent="HUD"]
 anchor_left = 0.343
@@ -227,6 +229,8 @@ __meta__ = {
 
 [node name="RightHalf" type="CanvasLayer" parent="HUD"]
 layer = 2
+offset = Vector2( 800, 0 )
+transform = Transform2D( 1, 0, 0, 1, 800, 0 )
 
 [node name="EnemyContainer" type="Control" parent="HUD/RightHalf"]
 margin_left = 690.843
@@ -433,7 +437,7 @@ __meta__ = {
 position = Vector2( 136.154, 144.163 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 4 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="EnemyUi" type="VBoxContainer" parent="HUD/RightHalf"]
@@ -581,7 +585,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 119.247, 463.247 )
+position = Vector2( -680.753, 463.247 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SlideIn = SubResource( 3 )
