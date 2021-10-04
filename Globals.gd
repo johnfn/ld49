@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug = OS.get_environment("USER") == "johnfn" || false
+var debug = false # OS.get_environment("USER") == "johnfn" || false
 
 enum PauseMode {
   None = 0,
@@ -202,7 +202,7 @@ func end_battle():
   
   for enemy in G.battling_against:
     en.queue_free()
-  
+
   yield(gain_xp(total_xp, items_gotten.size() > 0), "completed")
 
   end_battle_cleanup()
@@ -215,15 +215,18 @@ func start_battle(battling_against: Array):
     print("WTF! some weird bug")
     return
   
-  Music.play_audio(Music.battle_theme)
-  
   var first = battling_against[0]
   var type = first.enemy_type
   
+  if type == G.ENEMIES.PrincipalPike or type == G.ENEMIES.TheGame or type == G.ENEMIES.Credits:
+    Music.play_audio(Music.boss_theme)
+  else:
+    Music.play_audio(Music.battle_theme)
+
   var parent = G.battle_scene.get_parent()
   var index = G.battle_scene.get_index()
   var name = G.battle_scene.name
-  
+
   G.battle_scene.dead = true
   G.battle_scene.queue_free()
   
