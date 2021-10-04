@@ -112,7 +112,9 @@ func gain_xp(amount: int):
     max_health += 5
     health += 5
     
-    yield(cinematics.gain_level(get_level()), "completed")
+    yield(cinematics.gain_level(get_level(), amount), "completed")
+  else:
+    yield(cinematics.gain_xp(amount), "completed")
   
 func end_battle():
   var items_gotten = []

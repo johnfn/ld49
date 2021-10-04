@@ -108,7 +108,7 @@ func get_inventory_item(name: String):
   fade_from_black_timed()
   end_cinematic()
 
-func gain_level(level: int):
+func gain_level(level: int, amount_of_xp: int):
   start_cinematic()
   snap_camera()
   insta_go_to_semiblack()
@@ -117,6 +117,14 @@ func gain_level(level: int):
   fade_from_black_timed()
   end_cinematic()
 
+func gain_xp(amount: int):
+  start_cinematic()
+  snap_camera()
+  insta_go_to_semiblack()
+  yield(write_overlay_text("You gained %d experience!" % amount), "completed")
+  yield(write_overlay_text("You're %d away from level %d" % [G.next_level_xp() - G.xp, G.get_level() + 1]), "completed")
+  fade_from_black_timed()
+  end_cinematic()
 func _ready():
   for child in get_children():
     if "visible" in child:
