@@ -2,20 +2,20 @@
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=2]
-[ext_resource path="res://art/overworld/npcs/npc1.png" type="Texture" id=3]
+[ext_resource path="res://art/overworld/npc1.png" type="Texture" id=3]
 [ext_resource path="res://art/overworld/npcs/npc2.png" type="Texture" id=4]
 [ext_resource path="res://art/overworld/recyclingbin.png" type="Texture" id=5]
 [ext_resource path="res://art/LightRadius.png" type="Texture" id=6]
-[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://art/overworld/doors.png" type="Texture" id=8]
 
-[sub_resource type="StreamTexture" id=2]
+[sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/npc2.png-1ac8fe4821516f9732788c0cb7e156fd.stex"
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 107.887, 32.8456 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 118.183, 82.756 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 20, 20 )
 
 [node name="Npc" type="KinematicBody2D"]
@@ -30,16 +30,15 @@ scale = Vector2( 0.585066, 0.585066 )
 texture = ExtResource( 5 )
 
 [node name="Steve" type="Sprite" parent="Graphics"]
-visible = false
 position = Vector2( 19.8158, -28.6548 )
 scale = Vector2( 0.585066, 0.585066 )
 texture = ExtResource( 3 )
 
 [node name="Gteve" type="Sprite" parent="Graphics"]
-visible = false
+modulate = Color( 0.929412, 1, 0.0862745, 1 )
 position = Vector2( 19.8158, -28.6548 )
 scale = Vector2( 0.585066, 0.585066 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Miss Trunchbull" type="Sprite" parent="Graphics"]
 visible = false
@@ -54,7 +53,7 @@ modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
 position = Vector2( 24.7108, -12.9782 )
 rotation = -3.03869
 scale = Vector2( 0.705783, 0.893624 )
-texture = SubResource( 2 )
+texture = SubResource( 1 )
 
 [node name="Timmy\'s School Files" type="Sprite" parent="Graphics"]
 visible = false
@@ -68,29 +67,28 @@ texture = ExtResource( 6 )
 modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
 position = Vector2( 24.7108, -12.9782 )
 scale = Vector2( 0.705783, 0.893624 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Graphics/Teacher\'s Lounge Door"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Teacher\'s Lounge Door/StaticBody2D"]
 position = Vector2( 0.409687, 7.13264 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="School Doors" type="Sprite" parent="Graphics"]
-modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
 position = Vector2( 24.7108, -12.9782 )
 scale = Vector2( 0.705783, 0.893624 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Graphics/School Doors"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/School Doors/StaticBody2D"]
 position = Vector2( 0.409687, 7.13264 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 25, 11 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="InteractionMarker" parent="." instance=ExtResource( 2 )]
 position = Vector2( 13.7351, -18.1296 )

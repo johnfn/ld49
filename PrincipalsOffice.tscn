@@ -23,7 +23,7 @@ extents = Vector2( 60, 460 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 340, 60 )
 
-[node name="TeachersLounge2" type="YSort"]
+[node name="PrincipalsOffice" type="YSort"]
 position = Vector2( 1920, 1980 )
 script = ExtResource( 5 )
 

@@ -418,7 +418,7 @@ func info():
     
     G.ENEMIES.LoungeDoor: {
       "name": "Teacher's Lounge Door",
-      "interaction": "TODO",
+      "interaction": "Inspect Lounge Doors",
       "drop": G.InventoryItem.None,
       "health": 25,
       "xp": 30,
@@ -450,7 +450,7 @@ func info():
     
     G.ENEMIES.SchoolDoors: {
       "name": "School Doors",
-      "interaction": "TODO",
+      "interaction": "Inspect School Doors",
       "drop": G.InventoryItem.None,
       "health": 25,
       "xp": 30,
@@ -880,7 +880,7 @@ func student3_inspect():
     return
     
   G.dialog().start([ 
-        { "speaker": "Student", "dialog": "I'M ONTO YOU, EVIL DOORS!", },
+    { "speaker": "Student", "dialog": "I'M ONTO YOU, EVIL DOORS!", },
   ])
 
 var stu4first = true
@@ -939,5 +939,5 @@ func student6_inspect():
     return
     
   G.dialog().start([ 
-        { "speaker": "Student", "dialog": "What do teachers even DO all day?! Grade paper and eat coffee????", },
+        { "speaker": "Student", "dialog": "What do teachers even DO all day?! Grade paper eat coffee????", },
   ])

@@ -214,6 +214,7 @@ func display_line(line):
     line.replace("<damage>", G.damage_tally)
     
   speech_bubble.visible = true
+  speech_text.text = ""
   
   var tick = 0
   for ch in line:

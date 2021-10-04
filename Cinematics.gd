@@ -7,18 +7,18 @@ onready var big_press_prompt: Label = $PressZPrompt
 onready var animation_player = $AnimationPlayer
 onready var item_get = $ItemGet
 
-export var school_files : NodePath
-export var the_game : NodePath
-export var credits : NodePath
-export var statsHud : NodePath
+onready var school_files = $"/root/Main/GameObjects/PrincipalsOffice/RoomDimmer/Graphics/SchoolFiles"
+onready var the_game = $"/root/Main/GameObjects/BigHallway/RoomDimmer/Graphics/TheGame"
+onready var credits = $"/root/Main/GameObjects/BigHallway/RoomDimmer/Graphics/Credits"
+onready var statsHud = $"/root/Main/Hud/StatsBox"
 
 func start_cinematic():
-  get_node(statsHud).visible = false
+  statsHud.visible = false
   get_tree().paused = true
   G.mode = G.PauseMode.Cinematic
 
 func end_cinematic():
-  get_node(statsHud).visible = true
+  statsHud.visible = true
   get_tree().paused = false
   G.mode = G.PauseMode.None
 
@@ -98,7 +98,7 @@ func write_overlay_text(text: String):
   big_press_prompt.visible = false
   overlay_text.percent_visible = 0
 
-func write_overlay_fight_text(text: String, prompt: String, nodepath: NodePath):
+func write_overlay_fight_text(text: String, prompt: String, node: Node2D):
   $PressXPrompt.text = prompt
   overlay_text.visible = true
   overlay_text.text = text
@@ -120,7 +120,7 @@ func write_overlay_fight_text(text: String, prompt: String, nodepath: NodePath):
   $PressXPrompt.visible = false
   overlay_text.percent_visible = 0
   
-  G.start_battle([get_node(nodepath)])
+  G.start_battle([node])
 
 func snap_camera():
   G.camera().current = true
@@ -216,7 +216,7 @@ func get_inventory_item(name: String):
   end_cinematic()
   
   if forces_file_fight:
-    G.start_battle([get_node(school_files)])
+    G.start_battle([school_files])
 
 func death():
   start_cinematic()
