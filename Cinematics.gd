@@ -147,6 +147,9 @@ func get_inventory_item(name: String):
   
   yield(wait_for_z_press(), "completed")
   
+  if name == "TRUE ENLIGHTENMENT":
+    Music.play_audio(Music.overworld_theme2)
+  
   for x in range(fade_frames, 0, -1):
     screen_fade.modulate = Color(1, 1, 1, (x - 1) / fade_frames * max_black)
     item_get.set_alpha(x / fade_frames)

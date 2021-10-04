@@ -147,6 +147,8 @@ func end_battle_cleanup():
 func end_battle():
   if G.battling_against.size() == 0:
     return
+  
+  Music.play_audio(Music.overworld_theme2 if has_true_enlightenment() else Music.overworld_theme)
     
   var first = battling_against[0]
   var type = first.enemy_type
@@ -194,6 +196,8 @@ func start_battle(battling_against: Array):
   if battling_against.size() == 0:
     print("WTF! some weird bug")
     return
+  
+  Music.play_audio(Music.battle_theme)
   
   var first = battling_against[0]
   var type = first.enemy_type
