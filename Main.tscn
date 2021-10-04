@@ -17,18 +17,20 @@
 [node name="GameObjects" type="YSort" parent="."]
 
 [node name="Hallway" parent="GameObjects" instance=ExtResource( 2 )]
-
-[node name="Wastebin" parent="GameObjects/Hallway" instance=ExtResource( 4 )]
-position = Vector2( 585.898, 1301.76 )
-
-[node name="Steve" parent="GameObjects/Hallway" instance=ExtResource( 4 )]
-position = Vector2( 500, 1080 )
-
-[node name="Gteve" parent="GameObjects/Hallway" instance=ExtResource( 4 )]
-position = Vector2( 557.04, 703.578 )
+position = Vector2( 1780, 2020 )
 
 [node name="BigHallway" parent="GameObjects" instance=ExtResource( 12 )]
-position = Vector2( 0, 2000 )
+position = Vector2( 20, 0 )
+
+[node name="Wastebin" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
+position = Vector2( 485.898, 1178.18 )
+
+[node name="Steve" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
+position = Vector2( 400, 956.422 )
+
+[node name="Gteve" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
+position = Vector2( 460, 580 )
+enemy_type = 1
 
 [node name="FirstClassroom" parent="GameObjects" instance=ExtResource( 6 )]
 position = Vector2( -1200, 40 )

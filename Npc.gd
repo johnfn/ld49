@@ -89,9 +89,9 @@ func _process(delta):
   if Engine.editor_hint:
     render_proper_sprite()
   if $InteractionMarker.is_being_shown():
-    modulate = Color(2, 2, 2, 1)
+    $Graphics.modulate = Color(2, 2, 2, 1)
   else:
-    modulate = Color(1, 1, 1, 1)
+    $Graphics.modulate = Color(1, 1, 1, 1)
 
 func _on_InteractionMarker_on_interact():
   Enemies.info()[enemy_type].dialog.call_func()

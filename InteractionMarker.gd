@@ -7,7 +7,6 @@ export(float) var interaction_scale = 1
 signal on_interact
 signal on_anger
 
-onready var player: KinematicBody2D = $"/root/Main/Player"
 onready var marker = $InteractionMarker
 onready var animation = $AnimationPlayer
 onready var interactor = $"../"
@@ -163,11 +162,11 @@ func _process(delta):
       animation.play("MediumAngry")
 
 func _on_Area2D_body_entered(body):
-  if body == player:
+  if body == G.player():
     is_player_inside = true
     G.interactables.push_back(interactor)
 
 func _on_Area2D_body_exited(body):
-  if body == player:
+  if body == G.player():
     is_player_inside = false
     G.interactables.erase(interactor)
