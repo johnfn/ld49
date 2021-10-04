@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug = OS.get_environment("USER") == "johnfn"
+var debug = true # OS.get_environment("USER") == "johnfn"
 
 enum PauseMode {
   None = 0,
@@ -95,9 +95,15 @@ enum ENEMIES {
   Recycling,
   PrincipalDesk,
   PrincipalPoster,
+  Student1,
+  Student2,
+  Student3,
+  Student4,
+  Student5,
+  Student6,
 }
 
-var attack = 5 # TODO maybe upgrade
+var attack = 50 if debug else 5 # TODO maybe upgrade
 var healing = 5 # TODO maybe upgrade
 var health = 20
 var max_health = 20
