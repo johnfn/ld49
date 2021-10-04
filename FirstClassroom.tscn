@@ -11,13 +11,13 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 560, 440 )
 
-[node name="Classroom" type="Node2D"]
+[node name="Classroom" type="YSort"]
 script = ExtResource( 6 )
 
-[node name="RoomDimmer" type="Node2D" parent="."]
+[node name="RoomDimmer" type="YSort" parent="."]
 script = ExtResource( 2 )
 
-[node name="Graphics" type="Node2D" parent="RoomDimmer"]
+[node name="Graphics" type="YSort" parent="RoomDimmer"]
 modulate = Color( 1, 1, 1, 0.5 )
 
 [node name="classroom" type="Sprite" parent="RoomDimmer/Graphics"]
@@ -25,12 +25,13 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="BlueDesk" parent="RoomDimmer/Graphics" instance=ExtResource( 3 )]
+position = Vector2( 280, 720 )
 
 [node name="BlueDesk2" parent="RoomDimmer/Graphics" instance=ExtResource( 3 )]
-position = Vector2( 600, 0 )
+position = Vector2( 880, 720 )
 
 [node name="RedDesk" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
-position = Vector2( 440, -120 )
+position = Vector2( 520, 640 )
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
 visible = false

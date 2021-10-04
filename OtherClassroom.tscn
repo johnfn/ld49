@@ -11,14 +11,14 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 560, 440 )
 
-[node name="OtherClassroom" type="Node2D"]
+[node name="OtherClassroom" type="YSort"]
 position = Vector2( -1200, 860 )
 script = ExtResource( 7 )
 
-[node name="RoomDimmer" type="Node2D" parent="."]
+[node name="RoomDimmer" type="YSort" parent="."]
 script = ExtResource( 3 )
 
-[node name="Graphics" type="Node2D" parent="RoomDimmer"]
+[node name="Graphics" type="YSort" parent="RoomDimmer"]
 modulate = Color( 1, 1, 1, 0.5 )
 
 [node name="classroom" type="Sprite" parent="RoomDimmer/Graphics"]

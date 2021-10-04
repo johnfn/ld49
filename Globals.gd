@@ -40,7 +40,7 @@ func inventory():
   return $"/root/Main/Hud/Inventory"
 
 func player() -> Node2D:
-  var player: Node2D = $"/root/Main/Player"
+  var player: Node2D = $"/root/Main/GameObjects/Player"
   
   return player
 

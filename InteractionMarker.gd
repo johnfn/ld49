@@ -109,6 +109,7 @@ func _process(delta):
     return
   
   $Menu/AngryMenuItem.visible = can_get_angry()
+  
   match state:
     State.Invisible:
       if is_player_inside:
@@ -160,7 +161,6 @@ func _process(delta):
   if interactor.name == "MissTrunchbull" and is_player_inside:
     if animation.current_animation == "SlideInMenu" and not animation.is_playing():
       animation.play("MediumAngry")
-
 
 func _on_Area2D_body_entered(body):
   if body == player:

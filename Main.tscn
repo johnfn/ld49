@@ -14,34 +14,39 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="Hallway" parent="." instance=ExtResource( 2 )]
+[node name="GameObjects" type="YSort" parent="."]
 
-[node name="Wastebin" parent="Hallway" instance=ExtResource( 4 )]
+[node name="Hallway" parent="GameObjects" instance=ExtResource( 2 )]
+
+[node name="Wastebin" parent="GameObjects/Hallway" instance=ExtResource( 4 )]
 position = Vector2( 585.898, 1301.76 )
 
-[node name="Steve" parent="Hallway" instance=ExtResource( 4 )]
+[node name="Steve" parent="GameObjects/Hallway" instance=ExtResource( 4 )]
 position = Vector2( 500, 1080 )
 
-[node name="Gteve" parent="Hallway" instance=ExtResource( 4 )]
+[node name="Gteve" parent="GameObjects/Hallway" instance=ExtResource( 4 )]
 position = Vector2( 557.04, 703.578 )
 
-[node name="BigHallway" parent="." instance=ExtResource( 12 )]
+[node name="BigHallway" parent="GameObjects" instance=ExtResource( 12 )]
 position = Vector2( 0, 2000 )
 
-[node name="FirstClassroom" parent="." instance=ExtResource( 6 )]
+[node name="FirstClassroom" parent="GameObjects" instance=ExtResource( 6 )]
 position = Vector2( -1200, 40 )
 
-[node name="CinematicTrigger" parent="FirstClassroom" instance=ExtResource( 7 )]
+[node name="CinematicTrigger" parent="GameObjects/FirstClassroom" instance=ExtResource( 7 )]
 position = Vector2( 485.044, 700.781 )
 
-[node name="MissTrunchbull" parent="FirstClassroom" instance=ExtResource( 4 )]
+[node name="MissTrunchbull" parent="GameObjects/FirstClassroom" instance=ExtResource( 4 )]
 position = Vector2( 500, 657.187 )
 enemy_type = 3
 
-[node name="StupidNpc" parent="FirstClassroom" instance=ExtResource( 4 )]
+[node name="StupidNpc" parent="GameObjects/FirstClassroom" instance=ExtResource( 4 )]
 position = Vector2( 780, 873.609 )
 
-[node name="OtherClassroom" parent="." instance=ExtResource( 11 )]
+[node name="OtherClassroom" parent="GameObjects" instance=ExtResource( 11 )]
+
+[node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
+position = Vector2( -460, 700 )
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
@@ -56,9 +61,6 @@ smoothing_enabled = true
 
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -460, 700 )
-
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 
-[connection signal="on_trigger" from="FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]
+[connection signal="on_trigger" from="GameObjects/FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]
