@@ -316,7 +316,7 @@ func info():
         "i am 91579258 this is true of you but what of me",
         "my exterior is 47238478 of reflecting ins6736",
       ],
-      
+      "dialog": funcref(self, "image_talk"),
       "health": 60,
       "xp": 20,
       "damage": 8,
@@ -772,6 +772,11 @@ func teacher_poster_inspect():
     { "speaker": "You", "dialog": "It's a poster in the teacher's lounge", },
   ])
   
+func image_talk():
+  G.dialog().start([      
+    { "speaker": "You", "dialog": "Um... hello?", },
+    { "speaker": "???", "dialog": "dialog.txt not found", },
+  ])
 func teacher_clock_inspect():
   G.dialog().start([      
     { "speaker": "You", "dialog": "Ah, it's not just any clock", },

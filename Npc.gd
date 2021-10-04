@@ -2,7 +2,7 @@
 extends KinematicBody2D
 class_name Npc
 
-export(G.ENEMIES) var enemy_type = G.ENEMIES.Steve 
+export(preload("res://globals.gd").ENEMIES) var enemy_type = 0
 
 var starting_room
 
