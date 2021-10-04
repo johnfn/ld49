@@ -78,6 +78,7 @@ G="*res://Globals.gd"
 Dialogs="*res://Dialogs.gd"
 Enemies="*res://Enemies.gd"
 Music="*res://Music.tscn"
+Gibberish="*res://Gibberish.tscn"
 
 [display]
 
