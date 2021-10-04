@@ -58,6 +58,7 @@ func get_next_dialog():
 func stop_dialog():
   yield(get_tree(), "idle_frame")
   visible = false
+  G.camera().cutscene_target = null
   get_tree().paused = false
   G.mode = G.PauseMode.None
   z_to_continue.visible = false

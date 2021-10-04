@@ -38,7 +38,7 @@ start_unlit = false
 position = Vector2( -981.797, 1002.82 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( -244.374, 1976.31 )
+position = Vector2( 291.349, 1118.14 )
 
 [node name="TeachersLounge" parent="GameObjects" instance=ExtResource( 9 )]
 position = Vector2( 1920, 1980.77 )
@@ -51,7 +51,17 @@ position = Vector2( 388.967, 515.484 )
 
 [node name="Checkpoints" parent="GameObjects" instance=ExtResource( 14 )]
 
+[node name="CameraTargetExit" type="Node2D" parent="GameObjects"]
+position = Vector2( 497.895, 156.176 )
+
+[node name="CameraTargetPrincipal" type="Node2D" parent="GameObjects"]
+position = Vector2( 3317.08, 1508.37 )
+
+[node name="CameraTargetPrincipalDoor" type="Node2D" parent="GameObjects"]
+position = Vector2( 2853.89, 1531.06 )
+
 [node name="MainCamera" type="Camera2D" parent="."]
+pause_mode = 2
 current = true
 smoothing_enabled = true
 script = ExtResource( 3 )
@@ -63,6 +73,9 @@ smoothing_enabled = true
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
+camera_target_exit = NodePath("../GameObjects/CameraTargetExit")
+camera_target_principal = NodePath("../GameObjects/CameraTargetPrincipal")
+camera_target_principal_door = NodePath("../GameObjects/CameraTargetPrincipalDoor")
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 

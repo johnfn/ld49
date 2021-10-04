@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug = OS.get_environment("USER") == "johnfn"
+var debug = OS.get_environment("USER") == "johnfn" || true
 
 enum PauseMode {
   None = 0,

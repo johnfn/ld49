@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+export var camera_target_exit : NodePath
+export var camera_target_principal : NodePath
+export var camera_target_principal_door : NodePath
+
 onready var screen_fade = $ScreenFade
 onready var overlay_text: Label = $OverlayText
 onready var press_z_to_continue: Label = $PressZToContinue
@@ -135,11 +139,14 @@ func snap_camera():
 
 func _on_CinematicTrigger_on_trigger(cinematic):
   if cinematic == "principal":
+#    G.camera().cutscene_target = get_node(camera_target_principal).position
     run_principal_cinematic()
   elif cinematic == "principal door":
     start_cinematic()
+    G.camera().cutscene_target = get_node(camera_target_principal_door).position
     G.dialog().start([{ "speaker": "Timmy", "dialog": "the principals office... better be prepared", }])
   elif cinematic == "exit door":
+    G.camera().cutscene_target = get_node(camera_target_exit).position
     start_cinematic()
     G.dialog().start([{ "speaker": "Timmy", "dialog": "the school exit... if i managed to ditch, this terrible day would be over", }])
 
