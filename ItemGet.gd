@@ -5,13 +5,16 @@ var rotation = 0
 
 onready var subheader = $CenterContainer/VBoxContainer/Subheader
 onready var header = $CenterContainer/VBoxContainer/Header
-onready var bg = $CenterContainer/VBoxContainer/CenterContainer/Bg
-onready var bg2 = $CenterContainer/VBoxContainer/CenterContainer/Bg2
+onready var bg = $CenterContainer/VBoxContainer/ImgContainer/Bg
+onready var bg2 = $CenterContainer/VBoxContainer/ImgContainer/Bg2
+
+var bga
+var bg2a
 
 onready var item_imgs = {
-  "HALL PASS": $CenterContainer/VBoxContainer/CenterContainer/HallPass,
-  "TIMMY'S SCHOOL FILES": $CenterContainer/VBoxContainer/CenterContainer/TimmyFiles,
-  "TRUE ENLIGHTENMENT": $CenterContainer/VBoxContainer/CenterContainer/Enlightenment,
+  "HALL PASS": $CenterContainer/VBoxContainer/ImgContainer/HallPass,
+  "TIMMY'S SCHOOL FILES": $CenterContainer/VBoxContainer/ImgContainer/TimmyFiles,
+  "TRUE ENLIGHTENMENT": $CenterContainer/VBoxContainer/ImgContainer/Enlightenment,
 }
 
 var item_descs = {
@@ -27,6 +30,16 @@ func _ready():
   bg2.rect_pivot_offset = bg2.rect_size / 2
   for img in item_imgs.values():
     img.visible = false
+  bga = bg.modulate.a
+  bg2a = bg2.modulate.a
+
+func set_alpha(a):
+  header.modulate.a = a
+  subheader.modulate.a = a
+  for img in $CenterContainer/VBoxContainer/ImgContainer.get_children():
+    img.modulate.a = a
+  bg.modulate.a = a * bga
+  bg2.modulate.a = a * bg2a
   
 func show_item(item_name):
   header.text = item_name
