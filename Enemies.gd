@@ -3,30 +3,6 @@ extends Node
 
 func info():
   return {
-    G.ENEMIES.Steve: {
-      "name": "Steve",
-      "drop": G.InventoryItem.None,
-      "interaction": "Talk to Steve",
-      "health": 25,
-      "xp": 30,
-      "is_inanimate": false,
-      "battle_tscn": load("res://BattleEnemy.tscn"),
-      "dialog": funcref(self, "steve_talk"),
-      "walks": true,
-    },
-    
-    G.ENEMIES.Gteve: {
-      "name": "Gteve",
-      "drop": G.InventoryItem.None,
-      "interaction": "Talk to Gteve",
-      "health": 25,
-      "xp": 25,
-      "is_inanimate": false,
-      "battle_tscn": load("res://BattleEnemy.tscn"),
-      "dialog": funcref(self, "gteve_talk"),
-      "walks": true,
-    },
-    
     G.ENEMIES.Wastebasket: {
       "name": "Wastebasket",
       "drop": G.InventoryItem.None,
@@ -36,16 +12,7 @@ func info():
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "wastebasket_inspect"),
-    },
-    
-    G.ENEMIES.MissTrunchbull: {
-      "name": "Miss Trunchbull",
-      "interaction": "Talk to Miss Trunchbull",
-      "drop": G.InventoryItem.HallPass,
-      "health": 25,
-      "xp": 30,
-      "is_inanimate": false,
-      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "can_ever_fight": false
     },
     
     G.ENEMIES.Poster: {
@@ -56,16 +23,7 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-    },
-    
-    G.ENEMIES.Door: {
-      "name": "Door",
-      "interaction": "Open door",
-      "drop": G.InventoryItem.None,
-      "health": 25,
-      "xp": 30,
-      "is_inanimate": true,
-      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "can_ever_fight": false
     },
     
     G.ENEMIES.Chalkboard: {
@@ -163,6 +121,135 @@ func info():
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "dialog": funcref(self, "teacher_rug_inspect"),
       "can_ever_fight": false
+    },
+    
+    G.ENEMIES.Door: {
+      "name": "Door",
+      "interaction": "Open door",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "can_ever_fight": false
+    },
+    
+    #######################################################
+    #                  Fightable Enemies                  #
+    #######################################################
+    
+    G.ENEMIES.MissTrunchbull: {
+      "name": "Miss Trunchbull",
+      "interaction": "Talk to Miss Trunchbull",
+      "drop": G.InventoryItem.HallPass,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": false,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+    },
+    
+    G.ENEMIES.PrincipalPike: {
+      "name": "Principal Pike",
+      "interaction": "TODO",
+      "drop": G.InventoryItem.SchoolFiles,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": false,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+    },
+    
+    G.ENEMIES.SchoolFiles: {
+      "name": "Timmy's School Files",
+      "interaction": "TODO",
+      "drop": G.InventoryItem.TrueEnlightenment,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": false,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+    },
+    
+    G.ENEMIES.Stapler: {
+      "name": "A Stapler",
+      "interaction": "TODO",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+    },
+    
+    G.ENEMIES.MichaelwaveOven: {
+      "name": "Michaelwave Oven",
+      "interaction": "TODO",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+    },
+    
+    G.ENEMIES.LoungeDoor: {
+      "name": "Teacher's Lounge Door",
+      "interaction": "TODO",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+    },
+    
+    G.ENEMIES.SchoolDoors: {
+      "name": "School Doors",
+      "interaction": "TODO",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+    },
+    
+    G.ENEMIES.TheGame: {
+      "name": "The Game",
+      "interaction": "TODO",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+    },
+    
+    G.ENEMIES.Credits: {
+      "name": "The Credits",
+      "interaction": "TODO",
+      "drop": G.InventoryItem.None,
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+    },
+    
+    G.ENEMIES.Steve: {
+      "name": "Steve",
+      "drop": G.InventoryItem.None,
+      "interaction": "Talk to Steve",
+      "health": 25,
+      "xp": 30,
+      "is_inanimate": false,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "steve_talk"),
+      "walks": true,
+    },
+    
+    G.ENEMIES.Gteve: {
+      "name": "Gteve",
+      "drop": G.InventoryItem.None,
+      "interaction": "Talk to Gteve",
+      "health": 25,
+      "xp": 25,
+      "is_inanimate": false,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "gteve_talk"),
+      "walks": true,
     },
   }
 
