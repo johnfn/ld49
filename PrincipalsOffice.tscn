@@ -39,14 +39,12 @@ centered = false
 position = Vector2( 107.936, 275.152 )
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDimmer/Area2D"]
 position = Vector2( 520, 380 )
 shape = SubResource( 1 )
 
 [node name="Collisions" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 50, 190 )
