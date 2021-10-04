@@ -6,9 +6,9 @@ onready var dialog_text = $TextureRect/VBoxContainer/DialogText
 onready var z_to_continue = $TextureRect/ZToContinue
 onready var x_to_fight = $TextureRect/CenterContainer/PressXPrompt
 
-export var miss_trunchbull : NodePath
-export var principal_pike : NodePath
-export var school_doors : NodePath
+onready var miss_trunchbull = $"/root/Main/GameObjects/FirstClassroom/RoomDimmer/Graphics/MissTrunchbull"
+onready var principal_pike = $"/root/Main/GameObjects/PrincipalsOffice/RoomDimmer/Graphics/PrincipalPike"
+onready var school_doors = $"/root/Main/GameObjects/BigHallway/RoomDimmer/Graphics/SchoolDoors"
 
 var speaker_to_node = {
   "Miss Trunchbull":  miss_trunchbull,
@@ -21,6 +21,10 @@ var next_dialogs = ["Hello there"]
 var is_forced_to_fight = false
 
 func _ready():
+  assert(miss_trunchbull != null)
+  assert(principal_pike != null)
+  assert(school_doors != null)
+  
   visible = false
 
 func get_next_dialog():
@@ -63,9 +67,9 @@ func process_dialog():
       stop_dialog()
 
       if speaker_name.text == "Principal Pike":
-        G.start_battle([get_node(principal_pike)])
+        G.start_battle([principal_pike])
       elif speaker_name.text == "Miss Trunchbull":
-        G.start_battle([get_node(miss_trunchbull)])
+        G.start_battle([miss_trunchbull])
   else:
     if Input.is_action_just_pressed("action"):
       dialog_text.percent_visible = 1
@@ -74,14 +78,7 @@ func process_dialog():
       if tick % 2 == 0:
         dialog_text.visible_characters += 1
         
-        if speaker_name.text == "You" or speaker_name.text == "Timmy":
-          Music.dialog_tick_1.play()
-        elif speaker_name.text == "Principal Pike":
-          Music.dialog_tick_7.play()
-        elif speaker_name.text == "Miss Trunchbull":
-          Music.dialog_tick_9.play()
-        else:
-          Music.dialog_tick_2.play()
+        Music.play_tick_for(speaker_name.text)
   
 func start(dialog_name_or_contents):
   # this stops is_action_just_pressed from being true 

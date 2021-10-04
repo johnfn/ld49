@@ -62,11 +62,6 @@ smoothing_enabled = true
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
-[node name="Dialog" parent="Hud" index="0"]
-miss_trunchbull = NodePath("")
-principal_pike = NodePath("")
-school_doors = NodePath("")
-
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
 statsHud = NodePath("../Hud/StatsBox")
 

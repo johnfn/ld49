@@ -216,7 +216,7 @@ func get_inventory_item(name: String):
   end_cinematic()
   
   if forces_file_fight:
-    G.start_battle([get_node(school_files)])
+    G.start_battle([school_files])
 
 func death():
   start_cinematic()

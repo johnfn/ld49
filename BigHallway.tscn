@@ -167,7 +167,7 @@ enemy_type = 17
 position = Vector2( 2219.58, 1940 )
 enemy_type = 19
 
-[node name="AngerGatedDoor3" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
+[node name="SchoolDoors" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
 position = Vector2( 460, 40 )
 enemy_type = 18
 
