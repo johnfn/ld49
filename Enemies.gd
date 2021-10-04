@@ -447,7 +447,7 @@ func info():
     
     G.ENEMIES.MichaelwaveOven: {
       "name": "Michaelwave Oven",
-      "interaction": "TODO",
+      "interaction": "Inspect Michaelwave Oven",
       "drop": G.InventoryItem.None,
       "health": 150,
       "xp": 60,
@@ -475,6 +475,7 @@ func info():
       "speed": 1.3,
       "bad_spawn_chance": 0.25,
       "spawn_time": 0.5,
+      "dialog": funcref(self, "michaelwave_inspect"),
     },
     
     G.ENEMIES.LoungeDoor: {
@@ -696,14 +697,14 @@ func steve_talk():
 
 func gteve_talk():
   G.dialog().start([      
-    { "speaker": "Gteve", "dialog": "Hey, I'm Gteve. Steve's my brother", },
+    { "speaker": "Gteve", "dialog": "Hey, I'm Steve's brother, Gteve.", },
     { "speaker": "You", "dialog": "...wtf?", },
   ])
 
 func chalkboard_inspect_2():
   G.dialog().start([      
     { "speaker": "You", "dialog": "It's a chalkboard", },
-    { "speaker": "You", "dialog": "Mr Mathews is teaching us the basics of how to use a piece of chalk to create a line on a chalkboard", },
+    { "speaker": "You", "dialog": "Mr. Mathews is teaching us the basics of how to use a piece of chalk to create a line on a chalkboard", },
     { "speaker": "You", "dialog": ".............", },
     { "speaker": "You", "dialog": "This class is so stupid", },
   ])
@@ -851,10 +852,17 @@ func image_talk():
     { "speaker": "???", "dialog": "dialog.txt not found", },
   ])
 func teacher_clock_inspect():
-  G.dialog().start([      
+  G.dialog().start([ 
     { "speaker": "You", "dialog": "Ah, it's not just any clock", },
     { "speaker": "You", "dialog": "It's the clock in the *teacher's lounge*", },
     { "speaker": "You", "dialog": "Wait, it's exactly the same as all the other ones...", }, 
+ ])
+
+func michaelwave_inspect():
+  G.dialog().start([      
+    { "speaker": "You", "dialog": "This is just an ordinary michaelwave oven", },
+    { "speaker": "You", "dialog": "Wait, why did you say that?", },
+    { "speaker": "You", "dialog": "You meant michaelwave. No, ...", }, 
  ])
 
 func teacher_rug_inspect():
@@ -938,7 +946,10 @@ func school_door_inspect():
     G.dialog().start([
       { "speaker": "You", "dialog": "The school doors are still locked.", },
     ])
-    
+
+
+
+
 var stu1first = true
 func student1_inspect():
   if stu1first:

@@ -32,7 +32,7 @@ func move():
   dy += -1 if Input.is_action_pressed("ui_up") else 0
   dy += 1 if Input.is_action_pressed("ui_down") else 0
   
-  var d = Vector2(dx, dy) * speed * (5 if (G.debug and Input.is_key_pressed(KEY_SHIFT)) else 1)
+  var d = Vector2(dx, dy).normalized() * speed * (5 if (G.debug and Input.is_key_pressed(KEY_SHIFT)) else 1)
   
   if dx != 0 or dy != 0:
     left.visible = false

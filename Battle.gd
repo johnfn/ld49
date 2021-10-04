@@ -129,7 +129,7 @@ func end_battle():
     yield(G.cinematics.run_credits_cinematic(), "completed")
     return
   
-  if enemy_data["name"] == "Credits":
+  if enemy_data["name"] == "The Credits":
     yield(G.cinematics.run_ending_cinematic(), "completed")
     return
 
@@ -218,7 +218,6 @@ func anim_damage_shake(target):
   
   target.rect_position = initial_pos
 
-
 func anim_damage_shake_pos(target):
   var initial_pos = target.position
   
@@ -247,6 +246,7 @@ func enemy_attack():
   yield(display_line(line), "completed")
   
   anim_damage_shake_pos($Player)
+  Music.ow.play()
   
   G.health = max(0, G.health - enemy_damage)
   G.damage_tally += enemy_damage

@@ -81,7 +81,7 @@ func show_press_z_to_continue():
 func hide_press_z_to_continue():
   press_z_to_continue.visible = false
 
-func write_overlay_text(text: String):
+func write_overlay_text(text: String, clear = true):
   overlay_text.visible = true
   overlay_text.text = text
   overlay_text.percent_visible = 0.0
@@ -99,8 +99,9 @@ func write_overlay_text(text: String):
   
   yield(wait_for_z_press(), "completed")
   
-  big_press_prompt.visible = false
-  overlay_text.percent_visible = 0
+  if clear:
+    big_press_prompt.visible = false
+    overlay_text.percent_visible = 0
 
 func write_overlay_fight_text(text: String, prompt: String, node: Node2D):
   $PressXPrompt.text = prompt
@@ -189,8 +190,10 @@ func run_credits_cinematic():
   yield(write_overlay_fight_text("But Timmy's fight wasn't over yet. There was one more thing to GET VERY ANGRY at...", "Press X to GET VERY ANGRY", credits), "completed")
   
 func run_ending_cinematic():
+  start_cinematic()
+  insta_go_to_black()
   yield(write_overlay_text("As the game crumbled around him, Timmy tasted true freedom for the first time in his life."), "completed")
-  yield(write_overlay_text("The flavor was disappointing."), "completed")
+  yield(write_overlay_text("The flavor was disappointing.", true), "completed")
   
 
 var fade_frames = 30.0
