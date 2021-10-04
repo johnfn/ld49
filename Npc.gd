@@ -15,6 +15,8 @@ func get_starting_room():
     if "is_room" in x:
       room = x
   
+  if room == null:
+    print("no room for", name)
   starting_room = room
 
 func render_proper_sprite():

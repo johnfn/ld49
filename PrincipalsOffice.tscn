@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://RoomDimmer.gd" type="Script" id=1]
 [ext_resource path="res://doodads/BlueDesk.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://doodads/NormalTable.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GenericRoom.gd" type="Script" id=5]
 [ext_resource path="res://GenericInspectable.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Npc.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 560, 440 )
@@ -42,6 +43,14 @@ position = Vector2( 107.936, 275.152 )
 
 [node name="NormalTable" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
 position = Vector2( 464.305, 457.971 )
+
+[node name="PrincipalPike" parent="RoomDimmer/Graphics" instance=ExtResource( 7 )]
+position = Vector2( 563.384, 500 )
+enemy_type = 14
+
+[node name="SchoolFiles" parent="RoomDimmer/Graphics" instance=ExtResource( 7 )]
+position = Vector2( 600, 660 )
+enemy_type = 15
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
 
