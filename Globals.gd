@@ -64,6 +64,9 @@ func battle_camera() -> Camera2D:
 func has_true_enlightenment() -> bool:
   return inventory_contents.has(InventoryItem.TrueEnlightenment)
 
+func has_hallpass() -> bool:
+  return inventory_contents.has(InventoryItem.HallPass)
+
 enum ENEMIES {
   Steve,
   Gteve,
@@ -126,11 +129,27 @@ func gain_xp(amount: int):
     yield(cinematics.gain_level(get_level(), amount), "completed")
   else:
     yield(cinematics.gain_xp(amount), "completed")
-  
+
+func handle_death():
+  print("TODO lol")
+
 func end_battle():
   if G.battling_against.size() == 0:
     return
     
+  var first = battling_against[0]
+  var type = first.enemy_type
+  
+  if G.health > 0:
+    var victory_line = Enemies.info()[type].victory
+    print("VICTORY", victory_line)
+  else:
+    var defeat_line = Enemies.info()[type].defeat
+    print("DEFEAT", defeat_line)
+    
+    handle_death()
+    return
+  
   var items_gotten = []
   var total_xp = 0
   
@@ -157,7 +176,6 @@ func end_battle():
   if items_gotten.size() > 0:
     yield(cinematics.get_inventory_item(G.inventory_text[items_gotten[0]]["name"]), "completed")
   
-  print("gain xp")
   gain_xp(total_xp)
   
   G.camera().current = true
@@ -167,6 +185,16 @@ func end_battle():
   G.battle_scene().visible = false
 
 func start_battle(battling_against: Array):
+  if battling_against.size() == 0:
+    print("WTF! some weird bug")
+    return
+  
+  var first = battling_against[0]
+  var type = first.enemy_type
+  
+  var opening_line = Enemies.info()[type].intro
+  print("INTRO", opening_line)
+  
   G.battle_camera().current = true
   
   G.in_battle = true
