@@ -61,10 +61,6 @@ enemy_type = 1
 position = Vector2( -1200, 40 )
 start_unlit = false
 
-[node name="MissTrunchbull" parent="GameObjects/FirstClassroom" instance=ExtResource( 4 )]
-position = Vector2( 500, 657.187 )
-enemy_type = 3
-
 [node name="StupidNpc" parent="GameObjects/FirstClassroom" instance=ExtResource( 4 )]
 position = Vector2( 780, 873.609 )
 
@@ -72,7 +68,7 @@ position = Vector2( 780, 873.609 )
 position = Vector2( -981.797, 1002.82 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( -582.343, 726.047 )
+position = Vector2( -600, 680 )
 
 [node name="TeachersLounge" parent="GameObjects" instance=ExtResource( 9 )]
 position = Vector2( 1920, 1980.77 )
@@ -105,7 +101,7 @@ smoothing_enabled = true
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
 [node name="Dialog" parent="Hud" index="0"]
-miss_trunchbull = NodePath("../../GameObjects/FirstClassroom/MissTrunchbull")
+miss_trunchbull = NodePath("")
 principal_pike = NodePath("../../GameObjects/PrincipalsOffice/PrincipalPike")
 school_doors = NodePath("../../GameObjects/BigHallway/AngerGatedDoor3")
 

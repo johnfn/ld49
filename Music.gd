@@ -1,7 +1,7 @@
 extends Node2D
 
 var active_player: AudioStreamPlayer
-var volume = 0.0
+var volume = -80 if G.debug else 0.0
 
 onready var overworld_theme = $OverworldTheme
 onready var overworld_theme2 = $OverworldTheme2
@@ -28,6 +28,7 @@ onready var right = $Right
 
 func _ready():
   $OverworldTheme.play()
+  $OverworldTheme.volume_db = volume
   active_player = $OverworldTheme
 
 func play_tick_for(name: String):
