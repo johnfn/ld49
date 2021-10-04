@@ -6,11 +6,8 @@
 [ext_resource path="res://art/overworld/npcs/npc2.png" type="Texture" id=4]
 [ext_resource path="res://art/overworld/recyclingbin.png" type="Texture" id=5]
 [ext_resource path="res://art/LightRadius.png" type="Texture" id=6]
+[ext_resource path="res://art/overworld/principal.png" type="Texture" id=7]
 [ext_resource path="res://art/overworld/doors.png" type="Texture" id=8]
-
-[sub_resource type="StreamTexture" id=4]
-flags = 4
-load_path = "res://.import/npc2.png-1ac8fe4821516f9732788c0cb7e156fd.stex"
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 87.1297, 49.1438 )
@@ -84,12 +81,9 @@ scale = Vector2( 0.600162, 1.53497 )
 texture = ExtResource( 4 )
 
 [node name="Principal Pike" type="Sprite" parent="Graphics"]
-visible = false
-modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
 position = Vector2( 24.7108, -12.9782 )
-rotation = -3.03869
 scale = Vector2( 0.705783, 0.893624 )
-texture = SubResource( 4 )
+texture = ExtResource( 7 )
 
 [node name="Timmy\'s School Files" type="Sprite" parent="Graphics"]
 visible = false
