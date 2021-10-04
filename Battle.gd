@@ -130,7 +130,7 @@ func end_battle():
     yield(G.cinematics.run_credits_cinematic(), "completed")
     return
   
-  if enemy_data["name"] == "Credits":
+  if enemy_data["name"] == "The Credits":
     yield(G.cinematics.run_ending_cinematic(), "completed")
     return
 
