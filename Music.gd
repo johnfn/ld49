@@ -21,6 +21,11 @@ onready var confirm_1 = $Confirm1
 onready var confirm_2 = $Confirm2
 onready var confirm_3 = $Confirm3
 
+onready var wrong = $Wrong
+onready var wrong2 = $Wrong2
+onready var ow = $Ow
+onready var right = $Right
+
 func _ready():
   $OverworldTheme.play()
   active_player = $OverworldTheme

@@ -218,26 +218,6 @@ layer = 2
 offset = Vector2( 800, 0 )
 transform = Transform2D( 1, 0, 0, 1, 800, 0 )
 
-[node name="DieInstantly" type="Button" parent="HUD/RightHalf"]
-margin_left = 861.933
-margin_top = 524.633
-margin_right = 968.933
-margin_bottom = 544.633
-text = "DIE INSTANTLY"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LoseInstantly" type="Button" parent="HUD/RightHalf"]
-margin_left = 861.933
-margin_top = 560.157
-margin_right = 978.933
-margin_bottom = 580.157
-text = "LOSE INSTANTLY"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="EnemyContainer" type="Control" parent="HUD/RightHalf"]
 margin_left = 690.843
 margin_top = 39.598
@@ -479,6 +459,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DieInstantly" type="Button" parent="HUD/RightHalf"]
+margin_left = 861.933
+margin_top = 524.633
+margin_right = 968.933
+margin_bottom = 544.633
+text = "DIE INSTANTLY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoseInstantly" type="Button" parent="HUD/RightHalf"]
+margin_left = 861.933
+margin_top = 560.157
+margin_right = 978.933
+margin_bottom = 580.157
+text = "LOSE INSTANTLY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="SpeechBubble" type="TextureRect" parent="HUD/RightHalf"]
 visible = false
 margin_left = 7.20404
@@ -536,7 +536,7 @@ anims/SlideIn = SubResource( 3 )
 
 [connection signal="pressed" from="HUD/BattleOptions/InsultButton" to="." method="on_insult_pressed"]
 [connection signal="pressed" from="HUD/BattleOptions/CryButton" to="." method="on_cry_pressed"]
-[connection signal="pressed" from="HUD/RightHalf/DieInstantly" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="HUD/RightHalf/LoseInstantly" to="." method="_on_LoseInstantly_pressed"]
 [connection signal="pressed" from="HUD/RightHalf/EnemyContainer/TheGame/InsultButton" to="." method="on_insult_pressed"]
 [connection signal="pressed" from="HUD/RightHalf/EnemyContainer/TheGame/CryButton" to="." method="on_cry_pressed"]
+[connection signal="pressed" from="HUD/RightHalf/DieInstantly" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="HUD/RightHalf/LoseInstantly" to="." method="_on_LoseInstantly_pressed"]

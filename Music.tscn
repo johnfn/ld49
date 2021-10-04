@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://audio/Get Schooled - Overworld Theme.mp3" type="AudioStream" id=1]
 [ext_resource path="res://audio/Teach This - Overworld Theme 2.mp3" type="AudioStream" id=2]
@@ -16,6 +16,10 @@
 [ext_resource path="res://audio/sfx/dialogue ticks/tick6.mp3" type="AudioStream" id=14]
 [ext_resource path="res://audio/sfx/dialogue ticks/tick7.mp3" type="AudioStream" id=15]
 [ext_resource path="res://audio/sfx/dialogue ticks/tick9.mp3" type="AudioStream" id=16]
+[ext_resource path="res://audio/sfx/battle sfx/wrongthing.mp3" type="AudioStream" id=17]
+[ext_resource path="res://audio/sfx/battle sfx/ow.mp3" type="AudioStream" id=18]
+[ext_resource path="res://audio/sfx/battle sfx/rightthing.mp3" type="AudioStream" id=19]
+[ext_resource path="res://audio/sfx/battle sfx/missedthing.mp3" type="AudioStream" id=20]
 
 [node name="Music" type="Node2D"]
 pause_mode = 2
@@ -67,3 +71,15 @@ stream = ExtResource( 10 )
 
 [node name="Confirm3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+
+[node name="Wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="Ow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="Right" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="Wrong2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )

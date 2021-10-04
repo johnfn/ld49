@@ -136,7 +136,7 @@ func _process(delta):
   enemy_hp_text.text = str(max(0, enemy_hp))
   enemy_hp_bar.offset.x = hp_padding
   unused = enemy_hp_bar_len * (1 - float(max(0, enemy_hp)) / enemy_data["health"])
-  print(unused)
+
   enemy_hp_bar.region_rect = Rect2(hp_padding + unused, 0, 330 - hp_padding - unused, 47)
   perc = unused / enemy_hp_bar_len
   if perc < 0.5:
@@ -187,6 +187,7 @@ func minigame_over():
    
 func minigame_damage():
   enemy_hp = max(0, enemy_hp - G.attack)
+  Music.right.play()
   if enemy_hp == 0:
     minigame_over()
     end_battle()
