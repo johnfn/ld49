@@ -3,7 +3,7 @@
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/overworld/npc1.png" type="Texture" id=3]
-[ext_resource path="res://art/overworld/npcs/npc2.png" type="Texture" id=4]
+[ext_resource path="res://art/overworld/trunchbull.png" type="Texture" id=4]
 [ext_resource path="res://art/overworld/recyclingbin.png" type="Texture" id=5]
 [ext_resource path="res://art/school papers.png" type="Texture" id=6]
 [ext_resource path="res://art/overworld/principal.png" type="Texture" id=7]
@@ -85,7 +85,7 @@ texture = ExtResource( 7 )
 
 [node name="Timmy\'s School Files" type="Sprite" parent="Graphics"]
 position = Vector2( 24.7108, -12.9782 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.498358, 0.496525 )
 texture = ExtResource( 6 )
 
 [node name="Teacher\'s Lounge Door" type="Sprite" parent="Graphics"]
