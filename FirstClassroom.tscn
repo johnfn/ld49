@@ -44,7 +44,6 @@ shape = SubResource( 1 )
 script = ExtResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-visible = false
 build_mode = 1
 polygon = PoolVector2Array( 1200, 600, 1080, 600, 1080, 480, 160, 480, 160, 960, 1080, 960, 1080, 760, 1200, 760, 1200, 1080, 80, 1080, 80, 200, 1200, 200, 1200, 600 )
 
