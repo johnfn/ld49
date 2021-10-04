@@ -2,8 +2,8 @@
 
 [ext_resource path="res://GenericInspectable.tscn" type="PackedScene" id=2]
 [ext_resource path="res://RoomDimmer.gd" type="Script" id=3]
-[ext_resource path="res://BlueDesk.tscn" type="PackedScene" id=4]
-[ext_resource path="res://RedDesk.tscn" type="PackedScene" id=5]
+[ext_resource path="res://doodads/BlueDesk.tscn" type="PackedScene" id=4]
+[ext_resource path="res://doodads/RedDesk.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GenericRoom.gd" type="Script" id=7]
 [ext_resource path="res://art/overworld/classroom2.png" type="Texture" id=8]
 

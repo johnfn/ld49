@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://art/overworld/mcfront1.png" type="Texture" id=2]
+[ext_resource path="res://art/overworld/mcshort.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22.1353, 26.8893 )
@@ -18,7 +18,6 @@ position = Vector2( -5.22998, 0.550537 )
 color = Color( 0, 0, 0, 0.333333 )
 polygon = PoolVector2Array( 12.5697, 75.7993, 31.0124, 82.4056, 51.6571, 73.8725, 53.8592, 52.1267, 24.406, 41.3915, 1.0087, 49.6494 )
 
-[node name="mcfront1" type="Sprite" parent="."]
-position = Vector2( 24.5376, 0.923452 )
-scale = Vector2( 0.570071, 0.570071 )
+[node name="mcshort" type="Sprite" parent="."]
+position = Vector2( 22.2066, -21.9452 )
 texture = ExtResource( 2 )
