@@ -69,12 +69,14 @@ func choose_anger():
 func check_for_interactions():
   if Input.is_action_just_pressed("action") and G.mode == G.PauseMode.None:
     animation.advance(9999)
+    Music.confirm_2.play()
     state = State.ChooseInteractAnim
     animation.play("ChooseInteract")
     choose_interact()
     
   if Input.is_action_just_pressed("angry") and G.mode == G.PauseMode.None and can_get_angry():
     animation.advance(9999)
+    Music.confirm_2.play()
     state = State.ChooseAngryAnim
     animation.play("ChooseAngry")
     choose_anger()
@@ -111,6 +113,7 @@ func _process(delta):
   match state:
     State.Invisible:
       if is_player_inside:
+        Music.confirm_1.play()
         state = State.TransitionIn
         menu.visible = true
         animation.play("SlideInMenu")
