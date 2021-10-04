@@ -184,10 +184,23 @@ func minigame_over():
   is_in_minigame = false
   if enemy_hp > 0:
     enemy_attack()
-   
+
+func anim_damage_shake():
+  var container = $HUD/RightHalf/EnemyContainer
+  var initial_pos = container.rect_position
+  
+  for x in range(5):
+    container.rect_position = initial_pos + Vector2(randi() % 20, randi() % 20)
+    
+    for y in range(3):
+      yield(get_tree(), "idle_frame")
+  container.rect_position = initial_pos
+
 func minigame_damage():
   enemy_hp = max(0, enemy_hp - G.attack)
   Music.right.play()
+  anim_damage_shake()
+  
   if enemy_hp == 0:
     minigame_over()
     end_battle()
