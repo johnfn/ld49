@@ -88,6 +88,10 @@ func walk_aimlessly():
 func _process(delta):
   if Engine.editor_hint:
     render_proper_sprite()
+  if $InteractionMarker.is_being_shown():
+    $Graphics.modulate = Color(2, 2, 2, 1)
+  else:
+    $Graphics.modulate = Color(1, 1, 1, 1)
 
 func _on_InteractionMarker_on_interact():
   Enemies.info()[enemy_type].dialog.call_func()

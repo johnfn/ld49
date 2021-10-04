@@ -36,7 +36,7 @@ extents = Vector2( 140, 200 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 120, 200 )
 
-[node name="BigHallway" type="Node2D"]
+[node name="BigHallway" type="YSort"]
 script = ExtResource( 2 )
 
 [node name="Collisions" type="Node2D" parent="."]
@@ -101,7 +101,7 @@ position = Vector2( 460, -40 )
 [node name="Poster" parent="." instance=ExtResource( 3 )]
 position = Vector2( 740, 240 )
 
-[node name="RoomDimmer" type="Node2D" parent="."]
+[node name="RoomDimmer" type="YSort" parent="."]
 script = ExtResource( 6 )
 
 [node name="Graphics" type="Node2D" parent="RoomDimmer"]

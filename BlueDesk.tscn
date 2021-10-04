@@ -2,18 +2,18 @@
 
 [ext_resource path="res://art/overworld/desk1.png" type="Texture" id=1]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 80, 80 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 80, 32.0768 )
 
 [node name="BlueDesk" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 320, 680 )
+position = Vector2( 85.957, -17.8146 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 0, 40 )
-shape = SubResource( 2 )
+position = Vector2( 1.77139, 65.1539 )
+shape = SubResource( 1 )
 
 [node name="Image" type="Sprite" parent="."]
-position = Vector2( 320, 680 )
+position = Vector2( 85.957, -17.8146 )
 texture = ExtResource( 1 )
