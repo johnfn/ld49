@@ -703,7 +703,7 @@ func gteve_talk():
 func chalkboard_inspect_2():
   G.dialog().start([      
     { "speaker": "You", "dialog": "It's a chalkboard", },
-    { "speaker": "You", "dialog": "Mr Mathews is teaching us the basics of how to use a piece of chalk to create a line on a chalkboard", },
+    { "speaker": "You", "dialog": "Mr. Mathews is teaching us the basics of how to use a piece of chalk to create a line on a chalkboard", },
     { "speaker": "You", "dialog": ".............", },
     { "speaker": "You", "dialog": "This class is so stupid", },
   ])
