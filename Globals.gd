@@ -204,3 +204,14 @@ func start_battle(battling_against: Array):
   G.battling_against = battling_against
   G.battle_scene().visible = true
   G.battle_scene().start_battle()
+
+var cry_tally = 0
+var damage_tally = 0
+
+var start_time
+func start_clock():
+  start_time = OS.get_ticks_msec()
+
+func get_minutes():
+  return int((OS.get_ticks_msec() - start_time) / 1000 / 60)
+

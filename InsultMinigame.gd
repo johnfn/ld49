@@ -16,7 +16,7 @@ var key_words
 var input_repeat_time = 0.25
 var burst_time = 0.5
 var damage_x = 1
-var word_fade_percent = 0.6
+var word_fade_percent = 0.3
 var cursor_decay = 0.8
 var base_delta = 1 / 60.0
 var base_cursor_y
@@ -110,9 +110,6 @@ func move_words(delta):
           reset_curr_word()
         elif word.position.x + word.get_size().x > damage_x:
           word.hit_enemy()
-          var burst_node = burst_scene.instance()
-          $InsultScroller/Bursts.add_child(burst_node)
-          burst_node.position = word.position + word.get_size() / 2
       else:
         var amount_past = word.position.x - cursor.position.x
         var percent_past = amount_past / (bg.texture.get_width() / 2)

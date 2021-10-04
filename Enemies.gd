@@ -169,7 +169,7 @@ func info():
       "keyWords": [
         ["only", "taught", "not", "listening"],
         ["recorded", "your", "class", "insomnia"],
-        ["world's", "famous", "unsolved", "employment"],
+        ["world's", "famous", "unsolved", "employed"],
        ],
       "enemyLines": [
         "class clown isnt meant to be taken this literally timmy",
@@ -370,11 +370,10 @@ func info():
         ["even", "ign", "would", "rate", "this", "below", "a", "3"],
         ["you", "evoke", "a", "strong", "feeling", "boredom"],
        ],
-      # TODO fill in the blanks
       "enemyLines": [
-        "normally people make it here way faster than <insert time taken to get here>",
-        "you must be pretty bad to have taken <damage total> damage",
-        "hey, you only cried <cry count> times, that's a good day for you",
+        "normally people make it here way faster than <minutes> minutes",
+        "you must be pretty bad to have taken <damage> damage",
+        "hey, you only cried <cry> times, that's a good day for you",
        ]
     },
     

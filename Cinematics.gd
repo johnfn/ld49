@@ -207,6 +207,7 @@ func gain_xp(amount: int):
   end_cinematic()
   
 func _ready():
+  G.start_clock()
   for child in get_children():
     if "visible" in child:
       child.visible = false

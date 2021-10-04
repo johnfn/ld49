@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://InsultBubble.tscn" type="PackedScene" id=1]
 [ext_resource path="res://InsultScroller.gd" type="Script" id=2]
 [ext_resource path="res://InsultMinigame.gd" type="Script" id=3]
 [ext_resource path="res://art/battle/scroll_bg.png" type="Texture" id=4]
 [ext_resource path="res://art/battle/cursor.png" type="Texture" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [node name="InsultMinigame" type="Node2D"]
 z_index = 100
@@ -35,9 +34,5 @@ texture = ExtResource( 4 )
 position = Vector2( 429.201, 37.6487 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 5 )
-
-[node name="Sprite" type="Sprite" parent="InsultScroller"]
-position = Vector2( 838.565, 75.7516 )
-texture = ExtResource( 6 )
 
 [connection signal="game_ended" from="InsultScroller" to="." method="on_InsultScroller_game_ended"]

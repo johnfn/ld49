@@ -10,14 +10,13 @@ var minigame_tscn = load("res://InsultMinigame.tscn")
 var is_in_minigame = false
 var is_player_turn
 
+var hp_padding = 10
 var hp_bar_len = 143
 var enemy_hp_bar_len = 273
 onready var player_hp_bar = $HUD/BattleOptions/HealthBar/HealthSprite
 onready var player_hp_text = $HUD/BattleOptions/HealthBar/HealthLabel
-onready var player_hp_bar_start = player_hp_bar.position.x
 onready var enemy_hp_bar = $HUD/RightHalf/EnemyUi/HealthBar/HealthSprite
 onready var enemy_hp_text = $HUD/RightHalf/EnemyUi/HealthBar/HealthLabel
-onready var enemy_hp_bar_start = enemy_hp_bar.position.x
 
 onready var opening_bubble = $HUD/OpeningBubble
 onready var opening_text = $HUD/OpeningBubble/OpeningText
@@ -68,8 +67,12 @@ func display_enemy(name):
     $HUD/RightHalf/EnemyContainer/Principal.visible = true
   elif name == "Image Not Found":
     $"HUD/RightHalf/EnemyContainer/404".visible = true
+  elif name == "Michaelwave Oven":
+    $HUD/RightHalf/EnemyContainer/MichaelwaveOven.visible = true
+  elif name == "School Doors":
+    $"HUD/RightHalf/EnemyContainer/SchoolDoors".visible = true
   else:
-    $HUD/RightHalf/EnemyContainer/Trunchbull.visible = true
+    $"HUD/RightHalf/EnemyContainer/404".visible = true
 
 func start_battle():
   is_in_minigame = false
@@ -88,9 +91,9 @@ func start_battle():
   
   player_line = 0
   
+  $AnimationPlayer.play("SlideIn")
   show_everything()
   display_enemy(enemy_data["name"])
-  $AnimationPlayer.play("SlideIn")
   
 func end_battle():
   if minigame != null:
@@ -100,8 +103,9 @@ func end_battle():
   if G.health <= 0:
     line = enemy_data["defeat"]
   yield(display_line(line), "completed")
-  yield(get_tree().create_timer(3), "timeout")
+  yield(get_tree().create_timer(2), "timeout")
   hide_everything()
+  $AnimationPlayer.play_backwards("SlideIn")
   G.end_battle()
 
 func _process(delta):
@@ -109,10 +113,29 @@ func _process(delta):
     return
     
   player_hp_text.text = str(max(0, G.health))
-  player_hp_bar.position.x = player_hp_bar_start - hp_bar_len + hp_bar_len * max(0, G.health) / G.max_health
+  player_hp_bar.offset.x = hp_padding
+  var unused = hp_bar_len * (1 - float(max(0, G.health)) / G.max_health)
+  player_hp_bar.region_rect = Rect2(hp_padding + unused, 0, 205 - hp_padding - unused, 47)
+  var perc = unused / hp_bar_len
+  if perc < 0.5:
+    player_hp_bar.modulate = Color("63dc84")
+  elif perc < 0.75:
+    player_hp_bar.modulate = Color("ebcd46")
+  else:
+    player_hp_bar.modulate = Color("eb5546")
     
   enemy_hp_text.text = str(max(0, enemy_hp))
-  enemy_hp_bar.position.x = enemy_hp_bar_start - enemy_hp_bar_len + enemy_hp_bar_len * max(0, enemy_hp) / enemy_data["health"]
+  enemy_hp_bar.offset.x = hp_padding
+  unused = enemy_hp_bar_len * (1 - float(max(0, enemy_hp)) / enemy_data["health"])
+  print(unused)
+  enemy_hp_bar.region_rect = Rect2(hp_padding + unused, 0, 330 - hp_padding - unused, 47)
+  perc = unused / enemy_hp_bar_len
+  if perc < 0.5:
+    enemy_hp_bar.modulate = Color("63dc84")
+  elif perc < 0.75:
+    enemy_hp_bar.modulate = Color("ebcd46")
+  else:
+    enemy_hp_bar.modulate = Color("eb5546")
   
 func start_minigame():
   minigame = minigame_tscn.instance()
@@ -147,7 +170,8 @@ func minigame_over():
   minigame.queue_free()
   minigame = null
   is_in_minigame = false
-  enemy_attack()
+  if enemy_hp > 0:
+    enemy_attack()
    
 func minigame_damage():
   enemy_hp = max(0, enemy_hp - G.attack)
@@ -161,6 +185,7 @@ func enemy_attack():
   yield(display_line(line), "completed")
   
   G.health = max(0, G.health - enemy_damage)
+  G.damage_tally += enemy_damage
   is_player_turn = true
   insult_button.visible = true
   cry_button.visible = true
@@ -168,6 +193,13 @@ func enemy_attack():
     end_battle()
 
 func display_line(line):
+  if "<minutes>" in line:
+    line.replace("<minutes>", G.get_minutes())
+  if "<cry>" in line:
+    line.replace("<cry>", G.cry_tally)
+  if "<damage>" in line:
+    line.replace("<damage>", G.damage_tally)
+  
   yield(get_tree().create_timer(1), "timeout")
   speech_bubble.visible = true
   speech_text.text = line
@@ -195,6 +227,7 @@ func on_cry_pressed():
   insult_button.visible = false
   cry_button.visible = false
   G.health = min(G.max_health, G.health + G.healing)
+  G.cry_tally += 1
   enemy_attack()
 
 # TODO outro transition 
