@@ -176,9 +176,8 @@ func start_minigame():
   minigame.connect("attack_landed", self, "minigame_damage")
   minigame.connect("minigame_over", self, "minigame_over")
   
-  if enemy_data.name == "Credits":
+  if enemy_data.name == "The Credits":
     player_line = last_enemy_line
-  print(player_line)
   var line = enemy_data["playerLines"][player_line]
   var key_words = enemy_data["keyWords"][player_line]
   player_line = (player_line + 1) % len(enemy_data["playerLines"])
@@ -257,16 +256,12 @@ func enemy_attack():
     end_battle()
 
 func display_line(line):
-  print(line)
   if line.find("<minutes>") >= 0:
-    print("<minutes>")
-    line.replace("<minutes>", G.get_minutes())
+    line = line.replace("<minutes>", G.get_minutes())
   if line.find("<cry>") >= 0:
-    print("<cry>")
-    line.replace("<cry>", G.cry_tally)
+    line = line.replace("<cry>", G.cry_tally)
   if line.find("<damage>") >= 0:
-    print("<damage>")
-    line.replace("<damage>", G.damage_tally)
+    line = line.replace("<damage>", G.damage_tally)
     
   speech_bubble.visible = true
   speech_text.text = ""
