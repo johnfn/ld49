@@ -57,7 +57,7 @@ position = Vector2( 2180, 2200 )
 position = Vector2( 1920, 1980 )
 
 [node name="PrincipalsOffice" parent="GameObjects" instance=ExtResource( 13 )]
-position = Vector2( 2840, 1020 )
+position = Vector2( 2800, 1020 )
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
