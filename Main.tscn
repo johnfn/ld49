@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Hallway.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://FirstClassroom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://CinematicTrigger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Cinematics.tscn" type="PackedScene" id=8]
+[ext_resource path="res://TeachersLounge.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Battle.tscn" type="PackedScene" id=10]
 [ext_resource path="res://OtherClassroom.tscn" type="PackedScene" id=11]
 [ext_resource path="res://BigHallway.tscn" type="PackedScene" id=12]
@@ -17,7 +18,7 @@
 [node name="GameObjects" type="YSort" parent="."]
 
 [node name="Hallway" parent="GameObjects" instance=ExtResource( 2 )]
-position = Vector2( 1780, 2020 )
+position = Vector2( 3700, 2360 )
 
 [node name="BigHallway" parent="GameObjects" instance=ExtResource( 12 )]
 position = Vector2( 20, 0 )
@@ -46,10 +47,13 @@ enemy_type = 3
 position = Vector2( 780, 873.609 )
 
 [node name="OtherClassroom" parent="GameObjects" instance=ExtResource( 11 )]
-position = Vector2( -980, 1020 )
+position = Vector2( -1240, 1400 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( -560, 1600 )
+position = Vector2( 2180, 2200 )
+
+[node name="OtherClassroom2" parent="GameObjects" instance=ExtResource( 9 )]
+position = Vector2( 1920, 1980 )
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true

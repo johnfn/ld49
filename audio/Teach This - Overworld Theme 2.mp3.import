@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Teach This - Overworld Theme 2.mp3-4d06818663e6f11754fff3386cad5838.mp3str"
+
+[deps]
+
+source_file="res://audio/Teach This - Overworld Theme 2.mp3"
+dest_files=[ "res://.import/Teach This - Overworld Theme 2.mp3-4d06818663e6f11754fff3386cad5838.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

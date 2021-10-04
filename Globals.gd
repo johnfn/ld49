@@ -76,6 +76,9 @@ enum ENEMIES {
   Chalkboard,
   Chalkboard2,
   Tombstone,
+  TeacherPoster,
+  TeacherClock,
+  TeacherRug,
 }
 
 var health = 20
