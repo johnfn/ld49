@@ -462,7 +462,7 @@ func info():
       "damage": 12,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "The Teacher's Lounge Door IS LOCKED IN YOUR SIGHTS",
+      "intro": "A Door IS LOCKED IN YOUR SIGHTS",
       "victory": "i pray for the souls of doors everywhere",
       "defeat": "youre not ready for the teacher's lounge, kid",
       "playerLines": [
@@ -560,24 +560,23 @@ func info():
       "damage": 14,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "The Credits FOUND A WAY TO MAKE YOU WATCH THEM",
+      "intro": "The Credits MAKE YOU WATCH THEM",
       "victory": "...",
       "defeat": "see you in the next life",
-      # TODO line these up
       "playerLines": [
         "this gimmick has been done a ton of times already",
         "true",
         "wow i thought you put in a lot less than that",
        ],
       "keyWords": [
-        ["this", "gimmick", "has", "been", "done", "already"],
         ["true"],
         ["i", "thought", "you", "put", "in", "less"],
+        ["this", "gimmick", "has", "been", "done", "already"],
        ],
       "enemyLines": [
-        "you cant exist without me",
         "youre a poorly written character",
         "looks like theres a reason people take more than three days to make",
+        "you cant exist without me",
        ],
        "speed": 1.5,
        "bad_spawn_chance": 0.8,

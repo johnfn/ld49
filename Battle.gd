@@ -78,6 +78,7 @@ func display_enemy(name):
     $"HUD/RightHalf/EnemyContainer/404".visible = true
 
 func start_battle():
+  last_enemy_line = 2
   is_in_minigame = false
   is_player_turn = true
   insult_button.visible = true
@@ -168,6 +169,8 @@ func start_minigame():
   minigame.connect("attack_landed", self, "minigame_damage")
   minigame.connect("minigame_over", self, "minigame_over")
   
+  if enemy_data.name == "Credits":
+    player_line = last_enemy_line
   var line = enemy_data["playerLines"][player_line]
   var key_words = enemy_data["keyWords"][player_line]
   player_line = (player_line + 1) % len(enemy_data["playerLines"])
@@ -228,7 +231,9 @@ func minigame_damage():
     minigame_over()
     end_battle()
 
+var last_enemy_line = 2
 func enemy_attack():
+  last_enemy_line = enemy_line
   var line = enemy_data["enemyLines"][enemy_line]
   enemy_line = (enemy_line + 1) % len(enemy_data["enemyLines"])
   yield(display_line(line), "completed")
