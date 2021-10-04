@@ -351,7 +351,7 @@ func info():
     
     G.ENEMIES.TheGame: {
       "name": "The Game",
-      "interaction": "TODO",
+      "interaction": "Inspect the game",
       "drop": G.InventoryItem.None,
       "health": 25,
       "xp": 30,
@@ -380,7 +380,7 @@ func info():
     
     G.ENEMIES.Credits: {
       "name": "The Credits",
-      "interaction": "TODO",
+      "interaction": "Inspect the credits",
       "drop": G.InventoryItem.None,
       "health": 25,
       "xp": 30,
