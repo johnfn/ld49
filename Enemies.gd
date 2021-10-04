@@ -899,7 +899,7 @@ func student4_inspect():
     return
     
   G.dialog().start([ 
-        { "speaker": "Student", "dialog": "I'M THE TEACHER NOW, SUCKAS!!", },
+    { "speaker": "Student", "dialog": "I'M THE TEACHER NOW, SUCKAS!!", },
   ])
 
 var stu5first = true

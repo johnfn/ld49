@@ -42,6 +42,13 @@ position = Vector2( 360, 800 )
 position = Vector2( 953.167, 711.23 )
 enemy_type = 3
 
+[node name="StupidNpc" parent="RoomDimmer/Graphics" instance=ExtResource( 9 )]
+position = Vector2( 780, 873.609 )
+
+[node name="Npc" parent="RoomDimmer/Graphics" instance=ExtResource( 9 )]
+position = Vector2( 263.615, 809.953 )
+enemy_type = 26
+
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDimmer/Area2D"]
