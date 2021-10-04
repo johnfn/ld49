@@ -32,10 +32,7 @@ var inventory_text = {
 
 onready var cinematics = $"/root/Main/Cinematics"
 
-func battle_scene() -> BattleScene:
-  var b: BattleScene = $"/root/Main/BattleScene"
-  
-  return b
+onready var battle_scene = $"/root/Main/BattleScene"
 
 func inventory():
   return $"/root/Main/Hud/Inventory"
@@ -155,9 +152,11 @@ func end_battle_cleanup():
   
   G.in_battle = false
   G.battling_against = []
-  G.battle_scene().visible = false
+  G.battle_scene.visible = false
 
 func end_battle():
+  yield(get_tree(), "idle_frame")
+  
   if G.battling_against.size() == 0:
     return
   
@@ -210,12 +209,25 @@ func start_battle(battling_against: Array):
   var first = battling_against[0]
   var type = first.enemy_type
   
-  battle_scene().position = camera().position - Vector2(1024, 600) / 2
+  var parent = G.battle_scene.get_parent()
+  var index = G.battle_scene.get_index()
+  var name = G.battle_scene.name
+  
+  G.battle_scene.dead = true
+  G.battle_scene.queue_free()
+  
+  var new_battle = preload("res://Battle.tscn").instance()
+  new_battle.name = name
+  G.battle_scene = new_battle
+  parent.add_child(new_battle)
+  parent.move_child(new_battle, index)
+  
+  new_battle.position = camera().position - Vector2(1024, 600) / 2
   
   G.in_battle = true
   G.battling_against = battling_against
-  G.battle_scene().visible = true
-  G.battle_scene().start_battle()
+  G.battle_scene.visible = true
+  G.battle_scene.start_battle()
 
 var cry_tally = 0
 var damage_tally = 0

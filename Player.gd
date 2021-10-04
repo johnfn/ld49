@@ -2,6 +2,11 @@ extends KinematicBody2D
 
 var speed = 400.0
 
+#func _ready():
+#  for x in range(50):
+#    yield(get_tree(), "idle_frame")
+#  G.cinematics.run_game_cinematic()
+
 func move():
   if G.in_battle:
     return
