@@ -158,7 +158,7 @@ func info():
       "xp": 30,
       "is_inanimate": false,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "Miss Trunchbull GOT YOU ANGRY!",
+      "intro": "Miss Trunchbull GOT YOU ANGRY",
       "victory": "...just take this and get out of my sight...",
       "defeat": "i wonder if this building will still be around by the time your detention is over",
       "playerLines": [
@@ -172,9 +172,9 @@ func info():
         ["world's", "famous", "unsolved", "employment"],
        ],
       "enemyLines": [
-        "i could only tell it was yours because it was illegible",
-        "this is a more pitiful showing than your last exam",
         "class clown isnt meant to be taken this literally timmy",
+        "this is a more pitiful showing than your last exam",
+        "i could only tell it was yours because it was illegible",
        ],
       "dialog": funcref(self, "trunchbull_talk"),
     },
@@ -187,7 +187,7 @@ func info():
       "xp": 30,
       "is_inanimate": false,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "Principal Pike IS AIMED AT YOU!",
+      "intro": "Principal Pike IS AIMED AT YOU",
       "victory": "only a few years until retirement...",
       "defeat": "another problem solved",
       "playerLines": [
@@ -215,7 +215,7 @@ func info():
       "xp": 30,
       "is_inanimate": false,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "Timmy's School Files GOT YOU RILED!",
+      "intro": "Timmy's School Files GOT YOU RILED",
       "victory": '"Student is very persistent."',
       "defeat": '"Student is destined for failure."',
       "playerLines": [
@@ -243,7 +243,7 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "A Stapler HAS YOU SEEING RED!",
+      "intro": "A Stapler HAS YOU SEEING RED",
       "victory": "does making staplers feel bad make you feel good?",
       "defeat": "feel my two pronged wrath, loser",
       "playerLines": [
@@ -271,7 +271,7 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "Michaelwave Oven GOT YOU HEATED!",
+      "intro": "Michaelwave Oven GOT YOU HEATED",
       "victory": "wow youre better at burning things than i am",
       "defeat": "*DING*",
       "playerLines": [
@@ -299,7 +299,7 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "The Teacher's Lounge Door IS LOCKED IN YOUR SIGHTS!",
+      "intro": "The Teacher's Lounge Door IS LOCKED IN YOUR SIGHTS",
       "victory": "",
       "defeat": "",
       "playerLines": [
@@ -328,7 +328,7 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "The School Doors STAND IN YOUR WAY!",
+      "intro": "The School Doors STAND IN YOUR WAY",
       "victory": "it appears my steel deadbolt was no match for your harsh words",
       "defeat": "rain, shine, or fire alarm, no one crosses my threshold",
       "playerLines": [
@@ -357,7 +357,7 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "The Game IS TRYING TO PLAY YOU!",
+      "intro": "The Game IS TRYING TO PLAY YOU",
       "victory": "",
       "defeat": "",
       "playerLines": [
@@ -386,7 +386,7 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "intro": "The Credits FOUND A WAY TO MAKE YOU WATCH THEM!",
+      "intro": "The Credits FOUND A WAY TO MAKE YOU WATCH THEM",
       "victory": "",
       "defeat": "",
       # TODO line these up
@@ -524,7 +524,7 @@ func wastebasket_inspect():
       [
         { "speaker": "You", "dialog": "This is a wastebin.", },
         { "speaker": "You", "dialog": "You look inside...", },
-        { "speaker": "You", "dialog": "Hey, a coin!", },
+        { "speaker": "You", "dialog": "Hey, a coin", },
         { "speaker": "You", "dialog": "GET:COIN", },
       ]
     )
@@ -547,7 +547,7 @@ func classroomtrash_inspect():
         { "speaker": "You", "dialog": "It's a wastebin. What did you think it was?", },
         { "speaker": "You", "dialog": "Were you expecting to find something valuable inside?", },
         { "speaker": "You", "dialog": "Like, c'mon. It's literally trash...", },
-        { "speaker": "You", "dialog": "[You found a COIN!]", },
+        { "speaker": "You", "dialog": "[You found a COIN]", },
         { "speaker": "You", "dialog": "GET:COIN", },
       ]
     )

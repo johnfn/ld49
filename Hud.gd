@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-onready var interact_label = $InteractLabel
-onready var angry_label = $AngryLabel
 onready var inventory = $Inventory
 
 func _ready():

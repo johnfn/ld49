@@ -8,6 +8,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=6]
 
 [node name="InsultMinigame" type="Node2D"]
+z_index = 100
 script = ExtResource( 3 )
 
 [node name="InsultBubble" parent="." instance=ExtResource( 1 )]

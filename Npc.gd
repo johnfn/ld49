@@ -72,7 +72,7 @@ func walk_aimlessly():
     var ticks = 200
     while position.distance_to(next_spot) > 100 and ticks > 0:
       #dont walk while menu is visible
-      while $InteractionMarker.is_being_shown():
+      while $InteractionMarker.is_being_shown() or G.in_battle:
         yield(get_tree(), "idle_frame")
       
       ticks -= 1

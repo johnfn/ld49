@@ -14,6 +14,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+miss_trunchbull = null
+principal_pike = null
+school_doors = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 12.0

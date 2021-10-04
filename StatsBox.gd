@@ -12,6 +12,7 @@ onready var health_label = $HealthLabel
 onready var xp_label = $XPLabel
 
 func _process(delta):
+  visible = not G.in_battle
   var percentage = G.health / G.max_health
   health_bar_fg.rect_scale.x = percentage
   health_label.text = "Health: %d/%d" % [G.health, G.max_health]

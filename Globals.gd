@@ -94,7 +94,9 @@ enum ENEMIES {
   ClassroomTrash,
 }
 
-var health = 20
+var attack = 5 # TODO maybe upgrade
+var healing = 5 # TODO
+var health = 15 # TODO set back to max
 var max_health = 20
 var interactables: Array = []
 var mode = PauseMode.None
@@ -153,13 +155,7 @@ func end_battle():
   var first = battling_against[0]
   var type = first.enemy_type
   
-  if G.health > 0:
-    var victory_line = Enemies.info()[type].victory
-    print("VICTORY", victory_line)
-  else:
-    var defeat_line = Enemies.info()[type].defeat
-    print("DEFEAT", defeat_line)
-    
+  if G.health <= 0:
     handle_death()
     return
   
@@ -202,10 +198,7 @@ func start_battle(battling_against: Array):
   var first = battling_against[0]
   var type = first.enemy_type
   
-  var opening_line = Enemies.info()[type].intro
-  print("INTRO", opening_line)
-  
-  G.battle_camera().current = true
+  battle_scene().position = camera().position - Vector2(1024, 600) / 2
   
   G.in_battle = true
   G.battling_against = battling_against

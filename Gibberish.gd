@@ -1,7 +1,8 @@
 extends Node2D
 
 func _ready():
-  play_deep_sound(10)
+  pass
+#  play_deep_sound(10)
 
 func play_deep_sound(length = 5):
   for x in range(length):

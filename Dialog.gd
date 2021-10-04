@@ -74,14 +74,15 @@ func process_dialog():
       if tick % 2 == 0:
         dialog_text.visible_characters += 1
         
-        if speaker_name.text == "You" or speaker_name.text == "Timmy":
-          Music.dialog_tick_1.play()
-        elif speaker_name.text == "Principal Pike":
-          Music.dialog_tick_7.play()
-        elif speaker_name.text == "Miss Trunchbull":
-          Music.dialog_tick_9.play()
-        else:
-          Music.dialog_tick_2.play()
+        # TODO     
+#        if speaker_name.text == "You" or speaker_name.text == "Timmy":
+#          Music.dialog_tick_1.play()
+#        elif speaker_name.text == "Principal Pike":
+#          Music.dialog_tick_7.play()
+#        elif speaker_name.text == "Miss Trunchbull":
+#          Music.dialog_tick_9.play()
+#        else:
+#          Music.dialog_tick_2.play()
   
 func start(dialog_name_or_contents):
   # this stops is_action_just_pressed from being true 

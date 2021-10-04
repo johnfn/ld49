@@ -72,7 +72,7 @@ position = Vector2( 780, 873.609 )
 position = Vector2( -981.797, 1001.8 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( 400, -400 )
+position = Vector2( -601.37, 768.859 )
 
 [node name="TeachersLounge" parent="GameObjects" instance=ExtResource( 9 )]
 position = Vector2( 1920, 1980.77 )
@@ -107,9 +107,12 @@ smoothing_enabled = true
 [node name="Dialog" parent="Hud" index="0"]
 miss_trunchbull = NodePath("../../GameObjects/FirstClassroom/MissTrunchbull")
 principal_pike = NodePath("../../GameObjects/PrincipalsOffice/PrincipalPike")
+school_doors = NodePath("../../GameObjects/BigHallway/AngerGatedDoor3")
 
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
 school_files = NodePath("../GameObjects/PrincipalsOffice/SchoolFiles")
+the_game = NodePath("../GameObjects/BigHallway/TheGame")
+credits = NodePath("../GameObjects/BigHallway/Credits")
 statsHud = NodePath("../Hud/StatsBox")
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
