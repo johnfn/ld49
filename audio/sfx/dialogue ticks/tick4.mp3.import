@@ -11,5 +11,5 @@ dest_files=[ "res://.import/tick4.mp3-dc38154df1d2ee1e98b06b73141af6c7.mp3str" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
