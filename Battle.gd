@@ -43,7 +43,8 @@ func show_everything():
     if "visible" in child:
       child.visible = true
   $HUD/DieInstantly.visible = G.debug
-
+  $HUD/LoseInstantly.visible = G.debug
+  
 func start_battle():
   show_everything()
   
@@ -191,4 +192,8 @@ func swipe(entity, target):
 
 
 func _on_Button_pressed():
+  end_battle()
+
+func _on_LoseInstantly_pressed():
+  G.health = -10
   end_battle()

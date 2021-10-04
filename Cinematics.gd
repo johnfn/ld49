@@ -37,6 +37,13 @@ func fade_from_black_timed():
     screen_fade.modulate = Color(1, 1, 1, x / 10.0)
     yield(get_tree(), "idle_frame")
 
+func fade_to_black_timed(length = 90.0):
+  screen_fade.visible = true
+  
+  for x in range(0, int(length)):
+    screen_fade.modulate = Color(1, 1, 1, x / length)
+    yield(get_tree(), "idle_frame")
+
 func wait_for_z_press():
   while true:
     yield(get_tree(), "idle_frame")
@@ -167,6 +174,16 @@ func get_inventory_item(name: String):
   
   if forces_file_fight:
     G.start_battle([get_node(school_files)])
+
+func death():
+  start_cinematic()
+  fade_to_black_timed()
+  yield(write_overlay_text("You were insulted so hard you passed out!"), "completed")
+  G.health = G.max_health
+  G.player().position = $"/root/Main/GameObjects/Checkpoints".last_position
+  yield(get_tree(), "idle_frame")
+  fade_from_black_timed()
+  end_cinematic()
 
 func gain_level(level: int, amount_of_xp: int):
   start_cinematic()

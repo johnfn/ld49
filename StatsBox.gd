@@ -16,7 +16,7 @@ func _process(delta):
   health_bar_fg.rect_scale.x = percentage
   health_label.text = "Health: %d/%d" % [G.health, G.max_health]
   
-  var xp_percentage = G.xp / G.next_level_xp()
+  var xp_percentage = float(G.xp) / float(G.next_level_xp())
   xp_bar_fg.rect_scale.x = xp_percentage
   xp_label.text = "XP: %d/%d" % [G.xp, G.next_level_xp()]
 
