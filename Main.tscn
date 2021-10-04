@@ -38,7 +38,7 @@ start_unlit = false
 position = Vector2( -981.797, 1002.82 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( 2481.95, 1578.21 )
+position = Vector2( -655.174, 880.567 )
 
 [node name="TeachersLounge" parent="GameObjects" instance=ExtResource( 9 )]
 position = Vector2( 1920, 1980.77 )
@@ -78,6 +78,7 @@ camera_target_principal = NodePath("../GameObjects/CameraTargetPrincipal")
 camera_target_principal_door = NodePath("../GameObjects/CameraTargetPrincipalDoor")
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0.752563, -0.190064 )
 
 [connection signal="on_trigger" from="GameObjects/Hallway/CinematicTrigger3" to="Cinematics" method="_on_CinematicTrigger_on_trigger" binds= [ "exit door" ]]
 [connection signal="on_trigger" from="GameObjects/BigHallway/CinematicTrigger2" to="Cinematics" method="_on_CinematicTrigger_on_trigger" binds= [ "principal door" ]]

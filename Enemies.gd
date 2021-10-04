@@ -311,7 +311,7 @@ func info():
       "health": 20,
       "xp": 20,
       "damage": 5,
-      "speed": 1.0,
+      "speed": 0.5,
       "bad_spawn_chance": 0.1,
       "spawn_time": 1.0,
     },
@@ -344,7 +344,7 @@ func info():
       "health": 60,
       "xp": 20,
       "damage": 8,
-      "speed": 1.0,
+      "speed": 0.6,
       "bad_spawn_chance": 0.4,
       "spawn_time": 0.4,
     },
@@ -376,7 +376,7 @@ func info():
         "remember that time you got sent here covered in glue",
       ],
       "damage": 8,
-      "speed": 1.4,
+      "speed": 1.0,
       "bad_spawn_chance": 0.6,
       "spawn_time": 0.7,
     },
@@ -408,7 +408,7 @@ func info():
         '"Seems to have eaten a lot of glue as a child."',
       ],
       "damage": 10,
-      "speed": 1.5,
+      "speed": 1.1,
       "bad_spawn_chance": 0.3,
       "spawn_time": 1.0,
     },
@@ -440,7 +440,7 @@ func info():
         "kids are a staple of my diet",
       ],
       "damage": 15,
-      "speed": 1.9,
+      "speed": 1.7,
       "bad_spawn_chance": 0.6,
       "spawn_time": 1.0,
     },
@@ -472,7 +472,7 @@ func info():
         "ill make your head spin",
       ],
       "damage": 10,
-      "speed": 1.5,
+      "speed": 1.3,
       "bad_spawn_chance": 0.25,
       "spawn_time": 0.5,
     },
@@ -505,7 +505,7 @@ func info():
         "you cant handle these insults",
        ],
       "dialog": funcref(self, "lounge_inspect"),
-      "speed": 1.4,
+      "speed": 1.2,
       "bad_spawn_chance": 0.6,
       "spawn_time": 0.7,
     },
@@ -538,7 +538,7 @@ func info():
         "people laughing at you behind closed doors doesn't mean you need to take it out on me",
        ],
       "dialog": funcref(self, "school_door_inspect"),
-      "speed": 1.7,
+      "speed": 1.5,
       "bad_spawn_chance": 0.6,
       "spawn_time": 1.0,
     },
@@ -754,7 +754,7 @@ func wastebasket_inspect():
 var ctfirst = true
 func classroomtrash_inspect():
   if ctfirst:
-    first = false
+    ctfirst = false
     
     G.dialog().start(
       [
@@ -776,7 +776,7 @@ var recyfirst = true
 var full_heal_exists = true
 func recycling_inspect():
   if recyfirst:
-    first = false
+    recyfirst = false
   
     G.dialog().start(
       [
@@ -803,7 +803,7 @@ func recycling_inspect():
 var deskfirst = true
 func desk_inspect():
   if deskfirst:
-    first = false
+    deskfirst = false
   
     G.dialog().start(
       [
@@ -823,13 +823,13 @@ func desk_inspect():
 var lockerfirst = true
 func locker_inspect():
   if lockerfirst:
-    first = false
+    lockerfirst = false
   
     G.dialog().start(
       [
         { "speaker": "You", "dialog": "You raid someone's locker.", },
         { "speaker": "You", "dialog": "You find a self-help book, full of affirming words to enhance your self-worth.", },
-        { "speaker": "You", "dialog": "Your emotionnal tolerance for abuse strengthens.", },
+        { "speaker": "You", "dialog": "Your emotional tolerance for abuse strengthens.", },
         { "speaker": "You", "dialog": "GET:+HP_UPGRADE", },
       ]
     )
@@ -942,7 +942,7 @@ func school_door_inspect():
 var stu1first = true
 func student1_inspect():
   if stu1first:
-    first = false
+    stu1first = false
     
     G.dialog().start(
       [
@@ -967,7 +967,7 @@ func student1_inspect():
 var stu2first = true
 func student2_inspect():
   if stu2first:
-    first = false
+    stu2first = false
     
     G.dialog().start(
       [
@@ -987,7 +987,7 @@ func student2_inspect():
 var stu3first = true
 func student3_inspect():
   if stu3first:
-    first = false
+    stu3first = false
     
     G.dialog().start(
       [
@@ -1007,7 +1007,7 @@ func student3_inspect():
 var stu4first = true
 func student4_inspect():
   if stu4first:
-    first = false
+    stu4first = false
     
     G.dialog().start(
       [
@@ -1026,7 +1026,7 @@ func student4_inspect():
 var stu5first = true
 func student5_inspect():
   if stu5first:
-    first = false
+    stu5first = false
     
     G.dialog().start(
       [
@@ -1047,7 +1047,7 @@ func student5_inspect():
 var stu6first = true
 func student6_inspect():
   if stu6first:
-    first = false
+    stu6first = false
     
     G.dialog().start(
       [
