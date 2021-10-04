@@ -15,7 +15,7 @@ extents = Vector2( 560, 440 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 140, 140 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 420, 60 )
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -49,12 +49,14 @@ position = Vector2( 117.198, 297.589 )
 position = Vector2( 583.531, 442.17 )
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDimmer/Area2D"]
 position = Vector2( 358.837, 460 )
 shape = SubResource( 1 )
 
 [node name="Collisions" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 80, 160 )
@@ -66,7 +68,7 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 340, 760 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( -40, 460 )
@@ -79,16 +81,24 @@ shape = SubResource( 4 )
 [node name="Inspectables" type="Node2D" parent="."]
 
 [node name="GenericInspectable" parent="Inspectables" instance=ExtResource( 4 )]
-position = Vector2( 560, 200 )
+position = Vector2( 553.4, 206.6 )
 enemy_type = 11
 
 [node name="GenericInspectable2" parent="Inspectables" instance=ExtResource( 4 )]
 position = Vector2( 80, 200 )
 enemy_type = 12
 
+[node name="GenericInspectable4" parent="Inspectables" instance=ExtResource( 4 )]
+position = Vector2( 98.1389, 480.028 )
+enemy_type = 20
+
 [node name="GenericInspectable3" parent="Inspectables" instance=ExtResource( 4 )]
 position = Vector2( 360, 520 )
 enemy_type = 13
+
+[node name="GenericInspectable5" parent="Inspectables" instance=ExtResource( 4 )]
+position = Vector2( 641.484, 306.26 )
+enemy_type = 2
 
 [connection signal="body_entered" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_exited"]
