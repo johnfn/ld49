@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/overworld/npc1.png" type="Texture" id=3]
 [ext_resource path="res://art/overworld/npcs/npc2.png" type="Texture" id=4]
 [ext_resource path="res://art/overworld/recyclingbin.png" type="Texture" id=5]
-[ext_resource path="res://art/LightRadius.png" type="Texture" id=6]
+[ext_resource path="res://art/school papers.png" type="Texture" id=6]
 [ext_resource path="res://art/overworld/principal.png" type="Texture" id=7]
 [ext_resource path="res://art/overworld/doors.png" type="Texture" id=8]
+[ext_resource path="res://art/overworld/npc3.png" type="Texture" id=9]
+[ext_resource path="res://art/overworld/npc2.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 87.1297, 49.1438 )
@@ -32,16 +34,14 @@ scale = Vector2( 1.04238, 1.04238 )
 texture = ExtResource( 3 )
 
 [node name="Gteve" type="Sprite" parent="Graphics"]
-modulate = Color( 0.929412, 1, 0.0862745, 1 )
 position = Vector2( 19.8158, -28.6548 )
 scale = Vector2( 0.999814, 0.999814 )
-texture = ExtResource( 3 )
+texture = ExtResource( 10 )
 
 [node name="Student1" type="Sprite" parent="Graphics"]
-modulate = Color( 0.0862745, 1, 0.270588, 1 )
 position = Vector2( 19.8158, -28.6548 )
 scale = Vector2( 0.976984, 0.971879 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 
 [node name="Student2" type="Sprite" parent="Graphics"]
 modulate = Color( 0.0862745, 1, 0.937255, 1 )
@@ -50,7 +50,6 @@ scale = Vector2( 0.860168, 0.860168 )
 texture = ExtResource( 3 )
 
 [node name="Student3" type="Sprite" parent="Graphics"]
-modulate = Color( 0.0862745, 0.784314, 1, 1 )
 position = Vector2( 19.8158, -28.6548 )
 scale = Vector2( 0.745409, 0.745409 )
 texture = ExtResource( 3 )
@@ -59,13 +58,12 @@ texture = ExtResource( 3 )
 modulate = Color( 0.670588, 0.0862745, 1, 1 )
 position = Vector2( 19.8158, -28.6548 )
 scale = Vector2( 0.935311, 0.935311 )
-texture = ExtResource( 3 )
+texture = ExtResource( 10 )
 
 [node name="Student5" type="Sprite" parent="Graphics"]
-modulate = Color( 1, 0.0862745, 0.301961, 1 )
 position = Vector2( 19.8158, -28.6548 )
 scale = Vector2( 0.932068, 0.932068 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 
 [node name="Student6" type="Sprite" parent="Graphics"]
 modulate = Color( 0.305882, 0.0862745, 1, 1 )
@@ -86,11 +84,8 @@ scale = Vector2( 0.705783, 0.893624 )
 texture = ExtResource( 7 )
 
 [node name="Timmy\'s School Files" type="Sprite" parent="Graphics"]
-visible = false
-modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
 position = Vector2( 24.7108, -12.9782 )
-rotation = -3.03869
-scale = Vector2( 0.705783, 0.893624 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
 [node name="Teacher\'s Lounge Door" type="Sprite" parent="Graphics"]
