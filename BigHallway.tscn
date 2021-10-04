@@ -197,6 +197,13 @@ position = Vector2( 613.364, 417.879 )
 [node name="Npc5" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
 position = Vector2( 1727.08, 1400.43 )
 
+[node name="Npc6" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
+position = Vector2( 1211.69, 1621.98 )
+
+[node name="Npc7" parent="RoomDimmer/Graphics" instance=ExtResource( 4 )]
+position = Vector2( 1376.68, 842.616 )
+enemy_type = 32
+
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
 visible = false
 
