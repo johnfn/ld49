@@ -300,8 +300,8 @@ func info():
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "intro": "The Teacher's Lounge Door IS LOCKED IN YOUR SIGHTS",
-      "victory": "",
-      "defeat": "",
+      "victory": "i pray for the souls of doors everywhere",
+      "defeat": "youre not ready for the teacher's lounge, kid",
       "playerLines": [
         "you make a worse door than a window",
         "your insults are adoorable",

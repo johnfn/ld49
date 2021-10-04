@@ -98,6 +98,30 @@ func write_overlay_text(text: String):
   big_press_prompt.visible = false
   overlay_text.percent_visible = 0
 
+func write_overlay_fight_text(text: String, prompt: String, nodepath: NodePath):
+  $PressXPrompt.text = prompt
+  overlay_text.visible = true
+  overlay_text.text = text
+  overlay_text.percent_visible = 0.0
+  
+  while overlay_text.percent_visible < 1.0:
+    overlay_text.visible_characters += 1
+    
+    yield(get_tree(), "idle_frame")
+    yield(get_tree(), "idle_frame")
+      
+  $PressXPrompt.visible = true
+  overlay_text.percent_visible = 1.0
+    
+  yield(get_tree(), "idle_frame")
+  
+  yield(wait_for_x_press(), "completed")
+  
+  $PressXPrompt.visible = false
+  overlay_text.percent_visible = 0
+  
+  G.start_battle([get_node(nodepath)])
+
 func snap_camera():
   G.camera().current = true
   G.camera().smoothing_enabled = false
@@ -139,6 +163,20 @@ func run_trunchbull_cinematic():
     { "speaker": "Miss Trunchbull", "dialog": "this is the end of the line timmy", },
     { "speaker": "Miss Trunchbull", "dialog": "you're going to qualify for social security in detention timmy", "forces_fight": true},
   ])
+
+func run_game_cinematic():
+  start_cinematic()
+  insta_go_to_black()
+  yield(write_overlay_text("Timmy had earned his freedom from Coolville High, but what he really wanted..."), "completed")
+  yield(write_overlay_fight_text("...was freedom from the system.", "Press X to GET ANGRY", the_game), "completed")
+
+func run_credits_cinematic():
+  yield(write_overlay_fight_text("But Timmy's fight wasn't over yet. There was one more thing to GET VERY ANGRY at...", "Press X to GET VERY ANGRY", credits), "completed")
+  
+func run_ending_cinematic():
+  yield(write_overlay_text("As the game crumbled around him, Timmy tasted true freedom for the first time in his life."), "completed")
+  yield(write_overlay_text("The flavor was disappointing."), "completed")
+  
 
 var fade_frames = 30.0
 var max_black = 0.88

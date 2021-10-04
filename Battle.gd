@@ -107,6 +107,13 @@ func end_battle():
   hide_everything()
   $AnimationPlayer.play_backwards("SlideIn")
   G.end_battle()
+  
+  if enemy_data["name"] == "School Doors":
+    G.cinematics.run_game_cinematic()
+  if enemy_data["name"] == "The Game":
+    G.cinematics.run_credits_cinematic()
+  if enemy_data["name"] == "Credits":
+    G.cinematics.run_ending_cinematic()
 
 func _process(delta):
   if not G.in_battle:
