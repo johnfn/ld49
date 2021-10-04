@@ -46,6 +46,7 @@ func info():
       "xp": 30,
       "is_inanimate": false,
       "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "trunchbull_talk"),
     },
     
     G.ENEMIES.Poster: {
@@ -252,3 +253,28 @@ func teacher_rug_inspect():
     { "speaker": "You", "dialog": "It's the rug in the teacher's lounge", },
     { "speaker": "You", "dialog": "This rug is legendary amongst kids in Coolvile High", },
   ])
+
+var which = 0
+
+func trunchbull_talk():
+  which += 1
+  
+  if which == 1:
+    G.dialog().start([
+      { "speaker": "You", "dialog": "Um, hello.", },
+      { "speaker": "Miss Trunchbull", "dialog": "get out of my sight you loser", },
+    ])
+    return
+  
+  if which == 2:
+    G.dialog().start([
+      { "speaker": "You", "dialog": "What the...", },
+      { "speaker": "Miss Trunchbull", "dialog": "i'm bored", },
+    ])
+    return
+  
+  if which >= 3:
+    G.dialog().start([
+      { "speaker": "Miss Trunchbull", "dialog": "shoo you pleb", },
+    ])
+    return
