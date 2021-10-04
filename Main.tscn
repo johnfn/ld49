@@ -98,9 +98,11 @@ smoothing_enabled = true
 
 [node name="Dialog" parent="Hud" index="0"]
 miss_trunchbull = NodePath("../../GameObjects/FirstClassroom/MissTrunchbull")
+principal_pike = NodePath("../../GameObjects/PrincipalsOffice/PrincipalPike")
 
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
 school_files = NodePath("../GameObjects/PrincipalsOffice/SchoolFiles")
+statsHud = NodePath("../Hud/StatsBox")
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 

@@ -25,7 +25,6 @@ var movement_queue = {}
 
 func _ready():
   hide_everything()
-  connect("minigame_over", self, "_handler_func")
 
 func hide_everything():
   visible = false

@@ -10,12 +10,15 @@ onready var item_get = $ItemGet
 export var school_files : NodePath
 export var the_game : NodePath
 export var credits : NodePath
+export var statsHud : NodePath
 
 func start_cinematic():
+  get_node(statsHud).visible = false
   get_tree().paused = true
   G.mode = G.PauseMode.Cinematic
 
 func end_cinematic():
+  get_node(statsHud).visible = true
   get_tree().paused = false
   G.mode = G.PauseMode.None
 
@@ -46,6 +49,13 @@ func wait_for_z_press():
     yield(get_tree(), "idle_frame")
     
     if Input.is_action_just_pressed("action"):
+      break
+
+func wait_for_x_press():
+  while true:
+    yield(get_tree(), "idle_frame")
+    
+    if Input.is_action_just_pressed("angry"):
       break
 
 func show_press_z_to_continue():
@@ -136,7 +146,9 @@ func get_inventory_item(name: String):
   start_cinematic()
   snap_camera()
   
-  item_get.show_item(name)
+  var forces_file_fight = name == "TIMMY'S SCHOOL FILES"
+  
+  item_get.show_item(name, forces_file_fight)
   item_get.visible = true
   screen_fade.visible = true
   
@@ -145,7 +157,10 @@ func get_inventory_item(name: String):
     item_get.set_alpha(x / fade_frames)
     yield(get_tree(), "idle_frame")
   
-  yield(wait_for_z_press(), "completed")
+  if forces_file_fight:
+    yield(wait_for_x_press(), "completed")
+  else:
+    yield(wait_for_z_press(), "completed")
   
   if name == "TRUE ENLIGHTENMENT":
     Music.play_audio(Music.overworld_theme2)
@@ -159,6 +174,9 @@ func get_inventory_item(name: String):
   screen_fade.visible = false
   item_get.visible = false
   end_cinematic()
+  
+  if forces_file_fight:
+    G.start_battle([get_node(school_files)])
 
 func death():
   start_cinematic()
