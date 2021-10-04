@@ -8,7 +8,7 @@
 [ext_resource path="res://art/LightRadius.png" type="Texture" id=6]
 [ext_resource path="res://art/overworld/doors.png" type="Texture" id=8]
 
-[sub_resource type="StreamTexture" id=1]
+[sub_resource type="StreamTexture" id=4]
 flags = 4
 load_path = "res://.import/npc2.png-1ac8fe4821516f9732788c0cb7e156fd.stex"
 
@@ -53,7 +53,7 @@ modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
 position = Vector2( 24.7108, -12.9782 )
 rotation = -3.03869
 scale = Vector2( 0.705783, 0.893624 )
-texture = SubResource( 1 )
+texture = SubResource( 4 )
 
 [node name="Timmy\'s School Files" type="Sprite" parent="Graphics"]
 visible = false
@@ -64,7 +64,6 @@ scale = Vector2( 0.705783, 0.893624 )
 texture = ExtResource( 6 )
 
 [node name="Teacher\'s Lounge Door" type="Sprite" parent="Graphics"]
-modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
 position = Vector2( 24.7108, -12.9782 )
 scale = Vector2( 0.705783, 0.893624 )
 texture = ExtResource( 8 )
