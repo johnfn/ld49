@@ -40,6 +40,7 @@ enemy_type = 1
 
 [node name="FirstClassroom" parent="GameObjects" instance=ExtResource( 6 )]
 position = Vector2( -1200, 40 )
+start_unlit = false
 
 [node name="CinematicTrigger" parent="GameObjects/FirstClassroom" instance=ExtResource( 7 )]
 position = Vector2( 485.044, 700.781 )
@@ -82,8 +83,13 @@ smoothing_enabled = true
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
+[node name="Dialog" parent="Hud" index="0"]
+miss_trunchbull = NodePath("../../GameObjects/FirstClassroom/MissTrunchbull")
+
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 
 [connection signal="on_trigger" from="GameObjects/FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]
+
+[editable path="Hud"]
