@@ -19,6 +19,7 @@ enum InventoryItem {
 
 var inventory_contents = [
   InventoryItem.PlusDef,
+  InventoryItem.TrueEnlightenment,
 ] if debug else []
 
 var inventory_text = {
@@ -90,6 +91,7 @@ enum ENEMIES {
   LoungeDoor,
   MichaelwaveOven,
   Stapler,
+  ClassroomTrash,
 }
 
 var health = 20

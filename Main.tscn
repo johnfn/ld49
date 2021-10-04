@@ -36,6 +36,14 @@ position = Vector2( 485.898, 1178.18 )
 [node name="Steve" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
 position = Vector2( 400, 956.422 )
 
+[node name="AngerGatedDoor2" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
+position = Vector2( 2219.58, 1940 )
+enemy_type = 19
+
+[node name="AngerGatedDoor3" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
+position = Vector2( 460, 40 )
+enemy_type = 18
+
 [node name="Gteve" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
 position = Vector2( 460, 580 )
 enemy_type = 1
@@ -55,7 +63,7 @@ position = Vector2( 780, 873.609 )
 position = Vector2( -981.797, 1001.8 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( 1923.2, 1541.22 )
+position = Vector2( -160, 680 )
 
 [node name="TeachersLounge" parent="GameObjects" instance=ExtResource( 9 )]
 position = Vector2( 1920, 1980.77 )

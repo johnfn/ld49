@@ -3,6 +3,18 @@ extends Node
 
 func info():
   return {
+    G.ENEMIES.ClassroomTrash: {
+      "name": "Wastebasket",
+      "drop": G.InventoryItem.None,
+      "interaction": "Inspect wastebasket",
+      "health": 5,
+      "xp": 15,
+      "is_inanimate": true,
+      "battle_tscn": load("res://BattleEnemy.tscn"),
+      "dialog": funcref(self, "classroomtrash_inspect"),
+      "can_ever_fight": false
+    },
+    
     G.ENEMIES.Wastebasket: {
       "name": "Wastebasket",
       "drop": G.InventoryItem.None,
@@ -143,7 +155,7 @@ func info():
       "xp": 30,
       "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
-      "can_ever_fight": false
+      "can_ever_fight": false,
     },
     
     #######################################################
@@ -287,7 +299,7 @@ func info():
         "who better than me to roast you",
         "im the only one who will show you warmth",
         "ill make your head spin",
-       ]
+       ],
     },
     
     G.ENEMIES.LoungeDoor: {
@@ -315,7 +327,8 @@ func info():
         "a doornail is actually much smarter than you",
         "nothing will ever hinge on you",
         "you cant handle these insults",
-       ]
+       ],
+      "dialog": funcref(self, "lounge_inspect"),
     },
     
     G.ENEMIES.SchoolDoors: {
@@ -343,7 +356,8 @@ func info():
         "a doormat like you is beneath me",
         "let me choose not to open up you dont either",
         "people laughing at you behind closed doors doesn't mean you need to take it out on me",
-       ]
+       ],
+      "dialog": funcref(self, "school_door_inspect"),
     },
     
     G.ENEMIES.TheGame: {
@@ -527,11 +541,32 @@ func wastebasket_inspect():
     )
     
     return
-    
+  
   G.dialog().start([ 
     { "speaker": "You", "dialog": "This is a wastebin.", },
     { "speaker": "You", "dialog": "You look inside...", },
     { "speaker": "You", "dialog": "There's nothing here." },
+  ])
+
+var ctfirst = true
+func classroomtrash_inspect():
+  if ctfirst:
+    first = false
+    
+    G.dialog().start(
+      [
+        { "speaker": "You", "dialog": "It's a wastebin. What did you think it was?", },
+        { "speaker": "You", "dialog": "Were you expecting to find something valuable inside?", },
+        { "speaker": "You", "dialog": "Like, c'mon. It's literally trash...", },
+        { "speaker": "You", "dialog": "[You found a COIN!]", },
+        { "speaker": "You", "dialog": "GET:COIN", },
+      ]
+    )
+    return
+    
+  G.dialog().start([ 
+    { "speaker": "You", "dialog": "This is a wastebin.", },
+    { "speaker": "You", "dialog": "Something about it seems to inspire aggression.", },
   ])
 
 func teacher_poster_inspect():
@@ -576,3 +611,54 @@ func trunchbull_talk():
       { "speaker": "Miss Trunchbull", "dialog": "shoo you pleb", },
     ])
     return
+
+var lounge_tries = 0
+
+func lounge_inspect():
+  lounge_tries += 1 
+  
+  var can_open = G.has_true_enlightenment()
+  
+  if can_open:
+    G.dialog().start([
+      { "speaker": "You", "dialog": "The doors to the teachers lounge...", },
+      { "speaker": "You", "dialog": "They make me...", },
+      { "speaker": "You", "dialog": "ANGRY...", },
+    ])
+
+    return
+  
+  if lounge_tries == 1:
+    G.dialog().start([
+      { "speaker": "You", "dialog": "The door to the teacher's lounge is locked.", },
+      { "speaker": "You", "dialog": "Probably a good idea with students this belligerent.", },
+    ])
+  else:
+    G.dialog().start([
+      { "speaker": "You", "dialog": "The teacher's lounge doors are still locked.", },
+    ])
+
+var school_door_tries = 0
+
+func school_door_inspect():
+  school_door_tries += 1 
+  
+  var can_open = G.has_true_enlightenment()
+  
+  if can_open:
+    G.dialog().start([
+      { "speaker": "You", "dialog": "The school doors...", },
+      { "speaker": "You", "dialog": "They make me...", },
+      { "speaker": "You", "dialog": "ANGRY...", },
+    ])
+
+    return
+  
+  if school_door_tries == 1:
+    G.dialog().start([
+      { "speaker": "You", "dialog": "The doors out", },
+    ])
+  else:
+    G.dialog().start([
+      { "speaker": "You", "dialog": "The school doors are still locked.", },
+    ])

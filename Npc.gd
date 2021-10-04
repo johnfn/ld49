@@ -23,6 +23,9 @@ func render_proper_sprite():
     
     if ch.name == Enemies.info()[enemy_type].name:
       ch.visible = true
+    else:
+      if not Engine.editor_hint:
+        ch.queue_free()
   
 func _ready():
   if Engine.editor_hint:
