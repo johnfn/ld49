@@ -3,7 +3,7 @@
 [ext_resource path="res://art/overworld/table.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 43.7695, 60.297 )
+extents = Vector2( 43.7695, 48.297 )
 
 [node name="NormalTable" type="Node2D"]
 
@@ -11,7 +11,7 @@ extents = Vector2( 43.7695, 60.297 )
 position = Vector2( 85.957, -17.8146 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -41.2265, 77.1116 )
+position = Vector2( -38.7265, 86.1116 )
 shape = SubResource( 1 )
 
 [node name="table" type="Sprite" parent="."]

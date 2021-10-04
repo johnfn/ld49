@@ -39,3 +39,8 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
   if body == G.player():
     state = State.FadeOut
+  
+func setLit():
+  state = State.Visible
+  $Graphics.modulate.a = 1
+    

@@ -30,12 +30,17 @@ position = Vector2( 485.898, 1178.18 )
 [node name="Steve" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
 position = Vector2( 400, 956.422 )
 
+[node name="AngerGatedDoor2" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
+position = Vector2( 2219.58, 1940 )
+enemy_type = 19
+
 [node name="Gteve" parent="GameObjects/BigHallway" instance=ExtResource( 4 )]
 position = Vector2( 460, 580 )
 enemy_type = 1
 
 [node name="FirstClassroom" parent="GameObjects" instance=ExtResource( 6 )]
-position = Vector2( -1200, 38.041 )
+position = Vector2( -1200, 40 )
+start_unlit = false
 
 [node name="CinematicTrigger" parent="GameObjects/FirstClassroom" instance=ExtResource( 7 )]
 position = Vector2( 485.044, 700.781 )
@@ -51,13 +56,21 @@ position = Vector2( 780, 873.609 )
 position = Vector2( -981.797, 1001.8 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( -400, 600 )
+position = Vector2( 2520, 1520 )
 
 [node name="TeachersLounge" parent="GameObjects" instance=ExtResource( 9 )]
 position = Vector2( 1920, 1980.77 )
 
 [node name="PrincipalsOffice" parent="GameObjects" instance=ExtResource( 13 )]
 position = Vector2( 2800, 1020 )
+
+[node name="PrincipalPike" parent="GameObjects/PrincipalsOffice" instance=ExtResource( 4 )]
+position = Vector2( 400, 500 )
+enemy_type = 14
+
+[node name="SchoolFiles" parent="GameObjects/PrincipalsOffice" instance=ExtResource( 4 )]
+position = Vector2( 600, 660 )
+enemy_type = 15
 
 [node name="MainCamera" type="Camera2D" parent="."]
 current = true
@@ -70,8 +83,13 @@ smoothing_enabled = true
 
 [node name="Hud" parent="." instance=ExtResource( 5 )]
 
+[node name="Dialog" parent="Hud" index="0"]
+miss_trunchbull = NodePath("../../GameObjects/FirstClassroom/MissTrunchbull")
+
 [node name="Cinematics" parent="." instance=ExtResource( 8 )]
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 
 [connection signal="on_trigger" from="GameObjects/FirstClassroom/CinematicTrigger" to="Cinematics" method="_on_CinematicTrigger_on_trigger"]
+
+[editable path="Hud"]

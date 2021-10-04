@@ -3,7 +3,7 @@ extends CanvasLayer
 onready var screen_fade = $ScreenFade
 onready var overlay_text: Label = $OverlayText
 onready var press_z_to_continue: Label = $PressZToContinue
-onready var big_press_prompt: Label = $PressPrompt
+onready var big_press_prompt: Label = $PressZPrompt
 onready var animation_player = $AnimationPlayer
 onready var item_get = $ItemGet
 
@@ -89,11 +89,9 @@ func _on_CinematicTrigger_on_trigger():
 #  if not G.debug:
 #    run_trunchbull_cinematic()
 
-# TODO make the overlay text better
+# TODO fix weirdly black screen
 # TODO make the dialog window look better
-# TODO fix overlay text skipping
 # TODO don't let the last line leave the screen
-# TODO make the intro start immediately
 # TODO add a Press X to GET ANGRY
 func run_trunchbull_cinematic():
   start_cinematic()
@@ -108,7 +106,7 @@ func run_trunchbull_cinematic():
     { "speaker": "Miss Trunchbull", "dialog": "i've decided to send timmy to detention until he stops being a huge loser, so say your last goodbyes now", },
     { "speaker": "Miss Trunchbull", "dialog": "wow no one even wants to say goodbye", },
     { "speaker": "Miss Trunchbull", "dialog": "this is the end of the line timmy", },
-    { "speaker": "Miss Trunchbull", "dialog": "you're going to qualify for social security in detention timmy", },
+    { "speaker": "Miss Trunchbull", "dialog": "you're going to qualify for social security in detention timmy", "forces_fight": true},
   ])
 
 var fade_frames = 30.0
