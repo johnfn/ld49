@@ -161,7 +161,7 @@ func spawn_word():
     curr_word_node = word
 
 func check_game_end():
-  return curr_word >= key_words.size() && $InsultScroller/Words/.get_child_count() == 0 && $InsultScroller/Bursts/.get_child_count() == 0
+  return curr_word >= key_words.size()
 
 func handle_cursor(delta):
   if move_up && move_down:

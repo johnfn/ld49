@@ -23,6 +23,11 @@ var is_in_minigame = false
 
 var movement_queue = {}
 
+var hp_bar_len = 143
+onready var player_hp_bar = $HUD/BattleOptions/HealthBar/HealthSprite
+onready var player_hp_text = $HUD/BattleOptions/HealthBar/HealthLabel
+onready var player_hp_bar_start = player_hp_bar.position.x
+
 func _ready():
   hide_everything()
 
@@ -56,19 +61,6 @@ func start_battle():
   
   targeting_index = 0
   
-  # Spawn enemies
-#  var num_enemies = len(G.battling_against)
-#  var offset = Vector2(200,100) / num_enemies
-#  for i in G.battling_against.size():
-#    var enemy_type = G.battling_against[i].enemy_type
-#    var enemy = Enemies.info()[enemy_type].battle_tscn.instance()
-#    add_child(enemy)
-#    var enemy_final_pos = enemy_pos + offset*(i - ((num_enemies-1)/2))
-#    enemy.position = Vector2(-100, enemy_final_pos.y)
-#    enemies.append(enemy)
-#    turn_queue.append(enemy)
-#    slide_in(enemy, enemy.position, enemy_final_pos)
-  
   var enemy_target = enemy.position
   enemy.position = Vector2(-100, 400)
   turn_queue.append(enemy)
@@ -88,6 +80,9 @@ func end_battle():
 func _process(delta):
   if not G.in_battle:
     return
+    
+  player_hp_text.text = str(max(0, G.health))
+  player_hp_bar.position.x = player_hp_bar_start - hp_bar_len + hp_bar_len * max(0, G.health) / G.max_health
   
   if is_in_minigame:
     return
@@ -122,12 +117,12 @@ func take_action(action):
       start_minigame()
     else:
       swipe(actor, player)
-      player.take_damage(5)
+      G.health -= 5 # TODO vary the damage
       if G.health <= 0:
         end_battle()
       end_turn()
   elif action == ACTIONS.cry:
-    actor.heal(5)
+    G.health += 5 # TODO vary the healing
     end_turn()
   else: 
     print("boohoo")
