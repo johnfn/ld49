@@ -34,6 +34,9 @@ position = Vector2( -160, -20 )
 texture = ExtResource( 8 )
 centered = false
 
+[node name="RecyclingBin" parent="RoomDimmer/Graphics" instance=ExtResource( 1 )]
+position = Vector2( 600, 340 )
+
 [node name="RedDesk3" parent="RoomDimmer/Graphics" instance=ExtResource( 5 )]
 position = Vector2( 240, 700 )
 
@@ -42,9 +45,6 @@ position = Vector2( 520, 700 )
 
 [node name="RedDesk5" parent="RoomDimmer/Graphics" instance=ExtResource( 5 )]
 position = Vector2( 520, 900 )
-
-[node name="RecyclingBin" parent="RoomDimmer/Graphics/RedDesk5" instance=ExtResource( 1 )]
-position = Vector2( 200, -560 )
 
 [node name="RedDesk6" parent="RoomDimmer/Graphics" instance=ExtResource( 5 )]
 position = Vector2( 240, 900 )
@@ -66,7 +66,7 @@ position = Vector2( 390, 230 )
 enemy_type = 9
 
 [node name="GenericInspectable2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 830, 230 )
+position = Vector2( 760, 180 )
 enemy_type = 7
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -86,6 +86,10 @@ shape = SubResource( 4 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 510, 270 )
 shape = SubResource( 4 )
+
+[node name="GenericInspectable3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 680, 300 )
+enemy_type = 23
 
 [connection signal="body_entered" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="RoomDimmer/Area2D" to="RoomDimmer" method="_on_Area2D_body_exited"]

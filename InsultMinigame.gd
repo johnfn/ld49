@@ -3,7 +3,8 @@ extends Node2D
 signal minigame_over
 signal attack_landed
 
-var word_bank = ["gorgonzola", "glue", "aardvark", "camel"]
+var word_bank = ["gorgonzola", "glue", "aardvark", "camel", "horrible", "terrible", "gross", "ugly", "that", "two", "trade", "hell", "monster", "rain", "thou", "traitor", "mess", "oof", "unstable", "virus", "far-fetched", "unconscious", "carve", "humble", "anger", "dangerous", "scab", "squid", "impossible", "tremble", "crime", "revile", "juicebox", "what", "won't", "how", "if", "then", "trap", "leg"]
+
 var base_speed = 300
 var speed
 var bad_word_chance
