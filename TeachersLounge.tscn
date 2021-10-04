@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://art/overworld/teacherslounge.png" type="Texture" id=1]
 [ext_resource path="res://GenericRoom.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://doodads/RecyclingBin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://doodads/TrashBin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://doodads/MichaelWaveTable.tscn" type="PackedScene" id=7]
+[ext_resource path="res://doodads/NormalTable.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 560, 440 )
@@ -43,6 +44,9 @@ position = Vector2( 46.7003, 447.623 )
 
 [node name="RecyclingBin" parent="RoomDimmer/Graphics" instance=ExtResource( 5 )]
 position = Vector2( 117.198, 297.589 )
+
+[node name="NormalTable" parent="RoomDimmer/Graphics" instance=ExtResource( 8 )]
+position = Vector2( 583.531, 442.17 )
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
 

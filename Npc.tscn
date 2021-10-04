@@ -1,10 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Npc.gd" type="Script" id=1]
 [ext_resource path="res://InteractionMarker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/overworld/npcs/npc1.png" type="Texture" id=3]
 [ext_resource path="res://art/overworld/npcs/npc2.png" type="Texture" id=4]
 [ext_resource path="res://art/overworld/recyclingbin.png" type="Texture" id=5]
+[ext_resource path="res://art/LightRadius.png" type="Texture" id=6]
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/npc2.png-1ac8fe4821516f9732788c0cb7e156fd.stex"
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 20 )
@@ -21,6 +26,7 @@ scale = Vector2( 0.585066, 0.585066 )
 texture = ExtResource( 5 )
 
 [node name="Steve" type="Sprite" parent="Graphics"]
+visible = false
 position = Vector2( 19.8158, -28.6548 )
 scale = Vector2( 0.585066, 0.585066 )
 texture = ExtResource( 3 )
@@ -37,6 +43,21 @@ modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
 position = Vector2( 19.4298, -61.0792 )
 scale = Vector2( 0.600162, 1.53497 )
 texture = ExtResource( 4 )
+
+[node name="Principal Pike" type="Sprite" parent="Graphics"]
+visible = false
+modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
+position = Vector2( 24.7108, -12.9782 )
+rotation = -3.03869
+scale = Vector2( 0.705783, 0.893624 )
+texture = SubResource( 2 )
+
+[node name="Timmy\'s School Files" type="Sprite" parent="Graphics"]
+modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
+position = Vector2( 24.7108, -12.9782 )
+rotation = -3.03869
+scale = Vector2( 0.705783, 0.893624 )
+texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 25, 11 )
