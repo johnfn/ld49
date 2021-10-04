@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://InteractionMarker.gd"
 }, {
+"base": "ColorRect",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://Inventory.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Npc",
 "language": "GDScript",
@@ -57,6 +62,7 @@ _global_script_class_icons={
 "Dialog": "",
 "HealthBar": "",
 "InteractionMarker": "",
+"Inventory": "",
 "Npc": ""
 }
 
