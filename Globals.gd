@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug = true # OS.get_environment("USER") == "johnfn"
+var debug = false # OS.get_environment("USER") == "johnfn"
 
 enum PauseMode {
   None = 0,
@@ -98,17 +98,18 @@ enum ENEMIES {
   Student4,
   Student5,
   Student6,
+  ImageNotFound,
 }
 
-var attack = 50 if debug else 5 # TODO maybe upgrade
-var healing = 5 # TODO maybe upgrade
+var attack = 50 if debug else 5
+var healing = 7
 var health = 20
 var max_health = 20
 var interactables: Array = []
 var mode = PauseMode.None
 
 var xp = 0
-var level_xp = [20, 40, 80, 200, 500, 1000, 2500, 5000, 10000]
+var level_xp = [20, 60, 140, 300, 600]
 
 var in_battle = false
 var battling_against: Array = []
@@ -135,8 +136,6 @@ func gain_xp(amount: int, also_gained_item: bool):
   yield(get_tree(), "idle_frame")
   
   if old_level != get_level():
-    max_health += 5
-    health += 5
     
     yield(cinematics.gain_level(get_level(), amount, also_gained_item), "completed")
 #  else: 

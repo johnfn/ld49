@@ -124,6 +124,7 @@ func move_words(delta):
             word.set_on_fire()
             reset_curr_word()
             $InsultBubble.on_InsultScroller_word_passed(true, word.word)
+            G.health = min(G.max_health, G.health + 1)
             emit_signal("attack_landed")
         elif not word.is_bad:
           word.mark_bad()
