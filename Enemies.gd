@@ -308,7 +308,7 @@ func info():
       ],
       "dialog": funcref(self, "trunchbull_talk"),
       
-      "health": 50,
+      "health": 20,
       "xp": 20,
       "damage": 5,
       "speed": 0.5,
