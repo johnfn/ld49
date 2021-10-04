@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://audio/Get Schooled - Overworld Theme.mp3" type="AudioStream" id=1]
 [ext_resource path="res://audio/Teach This - Overworld Theme 2.mp3" type="AudioStream" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://audio/sfx/battle sfx/ow.mp3" type="AudioStream" id=18]
 [ext_resource path="res://audio/sfx/battle sfx/rightthing.mp3" type="AudioStream" id=19]
 [ext_resource path="res://audio/sfx/battle sfx/missedthing.mp3" type="AudioStream" id=20]
+[ext_resource path="res://audio/Victory Fanfare.mp3" type="AudioStream" id=21]
 
 [node name="Music" type="Node2D"]
 pause_mode = 2
@@ -85,3 +86,6 @@ stream = ExtResource( 19 )
 
 [node name="Wrong2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
