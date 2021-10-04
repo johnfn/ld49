@@ -1,91 +1,103 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Dialog.gd" type="Script" id=1]
-[ext_resource path="res://art/overworld/mc portrait temp.png" type="Texture" id=2]
+[ext_resource path="res://art/ui/dialog_box.png" type="Texture" id=2]
 [ext_resource path="res://fonts/item_get_prompt.tres" type="DynamicFont" id=3]
 [ext_resource path="res://fonts/dialog_angry.tres" type="DynamicFont" id=4]
+[ext_resource path="res://art/ui/dialog_box_shadow.png" type="Texture" id=5]
+[ext_resource path="res://fonts/item_get_subheader.tres" type="DynamicFont" id=6]
 
 [node name="Dialog" type="ColorRect"]
-margin_left = 222.139
-margin_top = 345.226
-margin_right = 706.139
-margin_bottom = 577.226
+margin_left = 214.411
+margin_top = 343.875
+margin_right = 698.411
+margin_bottom = 575.875
+color = Color( 1, 1, 1, 0 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-miss_trunchbull = null
-principal_pike = null
-school_doors = null
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 12.0
-margin_top = 9.0
-margin_right = 151.0
-margin_bottom = 143.0
+[node name="TextureRect" type="TextureRect" parent="."]
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="mc portrait temp" type="Sprite" parent="ColorRect"]
-position = Vector2( 69.3414, 67.4361 )
-scale = Vector2( 0.267912, 0.267912 )
-texture = ExtResource( 2 )
-
-[node name="SpeakerName" type="Label" parent="."]
-margin_left = 15.735
-margin_top = 150.116
-margin_right = 55.735
-margin_bottom = 164.116
+[node name="ZToContinue" type="Label" parent="TextureRect"]
+visible = false
+margin_left = 295.033
+margin_top = 200.989
+margin_right = 520.033
+margin_bottom = 228.989
 custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Press Z to continue"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect"]
+margin_left = 48.2142
+margin_top = 187.652
+margin_right = 497.214
+margin_bottom = 236.652
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PressXPrompt" type="Label" parent="TextureRect/CenterContainer"]
+margin_left = 11.0
+margin_right = 437.0
+margin_bottom = 49.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Press X to GET ANGRY"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+anchor_right = 1.0
+margin_left = 24.1871
+margin_top = 15.8989
+margin_right = -25.8129
+margin_bottom = 190.899
+custom_constants/separation = 13
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeakerName" type="Label" parent="TextureRect/VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Steve"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DialogText" type="Label" parent="."]
-anchor_left = 0.000578573
-anchor_right = 0.0171075
-margin_left = 168.0
-margin_top = 14.0
-margin_right = 446.0
-margin_bottom = 143.0
+[node name="DialogText" type="Label" parent="TextureRect/VBoxContainer"]
+margin_top = 50.0
+margin_right = 500.0
+margin_bottom = 78.0
 custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "BLAH BLAH BLAH BLAH BLAH UR SO STUPID"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ZToContinue" type="Label" parent="."]
-anchor_left = 0.000578573
-anchor_right = 0.0171075
-margin_left = 177.72
-margin_top = 175.0
-margin_right = 455.72
-margin_bottom = 215.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Press Z to continue"
-align = 2
-valign = 2
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PressXPrompt" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -8.0
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Press X to GET ANGRY"
-align = 1
-valign = 2
-autowrap = true
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_right = 486.0
+margin_bottom = 200.0
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

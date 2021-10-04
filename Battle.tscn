@@ -96,8 +96,8 @@ texture = ExtResource( 12 )
 centered = false
 
 [node name="HUD" type="CanvasLayer" parent="."]
-offset = Vector2( -800, 0 )
-transform = Transform2D( 1, 0, 0, 1, -800, 0 )
+offset = Vector2( -533.333, 0 )
+transform = Transform2D( 1, 0, 0, 1, -533.333, 0 )
 
 [node name="BattleOptions" type="VBoxContainer" parent="HUD"]
 anchor_left = 0.343
@@ -215,8 +215,8 @@ __meta__ = {
 
 [node name="RightHalf" type="CanvasLayer" parent="HUD"]
 layer = 2
-offset = Vector2( 800, 0 )
-transform = Transform2D( 1, 0, 0, 1, 800, 0 )
+offset = Vector2( 533.333, 0 )
+transform = Transform2D( 1, 0, 0, 1, 533.333, 0 )
 
 [node name="DieInstantly" type="Button" parent="HUD/RightHalf"]
 margin_left = 861.933
@@ -295,7 +295,6 @@ __meta__ = {
 }
 
 [node name="SchoolDoors" type="TextureRect" parent="HUD/RightHalf/EnemyContainer"]
-visible = false
 margin_left = -135.106
 margin_top = -281.002
 margin_right = 414.894
@@ -386,7 +385,7 @@ margin_left = 7.20404
 margin_top = 7.30164
 margin_right = 799.204
 margin_bottom = 338.302
-rect_scale = Vector2( 0.923438, 0.880001 )
+rect_scale = Vector2( 0.886953, 0.885827 )
 texture = ExtResource( 13 )
 flip_h = true
 __meta__ = {
@@ -409,7 +408,7 @@ margin_left = 7.20404
 margin_top = 7.30164
 margin_right = 799.204
 margin_bottom = 338.302
-rect_scale = Vector2( 0.923438, 0.880001 )
+rect_scale = Vector2( 0.890769, 0.893331 )
 texture = ExtResource( 16 )
 flip_h = true
 __meta__ = {
@@ -430,7 +429,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -680.753, 463.247 )
+position = Vector2( -414.086, 463.247 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SlideIn = SubResource( 3 )

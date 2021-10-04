@@ -1,10 +1,10 @@
 extends ColorRect
 class_name Dialog
 
-onready var speaker_name = $SpeakerName
-onready var dialog_text = $DialogText
-onready var z_to_continue = $ZToContinue
-onready var x_to_fight = $PressXPrompt
+onready var speaker_name = $TextureRect/VBoxContainer/SpeakerName
+onready var dialog_text = $TextureRect/VBoxContainer/DialogText
+onready var z_to_continue = $TextureRect/ZToContinue
+onready var x_to_fight = $TextureRect/CenterContainer/PressXPrompt
 
 export var miss_trunchbull : NodePath
 export var principal_pike : NodePath
