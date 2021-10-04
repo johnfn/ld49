@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug = true
+var debug = false
 
 enum PauseMode {
   None = 0,

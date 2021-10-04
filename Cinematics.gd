@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var screen_fade = $ScreenFade
 onready var overlay_text: Label = $OverlayText
 onready var press_z_to_continue: Label = $PressZToContinue
+onready var big_press_prompt: Label = $PressPrompt
 onready var animation_player = $AnimationPlayer
 onready var item_get = $ItemGet
 
@@ -56,8 +57,6 @@ func hide_press_z_to_continue():
   press_z_to_continue.visible = false
 
 func write_overlay_text(text: String):
-  hide_press_z_to_continue()
-  
   overlay_text.visible = true
   overlay_text.text = text
   overlay_text.percent_visible = 0.0
@@ -66,21 +65,16 @@ func write_overlay_text(text: String):
     overlay_text.visible_characters += 1
     
     yield(get_tree(), "idle_frame")
-    
-    if Input.is_action_just_pressed("action"):
-      break
-    
     yield(get_tree(), "idle_frame")
-    
-    if Input.is_action_just_pressed("action"):
-      break
       
+  big_press_prompt.visible = true
   overlay_text.percent_visible = 1.0
     
   yield(get_tree(), "idle_frame")
   
-  yield(show_press_z_to_continue(), "completed")
+  yield(wait_for_z_press(), "completed")
   
+  big_press_prompt.visible = false
   overlay_text.percent_visible = 0
 
 func snap_camera():
@@ -91,18 +85,31 @@ func snap_camera():
   G.camera().smoothing_enabled = true
 
 func _on_CinematicTrigger_on_trigger():
-  if not G.debug:
-    start_cinematic()
-    insta_go_to_black()
-    yield(write_overlay_text("One morning, Timmy arrived at Coolville High School to find that everyone was being a total d**k."), "completed")
-    yield(write_overlay_text("Unfortunately, Timmy is part of everyone."), "completed")
-    fade_from_black_timed()
-    snap_camera()
-    
-    G.dialog().start([      
-      { "speaker": "Miss Trunchbull", "dialog": "alright class i have an announcement to make", },
-      { "speaker": "Miss Trunchbull", "dialog": "ive decided to send timmy to detention until he stops being a huge loser so say your last goodbyes now", },
-    ])
+  pass
+#  if not G.debug:
+#    run_trunchbull_cinematic()
+
+# TODO make the overlay text better
+# TODO make the dialog window look better
+# TODO fix overlay text skipping
+# TODO don't let the last line leave the screen
+# TODO make the intro start immediately
+# TODO add a Press X to GET ANGRY
+func run_trunchbull_cinematic():
+  start_cinematic()
+  insta_go_to_black()
+  yield(write_overlay_text("One morning, Timmy arrived at Coolville High School to find that everyone was a total d**k."), "completed")
+  yield(write_overlay_text("Unfortunately,\nTimmy is part of everyone."), "completed")
+  fade_from_black_timed()
+  snap_camera()
+  
+  G.dialog().start([      
+    { "speaker": "Miss Trunchbull", "dialog": "alright class i have an announcement to make", },
+    { "speaker": "Miss Trunchbull", "dialog": "i've decided to send timmy to detention until he stops being a huge loser, so say your last goodbyes now", },
+    { "speaker": "Miss Trunchbull", "dialog": "wow no one even wants to say goodbye", },
+    { "speaker": "Miss Trunchbull", "dialog": "this is the end of the line timmy", },
+    { "speaker": "Miss Trunchbull", "dialog": "you're going to qualify for social security in detention timmy", },
+  ])
 
 var fade_frames = 30.0
 var max_black = 0.88
@@ -153,6 +160,9 @@ func _ready():
   for child in get_children():
     if "visible" in child:
       child.visible = false
+      
+  if not G.debug:
+    run_trunchbull_cinematic()
 
 func _process(delta):
   if G.mode != G.PauseMode.Cinematic:
