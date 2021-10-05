@@ -113,7 +113,8 @@ func end_battle():
     minigame = null
   
   var line = enemy_data["victory"]
-  if G.health <= 0:
+  var did_die = G.health <= 0
+  if did_die:
     line = enemy_data["defeat"]
   yield(display_line(line), "completed")
   yield(get_tree().create_timer(0.5), "timeout")
@@ -121,17 +122,18 @@ func end_battle():
   $AnimationPlayer.play_backwards("SlideIn")
   yield(G.end_battle(), "completed")
   
-  if enemy_data["name"] == "School Doors":
-    yield(G.cinematics.run_game_cinematic(), "completed")
-    return
+  if not did_die:
+    if enemy_data["name"] == "School Doors":
+      yield(G.cinematics.run_game_cinematic(), "completed")
+      return
+      
+    if enemy_data["name"] == "The Game":
+      yield(G.cinematics.run_credits_cinematic(), "completed")
+      return
     
-  if enemy_data["name"] == "The Game":
-    yield(G.cinematics.run_credits_cinematic(), "completed")
-    return
-  
-  if enemy_data["name"] == "The Credits":
-    yield(G.cinematics.run_ending_cinematic(), "completed")
-    return
+    if enemy_data["name"] == "The Credits":
+      yield(G.cinematics.run_ending_cinematic(), "completed")
+      return
 
 func _process(delta):
   if not G.in_battle:
