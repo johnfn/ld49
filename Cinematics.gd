@@ -179,12 +179,10 @@ func run_trunchbull_cinematic():
 func run_game_cinematic():
   start_cinematic()
   insta_go_to_black()
-  
-  if G.debug:
-    yield(write_overlay_fight_text(".", "Press X to GET ANGRY", the_game), "completed")
-  else:
-    yield(write_overlay_text("Timmy had earned his freedom from Coolville High, but what he really wanted..."), "completed")
-    yield(write_overlay_fight_text("...was freedom from the system.", "Press X to GET ANGRY", the_game), "completed")
+  G.player().position = Vector2(100000, 100000)
+  G.player().visible = false
+  yield(write_overlay_text("Timmy had earned his freedom from Coolville High, but what he really wanted..."), "completed")
+  yield(write_overlay_fight_text("...was freedom from the system.", "Press X to GET ANGRY", the_game), "completed")
 
 func run_credits_cinematic():
   yield(write_overlay_fight_text("But Timmy's fight wasn't over yet. There was one more thing to GET VERY ANGRY at...", "Press X to GET VERY ANGRY", credits), "completed")
@@ -244,6 +242,7 @@ func death():
   yield(write_overlay_text("You were insulted so hard you passed out!"), "completed")
   G.health = G.max_health
   G.player().position = $"/root/Main/GameObjects/Checkpoints".last_position
+  G.player().visible = true
   yield(get_tree(), "idle_frame")
   fade_from_black_timed()
   end_cinematic()

@@ -778,7 +778,7 @@ var recyfirst = true
 var full_heal_exists = true
 func recycling_inspect():
   if recyfirst:
-    recyfirst = false
+#    recyfirst = false
   
     G.dialog().start(
       [
@@ -789,7 +789,7 @@ func recycling_inspect():
       ]
     )
     
-    full_heal_exists = false
+#    full_heal_exists = false
     return
   
   if full_heal_exists:

@@ -40,7 +40,7 @@ COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, float(blurSize)/10.0);
 shader = SubResource( 1 )
 shader_param/blurSize = 0
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 24 ), ExtResource( 23 ) ],
 "loop": true,
@@ -48,8 +48,7 @@ animations = [ {
 "speed": 0.3
 } ]
 
-[sub_resource type="Animation" id=3]
-resource_name = "SlideIn"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("HUD:offset")
 tracks/0/interp = 1
@@ -436,8 +435,7 @@ __meta__ = {
 [node name="Credits" type="AnimatedSprite" parent="HUD/RightHalf/EnemyContainer"]
 position = Vector2( 136.154, 144.163 )
 scale = Vector2( 0.3, 0.3 )
-frames = SubResource( 4 )
-frame = 2
+frames = SubResource( 3 )
 playing = true
 
 [node name="EnemyUi" type="VBoxContainer" parent="HUD/RightHalf"]
@@ -461,10 +459,10 @@ disabled = true
 texture_normal = ExtResource( 9 )
 
 [node name="EnemyName" type="Label" parent="HUD/RightHalf/EnemyUi/NameTag"]
-margin_left = 7.18054
-margin_top = 4.40967
-margin_right = 199.181
-margin_bottom = 52.4097
+margin_left = 7.404
+margin_top = 5.464
+margin_right = 321.404
+margin_bottom = 42.464
 mouse_filter = 1
 custom_fonts/font = ExtResource( 8 )
 text = "Teacher's Lounge Door"
@@ -588,7 +586,7 @@ __meta__ = {
 position = Vector2( -680.753, 463.247 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/SlideIn = SubResource( 3 )
+anims/SlideIn = SubResource( 4 )
 
 [connection signal="mouse_entered" from="HUD/BattleOptions/InsultButton" to="." method="_on_InsultButton_mouse_entered"]
 [connection signal="mouse_exited" from="HUD/BattleOptions/InsultButton" to="." method="_on_InsultButton_mouse_exited"]
