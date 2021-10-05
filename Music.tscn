@@ -28,15 +28,19 @@ script = ExtResource( 5 )
 
 [node name="OverworldTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = -6.0
 
 [node name="OverworldTheme2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = -6.0
 
 [node name="BattleTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -6.0
 
 [node name="BossTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -6.0
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -83,6 +87,7 @@ stream = ExtResource( 18 )
 
 [node name="Right" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
+volume_db = -10.468
 
 [node name="Wrong2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
