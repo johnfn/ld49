@@ -197,7 +197,7 @@ func run_ending_cinematic():
   start_cinematic()
   insta_go_to_black()
   yield(write_overlay_text("As the game crumbled around him, Timmy tasted true freedom for the first time in his life."), "completed")
-  yield(write_overlay_text("The flavor was disappointing.", true), "completed")
+  yield(write_overlay_text("The flavor was disappointing.", true, true), "completed")
   
 
 var fade_frames = 30.0
@@ -224,7 +224,7 @@ func get_inventory_item(name: String):
   else:
     yield(wait_for_z_press(), "completed")
   
-  if name == "TRUE ENLIGHTENMENT":
+  if name == "TRUE ENLIGHTENMENT" and not G.in_battle:
     Music.play_audio(Music.overworld_theme2)
   
   for x in range(fade_frames, 0, -1):

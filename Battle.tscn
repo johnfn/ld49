@@ -434,11 +434,9 @@ __meta__ = {
 }
 
 [node name="Credits" type="AnimatedSprite" parent="HUD/RightHalf/EnemyContainer"]
-visible = false
-position = Vector2( 136.154, 144.163 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 159.75, 167.76 )
+scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="EnemyUi" type="VBoxContainer" parent="HUD/RightHalf"]

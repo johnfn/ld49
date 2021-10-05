@@ -160,7 +160,8 @@ func fanfare_and_then_resume():
   
   yield(get_tree().create_timer(5), "timeout")
   
-  Music.play_audio(Music.overworld_theme2 if has_true_enlightenment() else Music.overworld_theme)
+  if not G.in_battle:
+    Music.play_audio(Music.overworld_theme2 if has_true_enlightenment() else Music.overworld_theme)
     
 func end_battle():
   yield(get_tree(), "idle_frame")
