@@ -88,9 +88,7 @@ centered = false
 
 [node name="Miss Trunchbull" type="Sprite" parent="Graphics"]
 visible = false
-modulate = Color( 0.0470588, 0.376471, 0.454902, 1 )
 position = Vector2( 19.4298, -61.0792 )
-scale = Vector2( 0.600162, 1.53497 )
 texture = ExtResource( 4 )
 
 [node name="Principal Pike" type="Sprite" parent="Graphics"]
