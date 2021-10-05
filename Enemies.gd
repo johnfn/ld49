@@ -590,14 +590,14 @@ func info():
       "victory": "...",
       "defeat": "see you in the next life",
       "playerLines": [
-        "this gimmick has been done a ton of times already",
         "true",
         "wow i thought you put in a lot less than that",
+        "this gimmick has been done a ton of times already",
        ],
       "keyWords": [
-        ["this", "gimmick", "has", "been", "done", "already"],
         ["true"],
         ["i", "thought", "you", "put", "in", "less"],
+        ["this", "gimmick", "has", "been", "done", "already"],
        ],
       "enemyLines": [
         "youre a poorly written character",
