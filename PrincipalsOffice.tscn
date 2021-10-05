@@ -61,23 +61,23 @@ shape = SubResource( 1 )
 [node name="Collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( 50, 190 )
+position = Vector2( 60, 200 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( 50, 690 )
+position = Vector2( 60, 700 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( 730, 370 )
+position = Vector2( 740, 380 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( 410, -10 )
+position = Vector2( 420, 0 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( 330, 810 )
+position = Vector2( 340, 800 )
 shape = SubResource( 5 )
 
 [node name="Inspectables" type="Node2D" parent="."]
