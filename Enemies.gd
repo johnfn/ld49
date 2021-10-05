@@ -595,9 +595,9 @@ func info():
         "wow i thought you put in a lot less than that",
        ],
       "keyWords": [
+        ["this", "gimmick", "has", "been", "done", "already"],
         ["true"],
         ["i", "thought", "you", "put", "in", "less"],
-        ["this", "gimmick", "has", "been", "done", "already"],
        ],
       "enemyLines": [
         "youre a poorly written character",
