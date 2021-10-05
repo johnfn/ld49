@@ -25,7 +25,6 @@ position = Vector2( 3700, 2360 )
 position = Vector2( -3303.02, -1640.95 )
 
 [node name="BigHallway" parent="GameObjects" instance=ExtResource( 12 )]
-position = Vector2( 20.8408, 0 )
 
 [node name="CinematicTrigger2" parent="GameObjects/BigHallway" instance=ExtResource( 7 )]
 position = Vector2( 2699.86, 1537.18 )
@@ -35,13 +34,13 @@ position = Vector2( -1200, 40.9954 )
 start_unlit = false
 
 [node name="OtherClassroom" parent="GameObjects" instance=ExtResource( 11 )]
-position = Vector2( -981.797, 1002.82 )
+position = Vector2( -960, 1000 )
 
 [node name="Player" parent="GameObjects" instance=ExtResource( 1 )]
-position = Vector2( -230.802, 692.85 )
+position = Vector2( 2120, 1640 )
 
 [node name="TeachersLounge" parent="GameObjects" instance=ExtResource( 9 )]
-position = Vector2( 1920, 1980.77 )
+position = Vector2( 1840, 2000 )
 
 [node name="PrincipalsOffice" parent="GameObjects" instance=ExtResource( 13 )]
 position = Vector2( 2800, 1020 )
@@ -50,6 +49,7 @@ position = Vector2( 2800, 1020 )
 position = Vector2( 388.967, 515.484 )
 
 [node name="Checkpoints" parent="GameObjects" instance=ExtResource( 14 )]
+visible = false
 
 [node name="CameraTargetExit" type="Node2D" parent="GameObjects"]
 position = Vector2( 497.895, 156.176 )

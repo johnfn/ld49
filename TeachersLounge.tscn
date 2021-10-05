@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://art/overworld/teacherslounge.png" type="Texture" id=1]
 [ext_resource path="res://GenericRoom.gd" type="Script" id=2]
@@ -10,30 +10,56 @@
 [ext_resource path="res://doodads/NormalTable.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Npc.tscn" type="PackedScene" id=9]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 560, 440 )
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 220, 140 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 140, 140 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 420, 60 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 60, 320 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 560, 440 )
 
 [node name="OtherClassroom" type="YSort"]
 position = Vector2( -1200, 860 )
 script = ExtResource( 2 )
 
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( 80, 160 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( 660, 160 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( 340, 760 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( -40, 460 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( 760, 400 )
+shape = SubResource( 3 )
+
 [node name="RoomDimmer" type="YSort" parent="."]
+position = Vector2( 60, 0 )
 script = ExtResource( 3 )
 
 [node name="Graphics" type="YSort" parent="RoomDimmer"]
 modulate = Color( 1, 1, 1, 0.5 )
 
 [node name="teacherslounge" type="Sprite" parent="RoomDimmer/Graphics"]
-position = Vector2( -300, -240 )
+position = Vector2( -320, -240 )
 texture = ExtResource( 1 )
 centered = false
 
@@ -54,35 +80,15 @@ position = Vector2( 451.24, 492.77 )
 enemy_type = 31
 
 [node name="Area2D" type="Area2D" parent="RoomDimmer"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDimmer/Area2D"]
 position = Vector2( 359.78, 460 )
-shape = SubResource( 1 )
-
-[node name="Collisions" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( 80, 160 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( 620, 160 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( 340, 760 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( -40, 460 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( 760, 400 )
 shape = SubResource( 4 )
 
 [node name="Inspectables" type="Node2D" parent="."]
+visible = false
+position = Vector2( 60, 0 )
 
 [node name="GenericInspectable" parent="Inspectables" instance=ExtResource( 4 )]
 position = Vector2( 553.4, 206.6 )
