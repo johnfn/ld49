@@ -81,7 +81,7 @@ func show_press_z_to_continue():
 func hide_press_z_to_continue():
   press_z_to_continue.visible = false
 
-func write_overlay_text(text: String, clear = true):
+func write_overlay_text(text: String, clear = true, end_of_game = false):
   overlay_text.visible = true
   overlay_text.text = text
   overlay_text.percent_visible = 0.0
@@ -92,10 +92,14 @@ func write_overlay_text(text: String, clear = true):
     yield(get_tree(), "idle_frame")
     yield(get_tree(), "idle_frame")
       
-  big_press_prompt.visible = true
+  big_press_prompt.visible = not end_of_game
+  $End.visible = end_of_game
   overlay_text.percent_visible = 1.0
     
   yield(get_tree(), "idle_frame")
+  
+  if end_of_game:
+    return
   
   yield(wait_for_z_press(), "completed")
   
@@ -145,11 +149,11 @@ func _on_CinematicTrigger_on_trigger(cinematic):
   elif cinematic == "principal door":
     start_cinematic()
     G.camera().cutscene_target = get_node(camera_target_principal_door).position
-    G.dialog().start([{ "speaker": "Timmy", "dialog": "the principals office... better be prepared", }])
+    G.dialog().start([{ "speaker": "You", "dialog": "the principals office... better be prepared", }])
   elif cinematic == "exit door":
     G.camera().cutscene_target = get_node(camera_target_exit).position
     start_cinematic()
-    G.dialog().start([{ "speaker": "Timmy", "dialog": "the school exit... if i managed to ditch, this terrible day would be over", }])
+    G.dialog().start([{ "speaker": "You", "dialog": "the school exit... if i managed to ditch, this terrible day would be over", }])
 
 
 func run_principal_cinematic():
@@ -185,6 +189,8 @@ func run_game_cinematic():
   yield(write_overlay_fight_text("...was freedom from the system.", "Press X to GET ANGRY", the_game), "completed")
 
 func run_credits_cinematic():
+  start_cinematic()
+  insta_go_to_black()
   yield(write_overlay_fight_text("But Timmy's fight wasn't over yet. There was one more thing to GET VERY ANGRY at...", "Press X to GET VERY ANGRY", credits), "completed")
   
 func run_ending_cinematic():
@@ -265,7 +271,7 @@ func gain_level(level: int, amount_of_xp: int, also_gained_item: bool):
     upgrade_desc = "+5 HP, powerful tears"
     G.max_health += 5
     G.health += 5
-    G.healing += 3
+    G.healing += 5
   elif level == 4:
     upgrade_desc = "+5 damage"
     G.attack += 5

@@ -327,12 +327,12 @@ func info():
       "defeat": "1091570109399.",
       "playerLines": [
         "no one ever wants to see you",
-        "you're more out of place in a high school than steve",
+        "you're more out of place in a high school than gteve",
         "how can you deal damage if you don't exist",
        ],
       "keyWords": [
         ["no", "wants", "see", "you"],
-        ["out", "of", "place", "than", "steve"],
+        ["out", "of", "place", "than", "gteve"],
         ["deal", "damage", "don't", "exist"],
        ],
       "enemyLines": [

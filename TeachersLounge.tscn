@@ -10,19 +10,19 @@
 [ext_resource path="res://doodads/NormalTable.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Npc.tscn" type="PackedScene" id=9]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 220, 140 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 140, 140 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 420, 60 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 60, 320 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 560, 440 )
 
 [node name="OtherClassroom" type="YSort"]
@@ -33,23 +33,23 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 80, 160 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 660, 160 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 340, 760 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( -40, 460 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 760, 400 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="RoomDimmer" type="YSort" parent="."]
 position = Vector2( 60, 0 )
@@ -84,10 +84,9 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDimmer/Area2D"]
 position = Vector2( 359.78, 460 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Inspectables" type="Node2D" parent="."]
-visible = false
 position = Vector2( 60, 0 )
 
 [node name="GenericInspectable" parent="Inspectables" instance=ExtResource( 4 )]

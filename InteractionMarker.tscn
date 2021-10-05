@@ -144,6 +144,7 @@ position = Vector2( 4.18309, 16.9094 )
 shape = SubResource( 3 )
 
 [node name="Menu" type="Node2D" parent="."]
+visible = false
 z_index = 1
 
 [node name="AngryMenuItem" type="ColorRect" parent="Menu"]

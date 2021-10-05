@@ -1,6 +1,6 @@
 extends Node2D
 
-var debug = true # OS.get_environment("USER") == "johnfn" || false
+var debug = false # OS.get_environment("USER") == "johnfn" || false
 
 enum PauseMode {
   None = 0,
@@ -193,15 +193,13 @@ func end_battle():
       
       if items_gotten.size() == 0:
         items_gotten.push_back(info.drop)
-  
-  var en = G.battling_against[0]
-  var t = load("res://Tombstone.tscn").instance()
-  en.get_parent().add_child(t)
-  en.get_parent().move_child(t, en.get_index())
-  t.position = en.position
-  
-  for enemy in G.battling_against:
-    en.queue_free()
+    
+    if info["name"] != "The Game" and info["name"] != "School Doors":
+      var t = load("res://Tombstone.tscn").instance()
+      enemy.get_parent().add_child(t)
+      enemy.get_parent().move_child(t, enemy.get_index())
+      t.position = enemy.position
+      enemy.queue_free()
 
   yield(gain_xp(total_xp, items_gotten.size() > 0), "completed")
 

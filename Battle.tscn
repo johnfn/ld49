@@ -288,11 +288,11 @@ __meta__ = {
 }
 
 [node name="SchoolDoors" type="TextureRect" parent="HUD/RightHalf/EnemyContainer"]
-visible = false
-margin_left = -135.106
-margin_top = -281.002
-margin_right = 414.894
-margin_bottom = 568.998
+margin_left = -70.8889
+margin_top = -171.595
+margin_right = 479.111
+margin_bottom = 678.405
+rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -311,6 +311,7 @@ __meta__ = {
 }
 
 [node name="Stapler" type="TextureRect" parent="HUD/RightHalf/EnemyContainer"]
+visible = false
 margin_left = 2.38275
 margin_top = 31.3505
 margin_right = 552.383
@@ -433,9 +434,11 @@ __meta__ = {
 }
 
 [node name="Credits" type="AnimatedSprite" parent="HUD/RightHalf/EnemyContainer"]
+visible = false
 position = Vector2( 136.154, 144.163 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="EnemyUi" type="VBoxContainer" parent="HUD/RightHalf"]
