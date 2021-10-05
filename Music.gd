@@ -1,7 +1,7 @@
 extends Node2D
 
 var active_player: AudioStreamPlayer
-var volume = -80 if G.debug else 0.0
+var volume = -80 if G.debug else -6.0
 
 onready var overworld_theme = $OverworldTheme
 onready var overworld_theme2 = $OverworldTheme2
@@ -44,14 +44,14 @@ func play_tick_for(name: String):
 
 func play_audio(new_audio: AudioStreamPlayer):
   if new_audio == active_player:
-    active_player.volume_db = 0.0
+    active_player.volume_db = volume
     
     return
   
   $Tween.interpolate_property(
     active_player, 
     "volume_db", 
-    0, 
+    active_player.volume_db, 
     -80, 
     1.0,
     Tween.TRANS_LINEAR, 
