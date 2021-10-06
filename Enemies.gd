@@ -351,7 +351,7 @@ func info():
     
     G.ENEMIES.PrincipalPike: {
       "name": "Principal Pike",
-      "interaction": "TODO",
+      "interaction": "Talk to Principal Pike",
       "drop": G.InventoryItem.SchoolFiles,
       "health": 70,
       "xp": 30,
@@ -375,6 +375,7 @@ func info():
         "now you can go somewhere you fit in better, like prison",
         "remember that time you got sent here covered in glue",
       ],
+      "dialog": funcref(self, "pike_talk"),
       "damage": 8,
       "speed": 1.0,
       "bad_spawn_chance": 0.6,
@@ -383,11 +384,11 @@ func info():
     
     G.ENEMIES.SchoolFiles: {
       "name": "Timmy's School Files",
-      "interaction": "TODO",
+      "interaction": "Inspect School Files",
       "drop": G.InventoryItem.TrueEnlightenment,
       "health": 75,
       "xp": 30,
-      "is_inanimate": false,
+      "is_inanimate": true,
       "battle_tscn": load("res://BattleEnemy.tscn"),
       "intro": "Timmy's School Files GOT YOU RILED",
       "victory": '"Student is very persistent."',
@@ -411,6 +412,7 @@ func info():
       "speed": 1.1,
       "bad_spawn_chance": 0.3,
       "spawn_time": 1.0,
+      "dialog": funcref(self, "school_files_inspect"),
     },
     
     G.ENEMIES.Stapler: {
@@ -724,6 +726,11 @@ func clock_inspect_2():
     { "speaker": "You", "dialog": "What's wrong with all the stupid clocks in this stupid school", },
   ])
 
+func pike_talk():
+  G.dialog().start([      
+    { "speaker": "Principal Pike", "dialog": "I thought I already dealt with you... Back for another round?", },
+  ])
+
 func tombstone_inspect():
   G.dialog().start([      
     { "speaker": "You", "dialog": "It's a tombstone", },
@@ -845,6 +852,11 @@ func locker_inspect():
 func teacher_poster_inspect():
   G.dialog().start([      
     { "speaker": "You", "dialog": "It's a poster in the teacher's lounge", },
+  ])
+
+func school_files_inspect():
+  G.dialog().start([      
+    { "speaker": "You", "dialog": "There are records from everyone at Coolville High.", },
   ])
 
 func stapler_inspect():

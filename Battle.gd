@@ -251,11 +251,12 @@ func enemy_attack():
   
   G.health = max(0, G.health - enemy_damage)
   G.damage_tally += enemy_damage
-  is_player_turn = true
-  insult_button.visible = true
-  cry_button.visible = true
   if G.health == 0:
     end_battle()
+  else:
+    is_player_turn = true
+    insult_button.visible = true
+    cry_button.visible = true
 
 func display_line(line):
   if line.find("<minutes>") >= 0:
