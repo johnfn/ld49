@@ -195,7 +195,7 @@ func end_battle():
       if items_gotten.size() == 0:
         items_gotten.push_back(info.drop)
     
-    if info["name"] != "The Game" and info["name"] != "School Doors":
+    if info["name"] != "The Game" and info["name"] != "School Doors" and info["name"] != "Principal Pike":
       var t = load("res://Tombstone.tscn").instance()
       enemy.get_parent().add_child(t)
       enemy.get_parent().move_child(t, enemy.get_index())

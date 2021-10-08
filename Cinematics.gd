@@ -16,6 +16,9 @@ onready var the_game = $"/root/Main/GameObjects/BigHallway/RoomDimmer/Graphics/T
 onready var credits = $"/root/Main/GameObjects/BigHallway/RoomDimmer/Graphics/Credits"
 onready var statsHud = $"/root/Main/Hud/StatsBox"
 
+export(NodePath) var pike
+export(NodePath) var pike_trigger
+
 func start_cinematic():
   statsHud.visible = false
   get_tree().paused = true
@@ -224,8 +227,11 @@ func get_inventory_item(name: String):
   else:
     yield(wait_for_z_press(), "completed")
   
-  if name == "TRUE ENLIGHTENMENT" and not G.in_battle:
-    Music.play_audio(Music.overworld_theme2)
+  if name == "TRUE ENLIGHTENMENT":
+    get_node(pike).queue_free()
+    get_node(pike_trigger).queue_free()
+    if not G.in_battle:
+      Music.play_audio(Music.overworld_theme2)
   
   for x in range(fade_frames, 0, -1):
     screen_fade.modulate = Color(1, 1, 1, (x - 1) / fade_frames * max_black)

@@ -47,6 +47,7 @@ position = Vector2( 2800, 1020 )
 
 [node name="CinematicTrigger3" parent="GameObjects/PrincipalsOffice" instance=ExtResource( 7 )]
 position = Vector2( 388.967, 515.484 )
+one_time_use = false
 
 [node name="Checkpoints" parent="GameObjects" instance=ExtResource( 14 )]
 visible = false
@@ -76,6 +77,8 @@ smoothing_enabled = true
 camera_target_exit = NodePath("../GameObjects/CameraTargetExit")
 camera_target_principal = NodePath("../GameObjects/CameraTargetPrincipal")
 camera_target_principal_door = NodePath("../GameObjects/CameraTargetPrincipalDoor")
+pike = NodePath("../GameObjects/PrincipalsOffice/RoomDimmer/Graphics/PrincipalPike")
+pike_trigger = NodePath("../GameObjects/PrincipalsOffice/CinematicTrigger3")
 
 [node name="BattleScene" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0.752563, -0.190064 )
@@ -85,4 +88,5 @@ position = Vector2( 0.752563, -0.190064 )
 [connection signal="on_trigger" from="GameObjects/PrincipalsOffice/CinematicTrigger3" to="Cinematics" method="_on_CinematicTrigger_on_trigger" binds= [ "principal" ]]
 
 [editable path="GameObjects/BigHallway/CinematicTrigger2"]
+[editable path="GameObjects/PrincipalsOffice"]
 [editable path="Hud"]
